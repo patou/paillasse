@@ -8,6 +8,7 @@ import palissy
 import utilsorgues
 import gpsmessesinfo
 import orgbase
+import re
 
 
 loggerInventaire = logging.getLogger('inventaire')
@@ -47,12 +48,18 @@ loggerGps = logging.getLogger('inventaire.GPS')
 
 loggerInsee = logging.getLogger('inventaire.Insee')
 
+class Accessoires(list):
+    """
+    Liste d'accessoires
+    Un accessoire est décrit par une chaîne, qui normalement doit respecter le config.json de portail.
+    """
+    pass
 
 class OrgueInventaire(object):
     """
     Orgue de l'inventaire national.
     """
-    entete = ['Codification_instrument',
+    entete = ['Codification',
               'Commune',
               'Edifice',
               'Edifice_standard',
@@ -65,7 +72,7 @@ class OrgueInventaire(object):
               'Commune_insee',
               'Ancienne_commune',
               'Adresse',
-              'Denomination',
+              'Désignation',
               'Livre',
               'Pages_pdf',
               'Pages_livre',
@@ -92,10 +99,33 @@ class OrgueInventaire(object):
               'Reference_palissy',
               'denomination_palissy',
               'Edifice_palissy',
-              'protection_palissy']
+              'protection_palissy',
+              'Résumé',
+              'Propriétaire',
+              'Organisme',
+              'Lien de référence',
+              'Polyphone',
+              'Etat',
+              'Elévation',
+              'Buffet',
+              'Console',
+              'Commentaire admin',
+              'Diapason',
+              'Sommiers',
+              'Soufflerie',
+              'Transmission notes',
+              'Transmission commentaire',
+              'Tirage jeux',
+              'Tirage commentaire',
+              'Commentaire tuyauterie',
+              'Evènements',
+              'Accessoires',
+              'Claviers',
+              'Images',
+              ]
 
     def __init__(self, _liste):
-        self.codification_instrument = _liste[0]
+        self.codification = _liste[0]
         self.commune = _liste[1]
         self.edifice = _liste[2]
         self.edifice_standard = _liste[3]
@@ -108,7 +138,7 @@ class OrgueInventaire(object):
         self.commune_insee = _liste[10]
         self.ancienne_commune = _liste[11]
         self.adresse = _liste[12]
-        self.denomination = _liste[13]
+        self.designation = _liste[13]
         self.livre = _liste[14]
         self.pages_pdf = _liste[15]
         self.pages_livre = _liste[16]
@@ -136,13 +166,39 @@ class OrgueInventaire(object):
         self.denomination_palissy = _liste[38]
         self.edifice_palissy = _liste[39]
         self.protection_palissy = _liste[40]
+        self.resume = _liste[41]
+        self.proprietaire = _liste[42]
+        self.organisme = _liste[43]
+        self.lien_reference = _liste[44]
+        self.is_polyphone = _liste[45]
+        self.etat = _liste[46]
+        self.elevation = _liste[47]
+        self.buffet = _liste[48]
+        self.console = _liste[49]
+        self.commentaire_admin = _liste[50]
+        self.diapason = _liste[51]
+        self.sommiers = _liste[52]
+        self.soufflerie = _liste[53]
+        self.transmission_notes = _liste[54]
+        self.transmission_commentaire = _liste[55]
+        self.tirage_jeux = _liste[56]
+        self.tirage_commentaire = _liste[57]
+        self.commentaire_tuyauterie = _liste[58]
+        self.evenements = _liste[59]
+        self.accessoires = Accessoires(_liste[60])
+        if _liste[60] != '':
+            self.accessoires = _liste[60].split(',')
+        else:
+            self.accessoires = None
+        self.claviers = _liste[61]
+        self.images = _liste[62]
         return
 
     def __repr__(self):
         return '{} {}'.format(self.commune, self.edifice)
 
     def to_record(self):
-        champs = [self.codification_instrument,
+        champs = [self.codification,
                   self.commune,
                   self.edifice,
                   self.edifice_standard,
@@ -155,7 +211,7 @@ class OrgueInventaire(object):
                   self.commune_insee,
                   self.ancienne_commune,
                   self.adresse,
-                  self.denomination,
+                  self.designation,
                   self.livre,
                   self.pages_pdf,
                   self.pages_livre,
@@ -182,52 +238,126 @@ class OrgueInventaire(object):
                   ",".join(self.reference_palissy),
                   self.denomination_palissy,
                   self.edifice_palissy,
-                  self.protection_palissy]
+                  self.protection_palissy,
+                  self.resume,
+                  self.proprietaire,
+                  self.organisme,
+                  self.lien_reference,
+                  self.is_polyphone,
+                  self.etat,
+                  self.elevation,
+                  self.buffet,
+                  self.console,
+                  self.commentaire_admin,
+                  self.diapason,
+                  self.sommiers,
+                  self.soufflerie,
+                  self.transmission_notes,
+                  self.transmission_commentaire,
+                  self.tirage_jeux,
+                  self.tirage_commentaire,
+                  self.commentaire_tuyauterie,
+                  self.evenements,
+                  ",".join(self.accessoires),
+                  self.claviers,
+                  self.images,
+                  ]
         record = ';'.join(champs)
         return record
 
     def to_dict(self):
-        champs = [self.codification_instrument,
-                  self.commune,
-                  self.edifice,
-                  self.edifice_standard,
-                  self.is_edificestandard,
-                  self.codification_edifice,
-                  self.nomdepartement,
-                  self.code_departement,
-                  self.nomregion,
-                  self.code_insee,
-                  self.commune_insee,
-                  self.ancienne_commune,
-                  self.adresse,
-                  self.denomination,
-                  self.livre,
-                  self.pages_pdf,
-                  self.pages_livre,
-                  self.pages_livre_complement,
-                  self.commentaire,
-                  self.log,
-                  self.site_ref,
-                  self.latitude,
-                  self.longitude,
-                  self.orgbase_manu,
-                  self.orgbase_commune,
-                  self.orgbase_auto,
-                  self.orgbase_desc,
-                  self.orgbase_edifice,
-                  self.orgbase_facteurs,
-                  self.orgbase_minicomposition,
-                  self.orgbase_edifice_standard,
-                  self.orgbase_edifice_log,
-                  self.orgbase_commune_insee,
-                  ",".join(self.reference_palissy),
-                  self.denomination_palissy,
-                  self.edifice_palissy,
-                  self.protection_palissy]
+        """
+        TODO: Ecraser lien_reference par site_ref
+        TODO: l'API sort id
+        TODO: l'API sort updated_by_user
+        TODO: l'API sort url
+        TODO : diapason sort null (à modifier dans portail ?)
+        TODO : ancienne_commune sort null (à modifier dans portail ?)
+        TODO : elevation sort null
+        TODO : etat sort null
+        TODO : latitude, longitude sort null
+        TODO : organisme null
+        TODO : osm_id, osm_type null
+        TODO : references_palissy null
+        TODO : tirages et transmissions null
+        TODO: Champs non exportés en JSON :
+
+            self.adresse
+            self.commune_insee,
+            self.edifice_standard,
+            self.is_edificestandard,
+            self.codification_edifice,
+
+            self.livre,
+            self.pages_pdf,
+            self.pages_livre,
+            self.pages_livre_complement,
+
+            self.orgbase_manu,
+            self.orgbase_commune,
+            self.orgbase_auto,
+            self.orgbase_desc,
+            self.orgbase_edifice,
+            self.orgbase_facteurs,
+            self.orgbase_minicomposition,
+            self.orgbase_edifice_standard,
+            self.orgbase_edifice_log,
+            self.orgbase_commune_insee,
+
+            self.site_ref (a supprimer)
+
+            self.log
+
+
+            self.denomination_palissy,
+            self.edifice_palissy,
+            self.protection_palissy,
+            self.accessoires,
+
+        """
         dict_orgue = dict()
-        # On fait correspondre libellé du champ et champ :
-        for libelle_champ in zip(self.entete, champs):
-            dict_orgue[libelle_champ[0]] = libelle_champ[1]
+        dict_orgue = {
+            "codification": self.codification,
+            "designation": self.designation,
+            "is_polyphone": self.is_polyphone,
+            "elevation": self.elevation,
+            "etat": self.etat,
+            "proprietaire": self.proprietaire,
+            "commune": self.commune,
+            "ancienne_commune": self.ancienne_commune,
+            "edifice": self.edifice,
+            "departement": self.nomdepartement,
+            "code_departement": self.code_departement,
+            "region": self.nomregion,
+            "code_insee": self.code_insee,
+            "latitude": self.latitude,
+            "longitude": self.longitude,
+            "osm_type": self.osm_type,
+            "osm_id": self.osm_id,
+            "commentaire_admin": self.commentaire_admin,
+            "resume": self.resume,
+            "organisme": self.organisme,
+            "lien_reference": self.lien_reference,
+            "references_palissy": ",".join(self.reference_palissy),
+            "transmission_notes": self.transmission_notes,
+            "transmission_commentaire": self.transmission_commentaire,
+            "tirage_jeux": self.tirage_jeux,
+            "tirage_commentaire": self.tirage_commentaire,
+            "buffet": self.buffet,
+            "console": self.console,
+            "diapason": self.diapason,
+            "sommiers": self.sommiers,
+            "soufflerie": self.soufflerie,
+            "commentaire_tuyauterie": self.commentaire_tuyauterie,
+            "claviers": [],
+            "evenements": [],
+            "images": [],
+            "fichiers": [],
+            }
+        if self.accessoires is not None:
+            dict_orgue["accessoires"] = self.accessoires
+        else:
+            dict_orgue["accessoires"] = []
         return dict_orgue
 
     def standardiser_edifice(self):
@@ -251,7 +381,7 @@ class OrgueInventaire(object):
         return
 
     def codifier_orgue(self):
-        self.codification_instrument = utilsorgues.codifier_instrument(self)
+        self.codification = utilsorgues.codifier_instrument(self)
 
     def verifier_existence_insee(self, communes_francaises, regions_francaises):
         communes_possibles = None
@@ -357,11 +487,11 @@ class OrguesInventaire(list):
                 fic_out.write(item + '\n')
         return None
 
-    def to_json(self, nom_fic_out_json):
+    def to_json(self, nom_fic_out_json, limit=-1):
         with open('./{}'.format(nom_fic_out_json), 'w', encoding='utf-8') as fic_out_json:
             # L'objet JSON sérialisé est une liste
             obj_pour_json = list()
-            for orgue in self:
+            for orgue in self[:limit]:
                 obj_pour_json.append(orgue.to_dict())
             chaine_json = json.dumps(obj_pour_json)
             fic_out_json.write(chaine_json)
@@ -468,7 +598,7 @@ class OrguesInventaire(list):
                     traces.append("Palissy    : {}".format(
                         orgue_palissy_edifice_standard.replace('catholique-','')))
                     traces.append("Inventaire : {}, {}".format(
-                        orgue_inventaire_edifice_standard.replace('é','e').replace('è','e'), orgue_inventaire.denomination))
+                        orgue_inventaire_edifice_standard.replace('é','e').replace('è','e'), orgue_inventaire.designation))
                     # Si l'édifice est le même
                     if orgue_inventaire_edifice_standard.replace('é','e').replace('è','e') == orgue_palissy_edifice_standard.replace('catholique-','').replace('é','e').replace('è','e'):
                         orgues_trouves_dans_edifice.append(orgue_inventaire)
@@ -478,7 +608,7 @@ class OrguesInventaire(list):
                     traces.append("Palissy    : {}".format(
                         orgue_palissy_edifice_standard.replace('catholique-','')))
                     traces.append("Inventaire : {}, {}".format(
-                        orgue_inventaire_edifice_standard.replace('é','e').replace('è','e'), orgue_inventaire.denomination))
+                        orgue_inventaire_edifice_standard.replace('é','e').replace('è','e'), orgue_inventaire.designation))
                     # Si l'édifice est le même
                     if orgue_inventaire_edifice_standard.replace('é','e').replace('è','e') == orgue_palissy_edifice_standard.replace('catholique-','').replace('é','e').replace('è','e'):
                         orgues_trouves_dans_edifice.append(orgue_inventaire)
@@ -489,7 +619,7 @@ class OrguesInventaire(list):
                     traces.append("Palissy    : {}".format(
                         orgue_palissy_edifice_standard.replace('catholique-','')))
                     traces.append("Inventaire : {}, {}".format(
-                        orgue_inventaire_edifice_standard.replace('é','e').replace('è','e'), orgue_inventaire.denomination))
+                        orgue_inventaire_edifice_standard.replace('é','e').replace('è','e'), orgue_inventaire.designation))
                     # Si l'édifice est le même
                     if orgue_inventaire_edifice_standard.replace('é','e').replace('è','e') == orgue_palissy_edifice_standard.replace('catholique-','').replace('é','e').replace('è','e'):
                         orgues_trouves_dans_edifice.append(orgue_inventaire)
@@ -501,7 +631,7 @@ class OrguesInventaire(list):
                 #     traces.append("Palissy    : {}".format(
                 #         objet_palissy.code_edifice))
                 #     traces.append("Inventaire : {}".format(
-                #         orgue_inventaire.codification_instrument))
+                #         orgue_inventaire.codification))
             #
             # Fin de boucle
             # - Si recherche fructueuse :
@@ -518,7 +648,7 @@ class OrguesInventaire(list):
                                      .format(objet_palissy))
                 for orgue in orgues_trouves_dans_edifice:
                     logger_palissy.debug("Orgue trouvé dans l'édifice".format(orgue))
-                    if orgue.denomination == 'G.O.'\
+                    if orgue.designation == 'G.O.'\
                             and nettoyer_titre_courant_palissy(objet_palissy.TICO) in ['orgue de tribune', "tribune d'orgue"]:
                         nombre_orgues_mappes += 1
                         logger_palissy.info("L'orgue Palissy {} a été trouvé dans l'inventaire !"
@@ -526,7 +656,7 @@ class OrguesInventaire(list):
                         # Ajout de la référence si elle n'est pas déjà présente
                         if objet_palissy.REF not in orgue.reference_palissy:
                             orgue.reference_palissy.append(objet_palissy.REF)
-                    if orgue.denomination == 'O.C.'\
+                    if orgue.designation == 'O.C.'\
                             and nettoyer_titre_courant_palissy(objet_palissy.TICO) in ['orgue de choeur']:
                         nombre_orgues_mappes += 1
                         logger_palissy.info("L'orgue Palissy {} a été trouvé dans l'inventaire !"
@@ -626,6 +756,11 @@ class OrguesInventaire(list):
                 loggerInventaire.info('Correction directe édifice : église MIXTE devient église mixte {}'.format(orgue))
                 orgue.edifice = orgue.edifice.replace('MIXTE', 'mixte')
 
+    def detecter_noms_edifice_majuscules(self):
+        for orgue in self:
+            if re.search(".*[A-Z][A-Z].*", orgue.edifice):
+                loggerInventaire.warning("Pour cet orgue l'édifice est en majuscules : {}".format(orgue))
+
     def rechercher_coordonnees_gps(self):
         # Construction du dictionnaire des édifices MessesInfo:
         index = gpsmessesinfo.EdificesMessesInfo('../97-data/20181219-Lieux de culte MessesInfo.csv')
@@ -680,7 +815,7 @@ class OrguesInventaire(list):
 
 if __name__ == '__main__':
     loggerInventaire.info('Démarrage du script')
-    mon_inventaire = OrguesInventaire('../98-indexes/indexFrance-inventairedesorgues-osm.csv', True)
+    mon_inventaire = OrguesInventaire('../../98-indexes/indexFrance-inventairedesorgues.csv', True)
     mon_inventaire.print_resume()
     mon_inventaire.liste_edifices_absents()
     #
@@ -690,7 +825,7 @@ if __name__ == '__main__':
     ##mon_inventaire.verifier_existences_insee()
     ##mon_inventaire.codifier_departements()
     #
-    mon_inventaire.standardiser_edifices()#dont corrections casse, etc.
+    #mon_inventaire.standardiser_edifices()#dont corrections casse, etc.
     ##mon_inventaire.rechercher_coordonnees_gps()
     #
     ##mon_inventaire.mapper_coordonnees_gps_picardie('../97-data/', ['aisne', 'somme', 'oise'])
@@ -701,9 +836,14 @@ if __name__ == '__main__':
     #
     ####mon_inventaire.rechercher_donnees_osm('../97-data/simple-FranceMetropole.csv')
     #mon_inventaire.rechercher_gps_osm_depuis_id()
-    mon_inventaire.ecraser_gps_par_osm()
-    mon_inventaire.correction_directe_nom_edifice()
-    mon_inventaire.codifier_edifices()
-    mon_inventaire.to_csv('../98-indexes/indexFrance-inventairedesorgues.csv')
-    mon_inventaire.to_json('../98-indexes/indexFrance-inventairedesorgues.json')
+
+    #mon_inventaire.ecraser_gps_par_osm()
+
+    #mon_inventaire.correction_directe_nom_edifice()
+    #mon_inventaire.codifier_edifices()
+
+    #mon_inventaire.detecter_noms_edifice_majuscules()
+
+    #mon_inventaire.to_csv('../../98-indexes/indexFrance-inventairedesorgues.csv')
+    mon_inventaire.to_json('../../98-indexes/indexFrance-inventairedesorgues.json', limit=1)
     loggerInventaire.info('Fin du script')
