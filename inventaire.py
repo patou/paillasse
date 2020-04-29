@@ -53,7 +53,10 @@ class Accessoires(list):
     Liste d'accessoires
     Un accessoire est décrit par une chaîne, qui normalement doit respecter le config.json de portail.
     """
-    pass
+    def __init__(self, accessoires):
+        if accessoires != '':
+            self = accessoires.split(',')
+
 
 class OrgueInventaire(object):
     """
@@ -124,82 +127,84 @@ class OrgueInventaire(object):
               'Images',
               'Sources',
               'id',
-              'users',
+              'user',
               'url',
               ]
 
     def __init__(self, _liste):
-        self.codification = _liste[0]
-        self.commune = _liste[1]
-        self.edifice = _liste[2]
-        self.edifice_standard = _liste[3]
-        self.is_edificestandard = _liste[4]
-        self.codification_edifice = _liste[5]
-        self.nomdepartement = _liste[6]
-        self.code_departement = _liste[7]
-        self.nomregion = _liste[8]
-        self.code_insee = _liste[9]
-        self.commune_insee = _liste[10]
-        self.ancienne_commune = _liste[11]
-        self.adresse = _liste[12]
-        self.designation = _liste[13]
-        self.livre = _liste[14]
-        self.pages_pdf = _liste[15]
-        self.pages_livre = _liste[16]
-        self.pages_livre_complement = _liste[17]
-        self.commentaire = _liste[18]
-        self.log = _liste[19]
-        self.site_ref = _liste[20]
-        self.latitude = _liste[21]
-        self.longitude = _liste[22]
-        self.osm_type = _liste[23]
-        self.osm_id = _liste[24]
-        self.osm_lat = _liste[25]
-        self.osm_lon = _liste[26]
-        self.orgbase_manu = _liste[27]
-        self.orgbase_commune = _liste[28]
-        self.orgbase_auto = _liste[29]
-        self.orgbase_desc = _liste[30]
-        self.orgbase_edifice = _liste[31]
-        self.orgbase_facteurs = _liste[32]
-        self.orgbase_minicomposition = _liste[33]
-        self.orgbase_edifice_standard = _liste[34]
-        self.orgbase_edifice_log = _liste[35]
-        self.orgbase_commune_insee = _liste[36]
-        self.reference_palissy = _liste[37].split(',')
-        self.denomination_palissy = _liste[38]
-        self.edifice_palissy = _liste[39]
-        self.protection_palissy = _liste[40]
-        self.resume = _liste[41]
-        self.proprietaire = _liste[42]
-        self.organisme = _liste[43]
-        self.lien_reference = _liste[44]
-        self.is_polyphone = _liste[45]
-        self.etat = _liste[46]
-        self.elevation = _liste[47]
-        self.buffet = _liste[48]
-        self.console = _liste[49]
-        self.commentaire_admin = _liste[50]
-        self.diapason = _liste[51]
-        self.sommiers = _liste[52]
-        self.soufflerie = _liste[53]
-        self.transmission_notes = _liste[54]
-        self.transmission_commentaire = _liste[55]
-        self.tirage_jeux = _liste[56]
-        self.tirage_commentaire = _liste[57]
-        self.commentaire_tuyauterie = _liste[58]
-        self.evenements = _liste[59]
-        self.accessoires = Accessoires(_liste[60])
-        if _liste[60] != '':
-            self.accessoires = _liste[60].split(',')
-        else:
-            self.accessoires = None
-        self.claviers = _liste[61]
-        self.images = _liste[62]
-        self.sources = _liste[63]
-        self.id = _liste[64]
-        self.user = _liste[65]
-        self.url = _liste[66]
+        [
+            self.codification,
+            self.commune,
+            self.edifice,
+            self.edifice_standard,
+            self.is_edificestandard,
+            self.codification_edifice,
+            self.nomdepartement,
+            self.code_departement,
+            self.nomregion,
+            self.code_insee,
+            self.commune_insee,
+            self.ancienne_commune,
+            self.adresse,
+            self.designation,
+            self.livre,
+            self.pages_pdf,
+            self.pages_livre,
+            self.pages_livre_complement,
+            self.commentaire,
+            self.log,
+            self.site_ref,
+            self.latitude,
+            self.longitude,
+            self.osm_type,
+            self.osm_id,
+            self.osm_lat,
+            self.osm_lon,
+            self.orgbase_manu,
+            self.orgbase_commune,
+            self.orgbase_auto,
+            self.orgbase_desc,
+            self.orgbase_edifice,
+            self.orgbase_facteurs,
+            self.orgbase_minicomposition,
+            self.orgbase_edifice_standard,
+            self.orgbase_edifice_log,
+            self.orgbase_commune_insee,
+            self.reference_palissy,
+            self.denomination_palissy,
+            self.edifice_palissy,
+            self.protection_palissy,
+            self.resume,
+            self.proprietaire,
+            self.organisme,
+            self.lien_reference,
+            self.is_polyphone,
+            self.etat,
+            self.elevation,
+            self.buffet,
+            self.console,
+            self.commentaire_admin,
+            self.diapason,
+            self.sommiers,
+            self.soufflerie,
+            self.transmission_notes,
+            self.transmission_commentaire,
+            self.tirage_jeux,
+            self.tirage_commentaire,
+            self.commentaire_tuyauterie,
+            self.evenements,
+            self.accessoires,
+            self.claviers,
+            self.images,
+            self.sources,
+            self.id,
+            self.user,
+            self.url,
+        ] = _liste
+
+        # Retraitement des champs
+        self.reference_palissy = self.reference_palissy.split(',')
+        self.accessoires = Accessoires(self.accessoires)
         return
 
     def __repr__(self):
@@ -269,13 +274,17 @@ class OrgueInventaire(object):
                   ",".join(self.accessoires),
                   self.claviers,
                   self.images,
+                  self.sources,
+                  self.id,
+                  self.user,
+                  self.url,
                   ]
         record = ';'.join(champs)
         return record
 
     def to_dict(self):
         """
-        TODO: Ecraser lien_reference par site_ref
+        TODO : Ecraser lien_reference par site_ref
         TODO : diapason sort null (à modifier dans portail ?)
         TODO : ancienne_commune sort null (à modifier dans portail ?)
         TODO : elevation sort null
@@ -325,6 +334,7 @@ class OrgueInventaire(object):
             "id": self.id,
             "updated_by_user": self.user,
             "url": self.url,
+            "user": self.user,
             "codification": self.codification,
             "designation": self.designation,
             "is_polyphone": self.is_polyphone,
