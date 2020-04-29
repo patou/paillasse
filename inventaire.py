@@ -122,6 +122,10 @@ class OrgueInventaire(object):
               'Accessoires',
               'Claviers',
               'Images',
+              'Sources',
+              'id',
+              'users',
+              'url',
               ]
 
     def __init__(self, _liste):
@@ -192,6 +196,10 @@ class OrgueInventaire(object):
             self.accessoires = None
         self.claviers = _liste[61]
         self.images = _liste[62]
+        self.sources = _liste[63]
+        self.id = _liste[64]
+        self.user = _liste[65]
+        self.url = _liste[66]
         return
 
     def __repr__(self):
@@ -268,9 +276,6 @@ class OrgueInventaire(object):
     def to_dict(self):
         """
         TODO: Ecraser lien_reference par site_ref
-        TODO: l'API sort id
-        TODO: l'API sort updated_by_user
-        TODO: l'API sort url
         TODO : diapason sort null (à modifier dans portail ?)
         TODO : ancienne_commune sort null (à modifier dans portail ?)
         TODO : elevation sort null
@@ -280,7 +285,7 @@ class OrgueInventaire(object):
         TODO : osm_id, osm_type null
         TODO : references_palissy null
         TODO : tirages et transmissions null
-        TODO: Champs non exportés en JSON :
+        TODO : Champs non exportés en JSON :
 
             self.adresse
             self.commune_insee,
@@ -317,6 +322,9 @@ class OrgueInventaire(object):
         """
         dict_orgue = dict()
         dict_orgue = {
+            "id": self.id,
+            "updated_by_user": self.user,
+            "url": self.url,
             "codification": self.codification,
             "designation": self.designation,
             "is_polyphone": self.is_polyphone,
@@ -353,6 +361,7 @@ class OrgueInventaire(object):
             "evenements": [],
             "images": [],
             "fichiers": [],
+            "sources": [],
             }
         if self.accessoires is not None:
             dict_orgue["accessoires"] = self.accessoires
