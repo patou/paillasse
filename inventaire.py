@@ -58,6 +58,24 @@ class Accessoires(list):
             self = accessoires.split(',')
 
 
+class Claviers(list):
+    pass
+
+
+class Clavier(object):
+    def __init__(self):
+        self.type = str()
+        self.is_expressif = bool()
+        self.etendue = str()
+        self.jeux = list()
+
+
+class Jeu(object):
+    def __init__(self):
+        self.type = {'nom': '', 'hauteur': ''}
+        self.commentaire = ''
+        self.configuration = ''
+
 class OrgueInventaire(object):
     """
     Orgue de l'inventaire national.
