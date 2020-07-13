@@ -331,6 +331,12 @@ class OrguesPalissyPop(list):
             print(item)
         return None
 
+    def to_dict_pm(self):
+        pms = dict()
+        for orgue_palissy in self:
+            pms[orgue_palissy.REF] = orgue_palissy
+        return pms
+
     def to_dict_edifices_refs(self):
         edifices_pm = dict()
         for item_palissy in self:

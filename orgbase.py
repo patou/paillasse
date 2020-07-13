@@ -8,7 +8,7 @@ import logging
 logger_orgbase = logging.getLogger('orgbase')
 logger_orgbase.setLevel(logging.DEBUG)
 # create file handler which logs even debug messages
-fh = logging.FileHandler('./inventaire.log')
+fh = logging.FileHandler('inventaire.log')
 fh.setLevel(logging.DEBUG)
 # create console handler with a higher log level
 ch = logging.StreamHandler()

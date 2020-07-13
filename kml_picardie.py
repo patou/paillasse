@@ -8,7 +8,7 @@ ainsi que les coordonnées GPS.
 from fastkml import kml
 
 
-def lecture_picardie(repertoire_picardie, departements_picardie=['aisne', 'somme', 'oise']):
+def lecture_picardie(repertoire_picardie, departements_picardie):
     """
     :param repertoire_picardie:
     :param departements_picardie:

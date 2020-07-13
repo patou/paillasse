@@ -3,15 +3,15 @@
 #
 
 import requests
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as et
 import json
 
 REGIONS_METROPOLE = ['Île-de-France', 'Centre-Val de Loire', 'Bourgogne-Franche-Comté', 'Normandie', 'Hauts-de-France', 'Grand Est', 'Pays de la Loire', 'Bretagne', 'Nouvelle-Aquitaine', 'Occitanie', 'Auvergne-Rhône-Alpes', "Provence-Alpes-Côte d'Azur", 'Corse']
 REP_TRAVAIL = 'D:\\Users\\poullennecgwi\\Downloads\\OSM\\overpass\\'
 FIC_COMMUNES = 'D:\\Users\\poullennecgwi\\Downloads\\OSM\\communes-20190101\\communes-20190101.json'
 
-#FIC_OSM = 'D:\\Users\\poullennecgwi\\Downloads\\OSM\\overpass\\exportNormandie.osm'
-#FIC_CSV = 'D:\\Users\\poullennecgwi\\Downloads\\OSM\\overpass\\simpleNormandie2.csv'
+# FIC_OSM = 'D:\\Users\\poullennecgwi\\Downloads\\OSM\\overpass\\exportNormandie.osm'
+# FIC_CSV = 'D:\\Users\\poullennecgwi\\Downloads\\OSM\\overpass\\simpleNormandie2.csv'
 
 REGIONS_TO_DEPARTEMENTS = {
     'IDF_11': ['75', '77', '78', '91', '92', '93', '94', '95'],
@@ -63,8 +63,9 @@ def test_gps_to_commune_pointinterieur():
     res = gps_to_commune_pointinterieur(48.3590054, -4.7728487, j, REGIONS_TO_DEPARTEMENTS['BZH_53'])
     print(res)
 
+
 def gps_to_commune_pointinterieur(_lat, _lon, j, deps):
-    #FIXME : Le Conquet, Hyères, Guérande...
+    # FIXME : Le Conquet, Hyères, Guérande...
     communes = j['features']
     (nom, insee) = (None, None)
     for commune in communes:
@@ -73,21 +74,21 @@ def gps_to_commune_pointinterieur(_lat, _lon, j, deps):
         if insee[:2] in deps:
             nom = commune['properties']['nom']
             # Détection du nombre de polygones :
-            type = commune['geometry']['type']
+            typec = commune['geometry']['type']
             # Si la commune n'est qu'un seul polygone
-            if type == 'Polygon':
+            if typec == 'Polygon':
                 poly = commune['geometry']['coordinates'][0]
                 if point_inside_polygon(_lon, _lat, poly):
                     return nom, insee
             # Si la commune est plusieurs polygones (non connexité)
-            elif type == 'MultiPolygon':
+            elif typec == 'MultiPolygon':
                 poly = commune['geometry']['coordinates']
                 for sous_poly in poly:
                     if point_inside_polygon(_lon, _lat, sous_poly[0]):
-                        #print(nom, insee)
                         return nom, insee
     print("Echec du point intérieur.".format(_lat, _lon))
     return None, None
+
 
 def gps_to_commune_api(_lat, _lon):
     _proxies = {'https': 'https://I24853:Montava36@proxy-surf.rte-france.com:3128',
@@ -98,7 +99,7 @@ def gps_to_commune_api(_lat, _lon):
     r = requests.get(url, params=param, proxies=_proxies)
     print(r.text)
     j = eval(r.text)
-    return (j[0]['nom'], j[0]['code'])
+    return j[0]['nom'], j[0]['code']
 
 
 class OsmData:
@@ -106,21 +107,22 @@ class OsmData:
         print('Lecture données OSM depuis le fichier : {}'.format(_fic_osm))
         self.nodes = dict()
         self.ways = list()
+        self.ways_centers = dict()
         self.relations = list()
         #
-        tree = ET.parse(_fic_osm)
+        tree = et.parse(_fic_osm)
         root = tree.getroot()
         #
         for node in root.findall('node'):
-            id = node.get('id')
+            _id = node.get('id')
             lat = float(node.get('lat'))
             lon = float(node.get('lon'))
             # Création du node
-            osmnode = Node(id, lat, lon)
-            self.nodes[id] = osmnode
+            osmnode = Node(_id, lat, lon)
+            self.nodes[_id] = osmnode
         #
         for way in root.findall('way'):
-            id = way.get('id')
+            _id = way.get('id')
             nodes = way.findall('nd')
             refs_nodes = list()
             for node in nodes:
@@ -133,11 +135,11 @@ class OsmData:
                 if tag.get('k') == 'building':
                     building = tag.get('v')
             # Création du way:
-            osmway = Way(id, refs_nodes, name, building)
+            osmway = Way(_id, refs_nodes, name, building)
             self.ways.append(osmway)
         #
         for relation in root.findall('relation'):
-            id = relation.get('id')
+            _id = relation.get('id')
             osmmembers = list()
             members = relation.findall('member')
             for member in members:
@@ -147,13 +149,13 @@ class OsmData:
             tags = relation.findall("tag")
             for tag in tags:
                 if tag.get('k') == 'type':
-                    type = tag.get('v')
+                    _type = tag.get('v')
                 if tag.get('k') == "name":
                     name = tag.get('v')
                 if tag.get('k') == 'building':
                     building = tag.get('v')
             # Création de la relation:
-            osmrelation = Relation(id, osmmembers, type, name, building)
+            osmrelation = Relation(_id, osmmembers, _type, name, building)
             self.relations.append(osmrelation)
 
     def count(self):
@@ -161,7 +163,6 @@ class OsmData:
 
     def compute_ways_centers(self):
         # Barycentres des ways
-        self.ways_centers = dict()
         for way in self.ways:
             lat_moy = sum([self.nodes[ref].lat for ref in way.refsnodes]) / len(way.refsnodes)
             lon_moy = sum([self.nodes[ref].lon for ref in way.refsnodes]) / len(way.refsnodes)
@@ -213,13 +214,15 @@ class Way(OsmElement):
         self.refsnodes = _refs_nodes
         self.name = _name
         self.building = _building
-        return
+        self.com = ''
+        self.code = ''
 
     def __repr__(self):
         return '<Way {} {} {} {}>'.format(self.id,
                                           self.name,
                                           self.building,
                                           self.refsnodes)
+
 
 class Relation(OsmElement):
     def __init__(self, _id, _osmmembers, _type, _name, _building):
@@ -238,21 +241,19 @@ class Relation(OsmElement):
                                                self.building)
 
 
-
-def trouve_relation_non_polygone():
+def trouve_relation_non_polygone(osm):
     # Relations qui ne sont pas des multipolygon
     for relation in osm.relations:
         if relation.type != 'multipolygon':
             print("Relation qui n'est pas de type polygon {}".format(relation))
-            #print([mid[0] for mid in relation.osmmembers])
+            # print([mid[0] for mid in relation.osmmembers])
 
-def trouve_ways_ouverts():
+
+def trouve_ways_ouverts(osm):
     # Ways qui ne sont pas fermés:
     for way in osm.ways:
         if way.refsnodes[0] != way.refsnodes[-1]:
             print('Way non fermé {}'.format(way))
-
-
 
 
 def main():
@@ -268,6 +269,7 @@ def main():
             osm.compute_ways_centers()
             osm.find_communes_ways(j, departements)
             osm.way_to_csv(REP_TRAVAIL + 'simple-' + region + '.csv')
+
 
 if __name__ == '__main__':
     main()

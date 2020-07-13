@@ -1,4 +1,4 @@
-self.codification_instrument= _liste[0]
+self.codification_instrument = _liste[0]
 self.commune = _liste[1]
 self.edifice = _liste[2]
 self.edifice_standard = _liste[3]

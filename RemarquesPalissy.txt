@@ -1,15 +1,15 @@
 Lille Saint-Vincent-de-Paul : orgue dans Palissy mais disparu.
 
-Abreschviller Saint-Quirin semble plutôt être à Saint-Quirin (commune). PM57000559,PM57000326,PM57000755 ou PM57000002,PM57000708...
+Abreschviller Saint-Quirin semble plutÃ´t Ãªtre Ã  Saint-Quirin (commune). PM57000559,PM57000326,PM57000755 ou PM57000002,PM57000708...
 
-lp - ERROR - Orgue Palissy non trouvé dans l'inventaire: <object OrguePalissyOpenData PM59001986 59 Saint-Sylvestre-Cappel 59114 église Saint-André orgue> : drôle de code INSEE!
+lp - ERROR - Orgue Palissy non trouvÃ© dans l'inventaire: <object OrguePalissyOpenData PM59001986 59 Saint-Sylvestre-Cappel 59114 Ã©glise Saint-AndrÃ© orgue> : drÃ´le de code INSEE!
 
-Nice, orgue villa Beau-site  Lieu de déplacement de l'objet Lieu de dépôt : Provence-Alpes-Côte d'Azur, 06, Nice, palais Lascaris
+Nice, orgue villa Beau-site  Lieu de dÃ©placement de l'objet Lieu de dÃ©pÃ´t : Provence-Alpes-CÃ´te d'Azur, 06, Nice, palais Lascaris
 
-Rouen Saint-Vincent, détruit en 1944.
+Rouen Saint-Vincent, dÃ©truit en 1944.
 
-Paimpol : détruit.
+Paimpol : dÃ©truit.
 
-Rians, église, buffet d'orgue en trompe l'oeil.
+Rians, Ã©glise, buffet d'orgue en trompe l'oeil.
 
-Orléans Saint-Paul, buffet. Déclassé.
+OrlÃ©ans Saint-Paul, buffet. DÃ©classÃ©.

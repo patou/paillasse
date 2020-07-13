@@ -8,7 +8,7 @@ https://www.insee.fr/fr/information/2028040
 import logging
 
 
-REP_GEODATA = 'D:/Users/gwilpoul/Documents/inventaire/99-geodata/'
+REP_GEODATA = '../../99-geodata/'
 FIC_FRANCE_COMMUNES_INSEE = REP_GEODATA + 'France2018.txt'
 FIC_FRANCE_DEPARTEMENTS_INSEE = REP_GEODATA + 'depts2018.txt'
 FIC_FRANCE_REGIONS_INSEE = REP_GEODATA + 'reg2018.txt'
@@ -16,7 +16,7 @@ FIC_FRANCE_REGIONS_INSEE = REP_GEODATA + 'reg2018.txt'
 loggerCodegeogaphique = logging.getLogger('codegeographique')
 loggerCodegeogaphique.setLevel(logging.DEBUG)
 # create file handler which logs even debug messages
-fh = logging.FileHandler('./inventaire.log')
+fh = logging.FileHandler('inventaire.log')
 fh.setLevel(logging.DEBUG)
 # create console handler with a higher log level
 ch = logging.StreamHandler()

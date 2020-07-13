@@ -102,13 +102,13 @@ def upper_sans_accent(chaine):
 
 
 def createpaireencode(string):
-    alphabet='a b c d e f g h i j k l m n o p q r s t u v w x y z'
+    alphabet = 'a b c d e f g h i j k l m n o p q r s t u v w x y z'
     vecalphabet=alphabet.split(' ')
     pairevec = vecalphabet + [(x+y) for x in vecalphabet for y in vecalphabet]
     d = []
     for i in pairevec:
         d = d + [string.count(i)]
-    return (string,d)
+    return string, d
 
 
 """

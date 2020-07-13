@@ -4,22 +4,23 @@ Fonctions utilitaires pour corriger ou simplifier (dégénéréscence) des noms 
 import re
 import logging
 
+# FIXME : Saint-Pierre-ès-Liens Saint-Pierre-Es-Liens
 
 loggerCorrecteurorgues = logging.getLogger('correcteurogues')
 loggerCorrecteurorgues.setLevel(logging.DEBUG)
 # create file handler which logs even debug messages
-fh = logging.FileHandler('./inventaire.log')
-fh.setLevel(logging.DEBUG)
+fhc = logging.FileHandler('inventaire.log')
+fhc.setLevel(logging.DEBUG)
 # create console handler with a higher log level
-ch = logging.StreamHandler()
-ch.setLevel(logging.DEBUG)
+chc = logging.StreamHandler()
+chc.setLevel(logging.WARNING)
 # create formatter and add it to the handlers
 formatter = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
-fh.setFormatter(formatter)
-ch.setFormatter(formatter)
+fhc.setFormatter(formatter)
+chc.setFormatter(formatter)
 # add the handlers to the logger
-loggerCorrecteurorgues.addHandler(fh)
-loggerCorrecteurorgues.addHandler(ch)
+loggerCorrecteurorgues.addHandler(fhc)
+loggerCorrecteurorgues.addHandler(chc)
 
 
 listeMinuscule = ["le", "la", "les", "de", "des", "du", "en", "et"]
@@ -84,7 +85,7 @@ def detecter_type_edifice(chaine):
     #FIXME : FR-33063-BORDE-ANCIEN-T;Bordeaux;Ancienne Abbatiale Sainte-Croix;
     new_chaine = ''
     # Attention, l'ordre de la liste compte : mettre d'abord église catholique, ensuite église...
-    denominations = ['église catholique',
+    types_edifice = ['église catholique',
                      'temple protestant',
                      'temple réformé',
                      'ancienne collégiale',
@@ -96,7 +97,10 @@ def detecter_type_edifice(chaine):
                      'cathédrale',
                      'ancienne cathédrale',
                      'basilique',
+                     'basilique collegiale',
                      'synagogue',
+                     'communauté',
+                     'congrégation',
                      'couvent',
                      'carmel',
                      'monastère',
@@ -111,6 +115,14 @@ def detecter_type_edifice(chaine):
                      'chapelle paroissiale',
                      'chapelle protestante',
                      'chapelle catholique',
+                     'chapelle du college',
+                     "chapelle de l'ecole",
+                     'chapelle du lycee',
+                     "chapelle de l'institution",
+                     "chapelle de l'orphelinat",
+                     'chapelle du pensionnat',
+                     "chapelle de l'hopital",
+                     "chapelle de la congregation",
                      'chapelle',
                      'sanctuaire',
                      'séminaire',
@@ -131,43 +143,49 @@ def detecter_type_edifice(chaine):
                      'église luthérienne',
                      'école de musique',
                      'école',
+                     'collège privé',
                      'collège',
                      'église',
                      'prieuré',
+                     'grand temple',
                      'temple',
                      'institution libre',
                      'institution',
                      'institut',
                      'théâtre',
+                     'lycée privé',
                      'lycée',
                      'salle',
                      'musée',
                      'conservatoire municipal',
                      'conservatoire national de musique',
                      'conservatoire national de région',
-                     'conservatoire']
+                     'conservatoire national régional',
+                     'conservatoire',
+                     'clinique']
     if chaine:
         chaine_minuscule = supprimer_accents(chaine).lower()
-        denomination_trouvee = False
-        for denomination in denominations:
-            index_denomniation = chaine_minuscule.find(supprimer_accents(denomination))
+        type_trouve = False
+        for _type_edifice in types_edifice:
+            index_denomination = chaine_minuscule.find(supprimer_accents(_type_edifice))
             # Si la chaîne ne comprend pas dénomination connue :
-            if index_denomniation == -1:
+            if index_denomination == -1:
                 pass
-            elif index_denomniation == 0:
-                denomination_trouvee = True
-                new_chaine = corriger_casse(chaine[len(denomination):].strip(' ')) + ' ' + '[' + denomination + ']'
-            elif index_denomniation > 0 and not denomination_trouvee:
-                denomination_trouvee = False
-        if not denomination_trouvee:
+            elif index_denomination == 0 and not type_trouve:
+                type_trouve = True
+                type_edifice = _type_edifice
+                new_chaine = corriger_casse(chaine[len(type_edifice):].strip(' ')) + ' ' + '[' + type_edifice + ']'
+            elif index_denomination > 0 and not type_trouve:
+                type_trouve = False
+        if not type_trouve:
             new_chaine = corriger_casse(chaine)
-            # print('DEBUG Pas de dénomination connue dans : {}'.format(chaine))
+            type_edifice = None
+            loggerCorrecteurorgues.debug("Aucun type d'édifice reconnu dans : {}.".format(chaine))
         else:
-            # print('DEBUG Dénomination connue dans : {}'.format(chaine))
-            pass
+            loggerCorrecteurorgues.debug("Type d'édifice reconnu dans : {}.".format(chaine))
     else:
         loggerCorrecteurorgues.warning("Pas de libellé d'édifice.")
-    return new_chaine
+    return new_chaine, type_edifice
 
 
 def corriger_nom_edifice(chaine, commune=''):
@@ -188,30 +206,31 @@ def corriger_nom_edifice(chaine, commune=''):
     # église sans nom :
     if chaine == '[église]':
         new_chaine = chaine
-    #
-    # Si l'édifice est le nom de la commune, à l'exception des "Saint..." :
-    if commune.lower() == chaine.lower() and 'saint' != chaine.lower()[:5]:
-        new_chaine = 'UN_EDIFICE'
-    # Si la commune est présente en surcharge dans l'édifice : Dannemarie (Sainte Anne)
-    # (Attention à la casse, variable.)
-    elif commune.lower() == chaine.split('(')[0].lower().rstrip(' ') \
-            and '(' in chaine \
-            and ')' in chaine:
-        # Recherche du vrai nom de l'édifice, entre parenthèses.
-        match = re.match(r".*[(](.*)[)]", chaine)
-        new_chaine = match.group(1)
-        # On réinjecte dans la suite des traitements :
-        chaine = new_chaine
-    # Si la commune est en surcharge, mais une autre information se trouve entre parenthèses
-    # [TODO]
-    # Si le nom de la commune débute le nom de l'édifice :
-    elif commune.lower() == (chaine[:len(commune)]).lower():
-        new_chaine = chaine[len(commune):].lstrip(' ')
-        # On réinjecte dans la suite des traitements :
-        chaine = new_chaine
-    # Si le début du nom de la commune débute le nom de l'édifice :
-    elif commune.lower().split(' ')[0] == (chaine[:len(commune.lower().split(' ')[0])]).lower():
-        new_chaine = chaine[len(commune.lower().split(' ')[0]):].lstrip(' ')
+    if 'saint' != chaine.lower()[:5]:
+        #
+        # Si l'édifice est le nom de la commune, à l'exception des "Saint..." :
+        if commune.lower() == chaine.lower():
+            new_chaine = 'UN_EDIFICE'
+        # Si la commune est présente en surcharge dans l'édifice : Dannemarie (Sainte Anne)
+        # (Attention à la casse, variable.)
+        elif commune.lower() == chaine.split('(')[0].lower().rstrip(' ') \
+                and '(' in chaine \
+                and ')' in chaine:
+            # Recherche du vrai nom de l'édifice, entre parenthèses.
+            match = re.match(r".*[(](.*)[)]", chaine)
+            new_chaine = match.group(1)
+            # On réinjecte dans la suite des traitements :
+            chaine = new_chaine
+        # Si la commune est en surcharge, mais une autre information se trouve entre parenthèses
+        # [TODO]
+        # Si le nom de la commune débute le nom de l'édifice, à l'exception des "Saint..." :
+        elif commune.lower() == (chaine[:len(commune)]).lower():
+            new_chaine = chaine[len(commune):].lstrip(' ')
+            # On réinjecte dans la suite des traitements :
+            chaine = new_chaine
+        # Si le début du nom de la commune débute le nom de l'édifice :
+        elif commune.lower().split(' ')[0] == (chaine[:len(commune.lower().split(' ')[0])]).lower():
+            new_chaine = chaine[len(commune.lower().split(' ')[0]):].lstrip(' ')
     #
     # Ajout des traits d'union*
     #TODO : de l'Assomption de Notre-Dame
@@ -272,7 +291,7 @@ def corriger_nom_edifice(chaine, commune=''):
         new_chaine = 'La Trinité'
     # Ramasse-miettes :
     if new_chaine == 'NOM_EDIFICE_NON_STANDARD':
-        loggerCorrecteurorgues.info('NOM_EDIFICE_NON_STANDARD {}'.format(chaine))
+        loggerCorrecteurorgues.debug('NOM_EDIFICE_NON_STANDARD {}'.format(chaine))
         info = new_chaine
         new_chaine = chaine
     else:
@@ -346,27 +365,44 @@ def test_simplifier_nom_edifice():
 
 
 def test_detecter_type_edifice():
-    for nom in ['église CATHOLIQUE Saint-ALOYSE DE NEUDORF',
+    for nom in [
+                'église de la nativité de la Très-Sainte-Vierge',
                 'Eglise de la Nativité de la Sainte-Vierge',
+                "église de la Nativité-de-la-Sainte-Vierge",
+                "église de la nativité de la Très-Sainte-Vierge",
+                'église de la Nativité de Notre-Dame',
+                "église Notre-Dame-de-l'Assomption",
+                "église Notre-Dame-de-l'Assomption",
+                "église Notre-Dame-de-l'Assomption",
+                "église Notre-Dame-de-l’Assomption",
+                'Ancienne Cathédrale Notre-Dame',
                 "Co-Cathédrale Notre-Dame-de-l'Annonciation",
+                'église Saint-Amour & Saint-Victor',
+                'Ecole de musique',
+                'église CATHOLIQUE Saint-ALOYSE DE NEUDORF',
                 "Cathédrale Saint-Gervais et Saint-Protais",
                 "église du Sacré Coeur",
-                "église Notre-Dame-de-l'Assomption",
-                "église Notre-Dame-de-l'Assomption",
-                "église Notre-Dame-de-l'Assomption",
-                'Ancienne Cathédrale Notre-Dame',
-                'église de la Nativité de Notre-Dame',
                 'Chapelle du Grand Séminaire',
                 'Eglise',
                 'LES CHAPELLES BOURBON Saint Vincent',
                 'église Notre-Dame',
-                'église Notre-Dame (ancienne cathédrale)']:
-        print("{} -> {}".format(nom, detecter_type_edifice(nom)))
+                'église Notre-Dame (ancienne cathédrale)',
+                "église du Vœu",
+                "Ecole d'orgue de Guyane",
+                "église Notre-Dame",
+                "Église du Cœur Immaculé de Marie",
+                "institution Les Iris",
+                "Chapelle du Château",
+                "Chapelle de l'Ecole Saint Elme",
+                "Grand Temple",
+                ]:
+        print("{} ---> {}".format(nom, detecter_type_edifice(nom)))
     return
 
 
 def test_corriger_nom_edifice():
-    print(corriger_nom_edifice("de la Nativité de la Sainte-Vierge [église]"))
+    print(corriger_nom_edifice("Saint-Amour & Saint-Victor [église]", "Saint-Amour"))
+    print(corriger_nom_edifice("de la Nativité de la Sainte-Vierge [église]", "Versailles"))
     print(corriger_nom_edifice("notre-dame-de-l'Annonciation [co-cathédrale]", "Bourg-en-Bresse"))
     print(corriger_nom_edifice("notre-dame-de-l'Assomption [église]", "Jassans-Riottier"))
     print(corriger_nom_edifice('les Chapelles Bourbon Saint Vincent', 'LES CHAPELLES BOURBON'))
