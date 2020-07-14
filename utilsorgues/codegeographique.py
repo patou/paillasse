@@ -8,7 +8,8 @@ https://www.insee.fr/fr/information/2028040
 import logging
 
 
-REP_GEODATA = '../../99-geodata/'
+REP_GEODATA = '../99-geodata/'
+
 FIC_FRANCE_COMMUNES_INSEE = REP_GEODATA + 'France2018.txt'
 FIC_FRANCE_DEPARTEMENTS_INSEE = REP_GEODATA + 'depts2018.txt'
 FIC_FRANCE_REGIONS_INSEE = REP_GEODATA + 'reg2018.txt'
