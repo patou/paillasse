@@ -2,8 +2,7 @@
 Classes représentant le modèle de données de l'index des orgues de France.
 """
 
-# TODO : référencer paillasse sur Git
-# TODO : Finir l'export JSON puis CSV des évènements (Versailles cathédrale est vide).
+# TODO : Finir l'export JSON des évènements (Versailles cathédrale est vide).
 # TODO : Finir le traitement des doublons.
 # TODO : Supprimer les vieilles fonctions Palissy pour ne garder que POP.
 # TODO : intégrer le nouveau POP de Servane.
@@ -12,6 +11,7 @@ Classes représentant le modèle de données de l'index des orgues de France.
 import logging
 import json
 import re
+import time
 
 import utilsorgues
 import palissy
@@ -21,7 +21,7 @@ import orgbase
 loggerInventaire = logging.getLogger('inventaire')
 loggerInventaire.setLevel(logging.DEBUG)
 # create file handler which logs even debug messages
-fh = logging.FileHandler('inventaire.log', mode='w', encoding='utf-8')
+fh = logging.FileHandler('./logs/inventaire.log', mode='w', encoding='utf-8')
 fh.setLevel(logging.DEBUG)
 # create console handler with a higher log level
 ch = logging.StreamHandler()
@@ -37,7 +37,7 @@ loggerInventaire.addHandler(ch)
 logger_palissy = logging.getLogger('inventaire.Palissy')
 logger_palissy.setLevel(logging.WARNING)
 # create file handler which logs even debug messages
-fhp = logging.FileHandler('inventaire--palissy.log', mode='w', encoding='utf-8')
+fhp = logging.FileHandler('./logs/inventaire--palissy.log', mode='w', encoding='utf-8')
 fhp.setLevel(logging.DEBUG)
 # create console handler with a higher log level
 shp = logging.StreamHandler()
@@ -96,17 +96,22 @@ class Evenements(list):
     def from_json(self, my_json):
         _json = json.loads(my_json)
         for _evenement in _json:
-            self.append(Evenement(_evenement))
+            self.append(Evenement(json.dumps(_evenement)))
 
     def to_json(self):
-        """_liste = list()
+        _liste = list()
         for _evenement in self:
             _liste.append(_evenement.to_dict())
-        return json.dumps(_liste)"""
-        return json.dumps(self.__dict__)
+        return json.dumps(_liste)
 
-    def to_dict(self):
-        return self.__dict__
+    def to_list(self):
+        _liste = list()
+        for _evenement in self:
+            _liste.append(_evenement.to_dict())
+        return _liste
+
+    def __repr__(self):
+        return '<object Evenements : {} Evenement>'.format(len(self))
 
 
 class Evenement(object):
@@ -456,7 +461,7 @@ class OrgueInventaire(object):
             "soufflerie": self.soufflerie,
             "commentaire_tuyauterie": self.commentaire_tuyauterie,
             "claviers": [],
-            "evenements": self.evenements.to_dict(),
+            "evenements": self.evenements.to_list(),
             "images": [],
             "fichiers": [],
             "sources": [],
@@ -581,8 +586,9 @@ class OrguesInventaire(list):
 
     def __repr__(self):
         self._ensemble_communes = set([orgue.commune for orgue in self])
-        loggerInventaire.info("L'inventaire contient {} orgues, dans {} communes."
-                              .format(len(self), len(self._ensemble_communes)))
+        resume = "L'inventaire contient {} orgues, dans {} communes.".format(len(self), len(self._ensemble_communes))
+        loggerInventaire.info(resume)
+        return resume
 
     def to_list(self):
         enregistrements = [item.to_record() for item in self]
@@ -696,10 +702,13 @@ class OrguesInventaire(list):
             if orgue.designation == 'polyphone':
                 orgue.is_polyphone = True
 
-    def fixer_monumentshistoriques(self, ficbasepalissy):
+    def fixer_monumentshistoriques(self, ficbasepalissy, reset):
         basepalissy = palissy.OrguesPalissyPop(ficbasepalissy)
         pms = basepalissy.to_dict_pm()
         for orgue in self:
+            # Si option reset activée, on efface tous les évènements.
+            if reset:
+                orgue.evenements = Evenements()
             if orgue.references_palissy != '':
                 for pm in orgue.references_palissy:
                     if pm != '':
@@ -1057,12 +1066,12 @@ class OrguesInventaire(list):
 
 
 if __name__ == '__main__':
-    loggerInventaire.info('Démarrage du script')
-    MAIN_DEBUG = False
+    loggerInventaire.info('{} Démarrage du script'.format(time.asctime(time.localtime())))
+    MAIN_DEBUG = True
     if MAIN_DEBUG:
-        mon_inventaire = OrguesInventaire('../../98-indexes/indexFrance.debug.csv', True)
+        mon_inventaire = OrguesInventaire('../98-indexes/indexFrance.debug.csv', True)
     else:
-        mon_inventaire = OrguesInventaire('../../98-indexes/indexFrance-inventairedesorgues.csv', True)
+        mon_inventaire = OrguesInventaire('../98-indexes/indexFrance-inventairedesorgues.csv', True)
 
     print(mon_inventaire)
     mon_inventaire.liste_edifices_absents()
@@ -1097,13 +1106,13 @@ if __name__ == '__main__':
     mon_inventaire.detecter_doublons_codifsorgues()
 
     # mon_inventaire.fixer_polyphones()
-    mon_inventaire.fixer_monumentshistoriques('../../97-data/export-pop-palissy.csv')
+    mon_inventaire.fixer_monumentshistoriques('../97-data/export-pop-palissy.csv', reset=True)
 
     if MAIN_DEBUG:
-        mon_inventaire.to_csv('../../98-indexes/indexFrance.debug.csv')
-        mon_inventaire.to_json('../../98-indexes/indexFrance-inventairedesorgues.json', limit=1)
+        mon_inventaire.to_csv('../98-indexes/indexFrance.debug_out.csv')
+        mon_inventaire.to_json('../98-indexes/indexFrance.debug_out.json', limit=1)
     else:
-        mon_inventaire.to_csv('../../98-indexes/indexFrance-inventairedesorgues.csv')
-        mon_inventaire.to_json('../../98-indexes/indexFrance-inventairedesorgues.json')
+        mon_inventaire.to_csv('../98-indexes/indexFrance-inventairedesorgues.csv')
+        mon_inventaire.to_json('../98-indexes/indexFrance-inventairedesorgues.json')
 
-    loggerInventaire.info('Fin du script')
+    loggerInventaire.info('Fin du script'.format(time.asctime(time.localtime()) ))
