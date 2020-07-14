@@ -17,7 +17,7 @@ FIC_FRANCE_REGIONS_INSEE = REP_GEODATA + 'reg2018.txt'
 loggerCodegeogaphique = logging.getLogger('codegeographique')
 loggerCodegeogaphique.setLevel(logging.DEBUG)
 # create file handler which logs even debug messages
-fh = logging.FileHandler('inventaire.log')
+fh = logging.FileHandler('./logs/inventaire--codegeographique.log')
 fh.setLevel(logging.DEBUG)
 # create console handler with a higher log level
 ch = logging.StreamHandler()

@@ -7,7 +7,7 @@ import logging
 logger_codification = logging.getLogger('codification')
 logger_codification.setLevel(logging.DEBUG)
 # create file handler which logs even debug messages
-fh = logging.FileHandler('inventaire.log')
+fh = logging.FileHandler('./logs/inventaire--codification.log')
 fh.setLevel(logging.DEBUG)
 # create console handler with a higher log level
 ch = logging.StreamHandler()

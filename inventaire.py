@@ -2,7 +2,6 @@
 Classes représentant le modèle de données de l'index des orgues de France.
 """
 
-# TODO : Finir l'export JSON des évènements (Versailles cathédrale est vide).
 # TODO : Finir le traitement des doublons.
 # TODO : Supprimer les vieilles fonctions Palissy pour ne garder que POP.
 # TODO : intégrer le nouveau POP de Servane.
