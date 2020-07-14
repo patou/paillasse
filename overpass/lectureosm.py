@@ -91,8 +91,8 @@ def gps_to_commune_pointinterieur(_lat, _lon, j, deps):
 
 
 def gps_to_commune_api(_lat, _lon):
-    _proxies = {'https': 'https://I24853:Montava36@proxy-surf.rte-france.com:3128',
-                'http': 'http://I24853:Montava36@proxy-surf.rte-france.com:3128'}
+    _proxies = {'https': 'https://NNI:MDP@proxy-surf.rte-france.com:3128',
+                'http': 'http://NNI:MDP@proxy-surf.rte-france.com:3128'}
     url = 'https://geo.api.gouv.fr/communes'
     param = {'lat': _lat, 'lon': _lon, 'fields': 'nom,code,codesPostaux,codeDepartement,codeRegion,population',
              'format': 'json', 'geometry': 'centre'}

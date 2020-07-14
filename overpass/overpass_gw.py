@@ -7,12 +7,11 @@ import overpass
 # In order of increased verbosity: ids, skel, body, tags, meta.
 # As is the case with the Overpass API itself, body is the default.
 
-PROXIES = {'https': 'https://I24853:Montava36@proxy-surf.rte-france.com:3128',
-           'http': 'http://I24853:Montava36@proxy-surf.rte-france.com:3128'}
+PROXIES = {'https': 'https://NNI:MDP@proxy-surf.rte-france.com:3128',
+           'http': 'http://NNI:MDP@proxy-surf.rte-france.com:3128'}
 URL = "https://lz4.overpass-api.de/api/interpreter"
 
-api = overpass.API(proxies={'https': 'https://I24853:Montava36@proxy-surf.rte-france.com:3128',
-                            'http': 'http://I24853:Montava36@proxy-surf.rte-france.com:3128'},
+api = overpass.API(proxies=PROXIES,
                    endpoint="https://lz4.overpass-api.de/api/interpreter")
 
 # response = api.get('node["name"="Salt Lake City"]')
