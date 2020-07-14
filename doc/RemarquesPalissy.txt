@@ -1,0 +1,15 @@
+Lille Saint-Vincent-de-Paul : orgue dans Palissy mais disparu.
+
+Abreschviller Saint-Quirin semble plutôt être à Saint-Quirin (commune). PM57000559,PM57000326,PM57000755 ou PM57000002,PM57000708...
+
+lp - ERROR - Orgue Palissy non trouvé dans l'inventaire: <object OrguePalissyOpenData PM59001986 59 Saint-Sylvestre-Cappel 59114 église Saint-André orgue> : drôle de code INSEE!
+
+Nice, orgue villa Beau-site  Lieu de déplacement de l'objet Lieu de dépôt : Provence-Alpes-Côte d'Azur, 06, Nice, palais Lascaris
+
+Rouen Saint-Vincent, détruit en 1944.
+
+Paimpol : détruit.
+
+Rians, église, buffet d'orgue en trompe l'oeil.
+
+Orléans Saint-Paul, buffet. Déclassé.
