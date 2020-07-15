@@ -2,11 +2,14 @@
 Classes représentant le modèle de données de l'index des orgues de France.
 """
 
+# TODO : plusieurs informations dans DPRO...
+# TODO : guillemets en double
+# TODO : protection du segment json dans évènements (pour l'instant on remplace les ; de Palissy.
 # TODO : Finir le traitement des doublons.
 # TODO : Supprimer les vieilles fonctions Palissy pour ne garder que POP.
 # TODO : intégrer le nouveau POP de Servane.
 # TODO : le profiler plante sur les fonctions json
-
+import sys
 import logging
 import json
 import re
@@ -93,6 +96,7 @@ class Evenements(list):
             self.from_json(extrait_json)
 
     def from_json(self, my_json):
+        print(my_json)
         _json = json.loads(my_json)
         for _evenement in _json:
             self.append(Evenement(json.dumps(_evenement)))
@@ -562,6 +566,10 @@ class OrguesInventaire(list):
                     ligne_debut_lecture = 1
                 if i >= ligne_debut_lecture:
                     champs = ligne.rstrip('\r\n').split(';')
+                    # Vérification du format :
+                    if len(champs) != 67:
+                        print(i, ligne)
+                    # TODO
                     # Les champs manquants sont fixés à une chaîne vide :
                     if len(champs) == 24:
                         orgue = OrgueInventaire(champs + (13 * ['']))
@@ -702,6 +710,28 @@ class OrguesInventaire(list):
                 orgue.is_polyphone = True
 
     def fixer_monumentshistoriques(self, ficbasepalissy, reset):
+        def _split_dpro(champ_dpro):
+            """
+            Séparation du champ Palissy Pop DPRO
+            Liste de protections séparées par des points-virgules.
+            (Attention, le format d'une protection n'est pas stable.)
+            :return: liste
+            """
+            dpros = champ_dpro.split(';')
+            lldpros = list()
+            for dpro in dpros:
+                if '\xa0: ' in dpro:
+                    date_et_pro = dpro.split('\xa0: ')
+                elif ' : ' in dpro:
+                    date_et_pro = dpro.split(' : ')
+                elif dpro != '':
+                    index_sep = dpro.find(' classé')
+                    date_et_pro = [dpro[:index_sep], dpro[index_sep+1:]]
+                    loggerInventaire.warning('Champ DPRO mal formatté : {}'.format(dpro))
+                else:
+                    loggerInventaire.error('Champ DPRO vide : {}'.format(dpro))
+                lldpros.append(date_et_pro)
+            return lldpros
         basepalissy = palissy.OrguesPalissyPop(ficbasepalissy)
         pms = basepalissy.to_dict_pm()
         for orgue in self:
@@ -712,53 +742,40 @@ class OrguesInventaire(list):
                 for pm in orgue.references_palissy:
                     if pm != '':
                         orguepalissy = pms.get(pm)
-                        if orguepalissy:
-                            dpro = orguepalissy.DPRO
-                            prot = orguepalissy.PROT
-                            if prot == 'déclassé':
-                                pass
-                            elif prot == 'classé au titre objet' \
-                                    or prot == 'classé au titre objet partiellement' \
-                                    or prot == 'classé au titre immeuble' \
-                                    or prot == 'classé MH' \
-                                    or prot == 'classé au titre objet ; inscrit au titre objet' \
-                                    or prot == 'inscrit au titre objet ; classé au titre objet' \
-                                    or prot == 'inscrit au titre objet ; classé au titre immeuble' \
-                                    or prot == 'classé au titre objet ; classé au titre immeuble' \
-                                    or prot == 'classé au titre objet ; classé au titre objet' \
-                                    or prot == 'classé au titre objet ; classé au titre objet ; classé au titre objet' \
-                                    or prot == 'classé MH ; classé au titre objet' \
-                                    or prot == 'classé au titre immeuble ; classé au titre objet ; classé au titre objet' \
-                                    or prot == 'classé au titre immeuble ; classé au titre objet' \
-                                    or prot == 'inscrit au titre objet ; classé au titre objet ; classé au titre objet' \
-                                    or prot == 'classé au titre objet ; classé au titre objet ; inscrit au titre objet' \
-                                    or prot == 'classé au titre objet ; classé MH' \
-                                    or prot == 'classé au titre objet partiellement ; inscrit au titre objet partiellement':
-                                evenement = Evenement()
-                                evenement.annee = dpro.split('/')[0]
-                                evenement.type = 'classement_mh'
-                                evenement.resume = pm + '\n'
-                                evenement.resume += dpro + '\n'
-                                evenement.resume += orguepalissy.DENO + '\n'
-                                evenement.resume += orguepalissy.DOSS + '\n'
-                                evenement.resume += orguepalissy.REFE + '\n'
-                                orgue.evenements.append(evenement)
-                            elif prot == 'inscrit au titre objet' \
-                                    or prot == 'inscrit au titre objet ; inscrit au titre objet':
-                                evenement = Evenement()
-                                evenement.annee = dpro.split('/')[0]
-                                evenement.type = 'inscription_mh'
-                                evenement.resume = pm + '\n'
-                                evenement.resume += dpro + '\n'
-                                evenement.resume += orguepalissy.DENO + '\n'
-                                evenement.resume += orguepalissy.DOSS + '\n'
-                                evenement.resume += orguepalissy.REFE + '\n'
-                                orgue.evenements.append(evenement)
-                            else:
-                                loggerInventaire.error("Fixer Palissy : Champ PROT Palissy Pop illisible : {} {}".format(prot, pm))
-                        else:
+                        if not orguepalissy:
                             loggerInventaire.error("Fixer Palissy : Un des PM de l'orgue est introuvable dans Palissy : " \
                                                     + "<{}> {}".format(pm, orgue))
+                        else:
+                            # Certains champs DPRO ont plusieurs informations.
+                            for infos_pro in _split_dpro(orguepalissy.DPRO):
+                                evenement = Evenement()
+                                # Recherche de l'année de protection
+                                if '/' in infos_pro[0]:
+                                    evenement.annee = infos_pro[0].split('/')[0]
+                                else:
+                                    evenement.annee = infos_pro[0]
+                                # Type de protection
+                                prot = infos_pro[1]
+                                if prot == 'déclassé':
+                                    # Supprimer evenement
+                                    pass
+                                elif prot in ['classé au titre objet',
+                                              'classé au titre objet partiellement',
+                                              'classé au titre immeuble',
+                                              'classé MH']:
+                                    evenement.type = 'classement_mh'
+                                elif prot in ['inscrit au titre objet']:
+                                    evenement.type = 'inscription_mh'
+                                else:
+                                    loggerInventaire.error(
+                                        "Fixer Palissy : Champ PROT Palissy Pop illisible : {} {}".format(pm, prot))
+                                # Recopie d'autres informations
+                                evenement.resume = pm + '\n'
+                                evenement.resume += orguepalissy.DPRO.replace(';', ',') + '\n'
+                                evenement.resume += orguepalissy.DENO.replace(';', ',') + '\n'
+                                evenement.resume += orguepalissy.DOSS.replace(';', ',') + '\n'
+                                evenement.resume += orguepalissy.REFE.replace(';', ',') + '\n'
+                                orgue.evenements.append(evenement)
 
     def denombrer_par_commune(self):
         # TODO : départements
@@ -1066,9 +1083,13 @@ class OrguesInventaire(list):
 
 if __name__ == '__main__':
     loggerInventaire.info('{} Démarrage du script'.format(time.asctime(time.localtime())))
-    MAIN_DEBUG = True
+    if len(sys.argv) == 1:
+        MAIN_DEBUG = False
+    else:
+        MAIN_DEBUG = sys.argv[1]
+
     if MAIN_DEBUG:
-        mon_inventaire = OrguesInventaire('../98-indexes/indexFrance.debug.csv', True)
+        mon_inventaire = OrguesInventaire('../98-indexes/indexFrance.debug_out.csv', True)
     else:
         mon_inventaire = OrguesInventaire('../98-indexes/indexFrance-inventairedesorgues.csv', True)
 
@@ -1115,3 +1136,5 @@ if __name__ == '__main__':
         mon_inventaire.to_json('../98-indexes/indexFrance-inventairedesorgues.json')
 
     loggerInventaire.info('Fin du script'.format(time.asctime(time.localtime()) ))
+
+# PM11000379
