@@ -568,7 +568,9 @@ class OrguesInventaire(list):
                     champs = ligne.rstrip('\r\n').split(';')
                     # Vérification du format :
                     if len(champs) != 67:
-                        print(i, ligne)
+                        loggerInventaire.error('La ligne {} comporte {} champs.'.format(i+1, len(champs)))
+                        for j, champ_entete in enumerate(OrgueInventaire.entete):
+                            print(champ_entete, champs[j])
                     # TODO
                     # Les champs manquants sont fixés à une chaîne vide :
                     if len(champs) == 24:
@@ -722,15 +724,20 @@ class OrguesInventaire(list):
             for dpro in dpros:
                 if '\xa0: ' in dpro:
                     date_et_pro = dpro.split('\xa0: ')
+                    date_et_pro[1] = date_et_pro[1].strip()
+                    lldpros.append(date_et_pro)
                 elif ' : ' in dpro:
                     date_et_pro = dpro.split(' : ')
+                    date_et_pro[1] = date_et_pro[1].strip()
+                    lldpros.append(date_et_pro)
                 elif dpro != '':
                     index_sep = dpro.find(' classé')
                     date_et_pro = [dpro[:index_sep], dpro[index_sep+1:]]
+                    date_et_pro[1] = date_et_pro[1].strip()
+                    lldpros.append(date_et_pro)
                     loggerInventaire.warning('Champ DPRO mal formatté : {}'.format(dpro))
                 else:
                     loggerInventaire.error('Champ DPRO vide : {}'.format(dpro))
-                lldpros.append(date_et_pro)
             return lldpros
         basepalissy = palissy.OrguesPalissyPop(ficbasepalissy)
         pms = basepalissy.to_dict_pm()
@@ -1136,5 +1143,3 @@ if __name__ == '__main__':
         mon_inventaire.to_json('../98-indexes/indexFrance-inventairedesorgues.json')
 
     loggerInventaire.info('Fin du script'.format(time.asctime(time.localtime()) ))
-
-# PM11000379
