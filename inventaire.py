@@ -498,17 +498,16 @@ class OrgueInventaire(object):
     def get_codification(self):
         return utilsorgues.codifier_instrument(self)
 
-    def verifier_existence_insee(self, communes_francaises, regions_francaises):
-        communes_possibles = None
+    def verifier_existence_insee(self, communes_francaises_par_nom, regions_francaises):
         #
         # Recherche exacte de la commune
-        communes_possibles = communes_francaises.to_dict_par_nom.get(self.commune)
+        communes_possibles = communes_francaises_par_nom.get(self.commune)
         #
         # Choix de la commune en fixant le département
         if communes_possibles is not None:
             commune_trouvee = None
             for commune in communes_possibles:
-                if commune.nomdepartement == self.nomdepartement:
+                if commune.codedepartement == self.code_departement:
                     commune_trouvee = commune
             #
             if commune_trouvee is not None:
@@ -532,17 +531,19 @@ class OrgueInventaire(object):
                         if self.ancienne_commune != self.commune:
                             loggerInsee.error(
                                 "Conflit ancienne commune <{}> et nom de commune associée ou déléguée <{}>"
-                                .format(self.ancienne_commune, self.commune)
+                                    .format(self.ancienne_commune, self.commune)
                             )
                 #
                 # Ajout de la région:
-                self.nomregion = regions_francaises[commune_trouvee.coderegion].nomenclair
+                self.nomregion = regions_francaises[commune_trouvee.coderegion].libelle
             else:
-                loggerInsee.critical("MAIS COMMUNE DANS UN AUTRE DEPARTEMENT : {} {} {}".format(self.nomdepartement,
-                                                                                                self.commune,
-                                                                                                communes_possibles))
+                if self.nomdepartement not in ['Nouvelle-Calédonie', 'Saint-Pierre-et-Miquelon']:
+                    loggerInsee.critical("MAIS COMMUNE DANS UN AUTRE DEPARTEMENT : {} {} {}".format(self.nomdepartement,
+                                                                                                    self.commune,
+                                                                                                    communes_possibles))
         else:
-            loggerInsee.fatal("COMMUNE_NON_TROUVEE : {} {}".format(self.nomdepartement, self.commune))
+            if self.nomdepartement not in ['Nouvelle-Calédonie', 'Saint-Pierre-et-Miquelon']:
+                loggerInsee.fatal("COMMUNE_NON_TROUVEE : {} {}".format(self.nomdepartement, self.commune))
         return
 
 
@@ -696,10 +697,10 @@ class OrguesInventaire(list):
         return list(doublons)
 
     def verifier_existences_insee(self):
-        communes_francaises = utilsorgues.codegeographique.Communes()
+        communes_francaises_par_nom = utilsorgues.codegeographique.Communes().to_dict_par_nom()
         regions_francaises = utilsorgues.codegeographique.Regions()
         for orgue in self:
-            orgue.verifier_existence_insee(communes_francaises, regions_francaises)
+            orgue.verifier_existence_insee(communes_francaises_par_nom, regions_francaises)
 
     def fixer_polyphones(self):
         for orgue in self:
@@ -1104,17 +1105,17 @@ if __name__ == '__main__':
     # print(mon_inventaire.denombrer_par_commune()["La Flèche, Sarthe"])
     # mon_inventaire.to_console()
     #
-    # mon_inventaire.verifier_existences_insee()
-    # mon_inventaire.codifier_departements()
+    mon_inventaire.codifier_departements()
+    mon_inventaire.verifier_existences_insee()
     #
     # mon_inventaire.standardiser_edifices()#dont corrections casse, etc.
     # mon_inventaire.rechercher_coordonnees_gps()
     #
     # mon_inventaire.mapper_coordonnees_gps_picardie('../97-data/', ['aisne', 'somme', 'oise'])
 
-    mon_inventaire.mapper_palissypop_sur_inventaire('../97-data/palissy_20200414_14h14m05s.csv')
+    # mon_inventaire.mapper_palissypop_sur_inventaire('../97-data/palissy_20200414_14h14m05s.csv')
     #
-    mon_inventaire.codifier_orgues()
+    # mon_inventaire.codifier_orgues()
     #
     # mon_inventaire.rechercher_donnees_osm('../97-data/simple-FranceMetropole.csv')
     # mon_inventaire.rechercher_gps_osm_depuis_id()
@@ -1123,12 +1124,12 @@ if __name__ == '__main__':
 
     # mon_inventaire.detecter_noms_edifice_majuscules()
 
-    mon_inventaire.ecraser_gps_par_osm()
-    mon_inventaire.standardiser_edifices()  # dont corrections casse, etc.
-    mon_inventaire.correction_directe_nom_edifice()
-    mon_inventaire.codifier_edifices()
+    # mon_inventaire.ecraser_gps_par_osm()
+    # mon_inventaire.standardiser_edifices()  # dont corrections casse, etc.
+    # mon_inventaire.correction_directe_nom_edifice()
+    # mon_inventaire.codifier_edifices()
 
-    mon_inventaire.detecter_doublons_codifsorgues()
+    # mon_inventaire.detecter_doublons_codifsorgues()
 
     # mon_inventaire.fixer_polyphones()
     # mon_inventaire.fixer_monumentshistoriques('../97-data/export-pop-palissy.csv', reset=True)
