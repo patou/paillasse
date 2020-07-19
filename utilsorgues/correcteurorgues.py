@@ -163,6 +163,7 @@ def detecter_type_edifice(chaine):
                      'conservatoire national régional',
                      'conservatoire',
                      'clinique']
+    type_edifice = None
     if chaine:
         chaine_minuscule = supprimer_accents(chaine).lower()
         type_trouve = False
@@ -207,6 +208,8 @@ def corriger_nom_edifice(chaine, commune=''):
     if chaine == '[église]':
         new_chaine = chaine
     if 'saint' != chaine.lower()[:5]:
+        if type(chaine) == 'tuple':
+            pass
         #
         # Si l'édifice est le nom de la commune, à l'exception des "Saint..." :
         if commune.lower() == chaine.lower():

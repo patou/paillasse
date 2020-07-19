@@ -5,10 +5,11 @@ https://www.insee.fr/fr/information/4316069
 Codification des collectivités d'outre-mer (COM)
 https://www.insee.fr/fr/information/2028040
 """
+# TODO: Répertoire REP_GEODATA : adresse relative à changer suivant lancement depuis ce module ou d'un autre.
 
 import logging
 
-REP_GEODATA = '../../99-geodata/cog_ensemble_2020_csv/'
+REP_GEODATA = '../99-geodata/cog_ensemble_2020_csv/'
 
 FIC_FRANCE_COMMUNES_INSEE = REP_GEODATA + 'communes2020.csv'
 FIC_FRANCE_MOUVEMENTS_COMMUNES_INSEE = REP_GEODATA + 'mvtcommune2020.csv'
@@ -18,7 +19,7 @@ FIC_FRANCE_REGIONS_INSEE = REP_GEODATA + 'region2020.csv'
 loggerCodegeogaphique = logging.getLogger('codegeographique')
 loggerCodegeogaphique.setLevel(logging.DEBUG)
 # create file handler which logs even debug messages
-fh = logging.FileHandler('./../logs/inventaire--codegeographique.log')
+fh = logging.FileHandler('./logs/inventaire--codegeographique.log')
 fh.setLevel(logging.DEBUG)
 # create console handler with a higher log level
 ch = logging.StreamHandler()
@@ -52,6 +53,8 @@ class Region(object):
 class Regions(dict):
     """
     Dictionnaire des régions
+    clés: codes
+    valeurs: objets Region
     """
 
     def __init__(self):
@@ -281,8 +284,10 @@ class Communes(list):
         communes_codes = self.to_dict_par_code()
         for commune in self:
             if commune.typecom in ['COMA', 'COMD']:
-                commune.nom_comparent = communes_codes[commune.comparent].nom
-
+                commune_parente = communes_codes[commune.comparent]
+                commune.nom_comparent = commune_parente.nom
+                commune.codedepartement = commune_parente.codedepartement
+                commune.coderegion = commune_parente.coderegion
 
 def test_communes():
     communes_francaises = Communes()
