@@ -91,12 +91,12 @@ class Evenements(list):
     """
     Evènements de la chronologie.
     """
+
     def __init__(self, extrait_json=None):
         if extrait_json:
             self.from_json(extrait_json)
 
     def from_json(self, my_json):
-        print(my_json)
         _json = json.loads(my_json)
         for _evenement in _json:
             self.append(Evenement(json.dumps(_evenement)))
@@ -121,6 +121,7 @@ class Evenement(object):
     """
     Evènement de la chronologie.
     """
+
     def __init__(self, extrait_json=None):
         if extrait_json:
             self.from_json(extrait_json)
@@ -501,10 +502,7 @@ class OrgueInventaire(object):
         communes_possibles = None
         #
         # Recherche exacte de la commune
-        try:
-            communes_possibles = communes_francaises[self.commune]
-        except KeyError:
-            pass
+        communes_possibles = communes_francaises.to_dict_par_nom.get(self.commune)
         #
         # Choix de la commune en fixant le département
         if communes_possibles is not None:
@@ -515,14 +513,14 @@ class OrgueInventaire(object):
             #
             if commune_trouvee is not None:
                 # Si la commune est de pleins droits :
-                if commune_trouvee.statut == 'ACTUELLE':
+                if commune_trouvee.typecom == 'COM':
                     self.code_insee = commune_trouvee.code_insee
                     self.commune_insee = commune_trouvee.nom
                 # S'il s'agit d'une commune associée ou déléguée, on renvoie le nom de la commune chef-lieu.
-                elif commune_trouvee.statut == 'ASSOCIEE' or commune_trouvee.statut == 'DELEGUEE':
+                elif commune_trouvee.typecom == 'COMA' or commune_trouvee.typecom == 'COMD':
                     # Mise à jour de l'ancienne commune
-                    self.code_insee = commune_trouvee.rattachement
-                    self.commune_insee = communes_francaises[commune_trouvee.rattachement].nom
+                    self.code_insee = commune_trouvee.comparent
+                    self.commune_insee = commune_trouvee.nomcomparent
                     if self.ancienne_commune == '':
                         self.ancienne_commune = self.commune
                         loggerInsee.debug("Commune trouvée associée ou déléguée : {} {} -> {}"
@@ -532,13 +530,10 @@ class OrgueInventaire(object):
                     else:
                         loggerInsee.debug("Ancienne commune déjà renseignée : {}".format(self.ancienne_commune))
                         if self.ancienne_commune != self.commune:
-                            loggerInsee.critical(
+                            loggerInsee.error(
                                 "Conflit ancienne commune <{}> et nom de commune associée ou déléguée <{}>"
-                                    .format(self.ancienne_commune, self.commune)
+                                .format(self.ancienne_commune, self.commune)
                             )
-                # S'il s'agit d'une commune périmée.
-                elif commune_trouvee.statut == 'PERIMEE':
-                    loggerInsee.error("COMMUNE_TROUVEE MAIS PERIMEE : {} {}".format(self.nomdepartement, self.commune))
                 #
                 # Ajout de la région:
                 self.nomregion = regions_francaises[commune_trouvee.coderegion].nomenclair
@@ -568,7 +563,7 @@ class OrguesInventaire(list):
                     champs = ligne.rstrip('\r\n').split(';')
                     # Vérification du format :
                     if len(champs) != 67:
-                        loggerInventaire.error('La ligne {} comporte {} champs.'.format(i+1, len(champs)))
+                        loggerInventaire.error('La ligne {} comporte {} champs.'.format(i + 1, len(champs)))
                         for j, champ_entete in enumerate(OrgueInventaire.entete):
                             print(champ_entete, champs[j])
                     # TODO
@@ -712,6 +707,7 @@ class OrguesInventaire(list):
                 orgue.is_polyphone = True
 
     def fixer_monumentshistoriques(self, ficbasepalissy, reset):
+
         def _split_dpro(champ_dpro):
             """
             Séparation du champ Palissy Pop DPRO
@@ -732,13 +728,14 @@ class OrguesInventaire(list):
                     lldpros.append(date_et_pro)
                 elif dpro != '':
                     index_sep = dpro.find(' classé')
-                    date_et_pro = [dpro[:index_sep], dpro[index_sep+1:]]
+                    date_et_pro = [dpro[:index_sep], dpro[index_sep + 1:]]
                     date_et_pro[1] = date_et_pro[1].strip()
                     lldpros.append(date_et_pro)
                     loggerInventaire.warning('Champ DPRO mal formatté : {}'.format(dpro))
                 else:
                     loggerInventaire.error('Champ DPRO vide : {}'.format(dpro))
             return lldpros
+
         basepalissy = palissy.OrguesPalissyPop(ficbasepalissy)
         pms = basepalissy.to_dict_pm()
         for orgue in self:
@@ -750,8 +747,9 @@ class OrguesInventaire(list):
                     if pm != '':
                         orguepalissy = pms.get(pm)
                         if not orguepalissy:
-                            loggerInventaire.error("Fixer Palissy : Un des PM de l'orgue est introuvable dans Palissy : " \
-                                                    + "<{}> {}".format(pm, orgue))
+                            loggerInventaire.error(
+                                "Fixer Palissy : Un des PM de l'orgue est introuvable dans Palissy : " \
+                                + "<{}> {}".format(pm, orgue))
                         else:
                             # Certains champs DPRO ont plusieurs informations.
                             for infos_pro in _split_dpro(orguepalissy.DPRO):
@@ -1106,15 +1104,15 @@ if __name__ == '__main__':
     # print(mon_inventaire.denombrer_par_commune()["La Flèche, Sarthe"])
     # mon_inventaire.to_console()
     #
-    mon_inventaire.verifier_existences_insee()
+    # mon_inventaire.verifier_existences_insee()
     # mon_inventaire.codifier_departements()
     #
     # mon_inventaire.standardiser_edifices()#dont corrections casse, etc.
     # mon_inventaire.rechercher_coordonnees_gps()
     #
     # mon_inventaire.mapper_coordonnees_gps_picardie('../97-data/', ['aisne', 'somme', 'oise'])
-    # print(mon_inventaire[4].references_palissy)
-    # mon_inventaire.mapper_palissypop_sur_inventaire('../97-data/export-pop-palissy.csv')
+
+    mon_inventaire.mapper_palissypop_sur_inventaire('../97-data/palissy_20200414_14h14m05s.csv')
     #
     mon_inventaire.codifier_orgues()
     #
@@ -1133,7 +1131,7 @@ if __name__ == '__main__':
     mon_inventaire.detecter_doublons_codifsorgues()
 
     # mon_inventaire.fixer_polyphones()
-    mon_inventaire.fixer_monumentshistoriques('../97-data/export-pop-palissy.csv', reset=True)
+    # mon_inventaire.fixer_monumentshistoriques('../97-data/export-pop-palissy.csv', reset=True)
 
     if MAIN_DEBUG:
         mon_inventaire.to_csv('../98-indexes/indexFrance.debug_out.csv')
@@ -1142,4 +1140,4 @@ if __name__ == '__main__':
         mon_inventaire.to_csv('../98-indexes/indexFrance-inventairedesorgues.csv')
         mon_inventaire.to_json('../98-indexes/indexFrance-inventairedesorgues.json')
 
-    loggerInventaire.info('Fin du script'.format(time.asctime(time.localtime()) ))
+    loggerInventaire.info('Fin du script'.format(time.asctime(time.localtime())))
