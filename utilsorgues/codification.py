@@ -7,11 +7,11 @@ import logging
 logger_codification = logging.getLogger('codification')
 logger_codification.setLevel(logging.DEBUG)
 # create file handler which logs even debug messages
-fh = logging.FileHandler('./logs/inventaire--codification.log')
+fh = logging.FileHandler('./inventaire--codification.log')
 fh.setLevel(logging.DEBUG)
 # create console handler with a higher log level
 ch = logging.StreamHandler()
-ch.setLevel(logging.WARNING)
+ch.setLevel(logging.INFO)
 # create formatter and add it to the handlers
 formatter = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
 fh.setFormatter(formatter)
@@ -36,31 +36,33 @@ communes_tests = [
     'Saint-Auban',
     "Saint-Michel-l'Observatoire",
     "Les Ponts-de-Cé",
-    "Val de Moder",
+    "Val-de-Moder",
     "Île-d'Arz",
     "L'Île-d'Yeu",
     "Luçon",
 ]
 
 edifices_tests = [
-    "Collégiale Saint-Quentin [basilique]",
-    "de Monneaux [temple]",
-    "[école de musique]",
-    "de l'Institution Lamartine [chapelle]",
-    "Saint-Côme & Saint-Damien [église]",
-    "Saint-Leu [église]",
-    "Notre-Dame-de-L’Assomption [église]",
-    "Saint-Amour & Saint-Victor [église]",
-    "notre-dame-de-l'Assomption [eglise]",
-    "notre-dame-de-L'Assomption [eglise]",
-    "Notre-dame-de-L'Assomption [eglise]",
-    "Nativité de la Très-Sainte-Vierge [église]",
-    "de la Nativité de la Sainte-Vierge [eglise]",
-    "Nativité de la Sainte-Vierge [église]",
-    "de la Nativité de la Sainte-Vierge [église]",
-    "de la Nativité-de-la-Sainte-Vierge [église]",
-    "de la Nativité de la Très-Sainte-Vierge [église]",
-    "de la Nativité de Notre-Dame [église]",
+    ("Saint-Amans", 'église'),
+    ("Collégiale Saint-Quentin", 'basilique'),
+    ("de Monneaux", 'temple'),
+    ('', "école de musique"),
+    ("de l'Institution Lamartine", 'chapelle'),
+    ("Saint-Côme & Saint-Damien", "église"),
+    ("Saint-Leu", "église"),
+    ("Saint-Leu et Saint-Gilles", "église"),
+    ("Notre-Dame-de-L’Assomption", 'église'),
+    ("Saint-Amour & Saint-Victor", 'église'),
+    ("notre-dame-de-l'Assomption", 'église'),
+    ("notre-dame-de-L'Assomption", 'église'),
+    ("Notre-dame-de-L'Assomption", 'église'),
+    ("Nativité de la Très-Sainte-Vierge", 'église'),
+    ("de la Nativité de la Sainte-Vierge", 'église'),
+    ("Nativité de la Sainte-Vierge", 'église'),
+    ("de la Nativité de la Sainte-Vierge", 'église'),
+    ("de la Nativité-de-la-Sainte-Vierge", 'église'),
+    ("de la Nativité de la Très-Sainte-Vierge", 'église'),
+    ("de la Nativité de Notre-Dame", 'église'),
 ]
 
 abreviations_4 = {'BEAU': 'BX',
@@ -87,6 +89,29 @@ abreviations_6 = {'BELLEV': 'BV',
                   'PIERRE': 'PRR'}
 
 abreviations_8 = {'CHAMPAGN': 'CPN'}
+
+
+def _supprimer_article(terme):
+    """
+    Suppression de l'article défini en début de terme.
+    :param terme: un nom d'édifice
+    :return: nom d'édifice corrigé
+    """
+    if terme[:2] in ["L'", "l'", "L’", "l’"]:
+        terme_modifie = terme[2:]
+    elif terme[:3] in ["Le ", "le ", "La ", "la ", "Le-", "le-", "La-", "la-"]:
+        terme_modifie = terme[3:]
+    elif terme[:4] in ['Les ', 'les ']:
+        terme_modifie = terme[4:]
+    elif terme[:2] in ["D'", "d'", "D’", "d’"]:
+        terme_modifie = terme[2:]
+    elif terme[:3] in ["De ", "de ", "De-", "de-", "Du ", "du "]:
+        terme_modifie = terme[3:]
+    elif terme[:4] in ["Des ", "des ", "Des-", "des-"]:
+        terme_modifie = terme[4:]
+    else:
+        terme_modifie = terme
+    return terme_modifie
 
 
 def supprimer_accents(chaine):
@@ -132,10 +157,11 @@ def codifier_instrument(orgue):
     return code_orgue
 
 
-def codifie_edifice(edifice):
+def codifie_edifice(edifice, type_edif):
     """
     Codification d'un édifice sur 6 caractères.
     :param edifice: nom standardisé de l'édifice
+    :param type_edif: type de l'édifice
     :return: codification
     """
     # FIXME : FR-38544-VIENN-STANDR-X
@@ -145,209 +171,207 @@ def codifie_edifice(edifice):
     # FIXME : FR-70526-VAUVI--------X;Vauvillers;église de la Nativité
 
     code_edifice = '------'
-    if edifice == '':
-        logger_codification.error("Pas de nom d'édifice :")
-    else:
+
+    if edifice == '' and type_edif is None:
+        logger_codification.error("Pas de nom d'édifice, ni de type.")
         # Si l'edifice n'a pas de nom (qu'un type), exemple fréquent : '[Temple]'
-        if edifice[0] == '[' and ']' in edifice:
-            edifice = edifice[1:].replace(']', '').lower()
-            if edifice in [
-                    'temple',
-                    'grand temple',
-                    'temple protestant',
-                    'temple réformé',
-                    ]:
-                code_edifice = 'TEMPLE'
-            elif edifice in [
-                    'église protestante',
-                    'temple prostestant',
-                    'chapelle protestante',
-                    ]:
-                code_edifice = 'PROTES'
-            elif edifice == 'église réformée':
-                code_edifice = 'REFORM'
-            elif edifice == 'église luthérienne':
-                code_edifice = 'LUTHER'
-            elif edifice in [
-                    'église catholique',
-                    'église paroissiale',
-                    'église',
-                    'église abbatiale',
-                    ]:
-                code_edifice = 'EGLISE'
-            elif edifice == 'église mixte':
-                code_edifice = 'EMIXTE'
-            elif edifice == 'église anglicane':
-                code_edifice = 'ANGLIC'
-            elif edifice == 'synagogue':
-                code_edifice = 'SYNAGO'
-            elif edifice in [
-                    'conservatoire national de région',
-                    'conservatoire national régional',
-                    'conservatoire',
-                    'conservatoire municipal',
-                    'école de musique',
-                    ]:
-                code_edifice = 'MUSIQU'
-            elif edifice == 'séminaire':
-                code_edifice = 'SEMINA'
-            elif edifice == "chapelle de l'hopital":
-                code_edifice = 'HOPITA'
-            elif edifice == "chapelle du college":
-                code_edifice = 'COLLEG'
-            else:
-                logger_codification.error("Absence codification avec type seul, sans nom : {}".format(edifice))
+    elif edifice == '' and type_edif is not None:
+        if type_edif in [
+                'temple',
+                'grand temple',
+                'temple protestant',
+                'temple réformé',
+                ]:
+            code_edifice = 'TEMPLE'
+        elif type_edif in [
+                'église protestante',
+                'temple prostestant',
+                'chapelle protestante',
+                ]:
+            code_edifice = 'PROTES'
+        elif type_edif == 'église réformée':
+            code_edifice = 'REFORM'
+        elif type_edif == 'église luthérienne':
+            code_edifice = 'LUTHER'
+        elif type_edif in [
+                'église catholique',
+                'église paroissiale',
+                'église',
+                'église abbatiale',
+                ]:
+            code_edifice = 'EGLISE'
+        elif type_edif == 'église mixte':
+            code_edifice = 'EMIXTE'
+        elif type_edif == 'église anglicane':
+            code_edifice = 'ANGLIC'
+        elif type_edif == 'synagogue':
+            code_edifice = 'SYNAGO'
+        elif type_edif in [
+                'conservatoire national de région',
+                'conservatoire national régional',
+                'conservatoire',
+                'conservatoire municipal',
+                'école de musique',
+                ]:
+            code_edifice = 'MUSIQU'
+        elif type_edif == 'séminaire':
+            code_edifice = 'SEMINA'
+        elif type_edif == "chapelle de l'hopital":
+            code_edifice = 'HOPITA'
+        elif type_edif == "chapelle du college":
+            code_edifice = 'COLLEG'
         else:
-            # On ne garde que le nom d'édifice, pas le type entre crochets
-            edifice = edifice.split('[')[0].rstrip(' ')
-            # On supprime jusqu'à deux articles en début de nom :
+            logger_codification.error("Absence codification avec type seul {}, sans nom : {}".format(type, edifice))
+    else:
+        # On supprime jusqu'à deux articles en début de nom :
+        edifice = _supprimer_article(edifice)
+        edifice = _supprimer_article(edifice)
+        # On corrige les e dans l'o (car deux caractères au lieu d'un seul):
+        edifice = edifice.replace('œ', 'oe')
+        # Sacré-Coeur:
+        if 'Sacré-Coeur' in edifice:
+            code_edifice = 'SCOEUR'
+        # Codification des GRAND (séminaire, théâtre, casino, ...)
+        elif edifice[:5] == 'grand':
+            if len(edifice) >= 10:
+                code_edifice = 'GD' + edifice[6:10]
+            else:
+                code_edifice = 'GRANDD'
+        # Codification des églises au sein d'une congrégation :
+        if edifice[:12] == 'congrégation':
+            edifice = edifice[12:]
             edifice = _supprimer_article(edifice)
             edifice = _supprimer_article(edifice)
-            # On corrige les e dans l'o (car deux caractères au lieu d'un seul):
-            edifice = edifice.replace('œ', 'oe')
-            # Sacré-Coeur:
-            if 'Sacré-Coeur' in edifice:
-                code_edifice = 'SCOEUR'
-            # Codification des GRAND (séminaire, théâtre, casino, ...)
-            elif edifice[:5] == 'grand':
-                if len(edifice) >= 10:
-                    code_edifice = 'GD' + edifice[6:10]
-                else:
-                    code_edifice = 'GRANDD'
-            # Codification des églises au sein d'une congrégation :
-            if edifice[:12] == 'congrégation':
-                edifice = edifice[12:]
-                edifice = _supprimer_article(edifice)
-                edifice = _supprimer_article(edifice)
-            # Codification Missions étrangères
-            if 'Missions Étrangères' in edifice:
-                code_edifice = 'MISSET'
-            # Codification des églises au sein d'une école :
-            if edifice[:5] == 'école' or edifice[:5] == 'ecole' or edifice[:7] == 'collège':
-                if len(edifice) < 5:
-                    code_edifice = 'ECOLEE'
-                else:
-                    # TODO : appeler codification de façon récursive ou tout simplement supprimer école
-                    code_edifice = 'ECO' + edifice[-3:]
-            # Codification des églises dédicacées à un saint ou une sainte :
-            # FIXME : Saint-Jean-Marie Vianney (Basilique Sainte-Philomène, Basilique Saint-Sixte)
-            # FIXME : Saint-Jacques (Abbaye de Chanoines Réguliers de Saint Augustin Saint-Rémy)
-            # FIXME : Saint-Martin-Notre-Dame et Saint-André
-            # FIXME : Saint-François-Xavier (Saint-Joseph)
+        # Codification Missions étrangères
+        if 'Missions Étrangères' in edifice:
+            code_edifice = 'MISSET'
+        # Codification des églises au sein d'une école :
+        if edifice[:5] == 'école' or edifice[:5] == 'ecole' or edifice[:7] == 'collège':
+            if len(edifice) < 5:
+                code_edifice = 'ECOLEE'
+            else:
+                # TODO : appeler codification de façon récursive ou tout simplement supprimer école
+                code_edifice = 'ECO' + edifice[-3:]
+        # Codification des églises dédicacées à un saint ou une sainte :
+        # FIXME : Saint-Jean-Marie Vianney (Basilique Sainte-Philomène, Basilique Saint-Sixte)
+        # FIXME : Saint-Jacques (Abbaye de Chanoines Réguliers de Saint Augustin Saint-Rémy)
+        # FIXME : Saint-Martin-Notre-Dame et Saint-André
+        # FIXME : Saint-François-Xavier (Saint-Joseph)
+        # FIXME : Saint-Pierre & Saint-Paul (Église Notre-Dame)
+        # Cas particuliers :
+        if edifice == 'Saint-Pierre-ès-Liens':
+            code_edifice = 'STPIEL'
+        elif edifice == 'Saint-Marceau':
+            code_edifice = 'STMARU'
+        elif edifice == 'Saint-Martin-ès-Vignes':
+            code_edifice = 'STMAEV'
+        elif edifice == "Sainte-Thérèse d'Avila":
+            code_edifice = 'STTHEA'
+        elif edifice == "Sainte-Thérèse de l'Enfant-Jésus":
+            code_edifice = 'STTHEL'
+        elif edifice == 'Saint-Jean-Bosco':
+            code_edifice = 'STJBOS'
+        elif edifice == 'Saint-Jean-Baptiste':
+            code_edifice = 'STJBAP'
+        elif edifice == 'Saint-Jean-Baptiste-de-la-Salle':
+            code_edifice = 'STJDLS'
+        elif edifice == "Saint-François d'Assise":
+            code_edifice = 'STFASS'
+        elif edifice == "Saint-François de Paule":
+            code_edifice = 'STFPAU'
+        elif edifice == "Sainte-Jeanne d'Arc":
+            code_edifice = 'STJARC'
+        elif edifice[:6] == 'Saint-':
+            saint = edifice[6:]
+            # Exception : Plusieurs saints, mais sans regarder dans les parenthèses :
             # FIXME : Saint-Pierre & Saint-Paul (Église Notre-Dame)
-            # Cas particuliers :
-            if edifice == 'Saint-Pierre-ès-Liens':
-                code_edifice = 'STPIEL'
-            elif edifice == 'Saint-Marceau':
-                code_edifice = 'STMARU'
-            elif edifice == 'Saint-Martin-ès-Vignes':
-                code_edifice = 'STMAEV'
-            elif edifice == "Sainte-Thérèse d'Avila":
-                code_edifice = 'STTHEA'
-            elif edifice == "Sainte-Thérèse de l'Enfant-Jésus":
-                code_edifice = 'STTHEL'
-            elif edifice == 'Saint-Jean-Bosco':
-                code_edifice = 'STJBOS'
-            elif edifice == 'Saint-Jean-Baptiste':
-                code_edifice = 'STJBAP'
-            elif edifice == 'Saint-Jean-Baptiste-de-la-Salle':
-                code_edifice = 'STJDLS'
-            elif edifice == "Saint-François d'Assise":
-                code_edifice = 'STFASS'
-            elif edifice == "Saint-François de Paule":
-                code_edifice = 'STFPAU'
-            elif edifice == "Sainte-Jeanne d'Arc":
-                code_edifice = 'STJARC'
-            elif edifice[:6] == 'Saint-':
-                saint = edifice[6:]
-                # Exception : Plusieurs saints, mais sans regarder dans les parenthèses :
-                # FIXME : Saint-Pierre & Saint-Paul (Église Notre-Dame)
-                if 'Saint' in saint and saint.find('(') <= saint.find('Saint'):
-                    if saint == 'Denis du Saint-Sacrement':
-                        code_edifice = 'ST' + 'DSSS'
-                    elif '&' in saint:
-                        premier_saint = saint.split('&')[0].rstrip()
-                        deuxieme_saint = saint.split('&')[1].lstrip().lstrip('Saint-')
-                        code_edifice = 'SS' + premier_saint[0] + premier_saint[-1] + deuxieme_saint[0] + deuxieme_saint[-1]
-                    else:
-                        logger_codification.error("Nom d'édifice avec plusieurs saints non géré : {}".format(edifice))
-                        code_edifice = 'SS' + saint[:4]
-                    """
-                    elif saint == 'Paul & Saint-Louis':
-                        code_edifice = 'SS' + 'PLLS'
-                    elif saint == 'Cyr & Sainte-Julitte' or saint == 'Cyr & Sainte-Juliette':
-                        code_edifice = 'SS' + 'JNMN'
-                    elif saint == 'Jean & Saint-Martin':
-                        code_edifice = 'SS' + 'JNMN'
-                    elif saint == 'Nicolas & Saint-Guillaume':
-                        code_edifice = 'SS' + 'NSGE'
-                    elif saint == 'Côme & Saint-Damien':
-                        code_edifice = 'SS' + 'CEDN'
-                    elif saint == 'Julien & Saint-Antoine':
-                        code_edifice = 'SS' + 'JNAE'
-                    elif saint == 'Simon & Saint-Jude':
-                        code_edifice = 'SS' + 'SNJE'
-                    elif saint == 'Gervais & Saint-Protais':
-                        code_edifice = 'SS' + 'GSPS'
-                    elif saint == 'Georges & Saint-Ludan':
-                        code_edifice = 'SS' + 'GSLN'
-                    elif saint == 'Nazaire & Saint-Celse':
-                        code_edifice = 'SS' + 'NZCE'
-                    elif saint == 'Paul & Saint-Serge':
-                        code_edifice = 'SS' + 'PLSE'
-                    elif saint == 'Juste & Saint-Pasteur' or saint == 'Just-Saint-Pasteur':
-                        code_edifice = 'SS' + 'JEPR'
-                    elif saint == 'Philippe & Saint-Jacques':
-                        code_edifice = 'SS' + 'PEJS'
-                    elif saint == 'Pierre & Saint-Paul':
-                        code_edifice = 'SS' + 'PEPL'
-                    """
+            if 'Saint' in saint and saint.find('(') <= saint.find('Saint'):
+                if saint == 'Denis du Saint-Sacrement':
+                    code_edifice = 'ST' + 'DSSS'
+                elif '&' in saint:
+                    premier_saint = saint.split('&')[0].rstrip()
+                    deuxieme_saint = saint.split('&')[1].lstrip().lstrip('Saint-')
+                    code_edifice = 'SS' + premier_saint[0] + premier_saint[-1] + deuxieme_saint[0] + deuxieme_saint[-1]
                 else:
-                    code_edifice = 'ST' + saint[:4]
-            elif edifice[:7] == 'Sainte-':
-                sainte = edifice[7:]
-                code_edifice = 'ST' + sainte[:4]
-            # Eglises dédicacées à Saint-Jean-Baptiste :
-            elif 'Nativité-de-Saint-Jean-Baptiste' in edifice:
-                code_edifice = 'NATSJB'
-            # Codification des églises dédicacées à la Sainte-Vierge :
-            elif edifice.lower() == 'notre-dame':
-                code_edifice = 'NDAMEV'
-            elif edifice[:10].lower() == 'notre-dame':
-                notre_dame = edifice[10:]
-                # On force les titres de Notre-Dame avec des traits d'union :
-                notre_dame = notre_dame.replace(' ', '-')
-                fin_notre_dame = notre_dame
-                if '-' in notre_dame:
-                    fin_notre_dame = notre_dame.split('-')[-1]
-                    # TODO : Suppression de l'article.
-                code_edifice = 'ND' + _supprimer_article(fin_notre_dame)[:4]
-            # Nativité :
-            elif edifice[:8].lower() == 'nativité':
-                nativite = edifice[8:]
-                if nativite == '':
-                    code_edifice = 'NATIVI'
-                elif 'B.V.M' in nativite:
-                    code_edifice = 'NATBVM'
-                elif 'Notre-Dame' in nativite:
-                    code_edifice = 'NATNDM'
-                elif 'Sainte-Vierge' in nativite or 'Vierge' in nativite:
-                    code_edifice = 'NATSVI'
-                else:
-                    code_edifice = 'NATIVI'
-            # Ramasse-miettes
-            elif code_edifice == '------':
-                code_edifice = edifice[:6]
-            # On complète les caractères manquant par le dernier caractère.
-            # FIXME : FR-75056-PARIS-COEUR -T;Paris;église du Cœur Eucharistique;
-            code_edifice = code_edifice.ljust(6, code_edifice[-1])
-            code_edifice = code_edifice.upper()
-            code_edifice = supprimer_accents(code_edifice)
-            code_edifice = code_edifice.replace(' ', '_')
-            code_edifice = code_edifice.replace('.', '_')
-        # Contrôle final
-        if code_edifice == '------':
-            logger_codification.critical("Echec de la codification de l'édifice : {}".format(edifice))
+                    logger_codification.error("Nom d'édifice avec plusieurs saints non géré : {}".format(edifice))
+                    code_edifice = 'SS' + saint[:4]
+                """
+                elif saint == 'Paul & Saint-Louis':
+                    code_edifice = 'SS' + 'PLLS'
+                elif saint == 'Cyr & Sainte-Julitte' or saint == 'Cyr & Sainte-Juliette':
+                    code_edifice = 'SS' + 'JNMN'
+                elif saint == 'Jean & Saint-Martin':
+                    code_edifice = 'SS' + 'JNMN'
+                elif saint == 'Nicolas & Saint-Guillaume':
+                    code_edifice = 'SS' + 'NSGE'
+                elif saint == 'Côme & Saint-Damien':
+                    code_edifice = 'SS' + 'CEDN'
+                elif saint == 'Julien & Saint-Antoine':
+                    code_edifice = 'SS' + 'JNAE'
+                elif saint == 'Simon & Saint-Jude':
+                    code_edifice = 'SS' + 'SNJE'
+                elif saint == 'Gervais & Saint-Protais':
+                    code_edifice = 'SS' + 'GSPS'
+                elif saint == 'Georges & Saint-Ludan':
+                    code_edifice = 'SS' + 'GSLN'
+                elif saint == 'Nazaire & Saint-Celse':
+                    code_edifice = 'SS' + 'NZCE'
+                elif saint == 'Paul & Saint-Serge':
+                    code_edifice = 'SS' + 'PLSE'
+                elif saint == 'Juste & Saint-Pasteur' or saint == 'Just-Saint-Pasteur':
+                    code_edifice = 'SS' + 'JEPR'
+                elif saint == 'Philippe & Saint-Jacques':
+                    code_edifice = 'SS' + 'PEJS'
+                elif saint == 'Pierre & Saint-Paul':
+                    code_edifice = 'SS' + 'PEPL'
+                """
+            else:
+                code_edifice = 'ST' + saint[:4]
+        elif edifice[:7] == 'Sainte-':
+            sainte = edifice[7:]
+            code_edifice = 'ST' + sainte[:4]
+        # Eglises dédicacées à Saint-Jean-Baptiste :
+        elif 'Nativité-de-Saint-Jean-Baptiste' in edifice:
+            code_edifice = 'NATSJB'
+        # Codification des églises dédicacées à la Sainte-Vierge :
+        elif edifice.lower() == 'notre-dame':
+            code_edifice = 'NDAMEV'
+        elif edifice[:10].lower() == 'notre-dame':
+            notre_dame = edifice[10:]
+            # On force les titres de Notre-Dame avec des traits d'union :
+            notre_dame = notre_dame.replace(' ', '-')
+            fin_notre_dame = notre_dame
+            if '-' in notre_dame:
+                fin_notre_dame = notre_dame.split('-')[-1]
+                # TODO : Suppression de l'article.
+            code_edifice = 'ND' + _supprimer_article(fin_notre_dame)[:4]
+        # Nativité :
+        elif edifice[:8].lower() == 'nativité':
+            nativite = edifice[8:]
+            if nativite == '':
+                code_edifice = 'NATIVI'
+            elif 'B.V.M' in nativite:
+                code_edifice = 'NATBVM'
+            elif 'Notre-Dame' in nativite:
+                code_edifice = 'NATNDM'
+            elif 'Sainte-Vierge' in nativite or 'Vierge' in nativite:
+                code_edifice = 'NATSVI'
+            else:
+                code_edifice = 'NATIVI'
+        # Ramasse-miettes
+        elif code_edifice == '------':
+            code_edifice = edifice[:6]
+        # On complète les caractères manquant par le dernier caractère.
+        # FIXME : FR-75056-PARIS-COEUR -T;Paris;église du Cœur Eucharistique;
+        code_edifice = code_edifice.ljust(6, code_edifice[-1])
+        code_edifice = code_edifice.upper()
+        code_edifice = supprimer_accents(code_edifice)
+        code_edifice = code_edifice.replace(' ', '_')
+        code_edifice = code_edifice.replace('.', '_')
+
+    # Contrôle final
+    if code_edifice == '------':
+        logger_codification.critical("Echec de la codification de l'édifice : {}".format(edifice))
     return code_edifice
 
 
@@ -421,29 +445,6 @@ def codifie_denomination(denomination):
     return code_denomination
 
 
-def _supprimer_article(terme):
-    """
-    Suppression de l'article défini en début de terme.
-    :param terme: un nom d'édifice
-    :return: nom d'édifice corrigé
-    """
-    if terme[:2] in ["L'", "l'", "L’", "l’"]:
-        terme_modifie = terme[2:]
-    elif terme[:3] in ["Le ", "le ", "La ", "la ", "Le-", "le-", "La-", "la-"]:
-        terme_modifie = terme[3:]
-    elif terme[:4] in ['Les ', 'les ']:
-        terme_modifie = terme[4:]
-    elif terme[:2] in ["D'", "d'", "D’", "d’"]:
-        terme_modifie = terme[2:]
-    elif terme[:3] in ["De ", "de ", "De-", "de-", "Du ", "du "]:
-        terme_modifie = terme[3:]
-    elif terme[:4] in ["Des ", "des ", "Des-", "des-"]:
-        terme_modifie = terme[4:]
-    else:
-        terme_modifie = terme
-    return terme_modifie
-
-
 def codifie_commune(commune):
     """
     Codification d'une commune française, sur cinq lettres.
@@ -494,13 +495,13 @@ def codifie_commune(commune):
 
 
 def test_codifie_edifice():
-    for edifice in edifices_tests:
-        print('Codage édifice : {} {}'.format(codifie_edifice(edifice), edifice))
+    for edifice_et_type in edifices_tests:
+        logger_codification.info('Codage édifice : {} {}'.format(codifie_edifice(*edifice_et_type), edifice_et_type))
 
 
 def test_codifie_commune():
     for com in communes_tests:
-        print('Codage commune : {} {}'.format(codifie_commune(com), com))
+        logger_codification.info('Codage commune : {} {}'.format(codifie_commune(com), com))
 
 
 if __name__ == '__main__':
