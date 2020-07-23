@@ -9,7 +9,7 @@ import logging
 loggerCorrecteurorgues = logging.getLogger('correcteurogues')
 loggerCorrecteurorgues.setLevel(logging.DEBUG)
 # create file handler which logs even debug messages
-fhc = logging.FileHandler('./inventaire--correcteurorgues.log')
+fhc = logging.FileHandler('./logs/inventaire--correcteurorgues.log')
 fhc.setLevel(logging.DEBUG)
 # create console handler with a higher log level
 chc = logging.StreamHandler()

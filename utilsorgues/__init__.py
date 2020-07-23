@@ -1,6 +1,6 @@
 __all__ = ["codegeographique", "codification", "correcteurorgues", "grep"]
 
-from utilsorgues import generiques
+from utilsorgues import tools
 
 from .codegeographique import Communes
 

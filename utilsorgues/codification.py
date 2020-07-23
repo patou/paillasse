@@ -3,22 +3,24 @@
 Codification d'un orgue
 """
 import logging
+import utilsorgues.tools.generiques as gen
+
 
 logger_codification = logging.getLogger('codification')
 logger_codification.setLevel(logging.DEBUG)
 # create file handler which logs even debug messages
-fh = logging.FileHandler('./inventaire--codification.log')
-fh.setLevel(logging.DEBUG)
+fhd = logging.FileHandler('./logs/inventaire--codification.log')
+fhd.setLevel(logging.DEBUG)
 # create console handler with a higher log level
-ch = logging.StreamHandler()
-ch.setLevel(logging.INFO)
+chd = logging.StreamHandler()
+chd.setLevel(logging.INFO)
 # create formatter and add it to the handlers
 formatter = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
-fh.setFormatter(formatter)
-ch.setFormatter(formatter)
+fhd.setFormatter(formatter)
+chd.setFormatter(formatter)
 # add the handlers to the logger
-logger_codification.addHandler(fh)
-logger_codification.addHandler(ch)
+logger_codification.addHandler(fhd)
+logger_codification.addHandler(chd)
 
 communes_tests = [
     'Champcueil',
@@ -65,7 +67,7 @@ edifices_tests = [
     ("de la Nativité de Notre-Dame", 'église'),
 ]
 
-abreviations_4 = {'BEAU': 'BX',
+ABREVIATIONS_4 = {'BEAU': 'BX',
                   'BOUR': 'BZ',
                   'BONN': 'BN',
                   'CHAU': 'CX',
@@ -76,7 +78,7 @@ abreviations_4 = {'BEAU': 'BX',
                   'VIGN': 'VN',
                   'VILL': 'VL'}
 
-abreviations_5 = {'CASTE': 'CS',
+ABREVIATIONS_5 = {'CASTE': 'CS',
                   'CHAMB': 'CB',
                   'CHAMP': 'CP',
                   'CHATE': 'CT',
@@ -84,77 +86,60 @@ abreviations_5 = {'CASTE': 'CS',
                   'MARTI': 'MR',
                   'ROQUE': 'RQ'}
 
-abreviations_6 = {'BELLEV': 'BV',
+ABREVIATIONS_6 = {'BELLEV': 'BV',
                   'CHANTE': 'CN',
                   'PIERRE': 'PRR'}
 
-abreviations_8 = {'CHAMPAGN': 'CPN'}
+ABREVIATIONS_8 = {'CHAMPAGN': 'CPN'}
 
 
-def _supprimer_article(terme):
+def codifie_commune(commune):
     """
-    Suppression de l'article défini en début de terme.
-    :param terme: un nom d'édifice
-    :return: nom d'édifice corrigé
+    Codification d'une commune française, sur cinq lettres.
+    :param commune:
+    :return: code
+    Source : Codification nationale de sites du réseau public de transport d'électricité.
+    Nota : Une codification n'est pas unique, car plusieurs communes peuvent avoir même codification.
     """
-    if terme[:2] in ["L'", "l'", "L’", "l’"]:
-        terme_modifie = terme[2:]
-    elif terme[:3] in ["Le ", "le ", "La ", "la ", "Le-", "le-", "La-", "la-"]:
-        terme_modifie = terme[3:]
-    elif terme[:4] in ['Les ', 'les ']:
-        terme_modifie = terme[4:]
-    elif terme[:2] in ["D'", "d'", "D’", "d’"]:
-        terme_modifie = terme[2:]
-    elif terme[:3] in ["De ", "de ", "De-", "de-", "Du ", "du "]:
-        terme_modifie = terme[3:]
-    elif terme[:4] in ["Des ", "des ", "Des-", "des-"]:
-        terme_modifie = terme[4:]
-    else:
-        terme_modifie = terme
-    return terme_modifie
-
-
-def supprimer_accents(chaine):
-    """
-    Supprime les accents et cédilles.
-    """
-    accents = {'E': ['É', 'È', 'Ê', 'Ë'],
-               'A': ['À', 'Á', 'Â', 'Ã'],
-               'I': ['Î', 'Ï'],
-               'U': ['Ù', 'Ü', 'Û'],
-               'O': ['Ô', 'Ö'],
-               'C': ['Ç'],
-               'e': ['é', 'è', 'ê', 'ë'],
-               'a': ['à', 'á', 'â', 'ã'],
-               'i': ['î', 'ï'],
-               'u': ['ù', 'ü', 'û'],
-               'o': ['ô', 'ö'],
-               'c': ['ç']
-               }
-    for (char, accented_chars) in accents.items():
-        for accented_char in accented_chars:
-            chaine = chaine.replace(accented_char, char)
-    return chaine
-
-
-def codifier_instrument(orgue):
-    """
-    Codification d'un orgue de l'inventaire.
-    :param orgue: objet de la classe OrgueInventaire
-    :return: codification (str)
-    """
-    logger_codification.debug('codifier_instrument {} {}'.format(str(orgue), str(orgue.commune_insee)))
-    code_orgue = ''
-    code_orgue += 'FR'
-    code_orgue += '-'
-    code_orgue += orgue.code_insee
-    code_orgue += '-'
-    code_orgue += codifie_commune(orgue.commune_insee)
-    code_orgue += '-'
-    code_orgue += codifie_edifice(orgue.edifice_standard)
-    code_orgue += '-'
-    code_orgue += codifie_denomination(orgue.designation)
-    return code_orgue
+    # REGLE : L'article inital est omis.
+    commune_modifiee = gen.supprimer_article(commune)
+    #
+    code = commune_modifiee.upper()
+    # REGLE : Abréviations, pour les noms de plus de cinq caractères :
+    if len(commune_modifiee) > 5:
+        # FIXME : 3 ou 2 car abbr
+        if code[:8] in ABREVIATIONS_8:
+            code = ABREVIATIONS_8[code[:8]] + code[8:10]
+        # FIXME : 3 ou 2 car abbr
+        elif code[:6] in ABREVIATIONS_6:
+            code = ABREVIATIONS_6[code[:6]] + code[6:9]
+        elif code[:5] in ABREVIATIONS_5:
+            code = ABREVIATIONS_5[code[:5]] + code[5:8]
+        elif code[:4] in ABREVIATIONS_4:
+            code = ABREVIATIONS_4[code[:4]] + code[4:7]
+    # REGLE : Noms composés :
+    # Les espaces sont considérés comme des tirets
+    if ' ' in commune_modifiee:
+        commune_modifiee = commune_modifiee.replace(' ', '-')
+    # REGLE : on ne prend que le premier et dernier des mots, sans article :
+    if '-' in commune_modifiee:
+        mots = commune_modifiee.split('-')
+        mots = [gen.supprimer_article(m) for m in mots]
+        code = commune_modifiee[0] + '_' + mots[-1][:3]
+        # REGLE : Saint devient SS :
+        if mots[0] in ['Saint', 'Sainte', 'Saints', 'Saintes']:
+            code = 'SS' + mots[-1][:3]
+            # REGLE : MARC devient MC et MAUR devient MR :
+            if mots[-1][:4] in ['MARC', 'MAUR']:
+                code = 'SS' + 'M' + mots[-1][4] + mots[-1][5]
+    if code == commune_modifiee.upper():
+        code = commune_modifiee[:5]
+    # REGLE : Si moins de cinq caractères, on répète le dernier jusqu'à cinq.
+    if 0 < len(code) < 5:
+        code = code + code[-1] * (5 - len(code))
+    # Post-traitements :
+    code = gen.supprimer_accents(code).upper()
+    return code
 
 
 def codifie_edifice(edifice, type_edif):
@@ -224,8 +209,8 @@ def codifie_edifice(edifice, type_edif):
             logger_codification.error("Absence codification avec type seul {}, sans nom : {}".format(type, edifice))
     else:
         # On supprime jusqu'à deux articles en début de nom :
-        edifice = _supprimer_article(edifice)
-        edifice = _supprimer_article(edifice)
+        edifice = gen.supprimer_article(edifice)
+        edifice = gen.supprimer_article(edifice)
         # On corrige les e dans l'o (car deux caractères au lieu d'un seul):
         edifice = edifice.replace('œ', 'oe')
         # Sacré-Coeur:
@@ -240,8 +225,8 @@ def codifie_edifice(edifice, type_edif):
         # Codification des églises au sein d'une congrégation :
         if edifice[:12] == 'congrégation':
             edifice = edifice[12:]
-            edifice = _supprimer_article(edifice)
-            edifice = _supprimer_article(edifice)
+            edifice = gen.supprimer_article(edifice)
+            edifice = gen.supprimer_article(edifice)
         # Codification Missions étrangères
         if 'Missions Étrangères' in edifice:
             code_edifice = 'MISSET'
@@ -344,7 +329,7 @@ def codifie_edifice(edifice, type_edif):
             if '-' in notre_dame:
                 fin_notre_dame = notre_dame.split('-')[-1]
                 # TODO : Suppression de l'article.
-            code_edifice = 'ND' + _supprimer_article(fin_notre_dame)[:4]
+            code_edifice = 'ND' + gen.supprimer_article(fin_notre_dame)[:4]
         # Nativité :
         elif edifice[:8].lower() == 'nativité':
             nativite = edifice[8:]
@@ -365,7 +350,7 @@ def codifie_edifice(edifice, type_edif):
         # FIXME : FR-75056-PARIS-COEUR -T;Paris;église du Cœur Eucharistique;
         code_edifice = code_edifice.ljust(6, code_edifice[-1])
         code_edifice = code_edifice.upper()
-        code_edifice = supprimer_accents(code_edifice)
+        code_edifice = gen.supprimer_accents(code_edifice)
         code_edifice = code_edifice.replace(' ', '_')
         code_edifice = code_edifice.replace('.', '_')
 
@@ -445,53 +430,24 @@ def codifie_denomination(denomination):
     return code_denomination
 
 
-def codifie_commune(commune):
+def codifier_instrument(orgue):
     """
-    Codification d'une commune française, sur cinq lettres.
-    :param commune:
-    :return: code
-    Source : Codification nationale de sites du réseau public de transport d'électricité.
-    Nota : Une codification n'est pas unique, car plusieurs communes peuvent avoir même codification.
+    Codification d'un orgue de l'inventaire.
+    :param orgue: objet de la classe OrgueInventaire
+    :return: codification (str)
     """
-    # REGLE : L'article inital est omis.
-    commune_modifiee = _supprimer_article(commune)
-    #
-    code = commune_modifiee.upper()
-    # REGLE : Abréviations, pour les noms de plus de cinq caractères :
-    if len(commune_modifiee) > 5:
-        # FIXME : 3 ou 2 car abbr
-        if code[:8] in abreviations_8:
-            code = abreviations_8[code[:8]] + code[8:10]
-        # FIXME : 3 ou 2 car abbr
-        elif code[:6] in abreviations_6:
-            code = abreviations_6[code[:6]] + code[6:9]
-        elif code[:5] in abreviations_5:
-            code = abreviations_5[code[:5]] + code[5:8]
-        elif code[:4] in abreviations_4:
-            code = abreviations_4[code[:4]] + code[4:7]
-    # REGLE : Noms composés :
-    # Les espaces sont considérés comme des tirets
-    if ' ' in commune_modifiee:
-        commune_modifiee = commune_modifiee.replace(' ', '-')
-    # REGLE : on ne prend que le premier et dernier des mots, sans article :
-    if '-' in commune_modifiee:
-        mots = commune_modifiee.split('-')
-        mots = [_supprimer_article(m) for m in mots]
-        code = commune_modifiee[0] + '_' + mots[-1][:3]
-        # REGLE : Saint devient SS :
-        if mots[0] in ['Saint', 'Sainte', 'Saints', 'Saintes']:
-            code = 'SS' + mots[-1][:3]
-            # REGLE : MARC devient MC et MAUR devient MR :
-            if mots[-1][:4] in ['MARC', 'MAUR']:
-                code = 'SS' + 'M' + mots[-1][4] + mots[-1][5]
-    if code == commune_modifiee.upper():
-        code = commune_modifiee[:5]
-    # REGLE : Si moins de cinq caractères, on répète le dernier jusqu'à cinq.
-    if len(code) < 5:
-        code = code + code[-1] * (5 - len(code))
-    # Post-traitements :
-    code = supprimer_accents(code).upper()
-    return code
+    logger_codification.debug('codifier_instrument {} {}'.format(str(orgue), str(orgue.commune_insee)))
+    code_orgue = ''
+    code_orgue += 'FR'
+    code_orgue += '-'
+    code_orgue += orgue.code_insee
+    code_orgue += '-'
+    code_orgue += codifie_commune(orgue.commune_insee)
+    code_orgue += '-'
+    code_orgue += codifie_edifice(orgue.edifice_standard, orgue.type_edifice)
+    code_orgue += '-'
+    code_orgue += codifie_denomination(orgue.designation)
+    return code_orgue
 
 
 def test_codifie_edifice():
