@@ -2,9 +2,10 @@
 Classes représentant le modèle de données de l'index des orgues de France.
 """
 
+# TODO : distinction des doublons par adresse ou osm_id
 # TODO : JSON cassé par les guillemets d'Open Office...
 # TODO : protection du segment json dans évènements (pour l'instant on remplace les ; de Palissy.
-# TODO : Finir le traitement des doublons.
+
 # TODO : Supprimer les vieilles fonctions Palissy pour ne garder que POP.
 # TODO : intégrer le nouveau POP de Servane.
 # TODO : le profiler plante sur les fonctions json
@@ -15,6 +16,7 @@ import re
 import time
 
 import utilsorgues as uo
+import utilsorgues.codification as cod
 import palissy
 import gpsmessesinfo
 import orgbase
@@ -491,7 +493,7 @@ class OrgueInventaire(object):
         :return:
         """
         if self.edifice_standard != '':
-            self.codification_edifice = uo.codification.codifie_edifice(self.edifice_standard)
+            self.codification_edifice = cod.codifie_edifice(self.edifice_standard, self.type_edifice)
         else:
             loggerInventaire.error("Pas de nom d'édifice pour l'orgue {}".format(self))
         return
@@ -708,8 +710,18 @@ class OrguesInventaire(list):
             if orgue.designation == 'polyphone':
                 orgue.is_polyphone = True
 
-    def fixer_monumentshistoriques(self, ficbasepalissy, reset):
+    def fixer_liendereference(self):
+        for orgue in self:
+            if orgue.lien_reference == '':
+                orgue.lien_reference = orgue.orgbase_manu
 
+    def fixer_monumentshistoriques(self, ficbasepalissy, reset):
+        """
+        Ajout des évènements Palissy aux chronologies.
+        :param ficbasepalissy : un fichier d'export POP Palissy
+        :param reset: booléen : effacement préalable de tous les évènements.
+        :return:
+        """
         def _split_dpro(champ_dpro):
             """
             Séparation du champ Palissy Pop DPRO
@@ -850,7 +862,7 @@ class OrguesInventaire(list):
                 if edifice_palissy_standard == '':
                     loggerInventaire.warning("Objet Palissy sans nom d'édifice standard : {}".format(_objet_palissy))
                 else:
-                    _objet_palissy.code_edifice = uo.codification.codifie_edifice(edifice_palissy_standard, edifice_palissy_type)
+                    _objet_palissy.code_edifice = cod.codifie_edifice(edifice_palissy_standard, edifice_palissy_type)
                     logger_palissy.debug("Codification de l'édifice de l'item Palissy {} {}"
                                     .format(_objet_palissy.code_edifice, _objet_palissy))
             return
@@ -932,7 +944,7 @@ class OrguesInventaire(list):
                     pass
                     # TODO : Il faut aller creuser dans le fichier mouvements du code géographique.
                 # En dernier recours, on ne compare que les codifications
-                # elif objet_palissy.code_edifice == uo.codification.codifie_edifice(orgue_inventaire.edifice_standard):
+                # elif objet_palissy.code_edifice == cod.codifie_edifice(orgue_inventaire.edifice_standard):
                 #     log.append("Palissy    : {}".format(
                 #         objet_palissy.code_edifice))
                 #     log.append("Inventaire : {}".format(
@@ -1123,7 +1135,9 @@ class OrguesInventaire(list):
 
 
 if __name__ == '__main__':
+
     loggerInventaire.info('{} Démarrage du script'.format(time.asctime(time.localtime())))
+
     if len(sys.argv) == 2:
         PARAM_DEBUG = sys.argv[1]
     else:
@@ -1135,42 +1149,39 @@ if __name__ == '__main__':
         mon_inventaire = OrguesInventaire('../98-indexes/indexFrance-inventairedesorgues.csv', True)
 
     print(mon_inventaire)
-    mon_inventaire.liste_edifices_absents()
-    #
     # print(mon_inventaire.denombrer_par_commune()["La Flèche, Sarthe"])
     # mon_inventaire.to_console()
-    #
-    #mon_inventaire.codifier_departements()
-    #mon_inventaire.verifier_existences_insee()
-    #
-    mon_inventaire.standardiser_edifices()  # dont corrections casse, etc.
-    # mon_inventaire.rechercher_coordonnees_gps()
-    #
-    # mon_inventaire.mapper_coordonnees_gps_picardie('../97-data/', ['aisne', 'somme', 'oise'])
 
+    mon_inventaire.liste_edifices_absents()
+
+    # mon_inventaire.codifier_departements()
+    # mon_inventaire.verifier_existences_insee()
+
+    # mon_inventaire.detecter_noms_edifice_majuscules()
+
+    mon_inventaire.standardiser_edifices()  # dont corrections casse, etc.
+    # mon_inventaire.correction_directe_nom_edifice()
+
+    mon_inventaire.codifier_edifices()
+    mon_inventaire.codifier_orgues()
+    mon_inventaire.detecter_doublons_codifsorgues()
+
+    """
     if PARAM_DEBUG == 'PALISSY_DEBUG':
         mon_inventaire.mapper_palissypop_sur_inventaire('../97-data/debugPalissy.csv')
     else:
         mon_inventaire.mapper_palissypop_sur_inventaire('../97-data/palissy_20200414_14h14m05s.csv')
-    #
-    # mon_inventaire.codifier_orgues()
-    #
+    """
+
     # mon_inventaire.rechercher_donnees_osm('../97-data/simple-FranceMetropole.csv')
     # mon_inventaire.rechercher_gps_osm_depuis_id()
+    # mon_inventaire.rechercher_coordonnees_gps()
+    # mon_inventaire.mapper_coordonnees_gps_picardie('../97-data/', ['aisne', 'somme', 'oise'])
 
     # mon_inventaire.ecraser_gps_par_osm()
-
-    # mon_inventaire.detecter_noms_edifice_majuscules()
-
-    # mon_inventaire.ecraser_gps_par_osm()
-    # mon_inventaire.standardiser_edifices()  # dont corrections casse, etc.
-    # mon_inventaire.correction_directe_nom_edifice()
-    # mon_inventaire.codifier_edifices()
-
-    # mon_inventaire.detecter_doublons_codifsorgues()
-
     # mon_inventaire.fixer_polyphones()
     # mon_inventaire.fixer_monumentshistoriques('../97-data/export-pop-palissy.csv', reset=True)
+    # mon_inventaire.fixer_liendereference()
 
     if PARAM_DEBUG == 'MAIN_DEBUG':
         mon_inventaire.to_csv('../98-indexes/indexFrance.debug_out.csv')
