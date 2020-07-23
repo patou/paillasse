@@ -2,8 +2,7 @@
 Classes représentant le modèle de données de l'index des orgues de France.
 """
 
-# TODO : plusieurs informations dans DPRO...
-# TODO : guillemets en double
+# TODO : JSON cassé par les guillemets d'Open Office...
 # TODO : protection du segment json dans évènements (pour l'instant on remplace les ; de Palissy.
 # TODO : Finir le traitement des doublons.
 # TODO : Supprimer les vieilles fonctions Palissy pour ne garder que POP.
@@ -15,7 +14,7 @@ import json
 import re
 import time
 
-import utilsorgues
+import utilsorgues as uo
 import palissy
 import gpsmessesinfo
 import orgbase
@@ -37,7 +36,7 @@ loggerInventaire.addHandler(fh)
 loggerInventaire.addHandler(ch)
 
 logger_palissy = logging.getLogger('inventaire.Palissy')
-logger_palissy.setLevel(logging.WARNING)
+logger_palissy.setLevel(logging.INFO)
 # create file handler which logs even debug messages
 fhp = logging.FileHandler('./logs/inventaire--palissy.log', mode='w', encoding='utf-8')
 fhp.setLevel(logging.DEBUG)
@@ -45,7 +44,7 @@ fhp.setLevel(logging.DEBUG)
 shp = logging.StreamHandler()
 shp.setLevel(logging.ERROR)
 # create formatter and add it to the handlers
-formatterp = logging.Formatter('lp - %(levelname)s - %(message)s')
+formatterp = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
 fhp.setFormatter(formatterp)
 shp.setFormatter(formatterp)
 # add the handlers to the logger
@@ -482,8 +481,8 @@ class OrgueInventaire(object):
         :return:
         """
         if self.edifice != '':
-            (edifice_denomination_corrigee, self.type_edifice) = utilsorgues.detecter_type_edifice(self.edifice)
-            self.edifice_standard = utilsorgues.corriger_nom_edifice(edifice_denomination_corrigee, self.commune)[0]
+            (edifice_type_extrait, self.type_edifice) = uo.detecter_type_edifice(self.edifice)
+            self.edifice_standard = uo.corriger_nom_edifice(edifice_type_extrait, self.commune)
         return
 
     def codifier_edifice(self):
@@ -492,11 +491,13 @@ class OrgueInventaire(object):
         :return:
         """
         if self.edifice_standard != '':
-            self.codification_edifice = utilsorgues.codification.codifie_edifice(self.edifice_standard)
+            self.codification_edifice = uo.codification.codifie_edifice(self.edifice_standard)
+        else:
+            loggerInventaire.error("Pas de nom d'édifice pour l'orgue {}".format(self))
         return
 
     def get_codification(self):
-        return utilsorgues.codifier_instrument(self)
+        return uo.codifier_instrument(self)
 
     def verifier_existence_insee(self, communes_francaises_par_nom, regions_francaises):
         #
@@ -618,7 +619,7 @@ class OrguesInventaire(list):
         return None
 
     def codifier_departements(self):
-        departements = utilsorgues.codegeographique.Departements()
+        departements = uo.codegeographique.Departements()
         codes_departementaux = departements.to_dict_nom_code()
         for orgue in self:
             if orgue.nomdepartement == 'Saint-Pierre-et-Miquelon':
@@ -697,8 +698,8 @@ class OrguesInventaire(list):
         return list(doublons)
 
     def verifier_existences_insee(self):
-        communes_francaises_par_nom = utilsorgues.codegeographique.Communes().to_dict_par_nom()
-        regions_francaises = utilsorgues.codegeographique.Regions()
+        communes_francaises_par_nom = uo.codegeographique.Communes().to_dict_par_nom()
+        regions_francaises = uo.codegeographique.Regions()
         for orgue in self:
             orgue.verifier_existence_insee(communes_francaises_par_nom, regions_francaises)
 
@@ -821,87 +822,120 @@ class OrguesInventaire(list):
         base_palissy = palissy.OrguesPalissyPop(fic_palissy)
         base_palissy.corriger_insee()
         edifices_refs = base_palissy.to_dict_edifices_refs()
+
         nombre_orgues_mappes = 0
-        #
-        # On calcule les codes d'édifice pour Palissy:
-        for objet_palissy in base_palissy:
-            edifice_palissy_denomination_corrigee = utilsorgues.detecter_type_edifice(objet_palissy.EDIF)[0]
-            edifice_palissy_standard, info_edifice_palissy = \
-                utilsorgues.corriger_nom_edifice(edifice_palissy_denomination_corrigee, objet_palissy.COM)
-            objet_palissy.code_edifice = utilsorgues.codification.codifie_edifice(edifice_palissy_standard)
-            logger_palissy.info("Codification de l'édifice de l'orgue Palissy {} {}"
-                                .format(objet_palissy.code_edifice, objet_palissy))
-        #
-        # Filtrage de la base Palissy pour ne pas chercher les références déjà présentes.
+
+        def calculer_codes_palissy():
+            """
+            On calcule les codes d'édifice pour Palissy.
+            :return: 
+            """
+            # FIXME : virgule et ", actuellement"
+            # FIXME : codification vides "------" (ancienne cathédrale, cathédrale, etc. sans plus de précision).
+            # FIXME : ------ PM12000916 12 Vabres-l'Abbaye 12286 ancienne cathédrale orgue de tribune>
+            # FIXME : ,_TEMP PM67001038 67 Krautwiller 67249 église paroissiale, temple Saint-Ulrich orgue de tribune>
+            # FIXME : ,_ANCI PM51001754 51 Hautvillers 51287 église paroissiale, ancienne abbatiale Saint-Sindulphe orgue de tribune>
+            # FIXME : ------ PM80001682 80 Saint-Riquier 80716 ancienne abbaye orgue de tribune>
+            # FIXME : ------ PM92000270 92  0  orgue de tribune : partie instrumentale de l'orgue>
+            # FIXME : ------ PM26000485 26 Saint-Paul-Trois-Châteaux 26324 ancienne cathédrale orgue de tribune>
+            # FIXME : ,_ANCI PM76001528 76 Rouen 76540 temple protestant, ancienne église Saint-Eloi orgue de tribune : buffet d'orgue>
+            # FIXME : ------ PM83001465 83 Saint-Maximin-la-Sainte-Baume 83116 ancienne abbatiale orgue de tribune : buffet d'orgue>
+            # FIXME : ...
+            for _objet_palissy in base_palissy:
+                edifice_palissy_denomination_corrigee, edifice_palissy_type = uo.detecter_type_edifice(_objet_palissy.EDIF)
+
+                edifice_palissy_standard = \
+                    uo.corriger_nom_edifice(edifice_palissy_denomination_corrigee, _objet_palissy.COM)
+
+                if edifice_palissy_standard == '':
+                    loggerInventaire.warning("Objet Palissy sans nom d'édifice standard : {}".format(_objet_palissy))
+                else:
+                    _objet_palissy.code_edifice = uo.codification.codifie_edifice(edifice_palissy_standard, edifice_palissy_type)
+                    logger_palissy.debug("Codification de l'édifice de l'item Palissy {} {}"
+                                    .format(_objet_palissy.code_edifice, _objet_palissy))
+            return
+
+        calculer_codes_palissy()
+
+        # Filtrage de la base Palissy pour ne pas chercher les références déjà présentes dans l'inventaire.
         ref_palissy_deja_presentes = sum([orgue_i.references_palissy for orgue_i in self], [])
         base_palissy_filtree = [orgue_pal for orgue_pal in base_palissy if
                                 orgue_pal.REF not in ref_palissy_deja_presentes]
-        #
-        # Début de la recherche pour chaque orgue Palissy filtrée:
+
+        def is_edifices_identiques(edif1, edif2):
+            edif1_simple = uo.correcteurorgues.supprimer_accents(edif1)
+            edif2_simple = uo.correcteurorgues.supprimer_accents(edif2)
+            return edif1_simple == edif2_simple
+
+        # Début de la recherche pour chaque orgue Palissy :
+        communes = uo.codegeographique.Communes()
+        transitions = uo.codegeographique.Evenements().to_list_anciennne_nouvelle()
+
         for objet_palissy in base_palissy_filtree:
             # FIXME : garder les accents dans Palissy.
             logger_palissy.info("")
-            logger_palissy.info("Recherche de l'orgue Palissy {} dans l'inventaire".format(objet_palissy))
+            logger_palissy.info("*******************************")
+            logger_palissy.info("Recherche de l'item Palissy {} dans l'inventaire".format(objet_palissy))
+
+            # Vérification de la commune Palissy
+            if objet_palissy.INSEE not in [c.codecommune for c in communes]:
+                logger_palissy.error('Code INSEE de Palissy non valide {}'.format(objet_palissy))
+                # On cherche dans les communes modifiées
+                codes_insee_possibles = transitions.get(objet_palissy.INSEE)
+                if codes_insee_possibles is None:
+                    logger_palissy.critical('Code INSEE de Palissy absurde ! {}'.format(objet_palissy))
+                else:
+                    logger_palissy.error('Codes INSEE possibles : {}'.format(codes_insee_possibles))
+
             # Réduction du nom de l'édifice Palissy
-            orgue_palissy_edifice_standard = utilsorgues.reduire_edifice(objet_palissy.EDIF)
+            edifice_ply = uo.reduire_edifice(objet_palissy.EDIF, objet_palissy.COM)
+
             # Début recherche
             orgues_trouves_dans_edifice = []
             # Buffer pour les traces débug à n'afficher qu'en cas d'échec de recherche :
-            traces = []
+            log = []
             for orgue_inventaire in self:
-                # Initialisation de l'attribut références Palissy
-                orgue_inventaire_edifice_standard = utilsorgues.simplifier_nom_edifice(
-                    orgue_inventaire.edifice_standard)
-                # Si la commune est Paris,  on tente de trouver l'édifice :
+                edifice_inv = uo._simplifier_nom_edifice(orgue_inventaire.edifice_standard)
+
+                # Si la commune est Paris, on tente de trouver l'édifice :
                 if objet_palissy.COM[:6] == 'Paris ' and orgue_inventaire.code_insee == '75056':
-                    logger_palissy.info("Paris")
-                    traces.append("Palissy    : {}".format(
-                        orgue_palissy_edifice_standard.replace('catholique-', '')))
-                    traces.append("Inventaire : {}, {}".format(
-                        orgue_inventaire_edifice_standard.replace('é', 'e').replace('è', 'e'),
+                    logger_palissy.debug("Paris")
+                    log.append("Corres. Paris - Palissy    : {}".format(edifice_ply))
+                    log.append("Corres. Paris - Inventaire : {}, {}".format(
+                        edifice_inv,
                         orgue_inventaire.designation))
                     # Si l'édifice est le même
-                    if orgue_inventaire_edifice_standard.replace('é', 'e').replace('è',
-                                                                                   'e') == orgue_palissy_edifice_standard.replace(
-                        'catholique-', '').replace('é', 'e').replace('è', 'e'):
+                    if is_edifices_identiques(edifice_inv, edifice_ply):
                         orgues_trouves_dans_edifice.append(orgue_inventaire)
-                # Si la commune correspond, on tente de trouver l'édifice :
+
+                # Si le code INSEE commune correspond, on est sûr de la commune et on tente de trouver l'édifice :
                 elif objet_palissy.INSEE == orgue_inventaire.code_insee:
-                    logger_palissy.info("Code INSEE Palissy trouvé dans l'inventaire.")
-                    traces.append("Palissy    : {}".format(
-                        orgue_palissy_edifice_standard.replace('catholique-', '')))
-                    traces.append("Inventaire : {}, {}".format(
-                        orgue_inventaire_edifice_standard.replace('é', 'e').replace('è', 'e'),
-                        orgue_inventaire.designation))
+                    logger_palissy.debug("Code INSEE Palissy trouvé dans l'inventaire {}".format(orgue_inventaire))
+                    log.append("Corres. COM - Palissy    : {}".format(edifice_ply))
+                    log.append("Corres. COM - Inventaire : {}, {}".format(edifice_inv, orgue_inventaire.designation))
                     # Si l'édifice est le même
-                    if orgue_inventaire_edifice_standard.replace('é', 'e').replace('è',
-                                                                                   'e') == orgue_palissy_edifice_standard.replace(
-                        'catholique-', '').replace('é', 'e').replace('è', 'e'):
+                    if is_edifices_identiques(edifice_inv, edifice_ply):
                         orgues_trouves_dans_edifice.append(orgue_inventaire)
+
                 # Sinon on cherche dans la commune associée/déléguée (fusion de communes, etc.)
-                # FIXME : a minima ajouter vérification du département et sortir un WARN !
-                elif objet_palissy.COM in orgue_inventaire.ancienne_commune:
+                elif objet_palissy.COM in orgue_inventaire.ancienne_commune\
+                        and objet_palissy.DPT == orgue_inventaire.code_departement:
                     logger_palissy.warning(
                         "Code INSEE Palissy non trouvé dans l'inventaire mais ancienne commune si. : {}.".format(
                             objet_palissy.INSEE))
-                    traces.append("Palissy    : {}".format(
-                        orgue_palissy_edifice_standard.replace('catholique-', '')))
-                    traces.append("Inventaire : {}, {}".format(
-                        orgue_inventaire_edifice_standard.replace('é', 'e').replace('è', 'e'),
-                        orgue_inventaire.designation))
+                    log.append("Corres. COMA/COMD - Palissy    : {}".format(edifice_ply))
+                    log.append("Corres. COMA/COMD - Inventaire : {}, {}".format(edifice_inv, orgue_inventaire.designation))
                     # Si l'édifice est le même
-                    if orgue_inventaire_edifice_standard.replace('é', 'e').replace('è',
-                                                                                   'e') == orgue_palissy_edifice_standard.replace(
-                        'catholique-', '').replace('é', 'e').replace('è', 'e'):
+                    if edifice_inv.replace('é', 'e').replace('è', 'e') == edifice_ply.replace('é', 'e').replace('è', 'e'):
                         orgues_trouves_dans_edifice.append(orgue_inventaire)
                 else:
-                    # logger_palissy.error("Code INSEE Palissy non trouvé dans l'inventaire, commune dans le champ autre_commune non plus !")
                     pass
+                    # TODO : Il faut aller creuser dans le fichier mouvements du code géographique.
                 # En dernier recours, on ne compare que les codifications
-                # elif objet_palissy.code_edifice == utilsorgues.codification.codifie_edifice(orgue_inventaire.edifice_standard):
-                #     traces.append("Palissy    : {}".format(
+                # elif objet_palissy.code_edifice == uo.codification.codifie_edifice(orgue_inventaire.edifice_standard):
+                #     log.append("Palissy    : {}".format(
                 #         objet_palissy.code_edifice))
-                #     traces.append("Inventaire : {}".format(
+                #     log.append("Inventaire : {}".format(
                 #         orgue_inventaire.codification))
             #
             # Fin de boucle
@@ -936,16 +970,17 @@ class OrguesInventaire(list):
                         # Ajout de la référence si elle n'est pas déjà présente
                         if objet_palissy.REF not in orgue.references_palissy:
                             orgue.references_palissy.append(objet_palissy.REF)
+            # - Si le PM n'a pu être associé à l'inventaire :
             else:
                 logger_palissy.error("")
-                logger_palissy.error("Orgue Palissy non trouvé dans l'inventaire: {}"
-                                     .format(objet_palissy))
+                logger_palissy.error("Orgue Palissy non trouvé dans l'inventaire: {}".format(objet_palissy))
                 pm_possibles = ",".join(edifices_refs[objet_palissy.INSEE + '---' + objet_palissy.EDIF])
                 logger_palissy.error("PM possibles : {}".format(pm_possibles))
-                for trace in traces:
+                for trace in log:
                     logger_palissy.error("   " + trace)
-        logger_palissy.info("Fin de correspondance Inventaire vs. Palissy, {}/{} orgues mappés."
-                            .format(nombre_orgues_mappes, len(base_palissy)))
+
+        logger_palissy.info("Fin de correspondance Inventaire vs. Palissy, {}/{} items de Palissy à injecter."
+                            .format(nombre_orgues_mappes, len(base_palissy_filtree)))
 
     def mapper_coordonnees_gps_picardie(self, rep, dep):
         """
@@ -1045,8 +1080,8 @@ class OrguesInventaire(list):
         for orgue in self:
             # Dégénérescence du nom de l'édifice :
             orgue_edifice_simplifie = \
-                utilsorgues.generiques.supprimer_accents(
-                    utilsorgues.correcteurorgues.simplifier_nom_edifice(orgue.edifice_standard))
+                uo.generiques.supprimer_accents(
+                    uo.correcteurorgues._simplifier_nom_edifice(orgue.edifice_standard))
             edifices_possibles = edifices_par_commune.get(orgue.code_insee, None)
             # Si la commune est répertoriée dans MessesInfo :
             if edifices_possibles is not None:
@@ -1054,8 +1089,8 @@ class OrguesInventaire(list):
                 edifice_trouve = None
                 for edifice in edifices_possibles:
                     # Dégénérescence du nom de l'édifice :
-                    edifice_simplifie = utilsorgues.generiques.supprimer_accents(
-                        utilsorgues.correcteurorgues.simplifier_nom_edifice(edifice.edifice_standard))
+                    edifice_simplifie = uo.generiques.supprimer_accents(
+                        uo.correcteurorgues._simplifier_nom_edifice(edifice.edifice_standard))
                     # TODO : Ajouter gestion des édifices entre parenthèses dans MessesInfo (redondance nom commune).
                     if edifice.edifice_standard == orgue.edifice_standard:
                         loggerGps.info('Edifice trouvé avec nom exact : {} {}'
@@ -1089,12 +1124,12 @@ class OrguesInventaire(list):
 
 if __name__ == '__main__':
     loggerInventaire.info('{} Démarrage du script'.format(time.asctime(time.localtime())))
-    if len(sys.argv) == 1:
-        MAIN_DEBUG = False
+    if len(sys.argv) == 2:
+        PARAM_DEBUG = sys.argv[1]
     else:
-        MAIN_DEBUG = sys.argv[1]
+        PARAM_DEBUG = None
 
-    if MAIN_DEBUG:
+    if PARAM_DEBUG == 'MAIN_DEBUG':
         mon_inventaire = OrguesInventaire('../98-indexes/indexFrance.debug_out.csv', True)
     else:
         mon_inventaire = OrguesInventaire('../98-indexes/indexFrance-inventairedesorgues.csv', True)
@@ -1105,15 +1140,18 @@ if __name__ == '__main__':
     # print(mon_inventaire.denombrer_par_commune()["La Flèche, Sarthe"])
     # mon_inventaire.to_console()
     #
-    mon_inventaire.codifier_departements()
-    mon_inventaire.verifier_existences_insee()
+    #mon_inventaire.codifier_departements()
+    #mon_inventaire.verifier_existences_insee()
     #
-    # mon_inventaire.standardiser_edifices()#dont corrections casse, etc.
+    mon_inventaire.standardiser_edifices()  # dont corrections casse, etc.
     # mon_inventaire.rechercher_coordonnees_gps()
     #
     # mon_inventaire.mapper_coordonnees_gps_picardie('../97-data/', ['aisne', 'somme', 'oise'])
 
-    # mon_inventaire.mapper_palissypop_sur_inventaire('../97-data/palissy_20200414_14h14m05s.csv')
+    if PARAM_DEBUG == 'PALISSY_DEBUG':
+        mon_inventaire.mapper_palissypop_sur_inventaire('../97-data/debugPalissy.csv')
+    else:
+        mon_inventaire.mapper_palissypop_sur_inventaire('../97-data/palissy_20200414_14h14m05s.csv')
     #
     # mon_inventaire.codifier_orgues()
     #
@@ -1134,7 +1172,7 @@ if __name__ == '__main__':
     # mon_inventaire.fixer_polyphones()
     # mon_inventaire.fixer_monumentshistoriques('../97-data/export-pop-palissy.csv', reset=True)
 
-    if MAIN_DEBUG:
+    if PARAM_DEBUG == 'MAIN_DEBUG':
         mon_inventaire.to_csv('../98-indexes/indexFrance.debug_out.csv')
         mon_inventaire.to_json('../98-indexes/indexFrance.debug_out.json', limit=1)
     else:

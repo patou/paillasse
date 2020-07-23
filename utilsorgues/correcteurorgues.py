@@ -9,7 +9,7 @@ import logging
 loggerCorrecteurorgues = logging.getLogger('correcteurogues')
 loggerCorrecteurorgues.setLevel(logging.DEBUG)
 # create file handler which logs even debug messages
-fhc = logging.FileHandler('./logs/inventaire--correcteurorgues.log')
+fhc = logging.FileHandler('./inventaire--correcteurorgues.log')
 fhc.setLevel(logging.DEBUG)
 # create console handler with a higher log level
 chc = logging.StreamHandler()
@@ -75,15 +75,14 @@ def supprimer_accents(chaine):
 def detecter_type_edifice(chaine):
     """
     Détecte si l'édifice est d'un type standard.
-    Transforme le nom d'édifice.
-    Par exemple "église Saint-Georges" devient "Saint-Georges [eglise]"
+    Transforme le nom d'édifice pour en extraire le type.
+    Par exemple "église Saint-Georges" devient "Saint-Georges"
     :param chaine: dénomination de l'édifice
-    :return: dénomination standardisée
+    :return: (dénomination standardisée, type edifice)
     """
     #FIXME : [co-Cathédrale] au lieu de [co-cathédrale]
     #FIXME : FR-78646-VERSA-CHAPEL-X;Versailles;Chapelle du Grand Séminaire
     #FIXME : FR-33063-BORDE-ANCIEN-T;Bordeaux;Ancienne Abbatiale Sainte-Croix;
-    new_chaine = ''
     # Attention, l'ordre de la liste compte : mettre d'abord église catholique, ensuite église...
     types_edifice = ['église catholique',
                      'temple protestant',
@@ -149,6 +148,7 @@ def detecter_type_edifice(chaine):
                      'prieuré',
                      'grand temple',
                      'temple',
+                     'temple luthérien',
                      'institution libre',
                      'institution',
                      'institut',
@@ -163,8 +163,11 @@ def detecter_type_edifice(chaine):
                      'conservatoire national régional',
                      'conservatoire',
                      'clinique']
+    new_chaine = ''
     type_edifice = None
-    if chaine:
+    if not chaine:
+        loggerCorrecteurorgues.error("Pas de libellé d'édifice, détection de type impossible.")
+    else:
         chaine_minuscule = supprimer_accents(chaine).lower()
         type_trouve = False
         for _type_edifice in types_edifice:
@@ -175,17 +178,17 @@ def detecter_type_edifice(chaine):
             elif index_denomination == 0 and not type_trouve:
                 type_trouve = True
                 type_edifice = _type_edifice
-                new_chaine = corriger_casse(chaine[len(type_edifice):].strip(' ')) + ' ' + '[' + type_edifice + ']'
+                # Suppression du type d'édifice en début de nom
+                new_chaine = chaine[len(type_edifice):].strip(' ')
             elif index_denomination > 0 and not type_trouve:
                 type_trouve = False
+        new_chaine = corriger_casse(new_chaine)
         if not type_trouve:
-            new_chaine = corriger_casse(chaine)
             type_edifice = None
+            new_chaine = chaine
             loggerCorrecteurorgues.debug("Aucun type d'édifice reconnu dans : {}.".format(chaine))
         else:
             loggerCorrecteurorgues.debug("Type d'édifice reconnu dans : {}.".format(chaine))
-    else:
-        loggerCorrecteurorgues.warning("Pas de libellé d'édifice.")
     return new_chaine, type_edifice
 
 
@@ -199,17 +202,15 @@ def corriger_nom_edifice(chaine, commune=''):
     # FIXME : FR-35281-SSLAN-EGLISE-X;Saint-Jacques-de-la-Lande;église Saint-Jacques-de-la-Lande;[eglise]
     :param chaine: nom de l'édifice
     :param commune: nom de la commune
-    :return: (nom corrigé de l'édifice, trace du traitement)
+    :return: nom corrigé de l'édifice
     """
     #
     # Par défaut :
     new_chaine = 'NOM_EDIFICE_NON_STANDARD'
     # église sans nom :
-    if chaine == '[église]':
+    if chaine == '':
         new_chaine = chaine
     if 'saint' != chaine.lower()[:5]:
-        if type(chaine) == 'tuple':
-            pass
         #
         # Si l'édifice est le nom de la commune, à l'exception des "Saint..." :
         if commune.lower() == chaine.lower():
@@ -235,10 +236,10 @@ def corriger_nom_edifice(chaine, commune=''):
         elif commune.lower().split(' ')[0] == (chaine[:len(commune.lower().split(' ')[0])]).lower():
             new_chaine = chaine[len(commune.lower().split(' ')[0]):].lstrip(' ')
     #
-    # Ajout des traits d'union*
-    #TODO : de l'Assomption de Notre-Dame
-    #TODO : de la Décollation de Saint-Jean-Baptiste [église]
-    #TODO : Toussaints
+    # Ajout des traits d'union
+    # FIXME : de l'Assomption de Notre-Dame
+    # FIXME : de la Décollation de Saint-Jean-Baptiste [église]
+    # FIXME : Toussaints
     if chaine[:3] == 'St ':
         new_chaine = 'Saint-{}'.format(chaine[3:])
     if chaine[:4] == 'St. ':
@@ -292,6 +293,7 @@ def corriger_nom_edifice(chaine, commune=''):
         new_chaine = 'Immaculée Conception'
     if chaine[:10] == 'La Trinité' or chaine[:10] == 'la Trinité' or chaine[:7] == 'Trinité':
         new_chaine = 'La Trinité'
+
     # Ramasse-miettes :
     if new_chaine == 'NOM_EDIFICE_NON_STANDARD':
         loggerCorrecteurorgues.debug('NOM_EDIFICE_NON_STANDARD {}'.format(chaine))
@@ -299,65 +301,44 @@ def corriger_nom_edifice(chaine, commune=''):
         new_chaine = chaine
     else:
         info = 'NOM_EDIFICE_STANDARD'
-    #
-    # Commune non renseignée :
-    if commune == '':
-        info = 'EDIFICE_SANS_COMMUNE'
-        new_chaine = chaine
+    loggerCorrecteurorgues.info("Nom de l'édifice {}".format(info))
+
     # Suppression espaces
     new_chaine = new_chaine.strip(' ').lstrip('-')
-    return new_chaine, info
+
+    new_chaine_simple = _simplifier_nom_edifice(new_chaine)
+    return new_chaine_simple
 
 
-def simplifier_nom_edifice(nom):
+def _simplifier_nom_edifice(nom):
     """
-    Suppression de l'information du type d'édifice, supposé balisé par des crochets [].
     Suppression des informations annexes, supposées balisées par des parenthèses ().
     :param nom:
     :return:
     """
-    if '[' in nom:
-        chaine_plus_simple = nom.split('[')[0].rstrip(' ')
-    else:
-        chaine_plus_simple = nom
     # On ignore le texte restant entre parenthèses
-    chaine_plus_simple = chaine_plus_simple.split('(')[0].rstrip(' ')
-    # Remplacemnt des espaces et accents
-    chaine_plus_simple = chaine_plus_simple.replace(' ', '-').lower()
+    chaine_plus_simple = nom.split('(')[0].rstrip(' ')
+    # Remplacemnt des espaces
+    chaine_plus_simple = chaine_plus_simple.replace(' ', '-')
     # Nettoyage
     chaine_plus_simple = chaine_plus_simple.rstrip(' ')
     return chaine_plus_simple
 
 
-def simplifier_nom_edifice_parentheses(nom):
-    """
-    Suppression de l'information du type d'édifice, supposé balisé par des crochets [].
-    On ne garde que l'information intéressante, supposée balisée par des parenthèses ().
-    :param nom:
-    :return:
-    """
-    if '[' in nom:
-        chaine_plus_simple = nom.split('[')[0].rstrip(' ')
-    else:
-        chaine_plus_simple = nom
-    # On prend uniquement le texte restant entre parenthèses
-    if '(' in chaine_plus_simple and ')' in chaine_plus_simple:
-        chaine_plus_simple = chaine_plus_simple.split('(')[1].rstrip(')')
-    # Remplacemnt des espaces et accents
-    chaine_plus_simple = chaine_plus_simple.replace(' ', '-').lower()
-    return chaine_plus_simple
+def reduire_edifice(edifice, lacommune):
 
-
-def reduire_edifice(edifice):
     # On supprime les termes après parenthèse ouvrante
     edifice2 = edifice.split('(')[0].rstrip(' ')
-    # On supprimer les terms après première virgule
+    # On supprime les termes après première virgule
     edifice2 = edifice2.split(',')[0].rstrip(' ')
+
     # On cherche le type d'édifice
-    edifice3 = detecter_type_edifice(edifice2)
-    edifice4, info = corriger_nom_edifice(edifice3)
-    edifice5 = simplifier_nom_edifice(edifice4)
-    return edifice5
+    edifice3, type_edifice = detecter_type_edifice(edifice2)
+
+    # On corrige le nom
+    edifice4 = corriger_nom_edifice(edifice3, lacommune)
+
+    return edifice4
 
 
 def test_simplifier_nom_edifice():
@@ -369,6 +350,7 @@ def test_simplifier_nom_edifice():
 
 def test_detecter_type_edifice():
     for nom in [
+                'Ancien hôtel de Béhague',
                 'église de la nativité de la Très-Sainte-Vierge',
                 'Eglise de la Nativité de la Sainte-Vierge',
                 "église de la Nativité-de-la-Sainte-Vierge",
@@ -413,13 +395,12 @@ def test_corriger_nom_edifice():
 
 
 def test_reduire_edifice():
-    print(reduire_edifice('église Notre-Dame (ancienne cathédrale)'))
-    print(reduire_edifice('église Saint-Jacques'))
-    print(reduire_edifice("Eglise de la Nativité de la Sainte-Vierge"))
+    print(reduire_edifice('église Notre-Dame (ancienne cathédrale)', 'Utopia'))
+    print(reduire_edifice('église Saint-Jacques', 'Utopia'))
+    print(reduire_edifice("Eglise de la Nativité de la Sainte-Vierge", 'Utopia'))
 
 
 if __name__ == '__main__':
     # test_reduire_edifice()
     test_detecter_type_edifice()
     test_corriger_nom_edifice()
-    #test_simplifier_nom_edifice()
