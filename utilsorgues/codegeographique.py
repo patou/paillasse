@@ -19,7 +19,7 @@ FIC_FRANCE_REGIONS_INSEE = REP_GEODATA + 'region2020.csv'
 loggerCodegeogaphique = logging.getLogger('codegeographique')
 loggerCodegeogaphique.setLevel(logging.DEBUG)
 # create file handler which logs even debug messages
-fh = logging.FileHandler('./logs/inventaire--codegeographique.log')
+fh = logging.FileHandler('./inventaire--codegeographique.log')
 fh.setLevel(logging.DEBUG)
 # create console handler with a higher log level
 ch = logging.StreamHandler()
@@ -121,15 +121,26 @@ class Evenements(list):
             # on ignore l'entête
             lignes_fic_evenements = fic_csv.readlines()[1:]
             ll = [item.split(',') for item in lignes_fic_evenements]
-            self = [Evenement(*ligne) for ligne in ll]
+            self.extend([Evenement(*ligne) for ligne in ll])
 
     def to_list_anciennne_nouvelle(self):
-        transitions_communes = list()
+        """
+        clés : code INSEE de la commune avant transition
+        valeurs : liste de codes INSEE des communes après la transition
+        :return: dictionnaire
+        Nota bene : On ne tient pas compte ici de la chronologie.
+        """
+        transitions_communes = dict()
         for ev in self:
             # On ne regarde que les évènements de type transition
             # et non les créations ou rétablissements, suppressions, changements de code.
             if ev.mod in ['10', '31', '32', '33', '34', '70']:
-                transitions_communes.append(ev)
+                if ev.com_av != ev.com_ap:
+                    if ev.com_av not in transitions_communes.keys():
+                        transitions_communes[ev.com_av] = [ev.com_ap]
+                    elif ev.com_ap not in transitions_communes[ev.com_av]:
+                        transitions_communes[ev.com_av].append(ev.com_ap)
+        return transitions_communes
 
 
 class Evenement(object):
@@ -325,8 +336,14 @@ def test_regions():
     return
 
 
+def test_evenements():
+    transitions = Evenements()
+    transitions_dict = transitions.to_list_anciennne_nouvelle()
+    print(transitions_dict['74125'])
+
 if __name__ == '__main__':
     test_regions()
     test_departements()
     test_inverse_departements()
     test_communes()
+    test_evenements()
