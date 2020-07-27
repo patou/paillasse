@@ -522,7 +522,7 @@ class OrgueInventaire(object):
                 elif commune_trouvee.typecom == 'COMA' or commune_trouvee.typecom == 'COMD':
                     # Mise à jour de l'ancienne commune
                     self.code_insee = commune_trouvee.comparent
-                    self.commune_insee = commune_trouvee.nomcomparent
+                    self.commune_insee = commune_trouvee.nom_comparent
                     if self.ancienne_commune == '':
                         self.ancienne_commune = self.commune
                         loggerInsee.debug("Commune trouvée associée ou déléguée : {} {} -> {}"
@@ -714,6 +714,12 @@ class OrguesInventaire(list):
         for orgue in self:
             if orgue.lien_reference == '':
                 orgue.lien_reference = orgue.orgbase_manu
+
+    def fixer_communes(self):
+        for orgue in self:
+            if orgue.commune != orgue.commune_insee:
+                loggerInventaire.error("La commune n'est pas INSEE ! {} {}".format(orgue.commune, orgue.commune_insee))
+                orgue.commune = orgue.commune_insee
 
     def fixer_monumentshistoriques(self, ficbasepalissy, reset):
         """
@@ -1144,7 +1150,7 @@ if __name__ == '__main__':
         PARAM_DEBUG = None
 
     if PARAM_DEBUG == 'MAIN_DEBUG':
-        mon_inventaire = OrguesInventaire('../98-indexes/indexFrance.debug_out.csv', True)
+        mon_inventaire = OrguesInventaire('../98-indexes/indexFrance.debug.csv', True)
     else:
         mon_inventaire = OrguesInventaire('../98-indexes/indexFrance-inventairedesorgues.csv', True)
 
@@ -1155,7 +1161,9 @@ if __name__ == '__main__':
     mon_inventaire.liste_edifices_absents()
 
     # mon_inventaire.codifier_departements()
-    # mon_inventaire.verifier_existences_insee()
+    mon_inventaire.verifier_existences_insee()
+
+    mon_inventaire.fixer_communes()
 
     # mon_inventaire.detecter_noms_edifice_majuscules()
 
