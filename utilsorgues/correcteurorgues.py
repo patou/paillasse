@@ -4,6 +4,8 @@ Fonctions utilitaires pour corriger ou simplifier (dégénéréscence) des noms 
 import re
 import logging
 
+import utilsorgues.tools.generiques as gen
+
 # FIXME : Saint-Pierre-ès-Liens Saint-Pierre-Es-Liens
 
 loggerCorrecteurorgues = logging.getLogger('correcteurogues')
@@ -23,7 +25,7 @@ loggerCorrecteurorgues.addHandler(fhc)
 loggerCorrecteurorgues.addHandler(chc)
 
 
-listeMinuscule = ["le", "la", "les", "de", "des", "du", "en", "et"]
+listeMinuscule = ["le", "la", "les", "de", "des", "du", "en", "et", "aux", "ès"]
 listeMajuscule = ["ND"]
 
 
@@ -46,30 +48,14 @@ def corriger_casse(chaine):
             if mini_mot not in listeMinuscule:
                 mini_mot = mini_mot.title()
             # Mise en miniscule des mots avec apostrophe si non au début du nom.
-            if "'" in mini_mot:
-                if mini_mot[1] == "'" and mini_mot != liste_mini_mots[0]:
+            if "'" in mini_mot or "’" in mini_mot:
+                if (mini_mot[1] == "'" or mini_mot[1] == "’") and mini_mot != liste_mini_mots[0]:
                     mini_mot = mini_mot[0].lower() + mini_mot[1:]
             new_liste_mini_mots.append(mini_mot)
         mot = "-".join(new_liste_mini_mots)
         new_liste_mot.append(mot)
     new_chaine = " ".join(new_liste_mot)
     return new_chaine
-
-
-def supprimer_accents(chaine):
-    """
-    Supprime les accents.
-    """
-    accents = {'E': ['É'],
-               'e': ['é', 'è', 'ê', 'ë'],
-               'a': ['à', 'ã', 'á', 'â'],
-               'i': ['î', 'ï'],
-               'u': ['ù', 'ü', 'û'],
-               'o': ['ô', 'ö']}
-    for (char, accented_chars) in accents.items():
-        for accented_char in accented_chars:
-            chaine = chaine.replace(accented_char, char)
-    return chaine
 
 
 def detecter_type_edifice(chaine):
@@ -117,11 +103,13 @@ def detecter_type_edifice(chaine):
                      'chapelle du college',
                      "chapelle de l'ecole",
                      'chapelle du lycee',
+                     'chapelle du lycee prive',
                      "chapelle de l'institution",
                      "chapelle de l'orphelinat",
                      'chapelle du pensionnat',
                      "chapelle de l'hopital",
                      "chapelle de la congregation",
+                     "chapelle de l'établissement",
                      'chapelle',
                      'sanctuaire',
                      'séminaire',
@@ -139,6 +127,7 @@ def detecter_type_edifice(chaine):
                      'église mixte',
                      'église anglo-américaine',
                      'église simultanée',
+                     'église évangélique luthérienne',
                      'église luthérienne',
                      'école de musique',
                      'école',
@@ -168,10 +157,10 @@ def detecter_type_edifice(chaine):
     if not chaine:
         loggerCorrecteurorgues.error("Pas de libellé d'édifice, détection de type impossible.")
     else:
-        chaine_minuscule = supprimer_accents(chaine).lower()
+        chaine_minuscule = gen.supprimer_accents(chaine).lower()
         type_trouve = False
         for _type_edifice in types_edifice:
-            index_denomination = chaine_minuscule.find(supprimer_accents(_type_edifice))
+            index_denomination = chaine_minuscule.find(gen.supprimer_accents(_type_edifice))
             # Si la chaîne ne comprend pas dénomination connue :
             if index_denomination == -1:
                 pass
@@ -195,13 +184,13 @@ def detecter_type_edifice(chaine):
 def corriger_nom_edifice(chaine, commune=''):
     """
     Corrige le nom de l'édifice.
-    Par exemple "St-Georges [église]" devient "Saint-Georges [église]".
+    Par exemple "église St-Georges" devient "église Saint-Georges".
 
     On tient compte de la commune :
     si la commune est dans le nom de l'édifice (à l'exception des Saint...), elle est supprimée de l'édifice.
     # FIXME : FR-35281-SSLAN-EGLISE-X;Saint-Jacques-de-la-Lande;église Saint-Jacques-de-la-Lande;[eglise]
-    :param chaine: nom de l'édifice
-    :param commune: nom de la commune
+    :param chaine: nom de l'édifice (str)
+    :param commune: nom de la commune (str)
     :return: nom corrigé de l'édifice
     """
     #
@@ -211,7 +200,7 @@ def corriger_nom_edifice(chaine, commune=''):
     if chaine == '':
         new_chaine = chaine
     if 'saint' != chaine.lower()[:5]:
-        #
+
         # Si l'édifice est le nom de la commune, à l'exception des "Saint..." :
         if commune.lower() == chaine.lower():
             new_chaine = 'UN_EDIFICE'
@@ -238,7 +227,7 @@ def corriger_nom_edifice(chaine, commune=''):
     #
     # Ajout des traits d'union
     # FIXME : de l'Assomption de Notre-Dame
-    # FIXME : de la Décollation de Saint-Jean-Baptiste [église]
+    # FIXME : de la Décollation de Saint-Jean-Baptiste
     # FIXME : Toussaints
     if chaine[:3] == 'St ':
         new_chaine = 'Saint-{}'.format(chaine[3:])
@@ -280,11 +269,11 @@ def corriger_nom_edifice(chaine, commune=''):
     if chaine[:13] == 'Le Christ Roi':
         new_chaine = 'Christ-Roi{}'.format(chaine[13:])
     if chaine[:8] == 'Nativité':
-        new_chaine = 'Nativité{}'.format(chaine[8:])
+        new_chaine = 'de la Nativité{}'.format(chaine[8:])
     if chaine[:11] == 'La Nativité' or chaine[:11] == 'la Nativité':
-        new_chaine = 'Nativité{}'.format(chaine[11:])
+        new_chaine = 'de la Nativité{}'.format(chaine[11:])
     if chaine[:14] == 'de la Nativité':
-        new_chaine = 'Nativité{}'.format(chaine[14:])
+        new_chaine = 'de la Nativité{}'.format(chaine[14:])
     if chaine[:10] == 'Assomption' or chaine[:12] == "L'Assomption":
         new_chaine = 'Assomption'
     if chaine[:13] == 'La Providence' or chaine[:13] == 'la Providence':
@@ -319,9 +308,24 @@ def _simplifier_nom_edifice(nom):
     # On ignore le texte restant entre parenthèses
     chaine_plus_simple = nom.split('(')[0].rstrip(' ')
     # Remplacemnt des espaces
-    chaine_plus_simple = chaine_plus_simple.replace(' ', '-')
+    if ('Notre' in chaine_plus_simple or 'Saint' in chaine_plus_simple) and '&' not in chaine_plus_simple:
+        chaine_plus_simple = chaine_plus_simple.replace(' ', '-')
+    chaine_plus_simple = chaine_plus_simple.replace('---', ' - ')
     # Nettoyage
-    chaine_plus_simple = chaine_plus_simple.rstrip(' ')
+    chaine_plus_simple = chaine_plus_simple.rstrip(' ').lstrip(' ')
+    # Correction des apostrophes
+    chaine_plus_simple = chaine_plus_simple.replace("L'", "L’")
+    chaine_plus_simple = chaine_plus_simple.replace("l'", "l’")
+    chaine_plus_simple = chaine_plus_simple.replace("D'", "D’")
+    chaine_plus_simple = chaine_plus_simple.replace("d'", "d’")
+    #
+    chaine_plus_simple = chaine_plus_simple.replace('xxiii', 'XXIII')
+    chaine_plus_simple = chaine_plus_simple.replace('hopital', 'hôpital')
+    chaine_plus_simple = chaine_plus_simple.replace('-Ix', '-IX')
+    chaine_plus_simple = chaine_plus_simple.replace('Iv', 'IV')
+    chaine_plus_simple = chaine_plus_simple.replace(',-', ', ')
+    #
+    chaine_plus_simple = chaine_plus_simple
     return chaine_plus_simple
 
 
@@ -341,10 +345,9 @@ def reduire_edifice(edifice, lacommune):
     return edifice4
 
 
-def test_simplifier_nom_edifice():
-    print(simplifier_nom_edifice('Saint-Maurice [eglise]'))
-    print(simplifier_nom_edifice('Sainte Elisabeth de Hongrie (Sainte Elisabeth)'))
-    print(simplifier_nom_edifice('Saint Jean-Baptiste (Cathédrale de Belley)'))
+def test_corriger_casse():
+    print(corriger_casse('Temple de Beaumont'))
+    print(corriger_casse('chapelle de l’Annonciation'))
     return
 
 
@@ -386,6 +389,7 @@ def test_detecter_type_edifice():
 
 
 def test_corriger_nom_edifice():
+    print(corriger_nom_edifice('Temple de Beaumont'))
     print(corriger_nom_edifice("Saint-Amour & Saint-Victor [église]", "Saint-Amour"))
     print(corriger_nom_edifice("de la Nativité de la Sainte-Vierge [église]", "Versailles"))
     print(corriger_nom_edifice("notre-dame-de-l'Annonciation [co-cathédrale]", "Bourg-en-Bresse"))
@@ -400,7 +404,15 @@ def test_reduire_edifice():
     print(reduire_edifice("Eglise de la Nativité de la Sainte-Vierge", 'Utopia'))
 
 
+def test_simplifier_nom_edifice():
+    print(_simplifier_nom_edifice('Saint-Maurice [eglise]'))
+    print(_simplifier_nom_edifice('Sainte Elisabeth de Hongrie (Sainte Elisabeth)'))
+    print(_simplifier_nom_edifice('Saint Jean-Baptiste (Cathédrale de Belley)'))
+    return
+
+
 if __name__ == '__main__':
+    # test_corriger_casse()
     # test_reduire_edifice()
-    test_detecter_type_edifice()
+    # test_detecter_type_edifice()
     test_corriger_nom_edifice()
