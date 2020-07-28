@@ -167,7 +167,7 @@ class EdificesMessesInfo(list):
             orgue.verifier_coordonnees_edifice()
 
     def verifier_existences_insee(self):
-        communes_francaises = utilsorgues.codegeographique.Communes(utilsorgues.generiques.upper_sans_accent)
+        communes_francaises = utilsorgues.codegeographique.Communes()
         regions_francaises = utilsorgues.codegeographique.Regions()
         for orgue in self:
             orgue.verifier_existence_insee(communes_francaises, regions_francaises)
