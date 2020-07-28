@@ -1,6 +1,6 @@
 import unicodedata
 
-LISTE_MINUSCULE = ["le", "la", "les", "de", "des", "du"]
+LISTE_MINUSCULE = ["le", "la", "les", "de", "des", "du", "in"]
 LISTE_MAJUSCULE = ["ND"]
 
 
