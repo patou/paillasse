@@ -30,15 +30,18 @@ if __name__ == '__main__':
     # mon_inventaire.codifier_departements()
     # mon_inventaire.verifier_existences_insee()
 
-    # mon_inventaire.detecter_noms_edifice_majuscules()
+    mon_inventaire.detecter_noms_edifice_majuscules()
 
-    mon_inventaire.standardiser_edifices()  # dont corrections casse, etc.
+    # mon_inventaire.standardiser_edifices()  # dont corrections casse, etc.
     # mon_inventaire.correction_directe_nom_edifice()
-    mon_inventaire.fixer_noms_edifices()
+    # mon_inventaire.fixer_noms_edifices()
 
     mon_inventaire.codifier_edifices()
     mon_inventaire.codifier_orgues()
     mon_inventaire.detecter_doublons_codifsorgues()
+
+    mon_inventaire.fixer_fichiers()
+    mon_inventaire.fixer_sources()
 
     """
     if PARAM_DEBUG == 'PALISSY_DEBUG':
