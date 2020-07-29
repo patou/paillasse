@@ -6,7 +6,6 @@ import logging
 
 import utilsorgues.tools.generiques as gen
 
-# FIXME : Saint-Pierre-ès-Liens Saint-Pierre-Es-Liens
 
 loggerCorrecteurorgues = logging.getLogger('correcteurogues')
 loggerCorrecteurorgues.setLevel(logging.DEBUG)
@@ -66,9 +65,6 @@ def detecter_type_edifice(chaine):
     :param chaine: dénomination de l'édifice
     :return: (dénomination standardisée, type edifice)
     """
-    #FIXME : [co-Cathédrale] au lieu de [co-cathédrale]
-    #FIXME : FR-78646-VERSA-CHAPEL-X;Versailles;Chapelle du Grand Séminaire
-    #FIXME : FR-33063-BORDE-ANCIEN-T;Bordeaux;Ancienne Abbatiale Sainte-Croix;
     # Attention, l'ordre de la liste compte : mettre d'abord église catholique, ensuite église...
     types_edifice = ['église catholique',
                      'temple protestant',
@@ -100,14 +96,14 @@ def detecter_type_edifice(chaine):
                      'chapelle paroissiale',
                      'chapelle protestante',
                      'chapelle catholique',
-                     'chapelle du college',
-                     "chapelle de l'ecole",
-                     'chapelle du lycee',
-                     'chapelle du lycee prive',
+                     'chapelle du collège',
+                     "chapelle de l'école",
+                     'chapelle du lycée',
+                     'chapelle du lycée privé',
                      "chapelle de l'institution",
                      "chapelle de l'orphelinat",
                      'chapelle du pensionnat',
-                     "chapelle de l'hopital",
+                     "chapelle de l'hôpital",
                      "chapelle de la congregation",
                      "chapelle de l'établissement",
                      'chapelle',
@@ -129,6 +125,7 @@ def detecter_type_edifice(chaine):
                      'église simultanée',
                      'église évangélique luthérienne',
                      'église luthérienne',
+                     'église néo-apostolique',
                      'école de musique',
                      'école',
                      'collège privé',
@@ -144,6 +141,8 @@ def detecter_type_edifice(chaine):
                      'théâtre',
                      'lycée privé',
                      'lycée',
+                     'pensionnat',
+                     'externat',
                      'salle',
                      'musée',
                      'conservatoire municipal',
@@ -151,7 +150,10 @@ def detecter_type_edifice(chaine):
                      'conservatoire national de région',
                      'conservatoire national régional',
                      'conservatoire',
-                     'clinique']
+                     'clinique',
+                     'maison de retraite',
+                     'loge maçonnique',
+                     'maison d’accueil']
     new_chaine = ''
     type_edifice = None
     if not chaine:
@@ -188,7 +190,6 @@ def corriger_nom_edifice(chaine, commune=''):
 
     On tient compte de la commune :
     si la commune est dans le nom de l'édifice (à l'exception des Saint...), elle est supprimée de l'édifice.
-    # FIXME : FR-35281-SSLAN-EGLISE-X;Saint-Jacques-de-la-Lande;église Saint-Jacques-de-la-Lande;[eglise]
     :param chaine: nom de l'édifice (str)
     :param commune: nom de la commune (str)
     :return: nom corrigé de l'édifice
@@ -214,8 +215,8 @@ def corriger_nom_edifice(chaine, commune=''):
             new_chaine = match.group(1)
             # On réinjecte dans la suite des traitements :
             chaine = new_chaine
-        # Si la commune est en surcharge, mais une autre information se trouve entre parenthèses
-        # [TODO]
+        # Si la commune est en surcharge, mais une autre information se trouve entre parenthèses :
+        # Non géré
         # Si le nom de la commune débute le nom de l'édifice, à l'exception des "Saint..." :
         elif commune.lower() == (chaine[:len(commune)]).lower():
             new_chaine = chaine[len(commune):].lstrip(' ')
@@ -226,9 +227,6 @@ def corriger_nom_edifice(chaine, commune=''):
             new_chaine = chaine[len(commune.lower().split(' ')[0]):].lstrip(' ')
     #
     # Ajout des traits d'union
-    # FIXME : de l'Assomption de Notre-Dame
-    # FIXME : de la Décollation de Saint-Jean-Baptiste
-    # FIXME : Toussaints
     if chaine[:3] == 'St ':
         new_chaine = 'Saint-{}'.format(chaine[3:])
     if chaine[:4] == 'St. ':
@@ -251,7 +249,7 @@ def corriger_nom_edifice(chaine, commune=''):
         new_chaine = 'Notre-Dame{}'.format(chaine[5:])
     if chaine[:10] == 'Notre-Dame':
         new_chaine = chaine
-    if chaine[:14] == 'du Sacré Coeur':#FIXME
+    if chaine[:14] == 'du Sacré Coeur':
         new_chaine = 'du Sacré-Cœur{}'.format(chaine[14:])
     if chaine[:13] == 'du Sacré Cœur':
         new_chaine = 'du Sacré-Cœur{}'.format(chaine[13:])

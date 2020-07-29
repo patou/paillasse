@@ -45,6 +45,11 @@ communes_tests = [
 ]
 
 edifices_tests = [
+    ("Saint-Erasme", "église"),
+    ("du 3E Arrondissement", "conservatoire"),
+    ("Saint-Jean", "communauté"),
+    ('du Cœur Immaculé de Marie', 'église'),
+    ("Saint-Eugène & Sainte-Cécile", "église"),
     ("Saint-Amans", 'église'),
     ("Collégiale Saint-Quentin", 'basilique'),
     ("de Monneaux", 'temple'),
@@ -107,10 +112,8 @@ def codifie_commune(commune):
     code = commune_modifiee.upper()
     # REGLE : Abréviations, pour les noms de plus de cinq caractères :
     if len(commune_modifiee) > 5:
-        # FIXME : 3 ou 2 car abbr
         if code[:8] in ABREVIATIONS_8:
             code = ABREVIATIONS_8[code[:8]] + code[8:10]
-        # FIXME : 3 ou 2 car abbr
         elif code[:6] in ABREVIATIONS_6:
             code = ABREVIATIONS_6[code[:6]] + code[6:9]
         elif code[:5] in ABREVIATIONS_5:
@@ -147,19 +150,14 @@ def codifie_edifice(edifice, type_edif):
     Codification d'un édifice sur 6 caractères.
     :param edifice: nom standardisé de l'édifice
     :param type_edif: type de l'édifice
-    :return: codification
+    :return: codification sur 6 caractères
     """
-    # FIXME : FR-38544-VIENN-STANDR-X
-    # FIXME : FR-92073-SURES-COEUR -X;Suresnes;Église du Cœur Immaculé de Marie;
-    # FIXME : EVANGE
-    # FIXME : FR - 25262 - FUANS - -------X;
-    # FIXME : FR-70526-VAUVI--------X;Vauvillers;église de la Nativité
-
     code_edifice = '------'
 
     if edifice == '' and type_edif is None:
         logger_codification.error("Pas de nom d'édifice, ni de type.")
-        # Si l'edifice n'a pas de nom (qu'un type), exemple fréquent : '[Temple]'
+
+    # Si l'edifice n'a pas de nom (qu'un type), exemple fréquent : '[Temple]'
     elif edifice == '' and type_edif is not None:
         if type_edif in [
                 'temple',
@@ -178,6 +176,11 @@ def codifie_edifice(edifice, type_edif):
             code_edifice = 'REFORM'
         elif type_edif == 'église luthérienne':
             code_edifice = 'LUTHER'
+
+        elif type_edif in ['église évangélique',
+                           'église évangélique luthérienne',
+                           'église néo-apostolique']:
+            code_edifice = 'EVANGE'
         elif type_edif in [
                 'église catholique',
                 'église paroissiale',
@@ -191,22 +194,29 @@ def codifie_edifice(edifice, type_edif):
             code_edifice = 'ANGLIC'
         elif type_edif == 'synagogue':
             code_edifice = 'SYNAGO'
+        elif type_edif == 'loge maçonnique':
+            code_edifice = 'LOGEFM'
         elif type_edif in [
                 'conservatoire national de région',
+                'conservatoire national de musique',
                 'conservatoire national régional',
                 'conservatoire',
                 'conservatoire municipal',
                 'école de musique',
                 ]:
             code_edifice = 'MUSIQU'
-        elif type_edif == 'séminaire':
+        elif type_edif == 'séminaire' or type_edif == 'grand séminaire':
             code_edifice = 'SEMINA'
-        elif type_edif == "chapelle de l'hopital":
+        elif type_edif == "chapelle de l'hôpital":
             code_edifice = 'HOPITA'
-        elif type_edif == "chapelle du college":
+        elif type_edif == "chapelle du collège":
             code_edifice = 'COLLEG'
+        elif type_edif == 'maison de retraite':
+            code_edifice = 'MRETRA'
+        elif type_edif == 'musée':
+            code_edifice = 'MUSEEE'
         else:
-            logger_codification.error("Absence codification avec type seul {}, sans nom : {}".format(type, edifice))
+            logger_codification.critical("Absence codification avec uniquement le type {}".format(type_edif))
     else:
         # On supprime jusqu'à deux articles en début de nom :
         edifice = gen.supprimer_article(edifice)
@@ -216,6 +226,9 @@ def codifie_edifice(edifice, type_edif):
         # Sacré-Coeur:
         if 'Sacré-Coeur' in edifice:
             code_edifice = 'SCOEUR'
+        # Coeur de Marie
+        if 'Coeur Immaculé de Marie' in edifice:
+            code_edifice = 'COEURM'
         # Codification des GRAND (séminaire, théâtre, casino, ...)
         elif edifice[:5] == 'grand':
             if len(edifice) >= 10:
@@ -235,24 +248,21 @@ def codifie_edifice(edifice, type_edif):
             if len(edifice) < 5:
                 code_edifice = 'ECOLEE'
             else:
-                # TODO : appeler codification de façon récursive ou tout simplement supprimer école
                 code_edifice = 'ECO' + edifice[-3:]
         # Codification des églises dédicacées à un saint ou une sainte :
-        # FIXME : Saint-Jean-Marie Vianney (Basilique Sainte-Philomène, Basilique Saint-Sixte)
-        # FIXME : Saint-Jacques (Abbaye de Chanoines Réguliers de Saint Augustin Saint-Rémy)
-        # FIXME : Saint-Martin-Notre-Dame et Saint-André
-        # FIXME : Saint-François-Xavier (Saint-Joseph)
-        # FIXME : Saint-Pierre & Saint-Paul (Église Notre-Dame)
         # Cas particuliers :
         if edifice == 'Saint-Pierre-ès-Liens':
             code_edifice = 'STPIEL'
+        elif edifice == 'Jean-Marie-Vianney':
+            code_edifice = 'STJMVI'
         elif edifice == 'Saint-Marceau':
             code_edifice = 'STMARU'
         elif edifice == 'Saint-Martin-ès-Vignes':
             code_edifice = 'STMAEV'
-        elif edifice == "Sainte-Thérèse d'Avila":
+        elif edifice == "Sainte-Thérèse d’Avila":
             code_edifice = 'STTHEA'
-        elif edifice == "Sainte-Thérèse de l'Enfant-Jésus":
+        elif edifice == "Sainte-Thérèse-de-l’Enfant-Jésus" \
+                or edifice == "Sainte-Thérèse-de-Lisieux":
             code_edifice = 'STTHEL'
         elif edifice == 'Saint-Jean-Bosco':
             code_edifice = 'STJBOS'
@@ -260,18 +270,18 @@ def codifie_edifice(edifice, type_edif):
             code_edifice = 'STJBAP'
         elif edifice == 'Saint-Jean-Baptiste-de-la-Salle':
             code_edifice = 'STJDLS'
-        elif edifice == "Saint-François d'Assise":
+        elif edifice == "Saint-François-d’Assise":
             code_edifice = 'STFASS'
-        elif edifice == "Saint-François de Paule":
+        elif edifice == "Saint-François-de-Paule":
             code_edifice = 'STFPAU'
-        elif edifice == "Sainte-Jeanne d'Arc":
+        elif edifice == "Sainte-Jeanne-d’Arc":
             code_edifice = 'STJARC'
+        # Cas général
         elif edifice[:6] == 'Saint-':
             saint = edifice[6:]
             # Exception : Plusieurs saints, mais sans regarder dans les parenthèses :
-            # FIXME : Saint-Pierre & Saint-Paul (Église Notre-Dame)
             if 'Saint' in saint and saint.find('(') <= saint.find('Saint'):
-                if saint == 'Denis du Saint-Sacrement':
+                if saint == 'Denis-du-Saint-Sacrement':
                     code_edifice = 'ST' + 'DSSS'
                 elif '&' in saint:
                     premier_saint = saint.split('&')[0].rstrip()
@@ -280,42 +290,12 @@ def codifie_edifice(edifice, type_edif):
                 else:
                     logger_codification.error("Nom d'édifice avec plusieurs saints non géré : {}".format(edifice))
                     code_edifice = 'SS' + saint[:4]
-                """
-                elif saint == 'Paul & Saint-Louis':
-                    code_edifice = 'SS' + 'PLLS'
-                elif saint == 'Cyr & Sainte-Julitte' or saint == 'Cyr & Sainte-Juliette':
-                    code_edifice = 'SS' + 'JNMN'
-                elif saint == 'Jean & Saint-Martin':
-                    code_edifice = 'SS' + 'JNMN'
-                elif saint == 'Nicolas & Saint-Guillaume':
-                    code_edifice = 'SS' + 'NSGE'
-                elif saint == 'Côme & Saint-Damien':
-                    code_edifice = 'SS' + 'CEDN'
-                elif saint == 'Julien & Saint-Antoine':
-                    code_edifice = 'SS' + 'JNAE'
-                elif saint == 'Simon & Saint-Jude':
-                    code_edifice = 'SS' + 'SNJE'
-                elif saint == 'Gervais & Saint-Protais':
-                    code_edifice = 'SS' + 'GSPS'
-                elif saint == 'Georges & Saint-Ludan':
-                    code_edifice = 'SS' + 'GSLN'
-                elif saint == 'Nazaire & Saint-Celse':
-                    code_edifice = 'SS' + 'NZCE'
-                elif saint == 'Paul & Saint-Serge':
-                    code_edifice = 'SS' + 'PLSE'
-                elif saint == 'Juste & Saint-Pasteur' or saint == 'Just-Saint-Pasteur':
-                    code_edifice = 'SS' + 'JEPR'
-                elif saint == 'Philippe & Saint-Jacques':
-                    code_edifice = 'SS' + 'PEJS'
-                elif saint == 'Pierre & Saint-Paul':
-                    code_edifice = 'SS' + 'PEPL'
-                """
             else:
                 code_edifice = 'ST' + saint[:4]
         elif edifice[:7] == 'Sainte-':
             sainte = edifice[7:]
             code_edifice = 'ST' + sainte[:4]
-        # Eglises dédicacées à Saint-Jean-Baptiste :
+        # églises dédicacées à Saint-Jean-Baptiste :
         elif 'Nativité-de-Saint-Jean-Baptiste' in edifice:
             code_edifice = 'NATSJB'
         # Codification des églises dédicacées à la Sainte-Vierge :
@@ -328,7 +308,6 @@ def codifie_edifice(edifice, type_edif):
             fin_notre_dame = notre_dame
             if '-' in notre_dame:
                 fin_notre_dame = notre_dame.split('-')[-1]
-                # TODO : Suppression de l'article.
             code_edifice = 'ND' + gen.supprimer_article(fin_notre_dame)[:4]
         # Nativité :
         elif edifice[:8].lower() == 'nativité':
@@ -347,7 +326,6 @@ def codifie_edifice(edifice, type_edif):
         elif code_edifice == '------':
             code_edifice = edifice[:6]
         # On complète les caractères manquant par le dernier caractère.
-        # FIXME : FR-75056-PARIS-COEUR -T;Paris;église du Cœur Eucharistique;
         code_edifice = code_edifice.ljust(6, code_edifice[-1])
         code_edifice = code_edifice.upper()
         code_edifice = gen.supprimer_accents(code_edifice)
@@ -372,11 +350,14 @@ def codifie_denomination(denomination):
                            'orgue de tribune': 'T',
                            'orgue de transept': 'C',
                            'orgue positif': 'D',
+                           'orgue régale': 'D',
                            "orgue d'accompagnement": 'C',
                            'petit orgue': 'D',
+                           "orgue d'étude": 'D',
                            'positif': 'D',
                            'grand positif': 'D',
                            'chapelle': 'D',
+                           'oratoire': 'D',
                            "chapelle d'hiver": 'D',
                            'chapelle de la Vierge': 'D',
                            'sacristie': 'D',
@@ -385,7 +366,7 @@ def codifie_denomination(denomination):
                            'O.C.2': 'D',
                            'O.C. 1': 'C',
                            'O.C. 2': 'D',
-                           'Crypte': 'Y',
+                           'crypte': 'Y',
                            'coffre': '0',
                            'Coffre': '0',
                            'orgue coffre': '0',
@@ -417,6 +398,7 @@ def codifie_denomination(denomination):
                            'polyphone': 'P',
                            'buffet': 'B',
                            'orgue à rouleau': 'R',
+                           'orgue à cylindre': 'R',
                            '': 'X'}
     if denomination in denominations_orgue.keys():
         code_denomination = denominations_orgue[denomination]
@@ -436,13 +418,13 @@ def codifier_instrument(orgue):
     :param orgue: objet de la classe OrgueInventaire
     :return: codification (str)
     """
-    logger_codification.debug('codifier_instrument {} {}'.format(str(orgue), str(orgue.commune_insee)))
+    logger_codification.debug('codifier_instrument {} {}'.format(str(orgue), str(orgue.commune)))
     code_orgue = ''
     code_orgue += 'FR'
     code_orgue += '-'
     code_orgue += orgue.code_insee
     code_orgue += '-'
-    code_orgue += codifie_commune(orgue.commune_insee)
+    code_orgue += codifie_commune(orgue.commune)
     code_orgue += '-'
     code_orgue += codifie_edifice(orgue.edifice_standard, orgue.type_edifice)
     code_orgue += '-'
@@ -461,5 +443,5 @@ def test_codifie_commune():
 
 
 if __name__ == '__main__':
-    test_codifie_commune()
+    # test_codifie_commune()
     test_codifie_edifice()
