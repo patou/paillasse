@@ -23,6 +23,7 @@ logger_codification.addHandler(fhd)
 logger_codification.addHandler(chd)
 
 communes_tests = [
+    'Bœrsch',
     'Champcueil',
     'La Rochelle',
     'Bellevue',
@@ -108,6 +109,8 @@ def codifie_commune(commune):
     """
     # REGLE : L'article inital est omis.
     commune_modifiee = gen.supprimer_article(commune)
+    # On corrige les e dans l'o (car deux caractères au lieu d'un seul):
+    commune_modifiee = commune_modifiee.replace('œ', 'oe')
     #
     code = commune_modifiee.upper()
     # REGLE : Abréviations, pour les noms de plus de cinq caractères :
@@ -158,7 +161,7 @@ def codifie_edifice(edifice, type_edif):
         logger_codification.error("Pas de nom d'édifice, ni de type.")
 
     # Si l'edifice n'a pas de nom (qu'un type), exemple fréquent : '[Temple]'
-    elif edifice == '' and type_edif is not None:
+    elif (edifice == '' or edifice is None) and type_edif is not None:
         if type_edif in [
                 'temple',
                 'grand temple',
@@ -443,5 +446,5 @@ def test_codifie_commune():
 
 
 if __name__ == '__main__':
-    # test_codifie_commune()
-    test_codifie_edifice()
+    test_codifie_commune()
+    # test_codifie_edifice()
