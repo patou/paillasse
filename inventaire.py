@@ -57,6 +57,13 @@ loggerGps = logging.getLogger('inventaire.GPS')
 loggerInsee = logging.getLogger('inventaire.Insee')
 
 
+def xstr(s):
+    """
+    Retourne une chaîne vide si None.
+    """
+    return s if s is not None else ""
+
+
 class Accessoires(list):
     """
     Liste d'accessoires
@@ -125,17 +132,17 @@ class Fichier(object):
             self.from_json(extrait_json)
         else:
             self.file = ''
-            self.decription = ''
+            self.description = ''
 
     def from_json(self, my_json):
         _json = json.loads(my_json)
         self.file = _json['file']
-        self.decription = _json['decription']
+        self.description = _json['description']
 
     def from_str(self, chaine):
         attributs = eval(chaine)
         self.file = attributs['file']
-        self.decription = attributs['decription']
+        self.description = attributs['description']
 
     def to_dict(self):
         return self.__dict__
@@ -185,19 +192,19 @@ class Source(object):
             self.from_json(extrait_json)
         else:
             self.type = ''
-            self.decription = ''
+            self.description = ''
             self.lien = ''
 
     def from_json(self, my_json):
         _json = json.loads(my_json)
         self.type = _json['type']
-        self.decription = _json['decription']
+        self.description = _json['description']
         self.lien = _json['lien']
 
     def from_str(self, chaine):
         attributs = eval(chaine)
         self.type = attributs['type']
-        self.decription = attributs['decription']
+        self.description = attributs['description']
         self.lien = attributs['lien']
 
     def to_dict(self):
@@ -411,9 +418,18 @@ class OrgueInventaire(object):
         ] = _liste
 
         # Retraitement des champs
-        self.references_palissy = self.references_palissy.split(',')
+
+        # Champs mis à '' par défaut.
+        self.designation = xstr(self.designation)
+        self.edifice = xstr(self.edifice)
+
+        if self.references_palissy:
+            self.references_palissy = self.references_palissy.split(',')
         self.evenements = Evenements(_evenements)
-        self.accessoires = Accessoires(_accessoires)
+        if _accessoires:
+            self.accessoires = Accessoires(_accessoires)
+        else:
+            self.accessoires = None
         self.fichiers = Fichiers(_fichiers)
         self.sources = Sources(_sources)
         return
@@ -422,6 +438,14 @@ class OrgueInventaire(object):
         return '{} {}'.format(self.commune, self.edifice)
 
     def to_record(self):
+        if self.references_palissy is not None:
+            _refs_palissy = ",".join(self.references_palissy)
+        else:
+            _refs_palissy = ''
+        if self.accessoires is not None:
+            _accessoires = ",".join(self.accessoires)
+        else:
+            _accessoires = ''
         champs = [self.codification,
                   self.commune,
                   self.edifice,
@@ -452,7 +476,7 @@ class OrgueInventaire(object):
                   self.orgbase_edifice_standard,
                   self.orgbase_edifice_log,
                   self.orgbase_commune_insee,
-                  ",".join(self.references_palissy),
+                  _refs_palissy,
                   self.denomination_palissy,
                   self.edifice_palissy,
                   self.protection_palissy,
@@ -475,7 +499,7 @@ class OrgueInventaire(object):
                   self.tirage_commentaire,
                   self.commentaire_tuyauterie,
                   self.evenements.to_json(),
-                  ",".join(self.accessoires),
+                  _accessoires,
                   self.claviers,
                   self.images,
                   self.sources.to_json(),
@@ -484,7 +508,12 @@ class OrgueInventaire(object):
                   self.url,
                   self.fichiers.to_json()
                   ]
-        record = ';'.join(champs)
+        _champs = list()
+        for champ in champs:
+            if champ is None:
+                champ = ''
+            _champs.append(champ)
+        record = ';'.join(_champs)
         return record
 
     def to_dict(self):
@@ -527,6 +556,10 @@ class OrgueInventaire(object):
             self.accessoires,
 
         """
+        if self. references_palissy is not None:
+            _refs_palissy = ",".join(self.references_palissy)
+        else:
+            _refs_palissy = None
         dict_orgue = {
             "id": self.id,
             "updated_by_user": self.user,
@@ -554,7 +587,7 @@ class OrgueInventaire(object):
             "resume": self.resume,
             "organisme": self.organisme,
             "lien_reference": self.lien_reference,
-            "references_palissy": ",".join(self.references_palissy),
+            "references_palissy": _refs_palissy,
             "transmission_notes": self.transmission_notes,
             "transmission_commentaire": self.transmission_commentaire,
             "tirage_jeux": self.tirage_jeux,
@@ -594,7 +627,7 @@ class OrgueInventaire(object):
         codifier_edifice = (detecter_type_edifice + corriger_nom_edifice) + codifier_edifice
         :return:
         """
-        if self.edifice_standard != '':
+        if self.edifice_standard != '' and self.edifice_standard is not None:
             self.codification_edifice = cod.codifie_edifice(self.edifice_standard, self.type_edifice)
         else:
             loggerInventaire.info("Pas de nom d'édifice pour l'orgue {}".format(self))
@@ -667,6 +700,12 @@ class OrguesInventaire(list):
                     ligne_debut_lecture = 1
                 if i >= ligne_debut_lecture:
                     champs = ligne.rstrip('\r\n').split(';')
+                    _champs = list()
+                    for item in champs:
+                        if item == '':
+                            item = None
+                        _champs.append(item)
+                    champs = _champs
                     # Vérification du format :
                     if len(champs) != len(OrgueInventaire.entete):
                         loggerInventaire.error('La ligne {} comporte {} champs.'.format(i + 1, len(champs)))
@@ -808,6 +847,8 @@ class OrguesInventaire(list):
         for orgue in self:
             if orgue.designation == 'polyphone':
                 orgue.is_polyphone = True
+            else:
+                orgue.is_polyphone = False
 
     def fixer_liendereference(self):
         for orgue in self:
@@ -833,15 +874,15 @@ class OrguesInventaire(list):
         """
         url_site = 'http://inventaire-des-orgues.fr'
         for orgue in self:
-            if orgue.livre != '':
-                # Si option reset activée, on efface tous les évènements.
-                if reset:
-                    orgue.fichiers = Fichiers()
+            # Si option reset activée, on efface tous les fichiers.
+            if reset or orgue.fichiers is None:
+                orgue.fichiers = Fichiers()
+            if orgue.livre != '' and orgue.livre is not None:
                 fics = Fichiers()
                 fic = Fichier()
                 nomfic = '[extrait] ' + orgue.livre
                 fic.file = '{}/media/{}/{}/fichiers/{}.pdf'.format(url_site, orgue.code_departement, orgue.codification, orgue.codification)
-                fic.decription = nomfic
+                fic.description = nomfic
                 fics.append(fic)
                 orgue.fichiers = fics
         return
@@ -852,17 +893,17 @@ class OrguesInventaire(list):
         :return:
         """
         for orgue in self:
-            if orgue.livre != '':
-                # Si option reset activée, on efface tous les évènements.
-                if reset:
-                    orgue.sources = Sources()
+            # Si option reset activée, on efface toutes les sources.
+            if reset or orgue.sources is None:
+                orgue.sources = Sources()
+            if orgue.livre != '' and orgue.livre is not None:
                 srcs = Sources()
                 src = Source()
                 src.type = 'ouvrage'
-                src.decription = '{}#{}#{}#{}'.format(orgue.livre,
-                                                      orgue.pages_pdf,
-                                                      orgue.pages_livre,
-                                                      orgue.pages_livre_complement)
+                src.description = '{}#{}#{}#{}'.format(orgue.livre,
+                                                      xstr(orgue.pages_pdf),
+                                                      xstr(orgue.pages_livre),
+                                                      xstr(orgue.pages_livre_complement))
                 src.lien = 'http://explore.inventaire-des-orgues.fr/'
                 srcs.append(src)
                 orgue.sources = srcs
@@ -907,9 +948,9 @@ class OrguesInventaire(list):
         pms = basepalissy.to_dict_pm()
         for orgue in self:
             # Si option reset activée, on efface tous les évènements.
-            if reset:
+            if reset or orgue.evenements is None:
                 orgue.evenements = Evenements()
-            if orgue.references_palissy != '':
+            if orgue.references_palissy is not None:
                 for pm in orgue.references_palissy:
                     if pm != '':
                         orguepalissy = pms.get(pm)
@@ -1227,7 +1268,7 @@ class OrguesInventaire(list):
     def detecter_noms_edifice_majuscules(self):
         for orgue in self:
             if re.search(".*[A-Z][A-Z].*", orgue.edifice):
-                loggerInventaire.warning("Pour cet orgue l'édifice est en majuscules : {}".format(orgue))
+                loggerInventaire.info("Pour cet orgue l'édifice est en majuscules : {}".format(orgue))
 
     def rechercher_coordonnees_gps(self):
         # Construction du dictionnaire des édifices MessesInfo:

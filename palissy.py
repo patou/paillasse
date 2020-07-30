@@ -87,9 +87,9 @@ class OrguesPalissyOpenData(list):
                 objet_palissy.INSEE = '0' + objet_palissy.INSEE
 
 
-class OrguePalissyPop2000(object):
+class OrguePalissyPop2020(object):
     """
-    Orgue dans Palissy exporté via POP back-office, version 2000.
+    Orgue dans Palissy exporté via POP back-office, version 2020.
     Spécificité : Tous les champs et non que les champs open data.
     """
     # TODO : Typage ?
@@ -251,7 +251,7 @@ class OrguesPalissyPop(list):
                 # ou
                 # Que l'entête pour les fichiers Palissy POP version 2000
                 if i > 0:
-                    orgue = OrguePalissyPop2000(ligne)
+                    orgue = OrguePalissyPop2020(ligne)
                     self.append(orgue)
         return
 

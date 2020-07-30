@@ -25,7 +25,7 @@ if __name__ == '__main__':
     # print(mon_inventaire.denombrer_par_commune()["La Flèche, Sarthe"])
     # mon_inventaire.to_console()
 
-    mon_inventaire.liste_edifices_absents()
+    # mon_inventaire.liste_edifices_absents()
 
     # mon_inventaire.codifier_departements()
     # mon_inventaire.verifier_existences_insee()
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     mon_inventaire.detecter_doublons_codifsorgues()
 
     mon_inventaire.fixer_fichiers()
-    mon_inventaire.fixer_sources()
+    mon_inventaire.fixer_sources(reset=True)
 
     """
     if PARAM_DEBUG == 'PALISSY_DEBUG':
@@ -57,7 +57,7 @@ if __name__ == '__main__':
 
     # mon_inventaire.ecraser_gps_par_osm()
     # mon_inventaire.fixer_polyphones()
-    # mon_inventaire.fixer_monumentshistoriques('../97-data/export-pop-palissy.csv', reset=True)
+    mon_inventaire.fixer_monumentshistoriques('../97-data/palissy_20200414_14h14m05s.csv', reset=True)
     # mon_inventaire.fixer_liendereference()
 
     if PARAM_DEBUG == 'MAIN_DEBUG':
