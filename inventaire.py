@@ -886,7 +886,7 @@ class OrguesInventaire(list):
                 fics = Fichiers()
                 fic = Fichier()
                 nomfic = '[extrait] ' + orgue.livre
-                fic.file = '{}/media/{}/{}/fichiers/{}.pdf'.format(url_site, orgue.code_departement, orgue.codification, orgue.codification)
+                fic.file = '{}/{}/fichiers/{}.pdf'.format(orgue.code_departement, orgue.codification, orgue.codification)
                 fic.description = nomfic
                 fics.append(fic)
                 orgue.fichiers = fics
