@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
     mon_inventaire.detecter_noms_edifice_majuscules()
 
-    # mon_inventaire.standardiser_edifices()  # dont corrections casse, etc.
+    mon_inventaire.standardiser_edifices()  # dont corrections casse, etc.
     # mon_inventaire.correction_directe_nom_edifice()
     # mon_inventaire.fixer_noms_edifices()
 

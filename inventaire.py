@@ -2,6 +2,10 @@
 Classes représentant le modèle de données de l'index des orgues de France.
 """
 
+# TODO : images # "image", "is_principale", "credit"
+# TODO : facteurs
+# TODO : modified_date
+
 # TODO : implémenter Images, Claviers, Accessoires.
 # TODO : init from json
 
@@ -315,7 +319,7 @@ class OrgueInventaire(object):
               'Orgbase_auto',
               'Orgbase_desc',
               'Orgbase_facteurs',
-              'Orgbase_minicompo',
+              'Minicompo',
               'Orgbase_edifice_standard',
               'Orgbase_edifice_log',
               'Orgbase_commune_insee',
@@ -380,7 +384,7 @@ class OrgueInventaire(object):
             self.orgbase_auto,
             self.orgbase_desc,
             self.orgbase_facteurs,
-            self.orgbase_minicomposition,
+            self.minicomposition,
             self.orgbase_edifice_standard,
             self.orgbase_edifice_log,
             self.orgbase_commune_insee,
@@ -472,7 +476,7 @@ class OrgueInventaire(object):
                   self.orgbase_auto,
                   self.orgbase_desc,
                   self.orgbase_facteurs,
-                  self.orgbase_minicomposition,
+                  self.minicomposition,
                   self.orgbase_edifice_standard,
                   self.orgbase_edifice_log,
                   self.orgbase_commune_insee,
@@ -603,6 +607,7 @@ class OrgueInventaire(object):
             "images": [],
             "fichiers": self.fichiers.to_list(),
             "sources": self.sources.to_list(),
+            "resume_clavier": self.minicomposition
         }
         if self.accessoires is not None:
             dict_orgue["accessoires"] = self.accessoires
@@ -983,11 +988,11 @@ class OrguesInventaire(list):
                                     loggerInventaire.error(
                                         "Fixer Palissy : Champ PROT Palissy Pop illisible : {} {}".format(pm, prot))
                                 # Recopie d'autres informations
-                                evenement.resume = pm + '\n'
-                                evenement.resume += orguepalissy.DPRO.replace(';', ',') + '\n'
-                                evenement.resume += orguepalissy.DENO.replace(';', ',') + '\n'
-                                evenement.resume += orguepalissy.DOSS.replace(';', ',') + '\n'
-                                evenement.resume += orguepalissy.REFE.replace(';', ',') + '\n'
+                                evenement.resume = '<p>{}</p>'.format(pm)
+                                evenement.resume += '<p>{}</p>'.format(orguepalissy.DPRO.replace(';', ','))
+                                evenement.resume += '<p>{}</p>'.format(orguepalissy.DENO.replace(';', ','))
+                                evenement.resume += '<p>{}</p>'.format(orguepalissy.DOSS.replace(';', ','))
+                                evenement.resume += '<p>{}</p>'.format(orguepalissy.REFE.replace(';', ','))
                                 orgue.evenements.append(evenement)
 
     def denombrer_par_commune(self):
