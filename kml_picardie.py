@@ -3,7 +3,7 @@ Parseur des kml extraits des cartes du site Orgues de Picardie.
 Le parseur extrait : le département, la commune, l'édifice (si plusieurs dans la commune),
 ainsi que les coordonnées GPS.
 
-#FIXME : il faut supprimer à la main la ligne déclaration d'encoding (première ligne) du kml.
+# FIXME : il faut supprimer à la main la ligne déclaration d'encoding (première ligne) du kml.
 """
 from fastkml import kml
 

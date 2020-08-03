@@ -5,8 +5,6 @@ https://www.insee.fr/fr/information/4316069
 Codification des collectivités d'outre-mer (COM)
 https://www.insee.fr/fr/information/2028040
 """
-# TODO: Répertoire REP_GEODATA : adresse relative à changer suivant lancement depuis ce module ou d'un autre.
-
 import logging
 
 REP_GEODATA = '../99-geodata/cog_ensemble_2020_csv/'
