@@ -1325,3 +1325,46 @@ class OrguesInventaire(list):
             else:
                 loggerGps.error('Commune non trouvée dans la liste des édifices MessesInfo : {}'.format(orgue.commune))
         return
+
+    def split_pdf(self, departements=['64']):
+
+        def _plage_to_pages(plage):
+            """
+            Transforme une chaîne de type '114, 117-119' en liste [114, 117, 118, 119].
+            :param plage: plage de pages d'un fichier selon le format utilisé par les logiciels lors d'une impression.
+            :return: liste de pages à traiter.
+            """
+            pages = list()
+            for pages_consecutives in plage.split(','):
+                if '-' in pages_consecutives:
+                    [page_deb, page_fin] = map(int, pages_consecutives.split('-'))
+                    pages.extend(range(page_deb, page_fin + 1))
+                else:
+                    pages.append(int(pages_consecutives))
+            return pages
+
+        from PyPDF2 import PdfFileWriter, PdfFileReader
+
+        rep_livres = "D:\\Users\\poullennecgwi\\Documents\\inventaire\\02-scans\\"
+        livres = {
+            '64': 'Pays Basque & Béarn.pdf',
+            '78': "Yvelines & Val d'Oise--vectorise.pdf",
+        }
+        for departement in departements:
+
+            livre_pdf = rep_livres + livres[departement]
+            infile = PdfFileReader(open(livre_pdf, 'rb'))
+
+            for orgue in self:
+                if orgue.code_departement == departement and orgue.sources:
+                    livre = orgue.sources[0].description.split('#')[0]
+                    pages_pdf = orgue.sources[0].description.split('#')[1]
+                    fic_pdf_unitaire = orgue.codification + '.pdf'
+                    loggerInventaire.info("Ecriture PDF {}".format(fic_pdf_unitaire))
+                    with open(fic_pdf_unitaire, 'wb') as f:
+                        outfile = PdfFileWriter()
+                        for i in _plage_to_pages(pages_pdf):
+                            p = infile.getPage(i-1)
+                            outfile.addPage(p)
+                        outfile.write(f)
+        return
