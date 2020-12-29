@@ -17,6 +17,7 @@ Classes représentant le modèle de données de l'index des orgues de France.
 import logging
 import json
 import re
+import csv
 
 import utilsorgues as uo
 import utilsorgues.codification as cod
@@ -429,13 +430,17 @@ class OrgueInventaire(object):
 
         if self.references_palissy:
             self.references_palissy = self.references_palissy.split(',')
-        self.evenements = Evenements(_evenements)
+        if _evenements:
+            self.evenements = Evenements(_evenements.strip('"'))
+
         if _accessoires:
             self.accessoires = Accessoires(_accessoires)
         else:
             self.accessoires = None
-        self.fichiers = Fichiers(_fichiers)
-        self.sources = Sources(_sources)
+        if _fichiers:
+            self.fichiers = Fichiers(_fichiers.strip('"'))
+        if _sources:
+            self.sources = Sources(_sources.strip('"'))
         return
 
     def __repr__(self):
@@ -1326,7 +1331,7 @@ class OrguesInventaire(list):
                 loggerGps.error('Commune non trouvée dans la liste des édifices MessesInfo : {}'.format(orgue.commune))
         return
 
-    def split_pdf(self, departements=['64']):
+    def split_pdfs(self, departements=['64']):
 
         def _plage_to_pages(plage):
             """
@@ -1345,26 +1350,38 @@ class OrguesInventaire(list):
 
         from PyPDF2 import PdfFileWriter, PdfFileReader
 
-        rep_livres = "D:\\Users\\poullennecgwi\\Documents\\inventaire\\02-scans\\"
-        livres = {
-            '64': 'Pays Basque & Béarn.pdf',
-            '78': "Yvelines & Val d'Oise--vectorise.pdf",
-        }
-        for departement in departements:
+        # Chargement de la correspondance source -> fichier PDF
+        source2pdf = dict()
+        with open('..\\98-indexes\\source2pdf.csv', 'r', encoding='utf-8') as f_source2pdf:
+            source2pdf_reader = csv.reader(f_source2pdf, delimiter=';', lineterminator='\r\n')
+            for row in source2pdf_reader:
+                source2pdf[row[0]] = row[1]
 
-            livre_pdf = rep_livres + livres[departement]
-            infile = PdfFileReader(open(livre_pdf, 'rb'))
+        REP_LIVRES = "E:\\02-scans"
+        REP_SPLITS = "D:\\Users\\poullennecgwi\\Documents\\inventaire\\split\\"
+        # Il faut prendre Edisud pour le Limousin
+        # Attention, 67, 68, 57 ont plusieurs livres pour un même département (Alsace-Lorraine).
+        # Attention : 35, 14, 31 sont des fiches indépendantes.
+        # Attention : 07, 26 ont de nouveaux livres.
+        #TODO Sur le site, Aquitaine II doit devenir Aquitaine I !
+        #TODO Sur le site, Orgues de Lorraine seul correspond au volume H-M.
+        # Recensement est pour 2 PDF 29 et 56.
+
+        for livre, livre_pdf in source2pdf.items():
+            loggerInventaire.info('Split du PDF : {}'.format(livre_pdf))
+            path_livre_pdf = REP_LIVRES + livre_pdf
+            infile = PdfFileReader(open(path_livre_pdf, 'rb'))
 
             for orgue in self:
-                if orgue.code_departement == departement and orgue.sources:
-                    livre = orgue.sources[0].description.split('#')[0]
-                    pages_pdf = orgue.sources[0].description.split('#')[1]
-                    fic_pdf_unitaire = orgue.codification + '.pdf'
-                    loggerInventaire.info("Ecriture PDF {}".format(fic_pdf_unitaire))
-                    with open(fic_pdf_unitaire, 'wb') as f:
-                        outfile = PdfFileWriter()
-                        for i in _plage_to_pages(pages_pdf):
-                            p = infile.getPage(i-1)
-                            outfile.addPage(p)
-                        outfile.write(f)
+                if orgue.sources:
+                    if livre == orgue.sources[0].description.split('#')[0]:
+                        pages_pdf = orgue.sources[0].description.split('#')[1]
+                        fic_pdf_unitaire = orgue.codification + '.pdf'
+                        loggerInventaire.info("Ecriture PDF : {}".format(fic_pdf_unitaire))
+                        with open(REP_SPLITS + fic_pdf_unitaire, 'wb') as f:
+                            outfile = PdfFileWriter()
+                            for i in _plage_to_pages(pages_pdf):
+                                p = infile.getPage(i-1)
+                                outfile.addPage(p)
+                            outfile.write(f)
         return
