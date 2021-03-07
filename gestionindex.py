@@ -61,7 +61,7 @@ if __name__ == '__main__':
     # mon_inventaire.fixer_monumentshistoriques('../97-data/palissy_20200414_14h14m05s.csv', reset=True)
     # mon_inventaire.fixer_liendereference()
 
-    mon_inventaire.split_pdfs(['78'])
+    mon_inventaire.split_pdfs(ecrase=False, tar_pdf=True)
 
 
     if PARAM_DEBUG == 'MAIN_DEBUG':
