@@ -14,10 +14,12 @@ Classes représentant le modèle de données de l'index des orgues de France.
 
 # TODO : Supprimer les vieilles fonctions Palissy pour ne garder que POP.
 
+import os
 import logging
 import json
 import re
 import csv
+import tarfile
 
 import utilsorgues as uo
 import utilsorgues.codification as cod
@@ -65,8 +67,9 @@ loggerInsee = logging.getLogger('inventaire.Insee')
 def xstr(s):
     """
     Retourne une chaîne vide si None.
+    Supprime les guillemets encadrants.
     """
-    return s if s is not None else ""
+    return s.strip('"') if s is not None else ""
 
 
 class Accessoires(list):
@@ -103,6 +106,7 @@ class Fichiers(list):
     """
     Fichiers sur serveur associés à un orgue.
     """
+
     def __init__(self, extrait_json=None):
         if extrait_json:
             self.from_json(extrait_json)
@@ -132,6 +136,7 @@ class Fichier(object):
     """
     Fichier de la chronologie.
     """
+
     def __init__(self, extrait_json=None):
         if extrait_json:
             self.from_json(extrait_json)
@@ -163,6 +168,7 @@ class Sources(list):
     """
     Sources.
     """
+
     def __init__(self, extrait_json=None):
         if extrait_json:
             self.from_json(extrait_json)
@@ -192,6 +198,7 @@ class Source(object):
     """
     Source.
     """
+
     def __init__(self, extrait_json=None):
         if extrait_json:
             self.from_json(extrait_json)
@@ -565,7 +572,7 @@ class OrgueInventaire(object):
             self.accessoires,
 
         """
-        if self. references_palissy is not None:
+        if self.references_palissy is not None:
             _refs_palissy = ",".join(self.references_palissy)
         else:
             _refs_palissy = None
@@ -702,14 +709,23 @@ class OrguesInventaire(list):
 
     def __init__(self, fic_csv, presence_entete=True):
         super().__init__()
-        with open('./{}'.format(fic_csv), 'r', encoding='utf-8') as fic_totale:  # encoding='iso-8859-1'
+
+        # FIXME Gestion de l'encodage non utf-8
+        with open('./{}'.format(fic_csv), 'r', encoding='utf-16') as fic_totale:  # encoding='iso-8859-1'
+            # Séparateur par défaut
+            sep = ';'
             for i, ligne in enumerate(fic_totale):
+                if i == 0 and '\t' in ligne:
+                    sep = '\t'
                 # On peut éventuellement ne pas tenir compte de l'entête si présent.
                 ligne_debut_lecture = 0
                 if presence_entete:
                     ligne_debut_lecture = 1
                 if i >= ligne_debut_lecture:
-                    champs = ligne.rstrip('\r\n').split(';')
+                    # On remplace les doubles quotes par des simples (mauvais format d'export Excel).
+                    ligne = ligne.replace('""', '"')
+                    ligne = ligne.replace(' ", ', ' "", ')
+                    champs = ligne.rstrip('\r\n').split(sep)
                     _champs = list()
                     for item in champs:
                         if item == '':
@@ -873,7 +889,8 @@ class OrguesInventaire(list):
                 type_edif = orgue.type_edifice + ' '
             if orgue.edifice != type_edif + orgue.edifice_standard:
                 loggerInventaire.warning("Vérifiez la correction du nom d'édifice : {}".format(orgue.edifice))
-                loggerInventaire.warning("Vérifiez la correction du nom d'édifice : {}".format(type_edif + orgue.edifice_standard))
+                loggerInventaire.warning(
+                    "Vérifiez la correction du nom d'édifice : {}".format(type_edif + orgue.edifice_standard))
                 orgue.edifice = type_edif + orgue.edifice_standard
 
     def fixer_fichiers(self, reset=False):
@@ -891,7 +908,8 @@ class OrguesInventaire(list):
                 fics = Fichiers()
                 fic = Fichier()
                 nomfic = '[extrait] ' + orgue.livre
-                fic.file = '{}/{}/fichiers/{}.pdf'.format(orgue.code_departement, orgue.codification, orgue.codification)
+                fic.file = '{}/{}/fichiers/{}.pdf'.format(orgue.code_departement, orgue.codification,
+                                                          orgue.codification)
                 fic.description = nomfic
                 fics.append(fic)
                 orgue.fichiers = fics
@@ -911,9 +929,9 @@ class OrguesInventaire(list):
                 src = Source()
                 src.type = 'ouvrage'
                 src.description = '{}#{}#{}#{}'.format(orgue.livre,
-                                                      xstr(orgue.pages_pdf),
-                                                      xstr(orgue.pages_livre),
-                                                      xstr(orgue.pages_livre_complement))
+                                                       xstr(orgue.pages_pdf),
+                                                       xstr(orgue.pages_livre),
+                                                       xstr(orgue.pages_livre_complement))
                 src.lien = 'http://explore.inventaire-des-orgues.fr/'
                 srcs.append(src)
                 orgue.sources = srcs
@@ -926,6 +944,7 @@ class OrguesInventaire(list):
         :param reset: booléen : effacement préalable de tous les évènements.
         :return:
         """
+
         def _split_dpro(champ_dpro):
             """
             Séparation du champ Palissy Pop DPRO
@@ -1058,7 +1077,8 @@ class OrguesInventaire(list):
             # FIXME : ------ PM83001465 83 Saint-Maximin-la-Sainte-Baume 83116 ancienne abbatiale orgue de tribune : buffet d'orgue>
             # FIXME : ...
             for _objet_palissy in base_palissy:
-                edifice_palissy_denomination_corrigee, edifice_palissy_type = uo.detecter_type_edifice(_objet_palissy.EDIF)
+                edifice_palissy_denomination_corrigee, edifice_palissy_type = uo.detecter_type_edifice(
+                    _objet_palissy.EDIF)
 
                 edifice_palissy_standard = \
                     uo.corriger_nom_edifice(edifice_palissy_denomination_corrigee, _objet_palissy.COM)
@@ -1068,7 +1088,7 @@ class OrguesInventaire(list):
                 else:
                     _objet_palissy.code_edifice = cod.codifie_edifice(edifice_palissy_standard, edifice_palissy_type)
                     logger_palissy.debug("Codification de l'édifice de l'item Palissy {} {}"
-                                    .format(_objet_palissy.code_edifice, _objet_palissy))
+                                         .format(_objet_palissy.code_edifice, _objet_palissy))
             return
 
         calculer_codes_palissy()
@@ -1134,15 +1154,17 @@ class OrguesInventaire(list):
                         orgues_trouves_dans_edifice.append(orgue_inventaire)
 
                 # Sinon on cherche dans la commune associée/déléguée (fusion de communes, etc.)
-                elif objet_palissy.COM in orgue_inventaire.ancienne_commune\
+                elif objet_palissy.COM in orgue_inventaire.ancienne_commune \
                         and objet_palissy.DPT == orgue_inventaire.code_departement:
                     logger_palissy.warning(
                         "Code INSEE Palissy non trouvé dans l'inventaire mais ancienne commune si. : {}.".format(
                             objet_palissy.INSEE))
                     log.append("Corres. COMA/COMD - Palissy    : {}".format(edifice_ply))
-                    log.append("Corres. COMA/COMD - Inventaire : {}, {}".format(edifice_inv, orgue_inventaire.designation))
+                    log.append(
+                        "Corres. COMA/COMD - Inventaire : {}, {}".format(edifice_inv, orgue_inventaire.designation))
                     # Si l'édifice est le même
-                    if edifice_inv.replace('é', 'e').replace('è', 'e') == edifice_ply.replace('é', 'e').replace('è', 'e'):
+                    if edifice_inv.replace('é', 'e').replace('è', 'e') == edifice_ply.replace('é', 'e').replace('è',
+                                                                                                                'e'):
                         orgues_trouves_dans_edifice.append(orgue_inventaire)
                 else:
                     pass
@@ -1331,7 +1353,7 @@ class OrguesInventaire(list):
                 loggerGps.error('Commune non trouvée dans la liste des édifices MessesInfo : {}'.format(orgue.commune))
         return
 
-    def split_pdfs(self, departements=['64']):
+    def split_pdfs(self, ecrase=False, tar_pdf=True):
 
         def _plage_to_pages(plage):
             """
@@ -1352,36 +1374,58 @@ class OrguesInventaire(list):
 
         # Chargement de la correspondance source -> fichier PDF
         source2pdf = dict()
-        with open('..\\98-indexes\\source2pdf.csv', 'r', encoding='utf-8') as f_source2pdf:
+        with open('..\\98-indexes\\sources2pdf.csv', 'r', encoding='utf-8') as f_source2pdf:
             source2pdf_reader = csv.reader(f_source2pdf, delimiter=';', lineterminator='\r\n')
             for row in source2pdf_reader:
-                source2pdf[row[0]] = row[1]
+                # Le dièse permet de commenter une ligne.
+                if row[0][0] != '#':
+                    source2pdf[row[0]] = row[1]
 
         REP_LIVRES = "E:\\02-scans"
-        REP_SPLITS = "D:\\Users\\poullennecgwi\\Documents\\inventaire\\split\\"
+        #REP_SPLITS = "D:\\Users\\poullennecgwi\\Documents\\inventaire\\split\\"
+        REP_SPLITS = "E:\\splitok\\"
+        REP_TAR = "D:\\Users\\poullennecgwi\\Documents\\inventaire\\tar_pdf\\"
+        #REP_TAR = "E:\\tar_pdf\\"
         # Il faut prendre Edisud pour le Limousin
         # Attention, 67, 68, 57 ont plusieurs livres pour un même département (Alsace-Lorraine).
         # Attention : 35, 14, 31 sont des fiches indépendantes.
         # Attention : 07, 26 ont de nouveaux livres.
-        #TODO Sur le site, Aquitaine II doit devenir Aquitaine I !
-        #TODO Sur le site, Orgues de Lorraine seul correspond au volume H-M.
+        # TODO Sur le site, Aquitaine II doit devenir Aquitaine I !
+        # TODO Sur le site, Orgues de Lorraine seul correspond au volume H-M.
         # Recensement est pour 2 PDF 29 et 56.
 
+        # vérifier qu'aucun PDF n'est à 0ko
+
         for livre, livre_pdf in source2pdf.items():
-            loggerInventaire.info('Split du PDF : {}'.format(livre_pdf))
-            path_livre_pdf = REP_LIVRES + livre_pdf
+
+            # FIXME test présence fichier
+            path_livre_pdf = REP_LIVRES + '\\' + livre_pdf
+            loggerInventaire.error('Split du PDF : {}'.format(path_livre_pdf))
             infile = PdfFileReader(open(path_livre_pdf, 'rb'))
 
             for orgue in self:
                 if orgue.sources:
-                    if livre == orgue.sources[0].description.split('#')[0]:
-                        pages_pdf = orgue.sources[0].description.split('#')[1]
+                    # Les informations sur les livres scannés sont dans la première source.
+                    split_sources = orgue.sources[0].description.split('#')
+                    if livre == split_sources[0].strip('"'):
+                        loggerInventaire.error('Split : {} orgue : {}'.format(livre_pdf, orgue))
+                        pages_pdf = split_sources[1]
                         fic_pdf_unitaire = orgue.codification + '.pdf'
-                        loggerInventaire.info("Ecriture PDF : {}".format(fic_pdf_unitaire))
-                        with open(REP_SPLITS + fic_pdf_unitaire, 'wb') as f:
-                            outfile = PdfFileWriter()
-                            for i in _plage_to_pages(pages_pdf):
-                                p = infile.getPage(i-1)
-                                outfile.addPage(p)
-                            outfile.write(f)
+                        if not pages_pdf:
+                            loggerInventaire.error('Split du PDF, pages non mentionnées. Orgue : {}'.format(orgue))
+                        else:
+                            if ecrase or not os.path.exists(REP_SPLITS + fic_pdf_unitaire):
+                                loggerInventaire.info("Ecriture PDF : {}".format(fic_pdf_unitaire))
+                                with open(REP_SPLITS + fic_pdf_unitaire, 'wb') as f:
+                                    outfile = PdfFileWriter()
+                                    for i in _plage_to_pages(pages_pdf):
+                                        p = infile.getPage(i - 1)
+                                        outfile.addPage(p)
+                                    outfile.write(f)
+                            elif not ecrase and os.path.exists(REP_SPLITS + fic_pdf_unitaire):
+                                loggerInventaire.info("PDF déjà existant : {}".format(fic_pdf_unitaire))
+                            if tar_pdf:
+                                with tarfile.open(REP_TAR + livre + '.tar', "a") as tar:
+                                    tar.add(REP_SPLITS + fic_pdf_unitaire, arcname=fic_pdf_unitaire)
+
         return
