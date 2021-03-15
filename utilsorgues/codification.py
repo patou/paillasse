@@ -23,6 +23,26 @@ logger_codification.addHandler(fhd)
 logger_codification.addHandler(chd)
 
 communes_tests = [
+    "Saint-Christophe-en-Oisans",
+    "Habère-Poche",
+    "Saint-Julien-lès-Metz",
+    "Montauban-de-Bretagne",
+    "Luz-Saint-Sauveur",
+    "Le Mesnil-le-Roi",
+    "Magny-les-Hameaux",
+    "Lévis-Saint-Nom",
+    "Saint-Georges-des-Groseillers",
+    "La Ferté-en-Ouche",
+    "Soligny-la-Trappe",
+    "Villiers-le-Bel",
+    "Saint-Sulpice-de-Favières",
+    "Les Pennes-Mirabeau",
+    "Val-d'Aigoual",
+    'Montélimar',
+    'Saint-Cyr-en-Arthies',
+    'Valognes',
+    'Granville',
+    'Donville-les-Bains',
     'Bœrsch',
     'Champcueil',
     'La Rochelle',
@@ -46,6 +66,27 @@ communes_tests = [
 ]
 
 edifices_tests = [
+    ("Saint-Georges du lycée militaire", "chapelle"),
+    ('du pays de Brocéliande', "école de musique"),
+    ("Saint-Pierre-ès-Liens", "église"),
+    ("Saint-Germain-d'Auxerre", "église"),
+    ("Notre-Dame de l'Agenouillade", "église"),
+    ("de l'ancien petit séminaire", "chapelle"),
+    ("de l'Immaculé-Conception", "basilique"),
+    ("Notre-Dame-de-Recouvrance", "église"),
+    ("Notre-Dame de la Trappe", "abbaye"),
+    ("Sainte-Anne des Bretons", "église"),
+    ("Fénelon-Sainte-Marie",'lycée'),
+    ("Centre de musique baroque", ""),
+    ("Notre-Dame", "école privée"),
+    ("des Clarisses", "couvent"),
+    ("Saint-Blaise", "église"),
+    ("Saint-Jean-Baptiste", "église"),
+    ("Saint-François-de-Paule", "église"),
+    ("Saint-Cyr & Sainte-Julitte", "église"),
+    ("Notre-Dame de Lourdes", "église"),
+    ("Saint-Nicolas", "église"),
+    ("Notre-Dame-de-Protection", "abbaye"),
     ("Saint-Erasme", "église"),
     ("du 3E Arrondissement", "conservatoire"),
     ("Saint-Jean", "communauté"),
@@ -277,6 +318,8 @@ def codifie_edifice(edifice, type_edif):
             code_edifice = 'STFASS'
         elif edifice == "Saint-François-de-Paule":
             code_edifice = 'STFPAU'
+        elif edifice == "Saint-François-de-Sales":
+            code_edifice = 'STFSAL'
         elif edifice == "Sainte-Jeanne-d’Arc":
             code_edifice = 'STJARC'
         # Cas général
@@ -288,7 +331,10 @@ def codifie_edifice(edifice, type_edif):
                     code_edifice = 'ST' + 'DSSS'
                 elif '&' in saint:
                     premier_saint = saint.split('&')[0].rstrip()
-                    deuxieme_saint = saint.split('&')[1].lstrip().lstrip('Saint-')
+                    if 'Saint-' in saint:
+                        deuxieme_saint = saint.split('&')[1].lstrip().lstrip('Saint-')
+                    elif 'Sainte-' in saint:
+                        deuxieme_saint = saint.split('&')[1].lstrip().lstrip('Sainte-')
                     code_edifice = 'SS' + premier_saint[0] + premier_saint[-1] + deuxieme_saint[0] + deuxieme_saint[-1]
                 else:
                     logger_codification.error("Nom d'édifice avec plusieurs saints non géré : {}".format(edifice))
@@ -447,4 +493,4 @@ def test_codifie_commune():
 
 if __name__ == '__main__':
     test_codifie_commune()
-    # test_codifie_edifice()
+    test_codifie_edifice()
