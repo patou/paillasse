@@ -1,4 +1,3 @@
-9
 import os
 import logging
 import json
@@ -131,6 +130,47 @@ def generateTirageCommentaire(transmission):
     else:
         return None
 
+def buildAccessoires(combinaisons):
+    accessoires = []
+    for i in range(1, 41):
+        nom = combinaisons["comb_"+str(i)+"_nom"]
+        if nom:
+            accessoires.append(nom)
+    return accessoires
+
+def cleanHauteur(hauteur):
+    if not hauteur:
+        return None
+    s = re.search('([-0-9IV]+)', hauteur, re.IGNORECASE)
+    return s.group(1) if s is not None else None
+
+def buildJeu(nom, hauteur, description):
+    return {
+        "type": {
+            "nom": nom,
+            "hauteur": cleanHauteur(hauteur),
+        },
+        "commentaire": description,
+    }
+
+def buildJeux(type, definition):
+    jeux = []
+    for i in range(1, 25 if type != 'ped' else 20):
+        if definition[type+"_"+str(i)+"_nom"]:
+            jeux.append(buildJeu(definition[type+"_"+str(i)+"_nom"], definition[type+"_"+str(i)+"_hauteur"], definition[type+"_"+str(i)+"_spec"]))
+    return jeux
+
+def buildClavier(type, definition):
+    if definition[type + "_notes"]:
+        return {
+            "type": definition[type] if type != 'ped' else 'Pédalier',
+            "etendue": definition[type + "_notes"],
+            "jeux": buildJeux(type, definition)
+        }
+    else:
+        return None
+        
+
 def process():
     current = loadImports()
     pprint.pprint(current, depth=1)
@@ -139,47 +179,55 @@ def process():
     administratif = toDict(loadFile('inventaire_administratif.json'))
     historique = toDict(loadFile('inventaire_historique.json'))
     sources = toDict(loadFile('inventaire_sources.json'))
-    clavier1 = toDict(loadFile('inventaire_clavier1.json'))
-    clavier2 = toDict(loadFile('inventaire_clavier2.json'))
-    clavier3 = toDict(loadFile('inventaire_clavier3.json'))
-    clavier4 = toDict(loadFile('inventaire_clavier4.json'))
-    pedalier = toDict(loadFile('inventaire_pedalier.json'))
+    combinaisons = toDict(loadFile('inventaire_combinaisons.json'))
+    claviers = {}
+    claviers['c1'] = toDict(loadFile('inventaire_clavier1.json'))
+    claviers['c2'] = toDict(loadFile('inventaire_clavier2.json'))
+    claviers['c3'] = toDict(loadFile('inventaire_clavier3.json'))
+    claviers['c4'] = toDict(loadFile('inventaire_clavier4.json'))
+    claviers['ped'] = toDict(loadFile('inventaire_pedalier.json'))
     result = []
 
-    for orgue in renseignements:
-        if (orgue['statut'] == "3"):
-            id = orgue['id']
-            departement = extractNumeroDepartement(orgue['departement'])
-            obj = findCurrentOrgan(current, departement, id)
-            if obj:
-                print(id, obj['codification'], orgue['edifice'], orgue['ville'])
+    for renseignement in renseignements:
+        if (renseignement['statut'] == "3"):
+            id = renseignement['id']
+            departement = extractNumeroDepartement(renseignement['departement'])
+            orgue = findCurrentOrgan(current, departement, id)
+            if orgue:
+                print(id, orgue['codification'], renseignement['edifice'], renseignement['ville'])
                 # Renseignements
-                obj['emplacement'] = orgue['emplacement'] if obj['emplacement'] is None else obj['emplacement']
-                obj['designation'] = orgue['instrument'] if obj['designation'] is None else obj['designation']
-                obj['buffet'] = orgue['buffet'] if obj['buffet'] is None else obj['buffet']
-                obj['diapason'] = orgue['diapason'] if obj['diapason'] is None else obj['diapason']
-                obj['temperament'] = orgue['temperament'] if obj['temperament'] is None else obj['temperament']
-                obj['buffet'] = orgue['buffet'] if obj['buffet'] is None else obj['buffet']
-                if len(obj['images']) == 0:
-                    obj['images'].append({
-                        "credit": orgue['credit'] if orgue['credit'] else 'www.orguepaysdelaloire.fr',
+                orgue['emplacement'] = renseignement['emplacement'] if orgue['emplacement'] is None else orgue['emplacement']
+                orgue['designation'] = renseignement['instrument'] if orgue['designation'] is None else orgue['designation']
+                orgue['buffet'] = renseignement['buffet'] if orgue['buffet'] is None else orgue['buffet']
+                orgue['diapason'] = renseignement['diapason'] if orgue['diapason'] is None else orgue['diapason']
+                orgue['temperament'] = renseignement['temperament'] if orgue['temperament'] is None else orgue['temperament']
+                orgue['buffet'] = renseignement['buffet'] if orgue['buffet'] is None else orgue['buffet']
+                if len(orgue['images']) == 0:
+                    orgue['images'].append({
+                        "credit": renseignement['credit'] if renseignement['credit'] else 'www.orguepaysdelaloire.fr',
                         "is_principale": True,
-                        "image": "http://orguepaysdelaloire.fr/inventory/upload/"+orgue['image']
+                        "image": "http://orguepaysdelaloire.fr/inventory/upload/"+renseignement['image']
                     })
                 # Mécanique
-                obj['transmission_notes'] = generateTransmission(mecaniques[id]['traction_notes']) if obj['transmission_notes'] is None else obj['transmission_notes']
-                obj['transmission_commentaire'] = generateTransmissionCommentaire(mecaniques[id]['traction_notes']) if obj['transmission_commentaire'] is None else obj['transmission_commentaire']
-                obj['tirage_jeux'] = generateTirage(mecaniques[id]['traction_jeux']) if obj['tirage_jeux'] is None else obj['tirage_jeux']
-                obj['tirage_commentaire'] = generateTirageCommentaire(mecaniques[id]['traction_jeux']) if obj['tirage_commentaire'] is None else obj['tirage_commentaire']
-                obj['console'] = mecaniques[id]['console'] if obj['console'] is None else obj['console']
-                obj['sommiers'] = generateSommiers(mecaniques[id]) if obj['sommiers'] is None else obj['sommiers']
-                obj['soufflerie'] = generateSoufflerie(mecaniques[id]) if obj['soufflerie'] is None else obj['soufflerie']
+                orgue['transmission_notes'] = generateTransmission(mecaniques[id]['traction_notes']) if orgue['transmission_notes'] is None else orgue['transmission_notes']
+                orgue['transmission_commentaire'] = generateTransmissionCommentaire(mecaniques[id]['traction_notes']) if orgue['transmission_commentaire'] is None else orgue['transmission_commentaire']
+                orgue['tirage_jeux'] = generateTirage(mecaniques[id]['traction_jeux']) if orgue['tirage_jeux'] is None else orgue['tirage_jeux']
+                orgue['tirage_commentaire'] = generateTirageCommentaire(mecaniques[id]['traction_jeux']) if orgue['tirage_commentaire'] is None else orgue['tirage_commentaire']
+                orgue['console'] = mecaniques[id]['console'] if orgue['console'] is None else orgue['console']
+                orgue['sommiers'] = generateSommiers(mecaniques[id]) if orgue['sommiers'] is None else orgue['sommiers']
+                orgue['soufflerie'] = generateSoufflerie(mecaniques[id]) if orgue['soufflerie'] is None else orgue['soufflerie']
                 # Administratif
-                obj['proprietaire'] = generateProprietaire(administratif[id]['proprietaire']) if obj['proprietaire'] is None else obj['proprietaire']
-                obj['etat'] = generateEtat(administratif[id]['etat']) if obj['etat'] is None else obj['etat']
+                orgue['proprietaire'] = generateProprietaire(administratif[id]['proprietaire']) if orgue['proprietaire'] is None else orgue['proprietaire']
+                orgue['etat'] = generateEtat(administratif[id]['etat']) if orgue['etat'] is None else orgue['etat']
+                if len(orgue['accessoires']) == 0:
+                    orgue['accessoires'] = buildAccessoires(combinaisons[id])
+                if len(orgue['claviers']) == 0:
+                    for c in ['c1', 'c2', 'c3', 'c4', 'ped']:
+                        clavier = buildClavier(c, claviers[c][id])
+                        if clavier is not None:
+                            orgue['claviers'].append(clavier)
                 
-                
-                result.append(obj)
+                result.append(orgue)
     
     with open('paysdelaloire.json', 'w') as outfile:
         json.dump(result, outfile, indent = 4, ensure_ascii=False)
