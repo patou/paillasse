@@ -1,0 +1,569 @@
+[
+    {
+        "latitude": null,
+        "accessoires": [],
+        "soufflerie": "À plis parallèles",
+        "completion": 10,
+        "resume": null,
+        "diapason": "443",
+        "longitude": null,
+        "url": "http://inventaire-des-orgues.fr/detail/orgue-guerande-collegiale-saint-aubin-fr-44069-guera-staubi1-x/",
+        "tirage_jeux": "electro_pneumatique",
+        "tirage_commentaire": null,
+        "evenements": [],
+        "osm_type": null,
+        "buffet": "",
+        "commentaire_tuyauterie": null,
+        "transmission_notes": "electro_pneumatique",
+        "region": "Pays de la Loire",
+        "code_insee": "44069",
+        "sommiers": "",
+        "ancienne_commune": null,
+        "osm_id": null,
+        "console": "Intégrée au soubassement",
+        "commentaire_admin": null,
+        "is_polyphone": false,
+        "etat": "bon",
+        "references_palissy": null,
+        "updated_by_user": null,
+        "emplacement": "sol, au fond du choeur",
+        "sources": [
+            {
+                "type": "ouvrage",
+                "lien": "http://explore.inventaire-des-orgues.fr/",
+                "description": "Orgues en Pays-de-la-Loire -- tome 2#175-178#97#"
+            },
+            {
+                "type": "web",
+                "lien": "http://orguepaysdelaloire.fr/inventory/admin_orgue.php?id=1",
+                "description": "Association orgue en Pays de la Loire"
+            }
+        ],
+        "lien_reference": null,
+        "entretien": [],
+        "resume_composition": null,
+        "fichiers": [
+            {
+                "description": "[extrait] Orgues en Pays-de-la-Loire -- tome 2",
+                "file": "http://inventaire-des-orgues.fr/media/44/FR-44069-GUERA-STAUBI1-X/fichiers/FR-44069-GUERA-STAUBI1-X.pdf"
+            }
+        ],
+        "claviers": [],
+        "modified_date": "2020-09-09T16:48:41.711112",
+        "designation": "",
+        "organisme": null,
+        "adresse": null,
+        "images": [
+            {
+                "credit": "Valentin Leroux",
+                "is_principale": true,
+                "image": "http://orguepaysdelaloire.fr/inventory/upload/DN64MsCXM67lDiqi.jpg"
+            }
+        ],
+        "code_departement": "44",
+        "temperament": "Égal",
+        "codification": "FR-44069-GUERA-STAUBI1-X",
+        "edifice": "collégiale Saint-Aubin",
+        "commune": "Guérande",
+        "transmission_commentaire": null,
+        "proprietaire": "commune",
+        "departement": "Loire-Atlantique"
+    },
+    {
+        "latitude": 47.184743469230774,
+        "accessoires": [],
+        "soufflerie": "Alimentation directe",
+        "completion": 10,
+        "resume": null,
+        "diapason": null,
+        "longitude": -1.5471011446153844,
+        "url": "http://inventaire-des-orgues.fr/detail/orgue-reze-eglise-saint-paul-fr-44143-rezee-stpaul1-x/",
+        "tirage_jeux": "mecanique",
+        "tirage_commentaire": null,
+        "evenements": [],
+        "osm_type": "way",
+        "buffet": null,
+        "commentaire_tuyauterie": null,
+        "transmission_notes": "mecanique",
+        "region": "Pays de la Loire",
+        "code_insee": "44143",
+        "sommiers": "À registres",
+        "ancienne_commune": null,
+        "osm_id": "84701640",
+        "console": "Intégrée au soubassement",
+        "commentaire_admin": null,
+        "is_polyphone": false,
+        "etat": "tres_bon",
+        "references_palissy": null,
+        "updated_by_user": null,
+        "emplacement": "sol, au fond du choeur",
+        "sources": [
+            {
+                "type": "ouvrage",
+                "lien": "http://explore.inventaire-des-orgues.fr/",
+                "description": "Orgues en Pays-de-la-Loire -- tome 2#425-428#339#"
+            },
+            {
+                "type": "web",
+                "lien": "http://orguepaysdelaloire.fr/inventory/admin_orgue.php?id=35",
+                "description": "Association orgue en Pays de la Loire"
+            }
+        ],
+        "lien_reference": null,
+        "entretien": [],
+        "resume_composition": null,
+        "fichiers": [
+            {
+                "description": "[extrait] Orgues en Pays-de-la-Loire -- tome 2",
+                "file": "http://inventaire-des-orgues.fr/media/44/FR-44143-REZEE-STPAUL1-X/fichiers/FR-44143-REZEE-STPAUL1-X.pdf"
+            }
+        ],
+        "claviers": [],
+        "modified_date": "2020-09-09T16:48:41.310267",
+        "designation": "",
+        "organisme": null,
+        "adresse": null,
+        "images": [
+            {
+                "credit": "www.orguepaysdelaloire.fr",
+                "is_principale": true,
+                "image": "http://orguepaysdelaloire.fr/inventory/upload/9cPyv1XaNW5Y8Zzi.JPG"
+            }
+        ],
+        "code_departement": "44",
+        "temperament": "égal",
+        "codification": "FR-44143-REZEE-STPAUL1-X",
+        "edifice": "église Saint-Paul",
+        "commune": "Rezé",
+        "transmission_commentaire": null,
+        "proprietaire": "commune",
+        "departement": "Loire-Atlantique"
+    },
+    {
+        "latitude": 47.22043,
+        "accessoires": [
+            "Accouplement Réc./G.O.",
+            "Tirasse Réc.",
+            "Tirasse G.O.",
+            "Anches G.O.",
+            "Accouplement 16 Réc./G.O.",
+            "Tremblant Réc."
+        ],
+        "soufflerie": "<p>À plis parallèles<br></p>",
+        "completion": 100,
+        "resume": "<p><span style=\"color: rgb(0, 0, 0); font-family: Lato, sans-serif; font-size: 14px;\">Cet orgue originel de Le Logeais à en premier lieu été reconstruit pour le pensionnat de Bel-Air à Nantes, avant d'être déplacé par Debierre à St Similien.</span></p>",
+        "diapason": null,
+        "longitude": -1.5597719,
+        "url": "http://inventaire-des-orgues.fr/detail/orgue-nantes-eglise-saint-simllien-fr-44109-nante-stsiml1-x/",
+        "tirage_jeux": "mecanique",
+        "tirage_commentaire": null,
+        "evenements": [
+            {
+                "facteurs": [
+                    "Le Logeais"
+                ],
+                "type": "construction",
+                "annee": 1850,
+                "annee_fin": null,
+                "circa": true,
+                "resume": "Orgue originel de Le Logeais."
+            },
+            {
+                "facteurs": [
+                    "Debierre Louis"
+                ],
+                "type": "reconstruction",
+                "annee": 1886,
+                "annee_fin": null,
+                "circa": false,
+                "resume": "reconstruction par Debierre pour le pensionnat de Bel-Air à Nantes."
+            },
+            {
+                "facteurs": [
+                    "Debierre Louis"
+                ],
+                "type": "deplacement",
+                "annee": 1905,
+                "annee_fin": null,
+                "circa": false,
+                "resume": "installation par Debierre à St-Similien."
+            },
+            {
+                "facteurs": [
+                    "Debierre-Gloton"
+                ],
+                "type": "restauration",
+                "annee": 1935,
+                "annee_fin": null,
+                "circa": false,
+                "resume": "restauration par Gloton-Debierre."
+            },
+            {
+                "facteurs": [],
+                "type": "restauration",
+                "annee": 1991,
+                "annee_fin": null,
+                "circa": false,
+                "resume": "restauration par Renaud."
+            }
+        ],
+        "osm_type": "relation",
+        "buffet": "<p>Buffet initial construit par&nbsp;Le Logeais.&nbsp;<span style=\"color: rgb(0, 0, 0); font-family: Lato, sans-serif; font-size: 14px;\">il se trouve sur le sol, première travée du chœur côté sud.</span></p>",
+        "commentaire_tuyauterie": "",
+        "transmission_notes": "mecanique",
+        "region": "Pays de la Loire",
+        "code_insee": "44109",
+        "sommiers": "<p>À registres<br></p>",
+        "ancienne_commune": null,
+        "osm_id": "11330947",
+        "console": "<p><span style=\"color: rgb(0, 0, 0); font-family: Lato, sans-serif; font-size: 14px;\">Retournée</span><br></p>",
+        "commentaire_admin": "",
+        "is_polyphone": false,
+        "etat": "bon",
+        "references_palissy": null,
+        "updated_by_user": "Patrice De Saint Steban",
+        "emplacement": "ORGUE DE CHŒUR",
+        "sources": [
+            {
+                "type": "ouvrage",
+                "lien": "http://explore.inventaire-des-orgues.fr/",
+                "description": "Orgues en Pays-de-la-Loire -- tome 2#331-334#245#"
+            },
+            {
+                "type": "web",
+                "lien": "http://orguepaysdelaloire.fr/inventory/admin_orgue.php?id=96",
+                "description": "Association orgue en Pays de la Loire"
+            }
+        ],
+        "lien_reference": "http://paroisse-saintseveques-nantes.fr/",
+        "entretien": [],
+        "resume_composition": "19, II/P",
+        "fichiers": [
+            {
+                "description": "[extrait] Orgues en Pays-de-la-Loire -- tome 2",
+                "file": "http://inventaire-des-orgues.fr/media/44/FR-44109-NANTE-STSIML1-X/fichiers/FR-44109-NANTE-STSIML1-X.pdf"
+            }
+        ],
+        "claviers": [
+            {
+                "type": "Grand-Orgue",
+                "etendue": null,
+                "jeux": [
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Montre",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "8"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Flûte harmonique",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "8"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Bourdon",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "8"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Prestant",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "4"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Doublette",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "2"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Plein-jeu",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "IV"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Trompette ",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "8"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Clairon",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "4"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    }
+                ],
+                "is_expressif": false
+            },
+            {
+                "type": "Récit",
+                "etendue": null,
+                "jeux": [
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Flûte",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "8"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Salicional",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "8"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Voix céleste",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "8"
+                        },
+                        "configuration": null,
+                        "commentaire": "A partir de do 2"
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Flûte",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "4"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Nazard harmonique",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "2 2/3"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Cornet",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "II"
+                        },
+                        "configuration": null,
+                        "commentaire": "II-III"
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Trompette",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "8"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Basson-hautbois",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "8"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    }
+                ],
+                "is_expressif": true
+            },
+            {
+                "type": "Pédale",
+                "etendue": null,
+                "jeux": [
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "​Soubasse",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "16"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Flûte",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "8"
+                        },
+                        "configuration": null,
+                        "commentaire": "extension"
+                    },
+                    {
+                        "type": {
+                            "updated_by_user": null,
+                            "modified_date": "2021-03-16T16:46:52.418627",
+                            "nom": "Flûte",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "hauteur": "4"
+                        },
+                        "configuration": null,
+                        "commentaire": "extension"
+                    }
+                ],
+                "is_expressif": false
+            }
+        ],
+        "modified_date": "2021-03-22T19:22:34.337399",
+        "designation": "Orgue de chœur",
+        "organisme": "Paroisse des Saints Evêques de Nantes",
+        "adresse": "2 Rue de Bel Air",
+        "images": [
+            {
+                "credit": "Pierre Queval",
+                "is_principale": true,
+                "image": "http://inventaire-des-orgues.fr/media/44/FR-44109-NANTE-STSIML1-X/images/SW6xdzqo7CACPOHU.jpeg"
+            }
+        ],
+        "code_departement": "44",
+        "temperament": "égal",
+        "codification": "FR-44109-NANTE-STSIML1-X",
+        "edifice": "église Saint-Simllien",
+        "commune": "Nantes",
+        "transmission_commentaire": null,
+        "proprietaire": "commune",
+        "departement": "Loire-Atlantique"
+    },
+    {
+        "latitude": 47.26592,
+        "accessoires": [],
+        "soufflerie": "Cunéiforme, 2 réservoirs",
+        "completion": 10,
+        "resume": null,
+        "diapason": "440",
+        "longitude": -2.34026,
+        "url": "http://inventaire-des-orgues.fr/detail/orgue-pornichet-eglise-notre-dame-des-dunes-fr-44132-porni-nddune1-x/",
+        "tirage_jeux": "mecanique",
+        "tirage_commentaire": null,
+        "evenements": [],
+        "osm_type": null,
+        "buffet": null,
+        "commentaire_tuyauterie": null,
+        "transmission_notes": "mecanique",
+        "region": "Pays de la Loire",
+        "code_insee": "44132",
+        "sommiers": "À registres",
+        "ancienne_commune": null,
+        "osm_id": "Raushka",
+        "console": "Intégrée au soubassement",
+        "commentaire_admin": null,
+        "is_polyphone": false,
+        "etat": "tres_bon",
+        "references_palissy": null,
+        "updated_by_user": "Raushka Makanova",
+        "emplacement": "Au sol, transept gauche",
+        "sources": [
+            {
+                "type": "ouvrage",
+                "lien": "http://explore.inventaire-des-orgues.fr/",
+                "description": "Orgues en Pays-de-la-Loire -- tome 2#417-418#331#"
+            },
+            {
+                "type": "web",
+                "lien": "http://orguepaysdelaloire.fr/inventory/admin_orgue.php?id=138",
+                "description": "Association orgue en Pays de la Loire"
+            }
+        ],
+        "lien_reference": null,
+        "entretien": [],
+        "resume_composition": null,
+        "fichiers": [
+            {
+                "description": "[extrait] Orgues en Pays-de-la-Loire -- tome 2",
+                "file": "http://inventaire-des-orgues.fr/media/44/FR-44132-PORNI-NDDUNE1-X/fichiers/FR-44132-PORNI-NDDUNE1-X.pdf"
+            }
+        ],
+        "claviers": [],
+        "modified_date": "2020-09-09T16:48:41.326100",
+        "designation": "",
+        "organisme": null,
+        "adresse": null,
+        "images": [
+            {
+                "credit": "Marie-Andrée Courjault",
+                "is_principale": true,
+                "image": "http://orguepaysdelaloire.fr/inventory/upload/w5fJOBSZ7JaEG0ZT.jpg"
+            }
+        ],
+        "code_departement": "44",
+        "temperament": "Vallotti",
+        "codification": "FR-44132-PORNI-NDDUNE1-X",
+        "edifice": "église Notre-Dame-des-Dunes",
+        "commune": "Pornichet",
+        "transmission_commentaire": null,
+        "proprietaire": "paroisse",
+        "departement": "Loire-Atlantique"
+    }
+]
