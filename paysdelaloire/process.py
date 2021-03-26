@@ -3,6 +3,8 @@ import logging
 import json
 import pprint
 import re
+import unidecode
+import csv
 
 logger = logging.getLogger('paysdelaloire')
 logger.setLevel(logging.DEBUG)
@@ -144,10 +146,29 @@ def cleanHauteur(hauteur):
     s = re.search('([-0-9IV]+)', hauteur, re.IGNORECASE)
     return s.group(1) if s is not None else None
 
+def cleanJeuNom(nom):
+    if not nom:
+        return ""
+    return unidecode.unidecode(nom.strip().lower().replace("\\\'", "\'"))
+
+def cleanAccessoire(accessoire):
+    if not accessoire:
+        return ""
+    return unidecode.unidecode(accessoire.replace("\\\'", "").replace("\'", "").replace("  ", " ").strip().lower())
+
+def extractFacteur(facteur):
+    match = re.search(r"^([^(]*)(\((.*)\))?$", facteur)
+    return (cleanFacteurName(match.group(1)), match.group(3)) if match else (None, None)
+
+def cleanFacteurName(nom):
+    if not nom:
+        return ""
+    return re.sub(r"[^a-z]+", " ", unidecode.unidecode(nom).lower().replace("\\\'", "\'")).strip()
+
 def buildJeu(nom, hauteur, description):
     return {
         "type": {
-            "nom": nom,
+            "nom": cleanJeuNom(nom),
             "hauteur": cleanHauteur(hauteur),
         },
         "commentaire": description,
@@ -169,26 +190,70 @@ def buildClavier(type, definition):
         }
     else:
         return None
-        
+    
+class Export:
+    '''
+        Classes contenant les exports de l'inventaire des paysdelaloire
+    '''
+    def __init__(self):
+        self.renseignements = loadFile('inventaire_renseignements.json')
+        self.mecaniques = toDict(loadFile('inventaire_mecanique.json'))
+        self.administratif = toDict(loadFile('inventaire_administratif.json'))
+        self.historique = toDict(loadFile('inventaire_historique.json'))
+        self.sources = toDict(loadFile('inventaire_sources.json'))
+        self.combinaisons = toDict(loadFile('inventaire_combinaisons.json'))
+        self.claviers = {
+            'c1': toDict(loadFile('inventaire_clavier1.json')),
+            'c2': toDict(loadFile('inventaire_clavier2.json')),
+            'c3': toDict(loadFile('inventaire_clavier3.json')),
+            'c4': toDict(loadFile('inventaire_clavier4.json')),
+            'ped': toDict(loadFile('inventaire_pedalier.json'))
+        }
+    
+    def exportCSV(self):
+        '''
+            Export la liste de facteurs, des jeux et des accessoires
+            pour construire ensuite une liste avec la valeur contenu sur l'inventaire
+        '''
+        with open('csv/jeux.csv', mode='wt') as file_jeux, open('csv/accessoires.csv', mode='wt') as file_accessoires, open('csv/facteurs.csv', mode='wt') as file_facteurs:
+            csv_jeux = csv.writer(file_jeux, dialect='excel')
+            jeux = set()
+            for type in self.claviers.keys():
+                for definition in self.claviers[type].values():
+                    for i in range(1, 25 if type != 'ped' else 20):
+                        if definition[type+"_"+str(i)+"_nom"]:
+                            jeux.add((cleanJeuNom(definition[type+"_"+str(i)+"_nom"]), cleanHauteur(definition[type+"_"+str(i)+"_hauteur"])))
+            csv_jeux.writerows([[j[0], j[1], ''] for j in sorted(jeux, key=lambda tup: tup[0])])
+
+            facteurs = set()
+            for orgue in self.renseignements:
+                for i in range(1, 8):
+                    if orgue["facteur"+str(i)]:
+                        facteurs.add(extractFacteur(orgue["facteur"+str(i)])[0])
+            csv_facteurs = csv.writer(file_facteurs, dialect='excel')
+            [csv_facteurs.writerow([f, '']) for f in sorted(facteurs)]           
+
+            csv_accessoires = csv.writer(file_accessoires, dialect='excel')
+            accessoires = set()
+            for combinaison in self.combinaisons.values():
+                for i in range(1, 41):
+                    nom = combinaison["comb_"+str(i)+"_nom"]
+                    if nom:
+                        accessoires.add(cleanAccessoire(nom))
+            csv_accessoires.writerows([[a, ''] for a in sorted(accessoires)])
+
 
 def process():
+    '''
+    Process l'inventaire des pays de la loire
+    '''
     current = loadImports()
-    pprint.pprint(current, depth=1)
-    renseignements = loadFile('inventaire_renseignements.json')
-    mecaniques = toDict(loadFile('inventaire_mecanique.json'))
-    administratif = toDict(loadFile('inventaire_administratif.json'))
-    historique = toDict(loadFile('inventaire_historique.json'))
-    sources = toDict(loadFile('inventaire_sources.json'))
-    combinaisons = toDict(loadFile('inventaire_combinaisons.json'))
-    claviers = {}
-    claviers['c1'] = toDict(loadFile('inventaire_clavier1.json'))
-    claviers['c2'] = toDict(loadFile('inventaire_clavier2.json'))
-    claviers['c3'] = toDict(loadFile('inventaire_clavier3.json'))
-    claviers['c4'] = toDict(loadFile('inventaire_clavier4.json'))
-    claviers['ped'] = toDict(loadFile('inventaire_pedalier.json'))
+    export = Export()
+    export.exportCSV()
+    
     result = []
 
-    for renseignement in renseignements:
+    for renseignement in export.renseignements:
         if (renseignement['statut'] == "3"):
             id = renseignement['id']
             departement = extractNumeroDepartement(renseignement['departement'])
@@ -209,21 +274,21 @@ def process():
                         "image": "http://orguepaysdelaloire.fr/inventory/upload/"+renseignement['image']
                     })
                 # Mécanique
-                orgue['transmission_notes'] = generateTransmission(mecaniques[id]['traction_notes']) if orgue['transmission_notes'] is None else orgue['transmission_notes']
-                orgue['transmission_commentaire'] = generateTransmissionCommentaire(mecaniques[id]['traction_notes']) if orgue['transmission_commentaire'] is None else orgue['transmission_commentaire']
-                orgue['tirage_jeux'] = generateTirage(mecaniques[id]['traction_jeux']) if orgue['tirage_jeux'] is None else orgue['tirage_jeux']
-                orgue['tirage_commentaire'] = generateTirageCommentaire(mecaniques[id]['traction_jeux']) if orgue['tirage_commentaire'] is None else orgue['tirage_commentaire']
-                orgue['console'] = mecaniques[id]['console'] if orgue['console'] is None else orgue['console']
-                orgue['sommiers'] = generateSommiers(mecaniques[id]) if orgue['sommiers'] is None else orgue['sommiers']
-                orgue['soufflerie'] = generateSoufflerie(mecaniques[id]) if orgue['soufflerie'] is None else orgue['soufflerie']
+                orgue['transmission_notes'] = generateTransmission(export.mecaniques[id]['traction_notes']) if orgue['transmission_notes'] is None else orgue['transmission_notes']
+                orgue['transmission_commentaire'] = generateTransmissionCommentaire(export.mecaniques[id]['traction_notes']) if orgue['transmission_commentaire'] is None else orgue['transmission_commentaire']
+                orgue['tirage_jeux'] = generateTirage(export.mecaniques[id]['traction_jeux']) if orgue['tirage_jeux'] is None else orgue['tirage_jeux']
+                orgue['tirage_commentaire'] = generateTirageCommentaire(export.mecaniques[id]['traction_jeux']) if orgue['tirage_commentaire'] is None else orgue['tirage_commentaire']
+                orgue['console'] = export.mecaniques[id]['console'] if orgue['console'] is None else orgue['console']
+                orgue['sommiers'] = generateSommiers(export.mecaniques[id]) if orgue['sommiers'] is None else orgue['sommiers']
+                orgue['soufflerie'] = generateSoufflerie(export.mecaniques[id]) if orgue['soufflerie'] is None else orgue['soufflerie']
                 # Administratif
-                orgue['proprietaire'] = generateProprietaire(administratif[id]['proprietaire']) if orgue['proprietaire'] is None else orgue['proprietaire']
-                orgue['etat'] = generateEtat(administratif[id]['etat']) if orgue['etat'] is None else orgue['etat']
+                orgue['proprietaire'] = generateProprietaire(export.administratif[id]['proprietaire']) if orgue['proprietaire'] is None else orgue['proprietaire']
+                orgue['etat'] = generateEtat(export.administratif[id]['etat']) if orgue['etat'] is None else orgue['etat']
                 if len(orgue['accessoires']) == 0:
-                    orgue['accessoires'] = buildAccessoires(combinaisons[id])
+                    orgue['accessoires'] = buildAccessoires(export.combinaisons[id])                    
                 if len(orgue['claviers']) == 0:
                     for c in ['c1', 'c2', 'c3', 'c4', 'ped']:
-                        clavier = buildClavier(c, claviers[c][id])
+                        clavier = buildClavier(c, export.claviers[c][id])
                         if clavier is not None:
                             orgue['claviers'].append(clavier)
                 
@@ -231,7 +296,6 @@ def process():
     
     with open('paysdelaloire.json', 'w') as outfile:
         json.dump(result, outfile, indent = 4, ensure_ascii=False)
-            # print(mecaniques[id-1])
     
 
 
