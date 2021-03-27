@@ -10,11 +10,11 @@ logger = logging.getLogger('paysdelaloire')
 logger.setLevel(logging.DEBUG)
 
 def loadFile(file):
-    with open('export/'+file) as fichier:
+    with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'export', file)) as fichier:
         return json.load(fichier)[2]['data']
 
 def loadImport(departement):
-    with open('currentinventaire/'+departement+'.json') as renseignements:
+    with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'currentinventaire', departement+'.json')) as renseignements:
         return json.load(renseignements)['results']
 
 def toDict(data):
@@ -190,6 +190,105 @@ def buildClavier(type, definition):
         }
     else:
         return None
+
+siecles = {
+    "XV": 1450,
+    "XVI": 1550,
+    "XVII": 1650,
+    "XVIII": 1750,
+    "XIX": 1850,
+    "XX": 1950,
+    "XXI": 2000,
+}
+
+def extractDate(text):
+    match = re.search(r"([0-9]{4}|[XVI]+)(-[0-9]{2,4})?", text)
+    if not match:
+        return (None, None, None)
+    circa = not ("v." in text or "?" in text)
+    annee = match.group(1)
+    if "X" in annee:
+        annee = siecles.get(annee) if annee in siecles else None
+        circa = False
+    annee_fin = match.group(2)
+    if annee_fin and len(annee_fin) == 3:
+        annee_fin = annee[:2] + annee_fin[1:]
+    return (annee, annee_fin, circa)
+
+evenementTypes = (
+    ("construction", ["construction", "orgue neuf", "orgue de", "orgue par", "premier orgue"]),
+    ("reconstruction", ["reconstruction"]),
+    ("destruction", ["destruction", "incendit"]),
+    ("restauration", ["restauration"]),
+    ("deplacement", ["deplacement", "demenagement", "installation"]),
+    ("relevage", ["relevage", "entretien", "travaux", "reparation", "installe"]),
+    ("modifications", ["modification", "transformation", "reharmonisation", "agrandissement"]),
+    ("disparition", ["disparition", "destruction"]),
+    ("degats", ["degat"]),
+    ("inauguration", ["inauguration", "inaugure"]),
+    ("classement_mh", ["classement"]),
+    ("inscription_mh", ["inscription"]),
+)
+
+def extractType(line):
+    '''
+    Essaye d'extraire le type de l'événement
+    '''
+    line = unidecode.unidecode(line.lower())
+    for type, list in evenementTypes:
+        for test in list:
+            if test in line:
+                return type
+    return None
+
+def normalizeFacteur(facteur):
+    '''
+    Todo utiliser la liste dans le csv.json pour retourner le bon facteur
+    '''
+    return facteur
+
+def extractEvenementFacteur(line, annee, facteurs):
+    found = set()
+    line = unidecode.unidecode(line.lower())
+    for nom, facteurAnnee in facteurs:
+        if facteurAnnee == annee:
+            found.add(normalizeFacteur(nom))
+        else:
+            for part in nom.split(" "):
+                if part in line:
+                    found.add(normalizeFacteur(nom))
+    if len(found) == 0:
+        # Chercher dans la liste complète des facteurs
+        print("Pas de facteur trouvé", line, facteurs)
+    return list(found)
+             
+
+
+def buildEvenements(historique, facteurs):
+    evenements = []
+    
+    if historique['historique']:
+        historiques = historique['historique'].split("\n")
+        for line in historiques:
+            match = re.search(r"(.*) : (.*)", line)
+            resume = match.group(2) if match else line
+            annee, annee_fin, circa = extractDate(match.group(0)) if match else extractDate(line)
+            type = extractType(line)
+            facteur = extractEvenementFacteur(line, annee, facteurs)
+            if annee is None or type is None:
+                print("Historique :", line)
+                pass
+            evenement = {
+                "type": type,
+                "resume": resume,
+                "annee": annee,
+                "annee_fin": annee_fin,
+                "circa": circa,
+                "facteurs": facteur
+            }
+            evenements.append(evenement)
+    return evenements
+
     
 class Export:
     '''
@@ -215,7 +314,9 @@ class Export:
             Export la liste de facteurs, des jeux et des accessoires
             pour construire ensuite une liste avec la valeur contenu sur l'inventaire
         '''
-        with open('csv/jeux.csv', mode='wt') as file_jeux, open('csv/accessoires.csv', mode='wt') as file_accessoires, open('csv/facteurs.csv', mode='wt') as file_facteurs:
+        with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'csv', 'jeux.csv'), mode='wt') as file_jeux,\
+            open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'csv', 'accessoires.csv'), mode='wt') as file_accessoires,\
+            open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'csv', 'facteurs.csv'), mode='wt') as file_facteurs:
             csv_jeux = csv.writer(file_jeux, dialect='excel')
             jeux = set()
             for type in self.claviers.keys():
@@ -259,42 +360,51 @@ def process():
             departement = extractNumeroDepartement(renseignement['departement'])
             orgue = findCurrentOrgan(current, departement, id)
             if orgue:
-                print(id, orgue['codification'], renseignement['edifice'], renseignement['ville'])
-                # Renseignements
-                orgue['emplacement'] = renseignement['emplacement'] if orgue['emplacement'] is None else orgue['emplacement']
-                orgue['designation'] = renseignement['instrument'] if orgue['designation'] is None else orgue['designation']
-                orgue['buffet'] = renseignement['buffet'] if orgue['buffet'] is None else orgue['buffet']
-                orgue['diapason'] = renseignement['diapason'] if orgue['diapason'] is None else orgue['diapason']
-                orgue['temperament'] = renseignement['temperament'] if orgue['temperament'] is None else orgue['temperament']
-                orgue['buffet'] = renseignement['buffet'] if orgue['buffet'] is None else orgue['buffet']
-                if len(orgue['images']) == 0:
-                    orgue['images'].append({
-                        "credit": renseignement['credit'] if renseignement['credit'] else 'www.orguepaysdelaloire.fr',
-                        "is_principale": True,
-                        "image": "http://orguepaysdelaloire.fr/inventory/upload/"+renseignement['image']
-                    })
-                # Mécanique
-                orgue['transmission_notes'] = generateTransmission(export.mecaniques[id]['traction_notes']) if orgue['transmission_notes'] is None else orgue['transmission_notes']
-                orgue['transmission_commentaire'] = generateTransmissionCommentaire(export.mecaniques[id]['traction_notes']) if orgue['transmission_commentaire'] is None else orgue['transmission_commentaire']
-                orgue['tirage_jeux'] = generateTirage(export.mecaniques[id]['traction_jeux']) if orgue['tirage_jeux'] is None else orgue['tirage_jeux']
-                orgue['tirage_commentaire'] = generateTirageCommentaire(export.mecaniques[id]['traction_jeux']) if orgue['tirage_commentaire'] is None else orgue['tirage_commentaire']
-                orgue['console'] = export.mecaniques[id]['console'] if orgue['console'] is None else orgue['console']
-                orgue['sommiers'] = generateSommiers(export.mecaniques[id]) if orgue['sommiers'] is None else orgue['sommiers']
-                orgue['soufflerie'] = generateSoufflerie(export.mecaniques[id]) if orgue['soufflerie'] is None else orgue['soufflerie']
-                # Administratif
-                orgue['proprietaire'] = generateProprietaire(export.administratif[id]['proprietaire']) if orgue['proprietaire'] is None else orgue['proprietaire']
-                orgue['etat'] = generateEtat(export.administratif[id]['etat']) if orgue['etat'] is None else orgue['etat']
-                if len(orgue['accessoires']) == 0:
-                    orgue['accessoires'] = buildAccessoires(export.combinaisons[id])                    
-                if len(orgue['claviers']) == 0:
-                    for c in ['c1', 'c2', 'c3', 'c4', 'ped']:
-                        clavier = buildClavier(c, export.claviers[c][id])
-                        if clavier is not None:
-                            orgue['claviers'].append(clavier)
-                
-                result.append(orgue)
+                try:
+                    print('===', id, orgue['codification'], renseignement['edifice'], renseignement['ville'])
+                    # Renseignements
+                    orgue['emplacement'] = renseignement['emplacement'] if orgue['emplacement'] is None else orgue['emplacement']
+                    orgue['designation'] = renseignement['instrument'] if orgue['designation'] is None else orgue['designation']
+                    orgue['buffet'] = renseignement['buffet'] if orgue['buffet'] is None else orgue['buffet']
+                    orgue['diapason'] = renseignement['diapason'] if orgue['diapason'] is None else orgue['diapason']
+                    orgue['temperament'] = renseignement['temperament'] if orgue['temperament'] is None else orgue['temperament']
+                    orgue['buffet'] = renseignement['buffet'] if orgue['buffet'] is None else orgue['buffet']
+                    if len(orgue['images']) == 0:
+                        orgue['images'].append({
+                            "credit": renseignement['credit'] if renseignement['credit'] else 'www.orguepaysdelaloire.fr',
+                            "url": "http://orguepaysdelaloire.fr/inventory/upload/"+renseignement['image']
+                        })
+                    # Mécanique
+                    orgue['transmission_notes'] = generateTransmission(export.mecaniques[id]['traction_notes']) if orgue['transmission_notes'] is None else orgue['transmission_notes']
+                    orgue['transmission_commentaire'] = generateTransmissionCommentaire(export.mecaniques[id]['traction_notes']) if orgue['transmission_commentaire'] is None else orgue['transmission_commentaire']
+                    orgue['tirage_jeux'] = generateTirage(export.mecaniques[id]['traction_jeux']) if orgue['tirage_jeux'] is None else orgue['tirage_jeux']
+                    orgue['tirage_commentaire'] = generateTirageCommentaire(export.mecaniques[id]['traction_jeux']) if orgue['tirage_commentaire'] is None else orgue['tirage_commentaire']
+                    orgue['console'] = export.mecaniques[id]['console'] if orgue['console'] is None else orgue['console']
+                    orgue['sommiers'] = generateSommiers(export.mecaniques[id]) if orgue['sommiers'] is None else orgue['sommiers']
+                    orgue['soufflerie'] = generateSoufflerie(export.mecaniques[id]) if orgue['soufflerie'] is None else orgue['soufflerie']
+                    # Administratif
+                    orgue['proprietaire'] = generateProprietaire(export.administratif[id]['proprietaire']) if orgue['proprietaire'] is None else orgue['proprietaire']
+                    orgue['etat'] = generateEtat(export.administratif[id]['etat']) if orgue['etat'] is None else orgue['etat']
+                    if len(orgue['accessoires']) == 0:
+                        orgue['accessoires'] = buildAccessoires(export.combinaisons[id])                    
+                    if len(orgue['claviers']) == 0:
+                        for c in ['c1', 'c2', 'c3', 'c4', 'ped']:
+                            clavier = buildClavier(c, export.claviers[c][id])
+                            if clavier is not None:
+                                orgue['claviers'].append(clavier)
+                    # Evenments
+                    facteurs = []
+                    for i in range(1, 8):
+                        if renseignement["facteur"+str(i)]:
+                            facteurs.append(extractFacteur(renseignement["facteur"+str(i)]))
+                    if len(orgue['evenements']) == 0:
+                        orgue['evenements'] = buildEvenements(export.historique[id], facteurs)
+                    
+                    result.append(orgue)
+                except e:
+                    print(orgue['codification'], e)
     
-    with open('paysdelaloire.json', 'w') as outfile:
+    with open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'paysdelaloire.json'), 'w') as outfile:
         json.dump(result, outfile, indent = 4, ensure_ascii=False)
     
 

@@ -1,5 +1,395 @@
 [
     {
+        "emplacement": "sol, au fond du choeur",
+        "updated_by_user": null,
+        "osm_type": null,
+        "tirage_jeux": "electro_pneumatique",
+        "resume_composition": null,
+        "is_polyphone": false,
+        "proprietaire": "commune",
+        "claviers": [
+            {
+                "type": "Grand orgue",
+                "etendue": "56",
+                "jeux": [
+                    {
+                        "type": {
+                            "hauteur": "16",
+                            "nom": "montre"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "16",
+                            "nom": "bourdon"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "montre"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "flute"
+                        },
+                        "commentaire": "C3 (ajout de 1982, appel au pied)"
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "bourdon"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "nom": "prestant"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "nom": "flute"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "2",
+                            "nom": "nasard"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "2",
+                            "nom": "doublette"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "2",
+                            "nom": "flute"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "1",
+                            "nom": "tierce"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "IV",
+                            "nom": "plein-jeu"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "IV",
+                            "nom": "cymbale"
+                        },
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "trompette"
+                        },
+                        "commentaire": "en chamade"
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "nom": "clairon"
+                        },
+                        "commentaire": "en chamade"
+                    }
+                ]
+            },
+            {
+                "type": "Positif",
+                "etendue": "56",
+                "jeux": [
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "montre"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "bourdon"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "nom": "prestant"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "nom": "flute"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "2",
+                            "nom": "nasard"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "2",
+                            "nom": "doublette"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "1",
+                            "nom": "tierce"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "1",
+                            "nom": "larigot"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "IV",
+                            "nom": "plein-jeu"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "cromorne"
+                        },
+                        "commentaire": null
+                    }
+                ]
+            },
+            {
+                "type": "Récif expressif",
+                "etendue": "56",
+                "jeux": [
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "diapason"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "cor de nuit"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "voix celeste"
+                        },
+                        "commentaire": "C2"
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "nom": "principal"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "nom": "flute"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "2",
+                            "nom": "flute"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "1",
+                            "nom": "piccolo"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "IV",
+                            "nom": "fourniture"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "IV",
+                            "nom": "cymbale"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "16",
+                            "nom": "bombarde"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "trompette"
+                        },
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "nom": "clairon"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "hautbois"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": null,
+                            "nom": "tremblant"
+                        },
+                        "commentaire": null
+                    }
+                ]
+            },
+            {
+                "type": "Pédalier",
+                "etendue": "32",
+                "jeux": [
+                    {
+                        "type": {
+                            "hauteur": "16",
+                            "nom": "soubasse"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "basse"
+                        },
+                        "commentaire": "extension"
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "nom": "flute"
+                        },
+                        "commentaire": "extension"
+                    },
+                    {
+                        "type": {
+                            "hauteur": "2",
+                            "nom": "flute"
+                        },
+                        "commentaire": "extension"
+                    },
+                    {
+                        "type": {
+                            "hauteur": "IV",
+                            "nom": "plein-jeu"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "16",
+                            "nom": "bombarde"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "trompette"
+                        },
+                        "commentaire": "extension"
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "nom": "clairon"
+                        },
+                        "commentaire": "extension"
+                    }
+                ]
+            }
+        ],
+        "organisme": null,
+        "temperament": "Égal",
+        "departement": "Loire-Atlantique",
+        "code_departement": "44",
+        "url": "http://inventaire-des-orgues.fr/detail/orgue-guerande-collegiale-saint-aubin-fr-44069-guera-staubi1-x/",
+        "sources": [
+            {
+                "type": "ouvrage",
+                "lien": "http://explore.inventaire-des-orgues.fr/",
+                "description": "Orgues en Pays-de-la-Loire -- tome 2#175-178#97#"
+            },
+            {
+                "type": "web",
+                "lien": "http://orguepaysdelaloire.fr/inventory/admin_orgue.php?id=1",
+                "description": "Association orgue en Pays de la Loire"
+            }
+        ],
+        "codification": "FR-44069-GUERA-STAUBI1-X",
+        "adresse": null,
+        "images": [
+            {
+                "url": "http://orguepaysdelaloire.fr/inventory/upload/DN64MsCXM67lDiqi.jpg",
+                "credit": "Valentin Leroux"
+            }
+        ],
+        "longitude": null,
+        "transmission_commentaire": null,
+        "latitude": null,
         "accessoires": [
             "Tirasse Grand-Orgue",
             "Tirasse  Positif",
@@ -15,656 +405,613 @@
             "Anches Positif",
             "Anches Récit"
         ],
-        "tirage_commentaire": null,
-        "codification": "FR-44069-GUERA-STAUBI1-X",
-        "emplacement": "sol, au fond du choeur",
-        "organisme": null,
-        "sommiers": "",
-        "updated_by_user": null,
-        "resume_composition": null,
-        "ancienne_commune": null,
-        "osm_id": null,
-        "lien_reference": null,
-        "proprietaire": "commune",
-        "references_palissy": null,
-        "commentaire_admin": null,
         "designation": "",
-        "completion": 10,
-        "departement": "Loire-Atlantique",
-        "longitude": null,
-        "is_polyphone": false,
-        "code_insee": "44069",
-        "adresse": null,
         "commune": "Guérande",
-        "diapason": "443",
-        "edifice": "collégiale Saint-Aubin",
-        "images": [
-            {
-                "credit": "Valentin Leroux",
-                "image": "http://orguepaysdelaloire.fr/inventory/upload/DN64MsCXM67lDiqi.jpg",
-                "is_principale": true
-            }
-        ],
-        "modified_date": "2020-09-09T16:48:41.711112",
-        "sources": [
-            {
-                "lien": "http://explore.inventaire-des-orgues.fr/",
-                "description": "Orgues en Pays-de-la-Loire -- tome 2#175-178#97#",
-                "type": "ouvrage"
-            },
-            {
-                "lien": "http://orguepaysdelaloire.fr/inventory/admin_orgue.php?id=1",
-                "description": "Association orgue en Pays de la Loire",
-                "type": "web"
-            }
-        ],
-        "tirage_jeux": "electro_pneumatique",
-        "osm_type": null,
-        "code_departement": "44",
-        "soufflerie": "À plis parallèles",
-        "url": "http://inventaire-des-orgues.fr/detail/orgue-guerande-collegiale-saint-aubin-fr-44069-guera-staubi1-x/",
-        "etat": "bon",
-        "entretien": [],
+        "commentaire_admin": null,
         "transmission_notes": "electro_pneumatique",
+        "tirage_commentaire": null,
+        "etat": "bon",
         "commentaire_tuyauterie": null,
-        "latitude": null,
+        "diapason": "443",
+        "modified_date": "2020-09-09T16:48:41.711112",
+        "completion": 10,
+        "ancienne_commune": null,
+        "entretien": [],
+        "buffet": "",
+        "references_palissy": null,
         "fichiers": [
             {
-                "description": "[extrait] Orgues en Pays-de-la-Loire -- tome 2",
-                "file": "http://inventaire-des-orgues.fr/media/44/FR-44069-GUERA-STAUBI1-X/fichiers/FR-44069-GUERA-STAUBI1-X.pdf"
+                "file": "http://inventaire-des-orgues.fr/media/44/FR-44069-GUERA-STAUBI1-X/fichiers/FR-44069-GUERA-STAUBI1-X.pdf",
+                "description": "[extrait] Orgues en Pays-de-la-Loire -- tome 2"
             }
         ],
+        "edifice": "collégiale Saint-Aubin",
         "console": "Intégrée au soubassement",
+        "evenements": [
+            {
+                "type": "construction",
+                "circa": true,
+                "facteurs": [
+                    "beuchet debierre"
+                ],
+                "resume": "construction par Gloton-Debierre. L\\'orgue n\\'est installé qu\\'en 1955 par Beuchet-Debierre (2 cl. 30 jeux).",
+                "annee_fin": null,
+                "annee": "1939"
+            },
+            {
+                "type": "restauration",
+                "circa": true,
+                "facteurs": [
+                    "renaud"
+                ],
+                "resume": "restauration par Renaud (3 cl. 42 jeux). Relevage et réharmonisation par Robert Frères en 2009. Midification des transmissions en 2015.",
+                "annee_fin": null,
+                "annee": "1985"
+            }
+        ],
+        "code_insee": "44069",
+        "osm_id": null,
+        "region": "Pays de la Loire",
+        "lien_reference": null,
+        "soufflerie": "À plis parallèles",
+        "resume": null,
+        "sommiers": ""
+    },
+    {
+        "emplacement": "sol, au fond du choeur",
+        "updated_by_user": null,
+        "osm_type": "way",
+        "tirage_jeux": "mecanique",
+        "resume_composition": null,
+        "is_polyphone": false,
+        "proprietaire": "commune",
         "claviers": [
             {
+                "type": "Grand-Orgue",
+                "etendue": "56",
                 "jeux": [
                     {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "16",
-                            "nom": "montre"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "16",
-                            "nom": "bourdon"
-                        }
-                    },
-                    {
-                        "commentaire": "",
                         "type": {
                             "hauteur": "8",
                             "nom": "montre"
-                        }
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": "C3 (ajout de 1982, appel au pied)",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "flute"
-                        }
-                    },
-                    {
-                        "commentaire": "",
                         "type": {
                             "hauteur": "8",
                             "nom": "bourdon"
-                        }
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": "",
                         "type": {
                             "hauteur": "4",
                             "nom": "prestant"
-                        }
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": "",
                         "type": {
                             "hauteur": "4",
                             "nom": "flute"
-                        }
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "2",
-                            "nom": "nasard"
-                        }
-                    },
-                    {
-                        "commentaire": "",
                         "type": {
                             "hauteur": "2",
                             "nom": "doublette"
-                        }
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": "",
                         "type": {
-                            "hauteur": "2",
-                            "nom": "flute"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "1",
-                            "nom": "tierce"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "IV",
+                            "hauteur": "III",
                             "nom": "plein-jeu"
-                        }
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": null,
                         "type": {
-                            "hauteur": "IV",
-                            "nom": "cymbale"
-                        }
+                            "hauteur": "V",
+                            "nom": "cornet"
+                        },
+                        "commentaire": "F2"
                     },
                     {
-                        "commentaire": "en chamade",
                         "type": {
                             "hauteur": "8",
                             "nom": "trompette"
-                        }
-                    },
-                    {
-                        "commentaire": "en chamade",
-                        "type": {
-                            "hauteur": "4",
-                            "nom": "clairon"
-                        }
+                        },
+                        "commentaire": null
                     }
-                ],
-                "etendue": "56",
-                "type": "Grand orgue"
+                ]
             },
             {
+                "type": "Récit",
+                "etendue": "56",
                 "jeux": [
                     {
-                        "commentaire": "",
                         "type": {
                             "hauteur": "8",
-                            "nom": "montre"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "bourdon"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "4",
-                            "nom": "prestant"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "4",
                             "nom": "flute"
-                        }
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "2",
-                            "nom": "nasard"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "2",
-                            "nom": "doublette"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "1",
-                            "nom": "tierce"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "1",
-                            "nom": "larigot"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "IV",
-                            "nom": "plein-jeu"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "cromorne"
-                        }
-                    }
-                ],
-                "etendue": "56",
-                "type": "Positif"
-            },
-            {
-                "jeux": [
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "diapason"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "cor de nuit"
-                        }
-                    },
-                    {
-                        "commentaire": "C2",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "voix celeste"
-                        }
-                    },
-                    {
-                        "commentaire": "",
                         "type": {
                             "hauteur": "4",
                             "nom": "principal"
-                        }
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "4",
-                            "nom": "flute"
-                        }
-                    },
-                    {
-                        "commentaire": "",
                         "type": {
                             "hauteur": "2",
-                            "nom": "flute"
-                        }
+                            "nom": "quarte"
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": "",
                         "type": {
-                            "hauteur": "1",
-                            "nom": "piccolo"
-                        }
+                            "hauteur": "II",
+                            "nom": "sesquialtera"
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": "",
                         "type": {
-                            "hauteur": "IV",
-                            "nom": "fourniture"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "IV",
+                            "hauteur": "III",
                             "nom": "cymbale"
-                        }
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "16",
-                            "nom": "bombarde"
-                        }
-                    },
-                    {
-                        "commentaire": null,
                         "type": {
                             "hauteur": "8",
-                            "nom": "trompette"
-                        }
+                            "nom": "cromorne"
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "4",
-                            "nom": "clairon"
-                        }
-                    },
-                    {
-                        "commentaire": "",
                         "type": {
                             "hauteur": "8",
                             "nom": "hautbois"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "type": {
-                            "hauteur": null,
-                            "nom": "tremblant"
-                        }
+                        },
+                        "commentaire": "G2"
                     }
-                ],
-                "etendue": "56",
-                "type": "Récif expressif"
+                ]
             },
             {
+                "type": "Pédalier",
+                "etendue": "32",
                 "jeux": [
                     {
-                        "commentaire": "",
                         "type": {
                             "hauteur": "16",
                             "nom": "soubasse"
-                        }
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": "extension",
                         "type": {
                             "hauteur": "8",
-                            "nom": "basse"
-                        }
+                            "nom": "principal"
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": "extension",
                         "type": {
                             "hauteur": "4",
                             "nom": "flute"
-                        }
+                        },
+                        "commentaire": ""
                     },
                     {
-                        "commentaire": "extension",
-                        "type": {
-                            "hauteur": "2",
-                            "nom": "flute"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "IV",
-                            "nom": "plein-jeu"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "16",
-                            "nom": "bombarde"
-                        }
-                    },
-                    {
-                        "commentaire": "extension",
                         "type": {
                             "hauteur": "8",
                             "nom": "trompette"
-                        }
-                    },
-                    {
-                        "commentaire": "extension",
-                        "type": {
-                            "hauteur": "4",
-                            "nom": "clairon"
-                        }
+                        },
+                        "commentaire": null
                     }
-                ],
-                "etendue": "32",
-                "type": "Pédalier"
+                ]
             }
         ],
-        "evenements": [],
-        "buffet": "",
-        "temperament": "Égal",
-        "resume": null,
-        "region": "Pays de la Loire",
-        "transmission_commentaire": null
-    },
-    {
+        "organisme": null,
+        "temperament": "égal",
+        "departement": "Loire-Atlantique",
+        "code_departement": "44",
+        "url": "http://inventaire-des-orgues.fr/detail/orgue-reze-eglise-saint-paul-fr-44143-rezee-stpaul1-x/",
+        "sources": [
+            {
+                "type": "ouvrage",
+                "lien": "http://explore.inventaire-des-orgues.fr/",
+                "description": "Orgues en Pays-de-la-Loire -- tome 2#425-428#339#"
+            },
+            {
+                "type": "web",
+                "lien": "http://orguepaysdelaloire.fr/inventory/admin_orgue.php?id=35",
+                "description": "Association orgue en Pays de la Loire"
+            }
+        ],
+        "codification": "FR-44143-REZEE-STPAUL1-X",
+        "adresse": null,
+        "images": [
+            {
+                "url": "http://orguepaysdelaloire.fr/inventory/upload/9cPyv1XaNW5Y8Zzi.JPG",
+                "credit": "www.orguepaysdelaloire.fr"
+            }
+        ],
+        "longitude": -1.5471011446153844,
+        "transmission_commentaire": null,
+        "latitude": 47.184743469230774,
         "accessoires": [
             "Tirasse Grand-Orgue",
             "Tirasse Récit",
             "Récit /Grand-Orgue",
             "Tremblant"
         ],
-        "tirage_commentaire": null,
-        "codification": "FR-44143-REZEE-STPAUL1-X",
-        "emplacement": "sol, au fond du choeur",
-        "organisme": null,
-        "sommiers": "À registres",
-        "updated_by_user": null,
-        "resume_composition": null,
-        "ancienne_commune": null,
-        "osm_id": "84701640",
-        "lien_reference": null,
-        "proprietaire": "commune",
-        "references_palissy": null,
-        "commentaire_admin": null,
         "designation": "",
-        "completion": 10,
-        "departement": "Loire-Atlantique",
-        "longitude": -1.5471011446153844,
-        "is_polyphone": false,
-        "code_insee": "44143",
-        "adresse": null,
         "commune": "Rezé",
-        "diapason": null,
-        "edifice": "église Saint-Paul",
-        "images": [
-            {
-                "credit": "www.orguepaysdelaloire.fr",
-                "image": "http://orguepaysdelaloire.fr/inventory/upload/9cPyv1XaNW5Y8Zzi.JPG",
-                "is_principale": true
-            }
-        ],
-        "modified_date": "2020-09-09T16:48:41.310267",
-        "sources": [
-            {
-                "lien": "http://explore.inventaire-des-orgues.fr/",
-                "description": "Orgues en Pays-de-la-Loire -- tome 2#425-428#339#",
-                "type": "ouvrage"
-            },
-            {
-                "lien": "http://orguepaysdelaloire.fr/inventory/admin_orgue.php?id=35",
-                "description": "Association orgue en Pays de la Loire",
-                "type": "web"
-            }
-        ],
-        "tirage_jeux": "mecanique",
-        "osm_type": "way",
-        "code_departement": "44",
-        "soufflerie": "Alimentation directe",
-        "url": "http://inventaire-des-orgues.fr/detail/orgue-reze-eglise-saint-paul-fr-44143-rezee-stpaul1-x/",
-        "etat": "tres_bon",
-        "entretien": [],
+        "commentaire_admin": null,
         "transmission_notes": "mecanique",
+        "tirage_commentaire": null,
+        "etat": "tres_bon",
         "commentaire_tuyauterie": null,
-        "latitude": 47.184743469230774,
+        "diapason": null,
+        "modified_date": "2020-09-09T16:48:41.310267",
+        "completion": 10,
+        "ancienne_commune": null,
+        "entretien": [],
+        "buffet": null,
+        "references_palissy": null,
         "fichiers": [
             {
-                "description": "[extrait] Orgues en Pays-de-la-Loire -- tome 2",
-                "file": "http://inventaire-des-orgues.fr/media/44/FR-44143-REZEE-STPAUL1-X/fichiers/FR-44143-REZEE-STPAUL1-X.pdf"
+                "file": "http://inventaire-des-orgues.fr/media/44/FR-44143-REZEE-STPAUL1-X/fichiers/FR-44143-REZEE-STPAUL1-X.pdf",
+                "description": "[extrait] Orgues en Pays-de-la-Loire -- tome 2"
             }
         ],
+        "edifice": "église Saint-Paul",
         "console": "Intégrée au soubassement",
-        "claviers": [
+        "evenements": [
             {
-                "jeux": [
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "montre"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "bourdon"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "4",
-                            "nom": "prestant"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "4",
-                            "nom": "flute"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "2",
-                            "nom": "doublette"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "III",
-                            "nom": "plein-jeu"
-                        }
-                    },
-                    {
-                        "commentaire": "F2",
-                        "type": {
-                            "hauteur": "V",
-                            "nom": "cornet"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "trompette"
-                        }
-                    }
+                "type": "deplacement",
+                "circa": true,
+                "facteurs": [
+                    "debierre",
+                    "cavaille coll"
                 ],
-                "etendue": "56",
-                "type": "Grand-Orgue"
+                "resume": "installation par Debierre dÂ´un orgue Cavaillé-Coll provenant de Notre-Dame-dÂ´Espérance de St-Brieuc.",
+                "annee_fin": null,
+                "annee": "1880"
             },
             {
-                "jeux": [
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "flute"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "4",
-                            "nom": "principal"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "2",
-                            "nom": "quarte"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "II",
-                            "nom": "sesquialtera"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "III",
-                            "nom": "cymbale"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "cromorne"
-                        }
-                    },
-                    {
-                        "commentaire": "G2",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "hautbois"
-                        }
-                    }
+                "type": "modifications",
+                "circa": true,
+                "facteurs": [
+                    "debierre"
                 ],
-                "etendue": "56",
-                "type": "Récit"
+                "resume": "modifications par Debierre.",
+                "annee_fin": null,
+                "annee": "1911"
             },
             {
-                "jeux": [
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "16",
-                            "nom": "soubasse"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "principal"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "4",
-                            "nom": "flute"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "trompette"
-                        }
-                    }
+                "type": "relevage",
+                "circa": true,
+                "facteurs": [],
+                "resume": "ventilateur électrique installé par Gloton.",
+                "annee_fin": null,
+                "annee": "1925"
+            },
+            {
+                "type": "restauration",
+                "circa": true,
+                "facteurs": [
+                    "debierre"
                 ],
-                "etendue": "32",
-                "type": "Pédalier"
+                "resume": "restauration par Beuchet-Debierre.",
+                "annee_fin": null,
+                "annee": "1969"
+            },
+            {
+                "type": "restauration",
+                "circa": true,
+                "facteurs": [
+                    "renaud"
+                ],
+                "resume": "restauration par Renaud.",
+                "annee_fin": null,
+                "annee": "1971"
+            },
+            {
+                "type": "construction",
+                "circa": true,
+                "facteurs": [
+                    "severe"
+                ],
+                "resume": "reconstruction par Sévère.",
+                "annee_fin": null,
+                "annee": "1997"
             }
         ],
-        "evenements": [],
-        "buffet": null,
-        "temperament": "égal",
-        "resume": null,
+        "code_insee": "44143",
+        "osm_id": "84701640",
         "region": "Pays de la Loire",
-        "transmission_commentaire": null
+        "lien_reference": null,
+        "soufflerie": "Alimentation directe",
+        "resume": null,
+        "sommiers": "À registres"
     },
     {
+        "emplacement": "ORGUE DE CHŒUR",
+        "updated_by_user": "Patrice De Saint Steban",
+        "osm_type": "relation",
+        "tirage_jeux": "mecanique",
+        "resume_composition": "19, II/P",
+        "is_polyphone": false,
+        "proprietaire": "commune",
+        "claviers": [
+            {
+                "type": "Grand-Orgue",
+                "is_expressif": false,
+                "etendue": null,
+                "jeux": [
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "updated_by_user": null,
+                            "nom": "Montre",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "updated_by_user": null,
+                            "nom": "Flûte harmonique",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "updated_by_user": null,
+                            "nom": "Bourdon",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "updated_by_user": null,
+                            "nom": "Prestant",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "2",
+                            "updated_by_user": null,
+                            "nom": "Doublette",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "IV",
+                            "updated_by_user": null,
+                            "nom": "Plein-jeu",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "updated_by_user": null,
+                            "nom": "Trompette ",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "updated_by_user": null,
+                            "nom": "Clairon",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    }
+                ]
+            },
+            {
+                "type": "Récit",
+                "is_expressif": true,
+                "etendue": null,
+                "jeux": [
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "updated_by_user": null,
+                            "nom": "Flûte",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "updated_by_user": null,
+                            "nom": "Salicional",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "updated_by_user": null,
+                            "nom": "Voix céleste",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": "A partir de do 2"
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "updated_by_user": null,
+                            "nom": "Flûte",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "2 2/3",
+                            "updated_by_user": null,
+                            "nom": "Nazard harmonique",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "II",
+                            "updated_by_user": null,
+                            "nom": "Cornet",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": "II-III"
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "updated_by_user": null,
+                            "nom": "Trompette",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "updated_by_user": null,
+                            "nom": "Basson-hautbois",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    }
+                ]
+            },
+            {
+                "type": "Pédale",
+                "is_expressif": false,
+                "etendue": null,
+                "jeux": [
+                    {
+                        "type": {
+                            "hauteur": "16",
+                            "updated_by_user": null,
+                            "nom": "​Soubasse",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "updated_by_user": null,
+                            "nom": "Flûte",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": "extension"
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "updated_by_user": null,
+                            "nom": "Flûte",
+                            "created_date": "2021-03-16T16:46:52.408544",
+                            "modified_date": "2021-03-16T16:46:52.418627"
+                        },
+                        "configuration": null,
+                        "commentaire": "extension"
+                    }
+                ]
+            }
+        ],
+        "organisme": "Paroisse des Saints Evêques de Nantes",
+        "temperament": "égal",
+        "departement": "Loire-Atlantique",
+        "code_departement": "44",
+        "url": "http://inventaire-des-orgues.fr/detail/orgue-nantes-eglise-saint-simllien-fr-44109-nante-stsiml1-x/",
+        "sources": [
+            {
+                "type": "ouvrage",
+                "lien": "http://explore.inventaire-des-orgues.fr/",
+                "description": "Orgues en Pays-de-la-Loire -- tome 2#331-334#245#"
+            },
+            {
+                "type": "web",
+                "lien": "http://orguepaysdelaloire.fr/inventory/admin_orgue.php?id=96",
+                "description": "Association orgue en Pays de la Loire"
+            }
+        ],
+        "codification": "FR-44109-NANTE-STSIML1-X",
+        "adresse": "2 Rue de Bel Air",
+        "images": [
+            {
+                "image": "http://inventaire-des-orgues.fr/media/44/FR-44109-NANTE-STSIML1-X/images/SW6xdzqo7CACPOHU.jpeg",
+                "is_principale": true,
+                "credit": "Pierre Queval"
+            }
+        ],
+        "longitude": -1.5597719,
+        "transmission_commentaire": null,
+        "latitude": 47.22043,
         "accessoires": [
             "Accouplement Réc./G.O.",
             "Tirasse Réc.",
@@ -673,558 +1020,300 @@
             "Accouplement 16 Réc./G.O.",
             "Tremblant Réc."
         ],
-        "tirage_commentaire": null,
-        "codification": "FR-44109-NANTE-STSIML1-X",
-        "emplacement": "ORGUE DE CHŒUR",
-        "organisme": "Paroisse des Saints Evêques de Nantes",
-        "sommiers": "<p>À registres<br></p>",
-        "updated_by_user": "Patrice De Saint Steban",
-        "resume_composition": "19, II/P",
-        "ancienne_commune": null,
-        "osm_id": "11330947",
-        "lien_reference": "http://paroisse-saintseveques-nantes.fr/",
-        "proprietaire": "commune",
-        "references_palissy": null,
-        "commentaire_admin": "",
         "designation": "Orgue de chœur",
-        "completion": 100,
-        "departement": "Loire-Atlantique",
-        "longitude": -1.5597719,
-        "is_polyphone": false,
-        "code_insee": "44109",
-        "adresse": "2 Rue de Bel Air",
         "commune": "Nantes",
-        "diapason": null,
-        "edifice": "église Saint-Simllien",
-        "images": [
-            {
-                "credit": "Pierre Queval",
-                "is_principale": true,
-                "image": "http://inventaire-des-orgues.fr/media/44/FR-44109-NANTE-STSIML1-X/images/SW6xdzqo7CACPOHU.jpeg"
-            }
-        ],
-        "modified_date": "2021-03-22T19:22:34.337399",
-        "sources": [
-            {
-                "lien": "http://explore.inventaire-des-orgues.fr/",
-                "description": "Orgues en Pays-de-la-Loire -- tome 2#331-334#245#",
-                "type": "ouvrage"
-            },
-            {
-                "lien": "http://orguepaysdelaloire.fr/inventory/admin_orgue.php?id=96",
-                "description": "Association orgue en Pays de la Loire",
-                "type": "web"
-            }
-        ],
-        "tirage_jeux": "mecanique",
-        "osm_type": "relation",
-        "code_departement": "44",
-        "soufflerie": "<p>À plis parallèles<br></p>",
-        "url": "http://inventaire-des-orgues.fr/detail/orgue-nantes-eglise-saint-simllien-fr-44109-nante-stsiml1-x/",
-        "etat": "bon",
-        "entretien": [],
+        "commentaire_admin": "",
         "transmission_notes": "mecanique",
+        "tirage_commentaire": null,
+        "etat": "bon",
         "commentaire_tuyauterie": "",
-        "latitude": 47.22043,
+        "diapason": null,
+        "modified_date": "2021-03-22T19:22:34.337399",
+        "completion": 100,
+        "ancienne_commune": null,
+        "entretien": [],
+        "buffet": "<p>Buffet initial construit par&nbsp;Le Logeais.&nbsp;<span style=\"color: rgb(0, 0, 0); font-family: Lato, sans-serif; font-size: 14px;\">il se trouve sur le sol, première travée du chœur côté sud.</span></p>",
+        "references_palissy": null,
         "fichiers": [
             {
-                "description": "[extrait] Orgues en Pays-de-la-Loire -- tome 2",
-                "file": "http://inventaire-des-orgues.fr/media/44/FR-44109-NANTE-STSIML1-X/fichiers/FR-44109-NANTE-STSIML1-X.pdf"
+                "file": "http://inventaire-des-orgues.fr/media/44/FR-44109-NANTE-STSIML1-X/fichiers/FR-44109-NANTE-STSIML1-X.pdf",
+                "description": "[extrait] Orgues en Pays-de-la-Loire -- tome 2"
             }
         ],
+        "edifice": "église Saint-Simllien",
         "console": "<p><span style=\"color: rgb(0, 0, 0); font-family: Lato, sans-serif; font-size: 14px;\">Retournée</span><br></p>",
-        "claviers": [
-            {
-                "etendue": null,
-                "is_expressif": false,
-                "type": "Grand-Orgue",
-                "jeux": [
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "8",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Montre",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "8",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Flûte harmonique",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "8",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Bourdon",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "4",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Prestant",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "2",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Doublette",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "IV",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Plein-jeu",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "8",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Trompette ",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "4",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Clairon",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    }
-                ]
-            },
-            {
-                "etendue": null,
-                "is_expressif": true,
-                "type": "Récit",
-                "jeux": [
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "8",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Flûte",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "8",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Salicional",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": "A partir de do 2",
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "8",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Voix céleste",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "4",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Flûte",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "2 2/3",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Nazard harmonique",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": "II-III",
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "II",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Cornet",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "8",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Trompette",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "8",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Basson-hautbois",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    }
-                ]
-            },
-            {
-                "etendue": null,
-                "is_expressif": false,
-                "type": "Pédale",
-                "jeux": [
-                    {
-                        "commentaire": null,
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "16",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "​Soubasse",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": "extension",
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "8",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Flûte",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    },
-                    {
-                        "commentaire": "extension",
-                        "configuration": null,
-                        "type": {
-                            "hauteur": "4",
-                            "modified_date": "2021-03-16T16:46:52.418627",
-                            "updated_by_user": null,
-                            "nom": "Flûte",
-                            "created_date": "2021-03-16T16:46:52.408544"
-                        }
-                    }
-                ]
-            }
-        ],
         "evenements": [
             {
+                "type": "construction",
                 "circa": true,
                 "facteurs": [
                     "Le Logeais"
                 ],
-                "type": "construction",
-                "annee": 1850,
+                "resume": "Orgue originel de Le Logeais.",
                 "annee_fin": null,
-                "resume": "Orgue originel de Le Logeais."
+                "annee": 1850
             },
             {
-                "circa": false,
-                "facteurs": [
-                    "Debierre Louis"
-                ],
                 "type": "reconstruction",
-                "annee": 1886,
-                "annee_fin": null,
-                "resume": "reconstruction par Debierre pour le pensionnat de Bel-Air à Nantes."
-            },
-            {
                 "circa": false,
                 "facteurs": [
                     "Debierre Louis"
                 ],
-                "type": "deplacement",
-                "annee": 1905,
+                "resume": "reconstruction par Debierre pour le pensionnat de Bel-Air à Nantes.",
                 "annee_fin": null,
-                "resume": "installation par Debierre à St-Similien."
+                "annee": 1886
             },
             {
+                "type": "deplacement",
+                "circa": false,
+                "facteurs": [
+                    "Debierre Louis"
+                ],
+                "resume": "installation par Debierre à St-Similien.",
+                "annee_fin": null,
+                "annee": 1905
+            },
+            {
+                "type": "restauration",
                 "circa": false,
                 "facteurs": [
                     "Debierre-Gloton"
                 ],
-                "type": "restauration",
-                "annee": 1935,
+                "resume": "restauration par Gloton-Debierre.",
                 "annee_fin": null,
-                "resume": "restauration par Gloton-Debierre."
+                "annee": 1935
             },
             {
+                "type": "restauration",
                 "circa": false,
                 "facteurs": [],
-                "type": "restauration",
-                "annee": 1991,
+                "resume": "restauration par Renaud.",
                 "annee_fin": null,
-                "resume": "restauration par Renaud."
+                "annee": 1991
             }
         ],
-        "buffet": "<p>Buffet initial construit par&nbsp;Le Logeais.&nbsp;<span style=\"color: rgb(0, 0, 0); font-family: Lato, sans-serif; font-size: 14px;\">il se trouve sur le sol, première travée du chœur côté sud.</span></p>",
-        "temperament": "égal",
-        "resume": "<p><span style=\"color: rgb(0, 0, 0); font-family: Lato, sans-serif; font-size: 14px;\">Cet orgue originel de Le Logeais à en premier lieu été reconstruit pour le pensionnat de Bel-Air à Nantes, avant d'être déplacé par Debierre à St Similien.</span></p>",
+        "code_insee": "44109",
+        "osm_id": "11330947",
         "region": "Pays de la Loire",
-        "transmission_commentaire": null
+        "lien_reference": "http://paroisse-saintseveques-nantes.fr/",
+        "soufflerie": "<p>À plis parallèles<br></p>",
+        "resume": "<p><span style=\"color: rgb(0, 0, 0); font-family: Lato, sans-serif; font-size: 14px;\">Cet orgue originel de Le Logeais à en premier lieu été reconstruit pour le pensionnat de Bel-Air à Nantes, avant d'être déplacé par Debierre à St Similien.</span></p>",
+        "sommiers": "<p>À registres<br></p>"
     },
     {
+        "emplacement": "Au sol, transept gauche",
+        "updated_by_user": "Raushka Makanova",
+        "osm_type": null,
+        "tirage_jeux": "mecanique",
+        "resume_composition": null,
+        "is_polyphone": false,
+        "proprietaire": "paroisse",
+        "claviers": [
+            {
+                "type": "Grand-Orgue",
+                "etendue": "56",
+                "jeux": [
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "montre"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "bourdon"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "nom": "prestant"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "2",
+                            "nom": "doublette"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "II-III",
+                            "nom": "mixture"
+                        },
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "cromorne"
+                        },
+                        "commentaire": null
+                    }
+                ]
+            },
+            {
+                "type": "Récit expressif",
+                "etendue": "56",
+                "jeux": [
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "flute a cheminee"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "4",
+                            "nom": "flute"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "2",
+                            "nom": "nasard"
+                        },
+                        "commentaire": null
+                    },
+                    {
+                        "type": {
+                            "hauteur": "2",
+                            "nom": "quarte"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "1",
+                            "nom": "tierce"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "1",
+                            "nom": "larigot"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "trompette"
+                        },
+                        "commentaire": null
+                    }
+                ]
+            },
+            {
+                "type": "Pédalier",
+                "etendue": "32",
+                "jeux": [
+                    {
+                        "type": {
+                            "hauteur": "16",
+                            "nom": "soubasse"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "8",
+                            "nom": "basse"
+                        },
+                        "commentaire": ""
+                    },
+                    {
+                        "type": {
+                            "hauteur": "16",
+                            "nom": "basson"
+                        },
+                        "commentaire": ""
+                    }
+                ]
+            }
+        ],
+        "organisme": null,
+        "temperament": "Vallotti",
+        "departement": "Loire-Atlantique",
+        "code_departement": "44",
+        "url": "http://inventaire-des-orgues.fr/detail/orgue-pornichet-eglise-notre-dame-des-dunes-fr-44132-porni-nddune1-x/",
+        "sources": [
+            {
+                "type": "ouvrage",
+                "lien": "http://explore.inventaire-des-orgues.fr/",
+                "description": "Orgues en Pays-de-la-Loire -- tome 2#417-418#331#"
+            },
+            {
+                "type": "web",
+                "lien": "http://orguepaysdelaloire.fr/inventory/admin_orgue.php?id=138",
+                "description": "Association orgue en Pays de la Loire"
+            }
+        ],
+        "codification": "FR-44132-PORNI-NDDUNE1-X",
+        "adresse": null,
+        "images": [
+            {
+                "url": "http://orguepaysdelaloire.fr/inventory/upload/w5fJOBSZ7JaEG0ZT.jpg",
+                "credit": "Marie-Andrée Courjault"
+            }
+        ],
+        "longitude": -2.34026,
+        "transmission_commentaire": null,
+        "latitude": 47.26592,
         "accessoires": [
             "Tirasse Grand-Orgue",
             "Tirasse Récit",
             "Récit / Grand-Orgue",
             "Tremblant doux"
         ],
-        "tirage_commentaire": null,
-        "codification": "FR-44132-PORNI-NDDUNE1-X",
-        "emplacement": "Au sol, transept gauche",
-        "organisme": null,
-        "sommiers": "À registres",
-        "updated_by_user": "Raushka Makanova",
-        "resume_composition": null,
-        "ancienne_commune": null,
-        "osm_id": "Raushka",
-        "lien_reference": null,
-        "proprietaire": "paroisse",
-        "references_palissy": null,
-        "commentaire_admin": null,
         "designation": "",
-        "completion": 10,
-        "departement": "Loire-Atlantique",
-        "longitude": -2.34026,
-        "is_polyphone": false,
-        "code_insee": "44132",
-        "adresse": null,
         "commune": "Pornichet",
-        "diapason": "440",
-        "edifice": "église Notre-Dame-des-Dunes",
-        "images": [
-            {
-                "credit": "Marie-Andrée Courjault",
-                "image": "http://orguepaysdelaloire.fr/inventory/upload/w5fJOBSZ7JaEG0ZT.jpg",
-                "is_principale": true
-            }
-        ],
-        "modified_date": "2020-09-09T16:48:41.326100",
-        "sources": [
-            {
-                "lien": "http://explore.inventaire-des-orgues.fr/",
-                "description": "Orgues en Pays-de-la-Loire -- tome 2#417-418#331#",
-                "type": "ouvrage"
-            },
-            {
-                "lien": "http://orguepaysdelaloire.fr/inventory/admin_orgue.php?id=138",
-                "description": "Association orgue en Pays de la Loire",
-                "type": "web"
-            }
-        ],
-        "tirage_jeux": "mecanique",
-        "osm_type": null,
-        "code_departement": "44",
-        "soufflerie": "Cunéiforme, 2 réservoirs",
-        "url": "http://inventaire-des-orgues.fr/detail/orgue-pornichet-eglise-notre-dame-des-dunes-fr-44132-porni-nddune1-x/",
-        "etat": "tres_bon",
-        "entretien": [],
+        "commentaire_admin": null,
         "transmission_notes": "mecanique",
+        "tirage_commentaire": null,
+        "etat": "tres_bon",
         "commentaire_tuyauterie": null,
-        "latitude": 47.26592,
+        "diapason": "440",
+        "modified_date": "2020-09-09T16:48:41.326100",
+        "completion": 10,
+        "ancienne_commune": null,
+        "entretien": [],
+        "buffet": null,
+        "references_palissy": null,
         "fichiers": [
             {
-                "description": "[extrait] Orgues en Pays-de-la-Loire -- tome 2",
-                "file": "http://inventaire-des-orgues.fr/media/44/FR-44132-PORNI-NDDUNE1-X/fichiers/FR-44132-PORNI-NDDUNE1-X.pdf"
+                "file": "http://inventaire-des-orgues.fr/media/44/FR-44132-PORNI-NDDUNE1-X/fichiers/FR-44132-PORNI-NDDUNE1-X.pdf",
+                "description": "[extrait] Orgues en Pays-de-la-Loire -- tome 2"
             }
         ],
+        "edifice": "église Notre-Dame-des-Dunes",
         "console": "Intégrée au soubassement",
-        "claviers": [
+        "evenements": [
             {
-                "jeux": [
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "montre"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "bourdon"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "4",
-                            "nom": "prestant"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "2",
-                            "nom": "doublette"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "type": {
-                            "hauteur": "II-III",
-                            "nom": "mixture"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "cromorne"
-                        }
-                    }
+                "type": "construction",
+                "circa": true,
+                "facteurs": [
+                    "delhumeau"
                 ],
-                "etendue": "56",
-                "type": "Grand-Orgue"
-            },
-            {
-                "jeux": [
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "flute a cheminee"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "4",
-                            "nom": "flute"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "type": {
-                            "hauteur": "2",
-                            "nom": "nasard"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "2",
-                            "nom": "quarte"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "1",
-                            "nom": "tierce"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "1",
-                            "nom": "larigot"
-                        }
-                    },
-                    {
-                        "commentaire": null,
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "trompette"
-                        }
-                    }
-                ],
-                "etendue": "56",
-                "type": "Récit expressif"
-            },
-            {
-                "jeux": [
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "16",
-                            "nom": "soubasse"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "8",
-                            "nom": "basse"
-                        }
-                    },
-                    {
-                        "commentaire": "",
-                        "type": {
-                            "hauteur": "16",
-                            "nom": "basson"
-                        }
-                    }
-                ],
-                "etendue": "32",
-                "type": "Pédalier"
+                "resume": "2013: construction par François Delhumeau, en réutilisant certains jeux de l’ancien orgue Haerpfer-Erman.",
+                "annee_fin": null,
+                "annee": "2013"
             }
         ],
-        "evenements": [],
-        "buffet": null,
-        "temperament": "Vallotti",
-        "resume": null,
+        "code_insee": "44132",
+        "osm_id": "Raushka",
         "region": "Pays de la Loire",
-        "transmission_commentaire": null
+        "lien_reference": null,
+        "soufflerie": "Cunéiforme, 2 réservoirs",
+        "resume": null,
+        "sommiers": "À registres"
     }
 ]
