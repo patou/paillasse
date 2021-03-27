@@ -52,31 +52,32 @@ def generateSommiers(mecanique):
         result += ", " + mecanique['sommiers_spec']
     return result
 
-def generateProprietaire(etat):
-    if etat is None:
+def generateProprietaire(context, proprietaire):
+    if proprietaire is None:
         return ''
-    elif 'ville' in etat.lower():
+    elif 'ville' in proprietaire.lower():
         return "commune"
-    elif etat == 'État' or etat == 'Etat':
+    elif proprietaire == 'État' or proprietaire == 'Etat':
         return "etat"
-    elif etat == 'AOCN':
+    elif proprietaire == 'AOCN':
         return "association_culturelle"
-    elif etat == 'Diocèse':
+    elif proprietaire == 'Diocèse':
         return "diocese"
-    elif etat == 'Paroisse':
+    elif proprietaire == 'Paroisse':
         return "paroisse"
-    elif (st in etat for st in ['Communauté', 'Congrégation', 'Prieuré']):
+    elif (st in proprietaire for st in ['Communauté', 'Congrégation', 'Prieuré']):
         return "congregation"
-    elif etat == 'Collège':
+    elif proprietaire == 'Collège':
         return "etablissement_scolaire"
-    elif etat == 'Institut':
+    elif proprietaire == 'Institut':
         return "conservatoire"
-    elif etat == 'Hopital':
+    elif proprietaire == 'Hopital':
         return "hopital"
     else:
+        context.log("Proprietaire {} n'héxiste pas".format(proprietaire))
         return None
 
-def generateEtat(etat):
+def generateEtat(context, etat):
     if etat == 'Excellent':
         return "tres_bon"
     elif etat == 'Bon':
@@ -88,9 +89,10 @@ def generateEtat(etat):
     elif etat == 'Injouable':
         return "degrade"
     else:
+        context.log("Etat {} n'héxiste pas".format(etat))
         return None
 
-def generateTransmission(transmission):
+def generateTransmission(context, transmission):
     if transmission == 'Mécanique':
         return "mecanique"
     elif transmission == 'Pneumatique Barker':
@@ -104,9 +106,10 @@ def generateTransmission(transmission):
     elif transmission == 'Informatique':
         return "electrique"
     else:
+        context.log("Transmission {} n'existe pas".format(transmission))
         return None
 
-def generateTirage(transmission):
+def generateTirage(context, transmission):
     if transmission == 'Mécanique':
         return "mecanique"
     elif transmission == 'Électrique':
@@ -118,6 +121,7 @@ def generateTirage(transmission):
     elif transmission == 'Informatique':
         return "electrique"
     else:
+        context.log("Tirage {} n'existe pas".format(transmission))
         return None
 
 def generateTransmissionCommentaire(transmission):
@@ -132,11 +136,12 @@ def generateTirageCommentaire(transmission):
     else:
         return None
 
-def buildAccessoires(combinaisons):
+def buildAccessoires(context, combinaisons):
     accessoires = []
     for i in range(1, 41):
         nom = combinaisons["comb_"+str(i)+"_nom"]
         if nom:
+            # if accessoire not exit, log message
             accessoires.append(nom)
     return accessoires
 
@@ -165,7 +170,7 @@ def cleanFacteurName(nom):
         return ""
     return re.sub(r"[^a-z]+", " ", unidecode.unidecode(nom).lower().replace("\\\'", "\'")).strip()
 
-def buildJeu(nom, hauteur, description):
+def buildJeu(context, nom, hauteur, description):
     return {
         "type": {
             "nom": cleanJeuNom(nom),
@@ -174,19 +179,19 @@ def buildJeu(nom, hauteur, description):
         "commentaire": description,
     }
 
-def buildJeux(type, definition):
+def buildJeux(context, type, definition):
     jeux = []
     for i in range(1, 25 if type != 'ped' else 20):
         if definition[type+"_"+str(i)+"_nom"]:
-            jeux.append(buildJeu(definition[type+"_"+str(i)+"_nom"], definition[type+"_"+str(i)+"_hauteur"], definition[type+"_"+str(i)+"_spec"]))
+            jeux.append(buildJeu(context, definition[type+"_"+str(i)+"_nom"], definition[type+"_"+str(i)+"_hauteur"], definition[type+"_"+str(i)+"_spec"]))
     return jeux
 
-def buildClavier(type, definition):
+def buildClavier(context, type, definition):
     if definition[type + "_notes"]:
         return {
             "type": definition[type] if type != 'ped' else 'Pédalier',
             "etendue": definition[type + "_notes"],
-            "jeux": buildJeux(type, definition)
+            "jeux": buildJeux(context, type, definition)
         }
     else:
         return None
@@ -247,7 +252,7 @@ def normalizeFacteur(facteur):
     '''
     return facteur
 
-def extractEvenementFacteur(line, annee, facteurs):
+def extractEvenementFacteur(context, line, annee, facteurs):
     found = set()
     line = unidecode.unidecode(line.lower())
     for nom, facteurAnnee in facteurs:
@@ -259,12 +264,12 @@ def extractEvenementFacteur(line, annee, facteurs):
                     found.add(normalizeFacteur(nom))
     if len(found) == 0:
         # Chercher dans la liste complète des facteurs
-        print("Pas de facteur trouvé", line, facteurs)
+        context.log("Pas de facteur trouvé dans {} pour {}".format(line, facteurs))
     return list(found)
              
 
 
-def buildEvenements(historique, facteurs):
+def buildEvenements(context, historique, facteurs):
     evenements = []
     
     if historique['historique']:
@@ -274,9 +279,9 @@ def buildEvenements(historique, facteurs):
             resume = match.group(2) if match else line
             annee, annee_fin, circa = extractDate(match.group(0)) if match else extractDate(line)
             type = extractType(line)
-            facteur = extractEvenementFacteur(line, annee, facteurs)
+            facteur = extractEvenementFacteur(context, line, annee, facteurs)
             if annee is None or type is None:
-                print("Historique :", line)
+                context.log("Historique : {}".format(line))
                 pass
             evenement = {
                 "type": type,
@@ -344,6 +349,16 @@ class Export:
             csv_accessoires.writerows([[a, ''] for a in sorted(accessoires)])
 
 
+class Context:
+    def __init__(self, id, codification, orgue, export):
+        self.id = id
+        self.codification = codification
+        self.orgue = orgue
+        self.export = export
+
+    def log(self, message):
+        print(self.codification, ":", message)
+
 def process():
     '''
     Process l'inventaire des pays de la loire
@@ -360,6 +375,7 @@ def process():
             departement = extractNumeroDepartement(renseignement['departement'])
             orgue = findCurrentOrgan(current, departement, id)
             if orgue:
+                context = Context(id, orgue['codification'], orgue, export)
                 try:
                     print('===', id, orgue['codification'], renseignement['edifice'], renseignement['ville'])
                     # Renseignements
@@ -375,21 +391,21 @@ def process():
                             "url": "http://orguepaysdelaloire.fr/inventory/upload/"+renseignement['image']
                         })
                     # Mécanique
-                    orgue['transmission_notes'] = generateTransmission(export.mecaniques[id]['traction_notes']) if orgue['transmission_notes'] is None else orgue['transmission_notes']
+                    orgue['transmission_notes'] = generateTransmission(context, export.mecaniques[id]['traction_notes']) if orgue['transmission_notes'] is None else orgue['transmission_notes']
                     orgue['transmission_commentaire'] = generateTransmissionCommentaire(export.mecaniques[id]['traction_notes']) if orgue['transmission_commentaire'] is None else orgue['transmission_commentaire']
-                    orgue['tirage_jeux'] = generateTirage(export.mecaniques[id]['traction_jeux']) if orgue['tirage_jeux'] is None else orgue['tirage_jeux']
+                    orgue['tirage_jeux'] = generateTirage(context, export.mecaniques[id]['traction_jeux']) if orgue['tirage_jeux'] is None else orgue['tirage_jeux']
                     orgue['tirage_commentaire'] = generateTirageCommentaire(export.mecaniques[id]['traction_jeux']) if orgue['tirage_commentaire'] is None else orgue['tirage_commentaire']
                     orgue['console'] = export.mecaniques[id]['console'] if orgue['console'] is None else orgue['console']
                     orgue['sommiers'] = generateSommiers(export.mecaniques[id]) if orgue['sommiers'] is None else orgue['sommiers']
                     orgue['soufflerie'] = generateSoufflerie(export.mecaniques[id]) if orgue['soufflerie'] is None else orgue['soufflerie']
                     # Administratif
-                    orgue['proprietaire'] = generateProprietaire(export.administratif[id]['proprietaire']) if orgue['proprietaire'] is None else orgue['proprietaire']
-                    orgue['etat'] = generateEtat(export.administratif[id]['etat']) if orgue['etat'] is None else orgue['etat']
+                    orgue['proprietaire'] = generateProprietaire(context, export.administratif[id]['proprietaire']) if orgue['proprietaire'] is None else orgue['proprietaire']
+                    orgue['etat'] = generateEtat(context, export.administratif[id]['etat']) if orgue['etat'] is None else orgue['etat']
                     if len(orgue['accessoires']) == 0:
-                        orgue['accessoires'] = buildAccessoires(export.combinaisons[id])                    
+                        orgue['accessoires'] = buildAccessoires(context, export.combinaisons[id])                    
                     if len(orgue['claviers']) == 0:
                         for c in ['c1', 'c2', 'c3', 'c4', 'ped']:
-                            clavier = buildClavier(c, export.claviers[c][id])
+                            clavier = buildClavier(context, c, export.claviers[c][id])
                             if clavier is not None:
                                 orgue['claviers'].append(clavier)
                     # Evenments
@@ -398,11 +414,11 @@ def process():
                         if renseignement["facteur"+str(i)]:
                             facteurs.append(extractFacteur(renseignement["facteur"+str(i)]))
                     if len(orgue['evenements']) == 0:
-                        orgue['evenements'] = buildEvenements(export.historique[id], facteurs)
+                        orgue['evenements'] = buildEvenements(context, export.historique[id], facteurs)
                     
                     result.append(orgue)
                 except e:
-                    print(orgue['codification'], e)
+                    context.log(e)
     
     with open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'paysdelaloire.json'), 'w') as outfile:
         json.dump(result, outfile, indent = 4, ensure_ascii=False)
