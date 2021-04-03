@@ -306,3 +306,9 @@ Voici la liste des accessoires manquant que j'ai dans l'import des orgues des pa
 - Le Hellocq Pierre (Dans la base on a Le Helloco Pierre ou Le Hellocq)
 - Schreder
 - Tolbecque Auguste
+
+
+# Type clavier
+- Chamade
+- Schwellwerk
+- Accouplement (Clavier accouplement permanent)

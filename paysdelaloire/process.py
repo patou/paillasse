@@ -183,11 +183,48 @@ def buildJeux(context, type, definition):
             jeux.append(buildJeu(context, definition[type+"_"+str(i)+"_nom"], definition[type+"_"+str(i)+"_hauteur"], definition[type+"_"+str(i)+"_spec"]))
     return jeux
 
+claverTypes = (
+    ("Grand-Orgue",["Grand orgue", "GRAND ORGUE"]),
+    ("Récit",["Récit expressif", "Récif expressif"]),
+    ("Pédale",[]),
+    ("Positif",["POSITIF", "Positif expressif"]),
+    ("Positif de dos",[]),
+    ("Manuel",["Clavier", "Clavier expressif"]),
+    ("Echo",["Écho"]),
+    ("Solo",[]),
+    ("Résonnance",["Résonance"]),
+    ("Grand-Chœur",["Grand-Chœur expressif"]),
+    ("Hauptwerk",[]),
+    ("Pedalwerk",[]),
+    ("Brustwerk",[]),
+    ("Mittelwerk",[]),
+    ("Oberwerk",[]),
+    ("Rückpositiv",[]),
+    ("Positiv",[]),
+    ("Echowerk",[]),
+    ("Fernwerk",[]),
+    ("Bombarde",[]),
+    ("Pedal",[]),
+    ("I",["1er clavier", "Premier clavier", "Clavier transpositeur"]),
+    ("II",["2ème clavier", "Deuxième clavier"])
+)
+
+def buildClavierType(context, clavier):
+    for type, list in claverTypes:
+        if clavier == type:
+            return type
+        for test in list:
+            if clavier == test:
+                return type
+    context.log("Clavier {} n'existe pas".format(clavier))
+
+
 def buildClavier(context, type, definition):
     if definition[type + "_notes"]:
         return {
-            "type": definition[type] if type != 'ped' else 'Pédalier',
+            "type": buildClavierType(context, definition[type]) if type != 'ped' else 'Pédalier',
             "etendue": definition[type + "_notes"],
+            "is_expressif": "expressif" in definition[type] if type != 'ped' else False,
             "jeux": buildJeux(context, type, definition)
         }
     else:

@@ -19,8 +19,9 @@
         ],
         "claviers": [
             {
-                "type": "Grand orgue",
+                "type": "Grand-Orgue",
                 "etendue": "56",
+                "is_expressif": false,
                 "jeux": [
                     {
                         "type": {
@@ -132,6 +133,7 @@
             {
                 "type": "Positif",
                 "etendue": "56",
+                "is_expressif": false,
                 "jeux": [
                     {
                         "type": {
@@ -206,8 +208,9 @@
                 ]
             },
             {
-                "type": "Récif expressif",
+                "type": "Récit",
                 "etendue": "56",
+                "is_expressif": true,
                 "jeux": [
                     {
                         "type": {
@@ -312,6 +315,7 @@
             {
                 "type": "Pédalier",
                 "etendue": "32",
+                "is_expressif": false,
                 "jeux": [
                     {
                         "type": {
@@ -482,6 +486,7 @@
             {
                 "type": "Grand-Orgue",
                 "etendue": "56",
+                "is_expressif": false,
                 "jeux": [
                     {
                         "type": {
@@ -570,8 +575,9 @@
                 ]
             },
             {
-                "type": "Grand-Chœur expressif",
+                "type": "Grand-Chœur",
                 "etendue": "56",
+                "is_expressif": true,
                 "jeux": [
                     {
                         "type": {
@@ -653,8 +659,9 @@
                 ]
             },
             {
-                "type": "Récit expressif",
+                "type": "Récit",
                 "etendue": "56",
+                "is_expressif": true,
                 "jeux": [
                     {
                         "type": {
@@ -745,6 +752,7 @@
             {
                 "type": "Pédalier",
                 "etendue": "30",
+                "is_expressif": false,
                 "jeux": [
                     {
                         "type": {
@@ -879,8 +887,8 @@
                 "annee_fin": null,
                 "circa": true,
                 "facteurs": [
-                    "debierre",
-                    "gloton debierre"
+                    "gloton debierre",
+                    "debierre"
                 ]
             },
             {
@@ -890,8 +898,8 @@
                 "annee_fin": null,
                 "circa": true,
                 "facteurs": [
-                    "debierre",
-                    "gloton debierre"
+                    "gloton debierre",
+                    "debierre"
                 ]
             },
             {
@@ -1001,6 +1009,7 @@
             {
                 "type": "Grand-Orgue",
                 "etendue": "56",
+                "is_expressif": false,
                 "jeux": [
                     {
                         "type": {
@@ -1063,6 +1072,7 @@
             {
                 "type": "Récit",
                 "etendue": "56",
+                "is_expressif": false,
                 "jeux": [
                     {
                         "type": {
@@ -1118,6 +1128,7 @@
             {
                 "type": "Pédalier",
                 "etendue": "32",
+                "is_expressif": false,
                 "jeux": [
                     {
                         "type": {
@@ -1644,6 +1655,7 @@
             {
                 "type": "Grand-Orgue",
                 "etendue": "56",
+                "is_expressif": false,
                 "jeux": [
                     {
                         "type": {
@@ -1690,8 +1702,9 @@
                 ]
             },
             {
-                "type": "Récit expressif",
+                "type": "Récit",
                 "etendue": "56",
+                "is_expressif": true,
                 "jeux": [
                     {
                         "type": {
@@ -1747,6 +1760,7 @@
             {
                 "type": "Pédalier",
                 "etendue": "32",
+                "is_expressif": false,
                 "jeux": [
                     {
                         "type": {
