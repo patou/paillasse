@@ -104,7 +104,7 @@ def generateTransmission(context, transmission):
     elif transmission == 'Tubulaire':
         return "pneumatique"
     elif transmission == 'Informatique':
-        return "electrique"
+        return "numeriques"
     else:
         context.log("Transmission {} n'existe pas".format(transmission))
         return None
@@ -119,19 +119,16 @@ def generateTirage(context, transmission):
     elif transmission == 'Tubulaire':
         return "pneumatique_basse_pression"
     elif transmission == 'Informatique':
-        return "electrique"
+        return "numerique"
     else:
         context.log("Tirage {} n'existe pas".format(transmission))
         return None
 
 def generateTransmissionCommentaire(transmission):
-    if transmission == 'Informatique':
-        return transmission
-    else:
         return None
 
 def generateTirageCommentaire(transmission):
-    if transmission == 'Pneumatique Barker' or transmission == 'Tubulaire' or transmission == 'Informatique':
+    if transmission == 'Pneumatique Barker' or transmission == 'Tubulaire':
         return transmission
     else:
         return None
@@ -148,7 +145,7 @@ def buildAccessoires(context, combinaisons):
 def cleanHauteur(hauteur):
     if not hauteur:
         return None
-    s = re.search('([-0-9IV]+)', hauteur, re.IGNORECASE)
+    s = re.search('([-0-9IV/ ]+)', hauteur.replace("'", ""), re.IGNORECASE)
     return s.group(1) if s is not None else None
 
 def cleanJeuNom(nom):
@@ -266,12 +263,12 @@ def extractEvenementFacteur(context, line, annee, facteurs):
         # Chercher dans la liste complète des facteurs
         context.log("Pas de facteur trouvé dans {} pour {}".format(line, facteurs))
     return list(found)
-             
+
 
 
 def buildEvenements(context, historique, facteurs):
     evenements = []
-    
+
     if historique['historique']:
         historiques = historique['historique'].split("\n")
         for line in historiques:
@@ -286,15 +283,18 @@ def buildEvenements(context, historique, facteurs):
             evenement = {
                 "type": type,
                 "resume": resume,
-                "annee": annee,
-                "annee_fin": annee_fin,
+                "annee": int(annee),
+                "annee_fin": int(annee_fin) if annee_fin is not None else None,
                 "circa": circa,
                 "facteurs": facteur
             }
             evenements.append(evenement)
     return evenements
 
-    
+def hasNotEvenements(evenements):
+    return (len(evenements) == 0) or all('mh' in event["type"] for event in evenements)
+
+
 class Export:
     '''
         Classes contenant les exports de l'inventaire des paysdelaloire
@@ -313,7 +313,7 @@ class Export:
             'c4': toDict(loadFile('inventaire_clavier4.json')),
             'ped': toDict(loadFile('inventaire_pedalier.json'))
         }
-    
+
     def exportCSV(self):
         '''
             Export la liste de facteurs, des jeux et des accessoires
@@ -337,7 +337,7 @@ class Export:
                     if orgue["facteur"+str(i)]:
                         facteurs.add(extractFacteur(orgue["facteur"+str(i)])[0])
             csv_facteurs = csv.writer(file_facteurs, dialect='excel')
-            [csv_facteurs.writerow([f, '']) for f in sorted(facteurs)]           
+            [csv_facteurs.writerow([f, '']) for f in sorted(facteurs)]
 
             csv_accessoires = csv.writer(file_accessoires, dialect='excel')
             accessoires = set()
@@ -366,7 +366,7 @@ def process():
     current = loadImports()
     export = Export()
     export.exportCSV()
-    
+
     result = []
 
     for renseignement in export.renseignements:
@@ -402,7 +402,7 @@ def process():
                     orgue['proprietaire'] = generateProprietaire(context, export.administratif[id]['proprietaire']) if orgue['proprietaire'] is None else orgue['proprietaire']
                     orgue['etat'] = generateEtat(context, export.administratif[id]['etat']) if orgue['etat'] is None else orgue['etat']
                     if len(orgue['accessoires']) == 0:
-                        orgue['accessoires'] = buildAccessoires(context, export.combinaisons[id])                    
+                        orgue['accessoires'] = buildAccessoires(context, export.combinaisons[id])
                     if len(orgue['claviers']) == 0:
                         for c in ['c1', 'c2', 'c3', 'c4', 'ped']:
                             clavier = buildClavier(context, c, export.claviers[c][id])
@@ -413,16 +413,17 @@ def process():
                     for i in range(1, 8):
                         if renseignement["facteur"+str(i)]:
                             facteurs.append(extractFacteur(renseignement["facteur"+str(i)]))
-                    if len(orgue['evenements']) == 0:
-                        orgue['evenements'] = buildEvenements(context, export.historique[id], facteurs)
-                    
+                    if hasNotEvenements(orgue['evenements']):
+                        orgue['evenements'].extend(buildEvenements(context, export.historique[id], facteurs))
+                        orgue['evenements'] = sorted(orgue['evenements'], key = lambda i: i['annee'])
+
                     result.append(orgue)
                 except e:
                     context.log(e)
-    
+
     with open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'paysdelaloire.json'), 'w') as outfile:
         json.dump(result, outfile, indent = 4, ensure_ascii=False)
-    
+
 
 
 if __name__ == '__main__':
