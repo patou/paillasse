@@ -3,19 +3,17 @@
         "url": "http://inventaire-des-orgues.fr/detail/orgue-guerande-collegiale-saint-aubin-fr-44069-guera-staubi1-x/",
         "updated_by_user": null,
         "accessoires": [
-            "Tirasse Grand-Orgue",
-            "Tirasse  Positif",
-            "Tirasse Récit",
-            "Positif / Grand-Orgue",
-            "Récit /Grand-Orgue",
-            "Récit / Positif",
-            "Appel Registration",
-            "Appel Combinaison ajustable",
-            "Appel Tutti",
-            "Anches Pédale",
-            "Anches Grand-Orgue",
-            "Anches Positif",
-            "Anches Récit"
+            "Tirasse G.O.",
+            "Tirasse Pos.",
+            "Tirasse Réc.",
+            "Accouplement Pos./G.O.",
+            "Accouplement Réc./G.O.",
+            "Accouplement Réc./Pos.",
+            "Tutti",
+            "Anches Péd.",
+            "Anches G.O.",
+            "Anches Pos.",
+            "Anches Réc."
         ],
         "claviers": [
             {
@@ -396,7 +394,7 @@
                 "annee_fin": null,
                 "circa": true,
                 "facteurs": [
-                    "beuchet debierre"
+                    "Beuchet-Debierre"
                 ]
             },
             {
@@ -406,7 +404,7 @@
                 "annee_fin": null,
                 "circa": true,
                 "facteurs": [
-                    "renaud"
+                    "Renaud Jean"
                 ]
             }
         ],
@@ -465,22 +463,13 @@
         "url": "http://inventaire-des-orgues.fr/detail/orgue-nantes-eglise-notre-dame-de-bon-port-fr-44109-nante-ndport1-t/?format=json",
         "updated_by_user": "Raushka Makanova",
         "accessoires": [
-            "Tirasse Grand-Orgue",
-            "Tirasse Grand-Chœur",
-            "Tirasse Récit",
-            "Appel Grand-Orgue",
-            "Grand-Chœur / Grand-Orgue",
-            "Récit / Grand-Orgue",
-            "Récit / Grand-Chœur",
-            "Appel Fonds 8\\'",
-            "Appel Tutti Fonds",
-            "Appel Grand jeu Pédale",
-            "Appel Grand jeu Grand-Orgue",
-            "Appel Grand jeu Grand-Chœur",
-            "Appel Grand jeu Récit",
+            "Tirasse G.O.",
+            "Tirasse Réc.",
+            "Appel G.O.",
+            "Accouplement Réc./G.O.",
+            "Fonds 8'",
             "Tutti",
-            "Trémolo Grand-Chœur",
-            "Trémolo Récit"
+            "Trémolo Réc."
         ],
         "claviers": [
             {
@@ -887,8 +876,8 @@
                 "annee_fin": null,
                 "circa": true,
                 "facteurs": [
-                    "gloton debierre",
-                    "debierre"
+                    "Debierre Louis",
+                    "Debierre-Gloton"
                 ]
             },
             {
@@ -898,8 +887,8 @@
                 "annee_fin": null,
                 "circa": true,
                 "facteurs": [
-                    "gloton debierre",
-                    "debierre"
+                    "Debierre Louis",
+                    "Debierre-Gloton"
                 ]
             },
             {
@@ -925,7 +914,7 @@
                 "annee_fin": null,
                 "circa": true,
                 "facteurs": [
-                    "renaud"
+                    "Renaud Jean"
                 ]
             },
             {
@@ -1000,9 +989,9 @@
         "url": "http://inventaire-des-orgues.fr/detail/orgue-reze-eglise-saint-paul-fr-44143-rezee-stpaul1-x/",
         "updated_by_user": null,
         "accessoires": [
-            "Tirasse Grand-Orgue",
-            "Tirasse Récit",
-            "Récit /Grand-Orgue",
+            "Tirasse G.O.",
+            "Tirasse Réc.",
+            "Accouplement Réc./G.O.",
             "Tremblant"
         ],
         "claviers": [
@@ -1181,8 +1170,8 @@
                 "annee_fin": null,
                 "circa": true,
                 "facteurs": [
-                    "cavaille coll",
-                    "debierre"
+                    "Debierre Louis",
+                    "Cavaillé-Coll Aristide"
                 ]
             },
             {
@@ -1192,7 +1181,7 @@
                 "annee_fin": null,
                 "circa": true,
                 "facteurs": [
-                    "debierre"
+                    "Debierre Louis"
                 ]
             },
             {
@@ -1210,7 +1199,7 @@
                 "annee_fin": null,
                 "circa": true,
                 "facteurs": [
-                    "debierre"
+                    "Debierre Louis"
                 ]
             },
             {
@@ -1220,7 +1209,7 @@
                 "annee_fin": null,
                 "circa": true,
                 "facteurs": [
-                    "renaud"
+                    "Renaud Jean"
                 ]
             },
             {
@@ -1230,7 +1219,7 @@
                 "annee_fin": null,
                 "circa": true,
                 "facteurs": [
-                    "severe"
+                    "Yves Sévère"
                 ]
             }
         ],
@@ -1646,9 +1635,9 @@
         "url": "http://inventaire-des-orgues.fr/detail/orgue-pornichet-eglise-notre-dame-des-dunes-fr-44132-porni-nddune1-x/",
         "updated_by_user": "Raushka Makanova",
         "accessoires": [
-            "Tirasse Grand-Orgue",
-            "Tirasse Récit",
-            "Récit / Grand-Orgue",
+            "Tirasse G.O.",
+            "Tirasse Réc.",
+            "Accouplement Réc./G.O.",
             "Tremblant doux"
         ],
         "claviers": [
@@ -1806,7 +1795,7 @@
                 "annee_fin": null,
                 "circa": true,
                 "facteurs": [
-                    "delhumeau"
+                    "Delhumeau François"
                 ]
             }
         ],

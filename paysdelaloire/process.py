@@ -17,6 +17,10 @@ def loadImport(departement):
     with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'currentinventaire', departement+'.json')) as renseignements:
         return json.load(renseignements)['results']
 
+def loadCsvFile(file, key = lambda item: item[0], value = lambda item: item[1] if item[1] else None):
+    with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'data', file)) as fichier:
+        return {key(item):value(item) for item in csv.reader(fichier)}
+
 def toDict(data):
     return {item['id']:item for item in data}
 
@@ -139,7 +143,11 @@ def buildAccessoires(context, combinaisons):
         nom = combinaisons["comb_"+str(i)+"_nom"]
         if nom:
             # if accessoire not exit, log message
-            accessoires.append(nom)
+            acc = context.data["accessoires"].get(cleanAccessoire(nom))
+            if acc:
+                accessoires.append(acc)
+            else:
+                context.log("Accessoire {} not exist".format(nom))
     return accessoires
 
 def cleanHauteur(hauteur):
@@ -280,26 +288,32 @@ def extractType(line):
                 return type
     return None
 
-def normalizeFacteur(facteur):
-    '''
-    Todo utiliser la liste dans le csv.json pour retourner le bon facteur
-    '''
-    return facteur
+def normalizeFacteur(context, facteur):
+    facteurs = []
+    fact = context.data["facteurs"].get(facteur)
+    if fact:
+        facteurs = fact.split(",")
+    else:
+        context.log("Facteur {} not exist".format(facteur))
+    return facteurs
 
 def extractEvenementFacteur(context, line, annee, facteurs):
     found = set()
     line = unidecode.unidecode(line.lower())
     for nom, facteurAnnee in facteurs:
         if facteurAnnee == annee:
-            found.add(normalizeFacteur(nom))
+            found.add(nom)
         else:
             for part in nom.split(" "):
                 if part in line:
-                    found.add(normalizeFacteur(nom))
+                    found.add(nom)
     if len(found) == 0:
         # Chercher dans la liste complète des facteurs
         context.log("Pas de facteur trouvé dans {} pour {}".format(line, facteurs))
-    return list(found)
+    list = []
+    for item in found:
+        list.extend(normalizeFacteur(context, item))
+    return list
 
 
 
@@ -392,6 +406,11 @@ class Context:
         self.codification = codification
         self.orgue = orgue
         self.export = export
+        self.data = {
+            'accessoires': loadCsvFile('accessoires.csv'),
+            'facteurs': loadCsvFile('facteurs.csv'),
+            'jeux': loadCsvFile('jeux.csv', key=lambda item: item[0] + ' '+ item[1], value= lambda item : (item[2], item[1]) if item[2] else None)
+        }
 
     def log(self, message):
         print(self.codification, ":", message)
