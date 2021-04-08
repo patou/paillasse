@@ -145,16 +145,17 @@ def buildAccessoires(context, combinaisons):
             # if accessoire not exit, log message
             acc = context.data["accessoires"].get(cleanAccessoire(nom))
             if acc:
-                accessoires.append(acc)
+                if not acc == "None":
+                    accessoires.extend(acc.split(','))
             else:
                 context.log("Accessoire {} not exist".format(nom))
     return accessoires
 
 def cleanHauteur(hauteur):
     if not hauteur:
-        return None
-    s = re.search('([-0-9IV/ ]+)', hauteur.replace("'", ""), re.IGNORECASE)
-    return s.group(1) if s is not None else None
+        return ''
+    s = re.search('([-0-9IV/ ]+)', hauteur.replace("'", " ").replace("\\", "").replace("  ", " ").strip(), re.IGNORECASE)
+    return s.group(1) if s is not None else ''
 
 def cleanJeuNom(nom):
     if not nom:
@@ -176,10 +177,15 @@ def cleanFacteurName(nom):
     return re.sub(r"[^a-z]+", " ", unidecode.unidecode(nom).lower().replace("\\\'", "\'")).strip()
 
 def buildJeu(context, nom, hauteur, description):
+    cleanJeuName = (cleanJeuNom(nom) + ' ' + cleanHauteur(hauteur)).strip()
+    jeu = context.data["jeux"].get(cleanJeuName)
+    if jeu is None:
+        context.log("Jeu {} n'existe pas".format(cleanJeuName))
+        return None
     return {
         "type": {
-            "nom": cleanJeuNom(nom),
-            "hauteur": cleanHauteur(hauteur),
+            "nom": jeu[0],
+            "hauteur": jeu[1],
         },
         "commentaire": description,
     }
@@ -188,7 +194,9 @@ def buildJeux(context, type, definition):
     jeux = []
     for i in range(1, 25 if type != 'ped' else 20):
         if definition[type+"_"+str(i)+"_nom"]:
-            jeux.append(buildJeu(context, definition[type+"_"+str(i)+"_nom"], definition[type+"_"+str(i)+"_hauteur"], definition[type+"_"+str(i)+"_spec"]))
+            jeu = buildJeu(context, definition[type+"_"+str(i)+"_nom"], definition[type+"_"+str(i)+"_hauteur"], definition[type+"_"+str(i)+"_spec"])
+            if jeu is not None:
+                jeux.append(jeu)
     return jeux
 
 claverTypes = (
@@ -214,7 +222,10 @@ claverTypes = (
     ("Bombarde",[]),
     ("Pedal",[]),
     ("I",["1er clavier", "Premier clavier", "Clavier transpositeur"]),
-    ("II",["2ème clavier", "Deuxième clavier"])
+    ("II",["2ème clavier", "Deuxième clavier"]),
+    ("Clavier d'accouplement",["Accouplement"]),
+    ("Chamade",["Chamades"]),
+    ("Schwellwerk",[]),
 )
 
 def buildClavierType(context, clavier):
@@ -401,16 +412,12 @@ class Export:
 
 
 class Context:
-    def __init__(self, id, codification, orgue, export):
+    def __init__(self, id, codification, orgue, export, data):
         self.id = id
         self.codification = codification
         self.orgue = orgue
         self.export = export
-        self.data = {
-            'accessoires': loadCsvFile('accessoires.csv'),
-            'facteurs': loadCsvFile('facteurs.csv'),
-            'jeux': loadCsvFile('jeux.csv', key=lambda item: item[0] + ' '+ item[1], value= lambda item : (item[2], item[1]) if item[2] else None)
-        }
+        self.data = data
 
     def log(self, message):
         print(self.codification, ":", message)
@@ -422,6 +429,11 @@ def process():
     current = loadImports()
     export = Export()
     export.exportCSV()
+    data = {
+            'accessoires': loadCsvFile('accessoires.csv'),
+            'facteurs': loadCsvFile('facteurs.csv'),
+            'jeux': loadCsvFile('jeux.csv', key=lambda item: item[0] + ' '+ item[1], value=lambda item: (item[2], item[1]) if item[2] else None)
+        }
 
     result = []
 
@@ -431,7 +443,7 @@ def process():
             departement = extractNumeroDepartement(renseignement['departement'])
             orgue = findCurrentOrgan(current, departement, id)
             if orgue:
-                context = Context(id, orgue['codification'], orgue, export)
+                context = Context(id, orgue['codification'], orgue, export, data)
                 try:
                     print('===', id, orgue['codification'], renseignement['edifice'], renseignement['ville'])
                     # Renseignements

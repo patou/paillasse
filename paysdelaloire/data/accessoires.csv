@@ -2,137 +2,139 @@
 4 combinaisons fixes,Combinaison libre
 5 combinaisons ajustables,Combinaison libre
 5 combinaisons fixes,Combinaison libre
-accouplement ii/i,
+accouplement ii/i,Accouplement II/I
 accouplement positif / grand-orgue,Accouplement Pos./G.O.
 accouplement positif/grand orgue,Accouplement Pos./G.O.
 accouplement recit / positif,Accouplement Réc./Pos.
-anches,
+anches,Anches
 anches bombarde,Anches Bomb.
-anches echo,
+anches echo,Anches Ech.
 anches go,Anches G.O.
-anches grand-choeur,
+anches grand-choeur,Anches G.Ch.
 anches grand-orgue,Anches G.O.
 anches pedale,Anches Péd.
 anches positif,Anches Pos.
 anches recit,Anches Réc.
-annulateur anches,
-annulateur anches grand-orgue,
-annulateur anches pedale,
-annulateur anches positif,
-annulateur anches recit,
-annulateur mixtures grand-orgue,
-annulateur mixtures positif,
-annulateur mixtures recit,
-annulateur recit 8,
-appel / retrait trompette 8,
-appel anches,
-appel anches et mixture pedale,
+annulateur anches,None
+annulateur anches grand-orgue,None
+annulateur anches pedale,None
+annulateur anches positif,None
+annulateur anches recit,None
+annulateur mixtures grand-orgue,None
+annulateur mixtures positif,None
+annulateur mixtures recit,None
+annulateur recit 8,None
+appel / retrait trompette 8,Trompette
+appel anches,Anches
+appel anches et mixture pedale,"Anches Péd.,Mixtures Péd."
 appel anches grand-orgue,Appel G.O.
 appel anches recit,Anches Réc.
 appel bombarde,Anches Bomb.
-appel bourdon,
-appel chamade,
-appel clairon,
-appel combinaison ajustable,
-appel cornet,
-appel cornet positif,
+appel bourdon,Bourdon
+appel chamade,Chamade
+appel clairon,Clairon
+appel combinaison ajustable,Combinaison libre
+appel cornet,Cornet
+appel cornet positif,Cornet Pos.
 appel fonds,Fonds 8'
 appel fonds 8,Fonds 8'
 appel fonds de 8,Fonds 8'
 appel forte general,Tutti
-appel grand jeu,
-appel grand jeu grand-choeur,
-appel grand jeu grand-orgue,
-appel grand jeu pedale,
-appel grand jeu recit,
-appel grand plein-jeu,
+appel grand jeu,Grand jeu
+appel grand jeu grand-choeur,Grand jeu G.Ch.
+appel grand jeu grand-orgue,Grand jeu G.O.
+appel grand jeu pedale,Grand jeu Péd.
+appel grand jeu recit,Grand jeu Réc.
+appel grand plein-jeu,Grand plein jeu
 appel grand-orgue,Appel G.O.
-appel mixtures,
-appel prestant,
-appel principal 16 pedale,
-appel registration,
+appel mixtures,Mixtures
+appel prestant,Prestant
+appel principal 16 pedale,Principal 16' Péd.
+appel registration,Combinaison libre
 appel soubasse pedale (= montre 16 grand-orgue),
-appel trompette,
+appel trompette,Trompette
 appel tutti,Tutti
-appel tutti fonds,
-appel tutti mixtures,
-appel-renvoi anches,
+appel tutti fonds,Fonds
+appel tutti mixtures,Mixtures
+appel-renvoi anches,Anches
 appel-renvoi plein-jeu,Plein jeu
-appel-renvoi prestant+doublette,
-appel-retrait anches,
+appel-renvoi prestant+doublette,Prestant
+appel-retrait anches,Anches
 appel-retrait anches grand-orgue,Anches G.O.
 appel-retrait anches recit,Anches Réc.
-appel-retrait bombarde,
-appel-retrait chamade,
+appel-retrait bombarde,Bombarde
+appel-retrait chamade,Chamade
 appel-retrait plein jeu positif,
-appel-retrait plein-jeu grand-orgue,
+appel-retrait plein-jeu grand-orgue,Grand plein jeu
 appel-retrait trompette grand-orgue,Anches G.O.
 appel/renvoi forte,
-appel/renvoi trompette,
+appel/renvoi trompette,Trompette
 bombarde / grand-orgue,Accouplement Bomb./G.O.
-bombarde / positif,
-bombarde / recit,
-bombarde pedale,
-chamade / grand-orgue,
-chamade / recit,
-chamades / grand-orgue,
-chamades / positif,
-chamades / solo,
+bombarde / positif,Accouplement Bomb./Pos.
+bombarde / recit,Accouplement Bomb./Réc.
+bombarde pedale,Tirasse Bomb.
+chamade / grand-orgue,Accouplement Cham./G.O.
+chamade / recit,Accouplement Cham./Réc.
+chamades / grand-orgue,Accouplement Cham./G.O.
+chamades / positif,Accouplement Cham./Pos.
+chamades / solo,Accouplement Cham./Solo
 combinaison ajustable,Combinaison libre
-combinaison fixe : grand choeur,
-combinaison fixe : hautbois,
-combinaison fixe : jeux de fonds,
-combinaison fixe : voix celeste,
-combinaison fixe : voix humaine,
+combinaison fixe : grand choeur,Grand chœur
+combinaison fixe : hautbois,Hautbois
+combinaison fixe : jeux de fonds,Fonds 8' et 4'
+combinaison fixe : voix celeste,Voix céleste
+combinaison fixe : voix humaine,Voix humaine
 combinaison libre,Combinaison libre
 combinateur,Combinateur
 combinateur informatique,Combinateur
 combinateur sequenciel,Combinateur
-copula (8),
+copula (8),Copula
 crescendo,Crescendo général
 crescendo programmable,Crescendo général
-deux boutons de reglage mecanique des claviers,
-echo / grand-orgue,
-echo / positif,
-echo / recit,
+deux boutons de reglage mecanique des claviers,None
+echo / grand-orgue,Accouplement Ech./G.O.
+echo / positif,Accouplement Ech./Pos.
+echo / recit,Accouplement Ech./Rec.
 expression,Expression par bascule
 expression par pedale centrale basculante,Expression par bascule
 expression recit,Expression Réc. par bascule
 fonds 8,Fonds 8'
 fonds 8 et 4,Fond 8' et 4'
-fonds 8 grand-orgue et grand-choeur,
+fonds 8 grand-orgue et grand-choeur,Fonds 8' G.O. et G.Ch.
 fonds et mutations,Fonds et Mutations
 fonds et petites mixtures,Fonds et Petites mixtures
-fonds pedale,
+fonds pedale,Fonds Péd.
 genouillere dexpression,Expression par genouillère
-grand-choeur / grand-orgue,
-grand-choeur / grand-orgue 4,
-grand-orgue / positif,
-grand-orgue / recit,
+grand-choeur / grand-orgue,Accouplement G.Ch./G.O.
+grand-choeur / grand-orgue 4,Accouplement 4 G.Ch./G.O.
+grand-orgue / positif,Accouplement G.O./Pos.
+grand-orgue / recit,None
 grand-orgue 4,Octaves aiguës G.O.
-grand-orgue/resonnance,
-ii/i (16/8/4),
-ii/i (4),
-ii/i (8),
-ii/ii (16/8/4),
-mixtures bombarde,
+grand-orgue/resonnance,Accouplement G.O./Rés.
+ii/i (16/8/4),"Accouplement 16 II/I,Accouplement II/I,Accouplement 4 II/I
+"
+ii/i (4),Accouplement 4 II/I
+ii/i (8),Accouplement II/I
+ii/ii (16/8/4),"Accouplement 16 II/I,Accouplement II/I,Accouplement 4 II/I
+"
+mixtures bombarde,Mixtures Bomb.
 mixtures grand-orgue,Mixtures G.O.
-mixtures pedale,
+mixtures pedale,Mixtures Péd.
 mixtures positif,Mixtures Pos.
 mixtures recit,Mixtures Réc.
-oberwerk / hauptwerk,
-octave aigue,
+oberwerk / hauptwerk,Accouplement Oberwerk/Hauptwerk
+octave aigue,Octaves aiguës
 octave aigue grand-orgue,Octaves aiguës G.O.
-octave aigue par tirette sous le clavier,
-octave aigue pedalier,
+octave aigue par tirette sous le clavier,Octaves aiguës
+octave aigue pedalier,Octaves aiguës Péd.
 octave aigue recit,Octaves aiguës Réc.
-octave grave,
-octave grave grand-choeur,
+octave grave,Octaves graves
+octave grave grand-choeur,Octaves graves C.Ch.
 octave grave grand-orgue,Octaves graves G.O.
 octave grave recit,Octaves graves Réc.
-octave grave recit / grand-orgue,Accouplement 4 Réc./G.O.
+octave grave recit / grand-orgue,Accouplement 16 Réc./G.O.
 orage,Orage
-pedale automatique,
+pedale automatique,Pédale automatique
 pedale dexpression,Expression par bascule
 positif / grand orgue,Accouplement Pos./G.O.
 positif / grand-orgue,Accouplement Pos./G.O.
@@ -141,10 +143,10 @@ positif / grand-orgue 4,Accouplement 4 Pos./G.O.
 positif / grand-orgue 8,Accouplement Pos./G.O.
 positif / resonnance,
 positif /grand-orgue,Accouplement Pos./G.O.
-positif-coffre extractible,
+positif-coffre extractible,None
 positif/grand-orgue,Accouplement Pos./G.O.
 recit / grand orgue,Accouplement Réc./G.O.
-recit / grand-choeur,
+recit / grand-choeur,Accouplement Rec./G.Ch.
 recit / grand-orgie,Accouplement Réc./G.O.
 recit / grand-orgue,Accouplement Réc./G.O.
 recit / grand-orgue 16,Accouplement 16 Réc./G.O.
@@ -162,81 +164,81 @@ recit 4,Octaves aiguës Réc.
 recit 4 / grand-orgue,Accouplement 4 Réc./G.O.
 recit/grand-orgue,Accouplement Réc./G.O.
 recit/positif,Accouplement Réc./Pos.
-renvoi anches grand-orgue,
-renvoi general,
-resonance / grand-orgue,
-resonance / positif,
-retrait anches,
-retrait anches recit,
+renvoi anches grand-orgue,None
+renvoi general,None
+resonance / grand-orgue,Accouplement Rés./G.O.
+resonance / positif,Accouplement Rés./Pos.
+retrait anches,None
+retrait anches recit,None
 rossignol,Rossignol
-schwellwerk / hauptwerk,
-solo / grand orgue,
-solo / grand-orgue,
-solo/ grand-orgue,
-solo/ positif,
-solo/ recit,
-tir. i/p,
-tir. ii/p,
-tirasse,
-tirasse 1er clavier 4,
-tirasse 1er clavier 8,
-tirasse bombarde,
-tirasse chamade,
-tirasse chamades,
-tirasse chamades 4,
-tirasse echo,
+schwellwerk / hauptwerk,Accouplement Schwellwerk/Hauptwerk
+solo / grand orgue,Accouplement Solo/G.O.
+solo / grand-orgue,Accouplement Solo/G.O.
+solo/ grand-orgue,Accouplement Solo/G.O.
+solo/ positif,Accouplement Solo/Pos.
+solo/ recit,Accouplement Solo/Réc.
+tir. i/p,Tirasse I
+tir. ii/p,Tirasse II
+tirasse,Tirasse
+tirasse 1er clavier 4,Tirasse 4 I
+tirasse 1er clavier 8,Tirasse I
+tirasse bombarde,Tirasse Bomb.
+tirasse chamade,Tirasse Cham.
+tirasse chamades,Tirasse Cham.
+tirasse chamades 4,Tirasse 4 Cham.
+tirasse echo,Tirasse Ech.
 tirasse go,Tirasse G.O.
-tirasse grand orgue,
-tirasse grand-choeur,
+tirasse grand orgue,Tirasse G.O.
+tirasse grand-choeur,Tirasse G.Ch.
 tirasse grand-orgue,Tirasse G.O.
 tirasse grand-orgue 4,Tirasse 4 G.O.
 tirasse grand-orgue 8,Tirasse G.O.
-tirasse hauptwerk,
-tirasse i,
-tirasse ii,
+tirasse hauptwerk,Tirasse Hauptwerk
+tirasse i,Tirasse I
+tirasse ii,Tirasse II
 tirasse positif,Tirasse Pos.
 tirasse positif 4,Tirasse 4 Pos.
-tirasse positif fixe,
+tirasse positif fixe,Tirasse permanente Pos.
 tirasse recit,Tirasse Réc.
 tirasse recit 16,Tirasse 16 Réc.
 tirasse recit 4,Tirasse 4 Réc.
 tirasse recit 8,Tirasse Réc.
-tirasse resonance,
-tirasse resonance 4,
-tirasse schwellwerk,
-tirasse solo,
+tirasse resonance,Tirasse Rés.
+tirasse resonance 4,Tirasse 4 Rés.
+tirasse schwellwerk,Tirasse Schwellwerk
+tirasse solo,Tirasse Solo
 tirasses : pedalier sur positif et sur grand orgue,"Tremblant G.O., Trémolo Pos."
-transpositeur,
-transpositeur -2 / +1 demi-tons,
+transpositeur,Transpositeur
+transpositeur -2 / +1 demi-tons,Transpositeur
 tremblant,Tremblant
 tremblant doux,Tremblant doux
-tremblant doux grand-orgue,
+tremblant doux grand-orgue,Tremblant doux G.O.
 tremblant doux positif,Tremblant doux Pos.
 tremblant doux recit,Tremblant doux Réc.
-tremblant doux resonance,
+tremblant doux resonance,Tremblant doux Rés.
 tremblant doux resonnance et recit,Tremblant doux Réc.
 tremblant fort,Tremblant fort
-tremblant fort grand-orgue et resonnance,
+tremblant fort grand-orgue et resonnance,"Tremblant fort G.O.,Tremblant fort Rés."
 tremblant go + recit,"Tremblant G.O., Tremblant Réc."
 tremblant grand orgue,Tremblant G.O.
 tremblant grand-orgue,Tremblant G.O.
 tremblant positif,Tremblant Pos.
 tremblant recit,Tremblant Réc.
-tremblant schwellwerk,
-tremblant solo,
+tremblant schwellwerk,Tremblant schwellwerk
+tremblant solo,Tremblant Solo
 tremolo,Trémolo
-tremolo grand-choeur,
+tremolo grand-choeur,Tremolo G.Ch.
 tremolo positif,Trémolo Pos.
 tremolo recit,Trémolo Réc.
 tremulant,Tremulant
 tutti,Tutti
 tutti anches,Tutti anches
 tutti bombarde,
-tutti copulas,
+tutti copulas,Tutti copulas
 tutti general,Tutti
-tutti grand-orgue,
-tutti mixtures,
-tutti pedale,
-tutti positif,
-tutti recit,
+tutti grand-orgue,Tutti G.O.
+tutti mixtures,Tutti mixtures
+tutti pedale,Tutti Péd.
+tutti positif,Tutti Pos.
+tutti recit,Tutti Réc.
 tutti tirasses,Tutti tirasses
