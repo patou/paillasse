@@ -6,6 +6,7 @@ import re
 import unidecode
 import csv
 import requests
+from tqdm import tqdm
 
 logger = logging.getLogger('paysdelaloire')
 logger.setLevel(logging.DEBUG)
@@ -19,8 +20,9 @@ def downloadImports():
     if not api_key:
         print("Variable d'environnement API_KEY non définie")
         return
-    print("Téléchargement des import")
-    for code_dep in ['44', '49', '53', '72', '85']:
+    progress = tqdm(['44', '49', '53', '72', '85'], desc="Téléchargement des departements")
+    for code_dep in progress:
+        progress.set_description(desc="Téléchargement des departements "+code_dep)
         response = requests.get("https://inventaire-des-orgues.fr/api/v1/orgues/",
                                     params={"code_departement": code_dep, "limit": 150},
                                     headers = {'Authorization': 'Token '+api_key})
@@ -482,7 +484,7 @@ class Context:
     
     def __del__(self):
         self.logFile.close()
-        print('End...')
+        tqdm.write('End...')
 
     def line(self, id, codification, orgue):
         self.id = id
@@ -490,7 +492,7 @@ class Context:
         self.orgue = orgue
 
     def log(self, message):
-        print(self.codification, ":", message)
+        tqdm.write(self.codification+ ":"+ message)
         self.logCsv.writerow([self.codification, message])
 
 def process():
@@ -509,7 +511,8 @@ def process():
 
     result = []
     context = Context(export, data)
-    for renseignement in export.renseignements:
+    progress = tqdm(export.renseignements, desc="Convertion des orgues")
+    for renseignement in progress:
         if (renseignement['statut'] == "3"):
             id = renseignement['id']
             departement = extractNumeroDepartement(renseignement['departement'])
@@ -517,7 +520,7 @@ def process():
             if orgue:
                 context.line(id, orgue['codification'], orgue)
                 try:
-                    print('===', id, orgue['codification'], renseignement['edifice'], renseignement['ville'])
+                    progress.set_postfix_str(s=orgue['codification'])
                     # Renseignements
                     orgue['emplacement'] = renseignement['emplacement'] if orgue['emplacement'] is None else orgue['emplacement']
                     orgue['designation'] = renseignement['instrument'] if orgue['designation'] is None else orgue['designation']
