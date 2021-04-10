@@ -1,4110 +1,4 @@
 {
-    "types_jeux": [
-        {
-            "hauteur": "4",
-            "nom": "Baryton"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Basse"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Basson"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Basson"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Basson-hautbois"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Basson-Musette"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Bombarde"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Bombarde"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Bourdon"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Bourdon"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Bourdon"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Bourdon"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Bourdon à cheminée"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Bourdon-flûte"
-        },
-        {
-            "hauteur": "IV-V 1/2",
-            "nom": "Cymbale"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Chalumeau"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Clairon"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Clarinette"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Contrebasse"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Contrebasse"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Cor de nuit"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Cornet"
-        },
-        {
-            "hauteur": "V",
-            "nom": "Cornet"
-        },
-        {
-            "hauteur": " 4",
-            "nom": "Corno-dolce"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Cromorne"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Cymbale"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Diapason"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Doublette"
-        },
-        {
-            "hauteur": "8",
-            "nom": "​Dulciana"
-        },
-        {
-            "hauteur": "8",
-            "nom": "​Dulciane"
-        },
-        {
-            "hauteur": "4",
-            "nom": "​Dulciana"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Flageolet"
-        },
-        {
-            "hauteur": "1",
-            "nom": "Flageolet"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Flûte"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte"
-        },
-        {
-            "hauteur": "2",
-            "nom": "​Flûte"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte à cheminée"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte à fuseau"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte à pavillon"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte chalumeau"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte conique"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte creuse"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte douce"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte harmonique"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte harmonique"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte majeure"
-        },
-        {
-            "hauteur": "4",
-            "nom": "​Flûte octaviante"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte pyramidale"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Flûte sylvestre"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte traversière"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "V",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Fugara"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Gambe"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Gambe"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Gambe conique"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Gemshorn"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Gemshorn"
-        },
-        {
-            "hauteur": "3 1/5",
-            "nom": "Grande tierce"
-        },
-        {
-            "hauteur": "6 2/5",
-            "nom": "Grande tierce"
-        },
-        {
-            "hauteur": "3 1/5",
-            "nom": "Grosse tierce"
-        },
-        {
-            "hauteur": "6 2/5",
-            "nom": "Grosse tierce"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Gros Bourdon"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Hautbois"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Kéraulophone"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Larigot"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Montre"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Montre"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Montre"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Montre"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Montre"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Musette"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Musette"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Musette"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Nasard"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Nazard"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Octavebasse"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Octave"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Octavin"
-        },
-        {
-            "hauteur": "1",
-            "nom": "Piccolo"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Plein-jeu"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Plein-jeu"
-        },
-        {
-            "hauteur": "V",
-            "nom": "Plein-jeu"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Prestant"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Principal"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Principal"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Principal"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Quarte"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Quarte de Nazard"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Quintadena"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Quintaton"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Quintaton"
-        },
-        {
-            "hauteur": "2 1/3",
-            "nom": "Quinte"
-        },
-        {
-            "hauteur": "5 1/3",
-            "nom": "Quinte"
-        },
-        {
-            "hauteur": "10 2/3",
-            "nom": "Quinte"
-        },
-        {
-            "hauteur": "12",
-            "nom": "Quinte"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Ranquette"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Ranquette"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Ranquette"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Régale"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Régale"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Régale"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Salicional"
-        },
-        {
-            "hauteur": "1 1/7",
-            "nom": "Septième"
-        },
-        {
-            "hauteur": "2 2/7",
-            "nom": "Septième"
-        },
-        {
-            "hauteur": "4 4/7",
-            "nom": "Grande Septième"
-        },
-        {
-            "hauteur": "4 4/7",
-            "nom": "Septième"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Sesquialtera"
-        },
-        {
-            "hauteur": "1",
-            "nom": "Sifflet"
-        },
-        {
-            "hauteur": "32",
-            "nom": "​Soubasse"
-        },
-        {
-            "hauteur": "16",
-            "nom": "​Soubasse"
-        },
-        {
-            "hauteur": "1 3/5",
-            "nom": "Tierce"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Trombone"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trompette"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Unda Maris"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Viole de gambe"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Viole d'amour"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Violon"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Violoncelle"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Violoncelle"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Voix céleste"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Voix humaine"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte à cheminée"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Grosse flûte"
-        },
-        {
-            "hauteur": "IV-VIII",
-            "nom": "Grande fourniture"
-        },
-        {
-            "hauteur": "IV-V",
-            "nom": "Plein-jeu"
-        },
-        {
-            "hauteur": "III-V",
-            "nom": "Grand Cornet"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Cymbale "
-        },
-        {
-            "hauteur": "16",
-            "nom": "Douçaine"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Flûte à cheminée"
-        },
-        {
-            "hauteur": "VI",
-            "nom": "Plein-jeu"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Contrebasson"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trompette harmonique"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Clairon harmonique"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Violonbasse "
-        },
-        {
-            "hauteur": "5 1/3",
-            "nom": "Grande Quinte"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Quinte"
-        },
-        {
-            "hauteur": "2 2/7",
-            "nom": "Grande Septième"
-        },
-        {
-            "hauteur": "2 ",
-            "nom": "Fifre "
-        },
-        {
-            "hauteur": "1 7/9",
-            "nom": "Grande Neuvième"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Harmoniques"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Nazard harmonique"
-        },
-        {
-            "hauteur": "1 3/5",
-            "nom": "Tierce harmonique"
-        },
-        {
-            "hauteur": "1",
-            "nom": "Piccolo harmonique"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Ranquette"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Chalumeau"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Trompeteria"
-        },
-        {
-            "hauteur": "8  I-III",
-            "nom": "Trompette en chamade"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Petite quinte"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Corno-dolce"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Clairon en chamade"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Grosse fourniture"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Cymbale"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Cor anglais"
-        },
-        {
-            "hauteur": "",
-            "nom": "Plein-jeu harmonique"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Nachthorn"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte douce "
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Plein-jeu harmonique"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Bourdon harmonique"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte d'écho"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Fournitures progressives"
-        },
-        {
-            "hauteur": "1",
-            "nom": "Flûte"
-        },
-        {
-            "hauteur": "1",
-            "nom": "Flûte douce"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Cor anglais"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Aeoline"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Basse"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Eoline"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Mélophone"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Principal"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Soubasse "
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte ouverte"
-        },
-        {
-            "hauteur": "1 1/7",
-            "nom": "Petit fifre"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Flautino"
-        },
-        {
-            "hauteur": "V",
-            "nom": "Grand Cornet"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Spitzgambe"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Surcymbale allemande"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Flûte conique"
-        },
-        {
-            "hauteur": "IV-VI",
-            "nom": "Mixture allemande"
-        },
-        {
-            "hauteur": "II-IV 16",
-            "nom": "Mixture française"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Grosse trompette"
-        },
-        {
-            "hauteur": "5 1/3",
-            "nom": "Grosse quinte "
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trumpette"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte à fuseau"
-        },
-        {
-            "hauteur": "1",
-            "nom": "Principal"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Calisicional"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte creuse"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte ouverte "
-        },
-        {
-            "hauteur": "4",
-            "nom": "Hautbois"
-        },
-        {
-            "hauteur": "V",
-            "nom": "Cornet hors boîte "
-        },
-        {
-            "hauteur": "16",
-            "nom": "Dulzian"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Tibia"
-        },
-        {
-            "hauteur": "4",
-            "nom": " Flûte à biberon "
-        },
-        {
-            "hauteur": "III",
-            "nom": "Grande fourniture"
-        },
-        {
-            "hauteur": "V",
-            "nom": "Cymbale "
-        },
-        {
-            "hauteur": "2",
-            "nom": "Flûte"
-        },
-        {
-            "hauteur": "III-V",
-            "nom": "Fournitures progressives"
-        },
-        {
-            "hauteur": "II-IV",
-            "nom": "Plein-jeu"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Principale"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Ottava"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Decimaquinta"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Decimanona"
-        },
-        {
-            "hauteur": "1",
-            "nom": "Vigesimaseconda"
-        },
-        {
-            "hauteur": "2/3",
-            "nom": "Vigesimasesta"
-        },
-        {
-            "hauteur": "1/2",
-            "nom": "Vigesimanona"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Flauto in quinta"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Voce Umana"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Bassi "
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flauto in ottava"
-        },
-        {
-            "hauteur": "",
-            "nom": "Controbassi"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Controbassi"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Flûte"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Quinzième"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Dixneuvième"
-        },
-        {
-            "hauteur": "1",
-            "nom": "Vingt-deuxième"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Dix-neuvième"
-        },
-        {
-            "hauteur": "2/3",
-            "nom": "Vingt-sixième"
-        },
-        {
-            "hauteur": "1/2",
-            "nom": "Vingt-neuvième"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Viole"
-        },
-        {
-            "hauteur": "",
-            "nom": "16-8"
-        },
-        {
-            "hauteur": "2/3 et 1/2",
-            "nom": "Vingt-sixième et Vingt-neuvième"
-        },
-        {
-            "hauteur": "V",
-            "nom": "Mixture"
-        },
-        {
-            "hauteur": "8",
-            "nom": "1ère Trompette"
-        },
-        {
-            "hauteur": "8",
-            "nom": "2ème Trompette"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Cornet"
-        },
-        {
-            "hauteur": "V-VII",
-            "nom": "Plein-Jeu"
-        },
-        {
-            "hauteur": "IV-V",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Douzième"
-        },
-        {
-            "hauteur": "2/3 et 1/2",
-            "nom": "22 ième et 26 ième"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "12 ième"
-        },
-        {
-            "hauteur": "1/3 et 1/4",
-            "nom": "33 ième et 36 ième"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Traverso"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Sordun"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Viole"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Quinte"
-        },
-        {
-            "hauteur": "",
-            "nom": "Grande Sesquialtera"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Prinzipal"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Rohrflöte"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Octav"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Gemshorn"
-        },
-        {
-            "hauteur": "V",
-            "nom": "Mixtur"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Quintadena"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Gedackt"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Rohrflöte"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Octav"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Regal"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Untersatz"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Posaune"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Chalmey"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Bombarde douce"
-        },
-        {
-            "hauteur": "4-8",
-            "nom": "Clairon - Hautbois"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Hohlflöte"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Prinzipal"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Flachflöte"
-        },
-        {
-            "hauteur": "4-5 2",
-            "nom": "Mixtur"
-        },
-        {
-            "hauteur": "IV-V",
-            "nom": "Mixtur"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Holzgedackt"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Nachthorn"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Krummhorn"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Sifflöte"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Subbass"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Gedackt Pommer"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Gedackt Pommer"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Offenbass"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Flauto in duodecima"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Quinta Decima"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Cornetto"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Tromba"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Contrabssi"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Contrabassi"
-        },
-        {
-            "hauteur": "",
-            "nom": "Cymbale"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Montre à pavillon"
-        },
-        {
-            "hauteur": "4 4/7",
-            "nom": "Grosse septième"
-        },
-        {
-            "hauteur": "",
-            "nom": "Grosse Onzième"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Chamade"
-        },
-        {
-            "hauteur": "III-IV",
-            "nom": "Plein-Jeu"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Nazard octaviant"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Tierce octaviante"
-        },
-        {
-            "hauteur": "1",
-            "nom": "Piccolo octaviant"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Flûte"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Contrebasson"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Ophicléide"
-        },
-        {
-            "hauteur": "",
-            "nom": "Chape vide"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Plein-jeu"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Quintadecima"
-        },
-        {
-            "hauteur": "1 1/3 et 1",
-            "nom": "19 ième et 22 ième"
-        },
-        {
-            "hauteur": "2/3 et 1/2",
-            "nom": "26 ième et 29 ième"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Flauto nazardo"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trombe"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Bassi Armonici"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Régale-Cromorne"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte conique"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Cor de Daim"
-        },
-        {
-            "hauteur": "3 rgs",
-            "nom": "Carillon"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Viola"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Scharf"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Mixture"
-        },
-        {
-            "hauteur": "II-III",
-            "nom": "Sesquilatera"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Grande Fourniture"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trompette en chamade"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Principal italien"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Dulciane"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Octave"
-        },
-        {
-            "hauteur": "VI",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Clarinette"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Ténor"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Grosse Flûte Conique"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Dulciane"
-        },
-        {
-            "hauteur": "III-VI",
-            "nom": "Plein-Jeu"
-        },
-        {
-            "hauteur": "III-VI",
-            "nom": "Plein-jeu harmonique"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Cornet"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Salicet"
-        },
-        {
-            "hauteur": "VII",
-            "nom": "Plein-jeu"
-        },
-        {
-            "hauteur": "II-V",
-            "nom": "Cornet"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Bourdon doux"
-        },
-        {
-            "hauteur": "III-IV",
-            "nom": "Mixture"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Rankett"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Keraulphone"
-        },
-        {
-            "hauteur": "IV/V 2/3",
-            "nom": "Cymbale"
-        },
-        {
-            "hauteur": "IV 2 2/3",
-            "nom": "Plein-Jeu"
-        },
-        {
-            "hauteur": "V 1",
-            "nom": "Plein-Jeu"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Grosse fourniture"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte Traversière "
-        },
-        {
-            "hauteur": "16",
-            "nom": "Bourdon à Cheminée"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Galoubet"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Carillon"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Euphone"
-        },
-        {
-            "hauteur": "II-V",
-            "nom": "Plein-jeu"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Basson acoustique"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Dolce"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Cornet"
-        },
-        {
-            "hauteur": "III-V",
-            "nom": "Plein-Jeu"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Profond"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Geneviève"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Basson"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Bombarde acoustique"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Principal doux"
-        },
-        {
-            "hauteur": "II-V",
-            "nom": "Progression harmonique"
-        },
-        {
-            "hauteur": "10 2/3",
-            "nom": "Grosse Quinte"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Salicional"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Solicional"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Gros nazard"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Clara-Bella"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Bourdon"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Flûte majeure"
-        },
-        {
-            "hauteur": "5'1/3 + 3'1/5",
-            "nom": "Grosse Sesquilatera"
-        },
-        {
-            "hauteur": "II-III",
-            "nom": "Grande Fourniture"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Salicional"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Principal basse"
-        },
-        {
-            "hauteur": "10 2/3",
-            "nom": "Grande Quinte"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte pointue"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Terzian"
-        },
-        {
-            "hauteur": "",
-            "nom": "Mixture"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Cromorne"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Octave"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Dulzian"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Clairon-Hautbois"
-        },
-        {
-            "hauteur": "6/16",
-            "nom": "Quintaton"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Waldflöte"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Mixture"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Grégorien"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Schalmei"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Sourdine"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Double Diapason"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Open Diapason"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Lieblich Gedact"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Echo Gamba"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Vox Angelica"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Twelfth"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Piccolo"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Oboe"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Horn"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Waldflute & Stopped Diapason"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Lieblich Flute"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Fifteenth"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Open Diapason"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Petite Fourniture"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Dolce "
-        },
-        {
-            "hauteur": "8",
-            "nom": "Basse octaviante"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Trompette"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Tiercelette"
-        },
-        {
-            "hauteur": "2 et 5 1/3",
-            "nom": "Doublette"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trompette Schnitger"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte Mersenne"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trompette Française"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Clairon Français"
-        },
-        {
-            "hauteur": "6/16",
-            "nom": "Bourdon"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Prinzipal"
-        },
-        {
-            "hauteur": "1'1/3",
-            "nom": "Nazard"
-        },
-        {
-            "hauteur": "4/5 '",
-            "nom": "Tierce"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Spitzflöte"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Superoctava"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trompet"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Rörflöte"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Nazat"
-        },
-        {
-            "hauteur": "1 3/5",
-            "nom": "Terz "
-        },
-        {
-            "hauteur": "1",
-            "nom": "Sifflöte"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Cymbel"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Vox Humana"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Posaunenbass"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Principalbass"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trompetenbass"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Rörflöte "
-        },
-        {
-            "hauteur": "4",
-            "nom": "Octava"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Octava"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Nasat"
-        },
-        {
-            "hauteur": "VI",
-            "nom": "Mixtur"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Mixtur"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Principalbass"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Octavbass"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Posaunenbass"
-        },
-        {
-            "hauteur": "4-8",
-            "nom": "Flûte"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Bourdon Montre"
-        },
-        {
-            "hauteur": "4/8",
-            "nom": "Bourdon"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Rauschquinte"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Mixture"
-        },
-        {
-            "hauteur": "III-V",
-            "nom": "Cornet"
-        },
-        {
-            "hauteur": "III-V",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flageolet "
-        },
-        {
-            "hauteur": "16-8-4",
-            "nom": "Flûte"
-        },
-        {
-            "hauteur": "",
-            "nom": "Plein Jeu"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Basse principale"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Basse principale"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Ophicléide "
-        },
-        {
-            "hauteur": "IV-VI",
-            "nom": "Plein-jeu"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Cor de nuit"
-        },
-        {
-            "hauteur": "12",
-            "nom": "Flûte"
-        },
-        {
-            "hauteur": "12",
-            "nom": "Bombarde"
-        },
-        {
-            "hauteur": "",
-            "nom": "Basson"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Flûte "
-        },
-        {
-            "hauteur": "8",
-            "nom": "Bombarde "
-        },
-        {
-            "hauteur": "V-VI",
-            "nom": "Plein-jeu "
-        },
-        {
-            "hauteur": "2'2/3",
-            "nom": "Quinte Flûte"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Piccolo"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Rohrflöte"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Anche"
-        },
-        {
-            "hauteur": "II-IV",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "16-8",
-            "nom": "Flûte"
-        },
-        {
-            "hauteur": "II-III",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Doublette"
-        },
-        {
-            "hauteur": "8-16",
-            "nom": "Bombarde"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Viole d'amour"
-        },
-        {
-            "hauteur": "",
-            "nom": "Dessus de Trompette en Chamade"
-        },
-        {
-            "hauteur": "VII",
-            "nom": "Cornet"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Cymbale-Tierce"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Euphone"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Clairon"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Kornett"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Quintaton"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Flûte traversière"
-        },
-        {
-            "hauteur": "5 1/3",
-            "nom": "Principal Quinte"
-        },
-        {
-            "hauteur": "3 5/9",
-            "nom": "Grande Neuvième "
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte d’écho"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Soprano"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Soprano harmonique"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Tuba"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Tuba"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Tuba major"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Tuba magna"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Tubasson"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Tubasson"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Tuba mirabilis"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Tuba clairon"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Cor harmonique"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Bombardon"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Superoctave"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Large open diapason"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Small open diapason"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Stopped diapason"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Harmonic flute"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Posaune"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Clarion"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Cornopean"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Bass Flute"
-        },
-        {
-            "hauteur": "II-VIII",
-            "nom": "Plein-jeu harmonique"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Cor de basset "
-        },
-        {
-            "hauteur": "II",
-            "nom": "Théorbe"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Contre-bombarde"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Contre-trombone"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Baryton"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Keraulophon"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Dolciana"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Lieblich Gedackt"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Clarabella"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Röhr Gedackt"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Flute Ouverte"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte d'Allemand"
-        },
-        {
-            "hauteur": "1 3/5",
-            "nom": "Tiercelette"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Flûte ouverte"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Sexquialtera"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Fagott"
-        },
-        {
-            "hauteur": "1 3/5",
-            "nom": "Sesquialtera"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Quinte"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Cromhorn"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Viola di Gamba"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Super flûte"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Principal-Cor"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Echo"
-        },
-        {
-            "hauteur": "3",
-            "nom": "Quinta"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trompete"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Traversflöte"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Bordun"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flaute douce"
-        },
-        {
-            "hauteur": "3",
-            "nom": "Spitzquinta"
-        },
-        {
-            "hauteur": "1 3/5",
-            "nom": "Tertia"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Quinta"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flaute"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Principalbaß"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Violonbass"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Violabass"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Gemshornbass"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flötenbass"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Octavbass"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Posaunbass"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Fagottbass"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trompetbass"
-        },
-        {
-            "hauteur": "V",
-            "nom": "Terziane"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Dulcian"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Clairon en chamade"
-        },
-        {
-            "hauteur": "II-V",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "II-V",
-            "nom": "Cymbale"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Clarinette"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Clarinette basse"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Bourdon céleste"
-        },
-        {
-            "hauteur": "3 5/9",
-            "nom": "Neuvième"
-        },
-        {
-            "hauteur": "2 10/11",
-            "nom": "Onzième"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trompette "
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte amabile"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Cor des Alpes"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Eolienne"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Prestant"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Octaaf"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Roerfluit"
-        },
-        {
-            "hauteur": "3",
-            "nom": "Quintfluit"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Superoctaaf"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Sesquialter"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Doppel Gedeckt"
-        },
-        {
-            "hauteur": "IV-VI",
-            "nom": "Mixtuur"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Dulciaan"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Schalmei"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Prestant"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Octaaf"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Holpijp"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Floetenprincipal"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Ruispijp"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Violon"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Baarpijp"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte travers"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Gedecktbass"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Open fluit"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Cello"
-        },
-        {
-            "hauteur": "3",
-            "nom": "Nasard"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Spitsfluit"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Sexquialter"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Dulciaan"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Subass"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Open fluit"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Bazuin"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Cornet"
-        },
-        {
-            "hauteur": "13",
-            "nom": "Flautado"
-        },
-        {
-            "hauteur": "",
-            "nom": "Camusado"
-        },
-        {
-            "hauteur": "",
-            "nom": "Docena"
-        },
-        {
-            "hauteur": "",
-            "nom": "Quincena"
-        },
-        {
-            "hauteur": "IV-VI",
-            "nom": "Lleno"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Tolosana"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flautado tapado"
-        },
-        {
-            "hauteur": "",
-            "nom": "Quincena nazarda"
-        },
-        {
-            "hauteur": "VI",
-            "nom": "Corneta"
-        },
-        {
-            "hauteur": "",
-            "nom": "Trompeta real"
-        },
-        {
-            "hauteur": "",
-            "nom": "Bajoncillo"
-        },
-        {
-            "hauteur": "",
-            "nom": "Clarin"
-        },
-        {
-            "hauteur": "",
-            "nom": "Dulzaina"
-        },
-        {
-            "hauteur": "",
-            "nom": "Orlos"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Contras"
-        },
-        {
-            "hauteur": "",
-            "nom": "Clochette"
-        },
-        {
-            "hauteur": "3",
-            "nom": "Quinte-Flûte"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Grosse flûte"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Stentor"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Stentor"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Stentor"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Acoustique"
-        },
-        {
-            "hauteur": "10 2/3",
-            "nom": "quinte "
-        },
-        {
-            "hauteur": "5 1/3",
-            "nom": "quinte "
-        },
-        {
-            "hauteur": "8",
-            "nom": "Montre-Violon"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Harpe éolienne"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte double"
-        },
-        {
-            "hauteur": "",
-            "nom": "Tremblant doux"
-        },
-        {
-            "hauteur": "",
-            "nom": "trémolo"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte allemande"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Tertian"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Tierce "
-        },
-        {
-            "hauteur": "1  1/3",
-            "nom": "Quinte"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Montre-Viole"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte de Bonn"
-        },
-        {
-            "hauteur": "3",
-            "nom": "Nazard "
-        },
-        {
-            "hauteur": "16",
-            "nom": "Voix humaine"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte bouchée "
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte à cheminée "
-        },
-        {
-            "hauteur": "4-5 rangs",
-            "nom": "Ripieno"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Maggiore"
-        },
-        {
-            "hauteur": "II 10 2/3",
-            "nom": "Mixture grave"
-        },
-        {
-            "hauteur": "II 5 1/3",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Régale en chamade"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Cymbale-Tierce"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Voix éolienne"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Doppelflôte"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Doppelflöte"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Violon-basse"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Chamade impériale"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Galoubet"
-        },
-        {
-            "hauteur": "V 16",
-            "nom": "Cornet"
-        },
-        {
-            "hauteur": "II-IX",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "8-4",
-            "nom": "Bourdon flûte"
-        },
-        {
-            "hauteur": "1",
-            "nom": "Octave"
-        },
-        {
-            "hauteur": "4-8",
-            "nom": "Chamade"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Choral "
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte pastorale "
-        },
-        {
-            "hauteur": "4",
-            "nom": "Choral basse"
-        },
-        {
-            "hauteur": "4/8",
-            "nom": "Flûte"
-        },
-        {
-            "hauteur": "",
-            "nom": "Basson/Chalumeau"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Jeu céleste"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Basse de trompette"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Dessus de trompette"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Buccine"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Cor de nuit"
-        },
-        {
-            "hauteur": "III-IV",
-            "nom": "Cymbale"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte basse"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte basse"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Comble"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Cimbel"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Quinta"
-        },
-        {
-            "hauteur": "3",
-            "nom": "Nassat"
-        },
-        {
-            "hauteur": "1 3/5",
-            "nom": "Tertia"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Quinta"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Mixtur"
-        },
-        {
-            "hauteur": "4/5",
-            "nom": "Tiercelette"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Floete Traverse"
-        },
-        {
-            "hauteur": "1  1/3",
-            "nom": "Tierce"
-        },
-        {
-            "hauteur": "2'2/3",
-            "nom": "Quinte"
-        },
-        {
-            "hauteur": "1'3/5",
-            "nom": "Tierce"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Floeten basse"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Gamba"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Violine principale"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Bourdon douxe"
-        },
-        {
-            "hauteur": "3",
-            "nom": "Nasat "
-        },
-        {
-            "hauteur": "II",
-            "nom": "Mixtur "
-        },
-        {
-            "hauteur": "1",
-            "nom": "Sifflöt "
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Scharff "
-        },
-        {
-            "hauteur": "8",
-            "nom": "Dulcian "
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Quint "
-        },
-        {
-            "hauteur": "2",
-            "nom": "Superoctav"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Trompet "
-        },
-        {
-            "hauteur": "8",
-            "nom": "Spillpfeife "
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flöte "
-        },
-        {
-            "hauteur": "2",
-            "nom": "Flöte "
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Quint "
-        },
-        {
-            "hauteur": "4",
-            "nom": "Schalmey "
-        },
-        {
-            "hauteur": "8",
-            "nom": "Octav"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Première Trompette"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Gambe "
-        },
-        {
-            "hauteur": "32",
-            "nom": "Quintaton"
-        },
-        {
-            "hauteur": "",
-            "nom": "Registre en réservation, non fourni"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte Creuse"
-        },
-        {
-            "hauteur": "III-IV",
-            "nom": "Sesquialtera"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte de concert"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trompette solo"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte "
-        },
-        {
-            "hauteur": "III",
-            "nom": "Cymbale Tierce"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte Solo"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Geigenprincipal"
-        },
-        {
-            "hauteur": "2'2/3",
-            "nom": "Quintfloete "
-        },
-        {
-            "hauteur": "2",
-            "nom": "Piccolo harmonique"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Montreviola"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Flûte acoustique  "
-        },
-        {
-            "hauteur": "32",
-            "nom": "Contre Tuba"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Grossgedackt"
-        },
-        {
-            "hauteur": "6",
-            "nom": "Quinta "
-        },
-        {
-            "hauteur": "II",
-            "nom": "Cymbel"
-        },
-        {
-            "hauteur": "2",
-            "nom": "CornetBass"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Quinte"
-        },
-        {
-            "hauteur": "II-IV",
-            "nom": "Mixture"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Plein Jeu"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Dessus de flûte"
-        },
-        {
-            "hauteur": "",
-            "nom": "Cimballe"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Cimballe"
-        },
-        {
-            "hauteur": "5 1/3",
-            "nom": "Gros Nazard"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Cimballe"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Cornet "
-        },
-        {
-            "hauteur": "V",
-            "nom": "Cornet "
-        },
-        {
-            "hauteur": "8",
-            "nom": "Cor de Chamois "
-        },
-        {
-            "hauteur": "2",
-            "nom": "Flageolet quarte "
-        },
-        {
-            "hauteur": "1 3/5",
-            "nom": "Tierce"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte unique"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Soubasse"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Soubasse"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Flûte forestière"
-        },
-        {
-            "hauteur": "",
-            "nom": "Fourniture III-IV"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte à bec"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Flûte aiguë"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte de basse "
-        },
-        {
-            "hauteur": "II",
-            "nom": "Petite Fourniture"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Nachthorn"
-        },
-        {
-            "hauteur": "V",
-            "nom": "Dessus de cornet"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte octaviante"
-        },
-        {
-            "hauteur": "12",
-            "nom": "Trompette"
-        },
-        {
-            "hauteur": "12",
-            "nom": "Trompette"
-        },
-        {
-            "hauteur": "6",
-            "nom": "Clairon"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Basse acoustique"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flûte des neiges 8"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Hautbois en chamade"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Basson-hautbois"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Petit principal"
-        },
-        {
-            "hauteur": "",
-            "nom": "Dessus de Flûte traversière  8"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Dulciana"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Flûte douce"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Martin"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Flûte basse"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Octavin"
-        },
-        {
-            "hauteur": "V-VII",
-            "nom": "Mixtur"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Praestant"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Oktav"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Superoktav"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flotte"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Floete"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Waldfloete"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Petite Flûte"
-        },
-        {
-            "hauteur": "",
-            "nom": "Trompette allemande 8'"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Huit pieds ouvert"
-        },
-        {
-            "hauteur": "",
-            "nom": "Cornet I-III"
-        },
-        {
-            "hauteur": "",
-            "nom": "Trombone Basse 8'"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Trombone Alto"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Petite Flûte "
-        },
-        {
-            "hauteur": "",
-            "nom": "Montre Harmonique 8"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Basse ouverte"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Tapadet"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Dinovena"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Bordo "
-        },
-        {
-            "hauteur": "2",
-            "nom": "Quinzena"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Basse de Viole"
-        },
-        {
-            "hauteur": "",
-            "nom": "Nasard conique 2'2/3"
-        },
-        {
-            "hauteur": "",
-            "nom": "Grande Sesquialtera III"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flautado"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Violòn con chimenea"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Docena"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Quicena"
-        },
-        {
-            "hauteur": "V hileros",
-            "nom": "Lleno"
-        },
-        {
-            "hauteur": "III hileros",
-            "nom": "Cimbalet"
-        },
-        {
-            "hauteur": "12° 2 2/3",
-            "nom": "Nasardo"
-        },
-        {
-            "hauteur": "17° 1 3/5",
-            "nom": "Nasardo"
-        },
-        {
-            "hauteur": "VII hileros",
-            "nom": "Corneta"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trompeta real"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Bajoncillo"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Clarin"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Dulzaina"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Tapadillo"
-        },
-        {
-            "hauteur": "1  1/3",
-            "nom": "Decinovena"
-        },
-        {
-            "hauteur": "1  3/5",
-            "nom": "Diecisetena"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Orlos"
-        },
-        {
-            "hauteur": "III hileros",
-            "nom": "Corneta"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Grosse Flûte"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Grosse Fourniture"
-        },
-        {
-            "hauteur": "",
-            "nom": "Trompette en chamade 4'"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Trompette en chamade"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Mélodie"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Bourdon doux"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Cor"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Stopped diapason"
-        },
-        {
-            "hauteur": "",
-            "nom": "Ripieno grave"
-        },
-        {
-            "hauteur": "",
-            "nom": "Ripieno acuto"
-        },
-        {
-            "hauteur": "",
-            "nom": "bordone"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Bordone"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flauto in quinta decima 2"
-        },
-        {
-            "hauteur": "1 3/5",
-            "nom": "Cornetto"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Fiagioletto"
-        },
-        {
-            "hauteur": "",
-            "nom": "Tromba reale 8"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Cromorno"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte allemande"
-        },
-        {
-            "hauteur": "",
-            "nom": "Principale"
-        },
-        {
-            "hauteur": "",
-            "nom": "Ottava"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flauto in ottava"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flauto in duodecima"
-        },
-        {
-            "hauteur": "",
-            "nom": "Fiffaro"
-        },
-        {
-            "hauteur": "",
-            "nom": "Decima nona"
-        },
-        {
-            "hauteur": "",
-            "nom": "Vingesima seconda"
-        },
-        {
-            "hauteur": "",
-            "nom": "Vigesima nona"
-        },
-        {
-            "hauteur": "",
-            "nom": "Vigesima seconda"
-        },
-        {
-            "hauteur": "",
-            "nom": "Trigesima terza"
-        },
-        {
-            "hauteur": "",
-            "nom": "Tirasse permanente"
-        },
-        {
-            "hauteur": "",
-            "nom": "Mixture 5-6 rangs"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Principal doux"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Second"
-        },
-        {
-            "hauteur": "",
-            "nom": "1  chape vide"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Corno dolce"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Principal italien"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Quintade"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Praestant"
-        },
-        {
-            "hauteur": "V",
-            "nom": "Scharf"
-        },
-        {
-            "hauteur": "3",
-            "nom": "Quint"
-        },
-        {
-            "hauteur": "V-X",
-            "nom": "Mixtur"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Bass"
-        },
-        {
-            "hauteur": "IV-VI",
-            "nom": "Mixture"
-        },
-        {
-            "hauteur": "IV-VI",
-            "nom": "Cymbale"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Viole alto"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Rauschpfeife"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Quintade"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trumpet"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Venture"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Petit Nasard"
-        },
-        {
-            "hauteur": "1",
-            "nom": "Super Octave"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flauto Dolce"
-        },
-        {
-            "hauteur": "II-V 2’2/3",
-            "nom": "Mixture "
-        },
-        {
-            "hauteur": "III-V",
-            "nom": "Mixture-Cornet"
-        },
-        {
-            "hauteur": "",
-            "nom": "2 chapes vides"
-        },
-        {
-            "hauteur": "",
-            "nom": "Trompette douce 8"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Musette"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Flûte à cheminée"
-        },
-        {
-            "hauteur": "1 + 1/2 + 1/3 + 1/4",
-            "nom": "Ripieno"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Cor de chamois"
-        },
-        {
-            "hauteur": "V-VI",
-            "nom": "Fourniture "
-        },
-        {
-            "hauteur": "2",
-            "nom": "Co de daim"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Cor de daim"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Bourdon d’écho "
-        },
-        {
-            "hauteur": "V",
-            "nom": "Cornet d’écho "
-        },
-        {
-            "hauteur": "II-IV",
-            "nom": "Cymbale"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Dulciana"
-        },
-        {
-            "hauteur": "IX",
-            "nom": "Petit Plein Jeu"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Gros Cromorne "
-        },
-        {
-            "hauteur": "8",
-            "nom": "1ère Flûte "
-        },
-        {
-            "hauteur": "8",
-            "nom": "2ème  Flûte "
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte traverse"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Trompette"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Clairon"
-        },
-        {
-            "hauteur": "",
-            "nom": "Grand cornet"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Serpent"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Quintaton"
-        },
-        {
-            "hauteur": "4-8",
-            "nom": "Flûte traversière"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Salicional "
-        },
-        {
-            "hauteur": "XIII",
-            "nom": "Grand Plein Jeu"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Dulciane douce"
-        },
-        {
-            "hauteur": "1'1/3",
-            "nom": "Quinte-Flûte"
-        },
-        {
-            "hauteur": "1",
-            "nom": "Salicional"
-        },
-        {
-            "hauteur": "II-IV",
-            "nom": "Plein Jeu harmonique"
-        },
-        {
-            "hauteur": "2/5",
-            "nom": "Petite Tierce"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Cymbale-Tierce"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Montre conique"
-        },
-        {
-            "hauteur": "V",
-            "nom": "Fourniture-Cymbale"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Clariton"
-        },
-        {
-            "hauteur": "I/II",
-            "nom": "Clariton"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Clariton"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Dulciane"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Sacqueboute"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Stopped Diapason & Claribella"
-        },
-        {
-            "hauteur": "",
-            "nom": "Piccolo 1-2"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Flûte Mérolo"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Contrebasse"
-        },
-        {
-            "hauteur": "",
-            "nom": "Dermogloste 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Principal 32"
-        },
-        {
-            "hauteur": "VIII",
-            "nom": "plein jeu "
-        },
-        {
-            "hauteur": "",
-            "nom": "Flûte 8, ouverte, en bois "
-        },
-        {
-            "hauteur": "",
-            "nom": "Chamade 16"
-        },
-        {
-            "hauteur": "",
-            "nom": "Chamade 4"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flûte octave 4"
-        },
-        {
-            "hauteur": "",
-            "nom": "Montre-Flûte 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Grand Prestant 4"
-        },
-        {
-            "hauteur": "",
-            "nom": "Grand Cornet V-VI"
-        },
-        {
-            "hauteur": "",
-            "nom": "Trombone 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Rauschpfeife III"
-        },
-        {
-            "hauteur": "",
-            "nom": "Spitzgamba 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flute principale 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flute principale 4"
-        },
-        {
-            "hauteur": "",
-            "nom": "Cymbale IV-V"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flottraver 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Kornet 4"
-        },
-        {
-            "hauteur": "",
-            "nom": "Krumhorn 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Gedackt 4"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Mixture"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flûte céleste"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flûte céleste 8"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Flûte des bois"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Flûte ouverte"
-        },
-        {
-            "hauteur": "",
-            "nom": "Basson 32"
-        },
-        {
-            "hauteur": "II-III",
-            "nom": "Plein Jeu"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flûte d'Erable 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Mixtur III+III"
-        },
-        {
-            "hauteur": "",
-            "nom": "Suavial 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Bourdon 8 à cheminée"
-        },
-        {
-            "hauteur": "I-IV",
-            "nom": "Plein-jeu"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Voix angélique"
-        },
-        {
-            "hauteur": "",
-            "nom": "Bourdon 8 en bois"
-        },
-        {
-            "hauteur": "3",
-            "nom": "Quinte"
-        },
-        {
-            "hauteur": "V-VI",
-            "nom": "Grande Fourniture"
-        },
-        {
-            "hauteur": "",
-            "nom": "Grand Cornet II-IV"
-        },
-        {
-            "hauteur": "",
-            "nom": "Méditation 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Septime 1 1/7"
-        },
-        {
-            "hauteur": "",
-            "nom": "Choeur de Cordes 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Choeur de Cordes 4"
-        },
-        {
-            "hauteur": "",
-            "nom": "Tuba 4"
-        },
-        {
-            "hauteur": "",
-            "nom": "Tierce impériale 6 2/5"
-        },
-        {
-            "hauteur": "",
-            "nom": "Posaune 32"
-        },
-        {
-            "hauteur": "7 (4')",
-            "nom": "Mostra"
-        },
-        {
-            "hauteur": "14 (8')",
-            "nom": "Bordo "
-        },
-        {
-            "hauteur": "",
-            "nom": "Dobleta"
-        },
-        {
-            "hauteur": "(4')",
-            "nom": "Flauta "
-        },
-        {
-            "hauteur": "12 (2.2/3)",
-            "nom": "Nazart"
-        },
-        {
-            "hauteur": "(1.3/5)",
-            "nom": "Tierza nazarda "
-        },
-        {
-            "hauteur": "II",
-            "nom": "Simbala"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Fornitura"
-        },
-        {
-            "hauteur": "(16)",
-            "nom": "Bordo major"
-        },
-        {
-            "hauteur": "14 (8')",
-            "nom": "Mostra"
-        },
-        {
-            "hauteur": "14 (8')",
-            "nom": "Flûte "
-        },
-        {
-            "hauteur": "(4)",
-            "nom": "Fluta "
-        },
-        {
-            "hauteur": "(2)",
-            "nom": "Guinzena"
-        },
-        {
-            "hauteur": "12 (2.2/3)",
-            "nom": "Nasart"
-        },
-        {
-            "hauteur": "15 (1.3/5)",
-            "nom": "Nasart"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Fornitura"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Fornitura"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Simbala"
-        },
-        {
-            "hauteur": "",
-            "nom": "Trompeta (basse) "
-        },
-        {
-            "hauteur": "",
-            "nom": "Trompeta "
-        },
-        {
-            "hauteur": "",
-            "nom": "Clarins"
-        },
-        {
-            "hauteur": "(4')",
-            "nom": "Baixons-Clarin"
-        },
-        {
-            "hauteur": "(8')",
-            "nom": "Veu umana"
-        },
-        {
-            "hauteur": "V",
-            "nom": "Corneta"
-        },
-        {
-            "hauteur": "28 (16')",
-            "nom": "Fluta "
-        },
-        {
-            "hauteur": "(8')",
-            "nom": "Fluta "
-        },
-        {
-            "hauteur": "(8')",
-            "nom": "Trompeta"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flûte de Pan 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flûte d'orchestre 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Fourniture IV-VI"
-        },
-        {
-            "hauteur": "",
-            "nom": "Grosse fourniture VIII"
-        },
-        {
-            "hauteur": "",
-            "nom": "Montre I-II 4"
-        },
-        {
-            "hauteur": "",
-            "nom": "Traversine 2"
-        },
-        {
-            "hauteur": "",
-            "nom": "Tiercelette II"
-        },
-        {
-            "hauteur": "",
-            "nom": "Douçaine 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Montre I-II  8'"
-        },
-        {
-            "hauteur": "",
-            "nom": "Octave I-II  4'"
-        },
-        {
-            "hauteur": "",
-            "nom": "Quinzième I-II  2'"
-        },
-        {
-            "hauteur": "",
-            "nom": "Fourniture II-VI"
-        },
-        {
-            "hauteur": "",
-            "nom": "Cornet à bouquin VII"
-        },
-        {
-            "hauteur": "",
-            "nom": "Sacqueboute 8"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flûte champêtre 2"
-        },
-        {
-            "hauteur": "",
-            "nom": "Tierce Flûte 1'3/5"
-        },
-        {
-            "hauteur": "",
-            "nom": "Chalumeau 16"
-        },
-        {
-            "hauteur": "",
-            "nom": "Grand Bourdon 32'"
-        },
-        {
-            "hauteur": "",
-            "nom": "Douçaine 32'"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Sordun"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Tapadet amb xemeneis"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Regalies"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Subbaix"
-        },
-        {
-            "hauteur": "8",
-            "nom": "\"Angélique\""
-        },
-        {
-            "hauteur": "8",
-            "nom": "Bourdon conique"
-        },
-        {
-            "hauteur": "I-III",
-            "nom": "Carillon"
-        },
-        {
-            "hauteur": "II-IV",
-            "nom": "Carillon"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Chromhorne"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Cimbel"
-        },
-        {
-            "hauteur": "I-III",
-            "nom": "Cornet"
-        },
-        {
-            "hauteur": "II-III",
-            "nom": "Cornet"
-        },
-        {
-            "hauteur": "III",
-            "nom": "Cornettino"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Corno inglese"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Cromorne"
-        },
-        {
-            "hauteur": "V-VI",
-            "nom": "Cymbale"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Feldtrompete"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flûte large"
-        },
-        {
-            "hauteur": "VII",
-            "nom": "Fourniture"
-        },
-        {
-            "hauteur": "II-IV",
-            "nom": "Grande fourniture"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Hintersatz"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Holzdulzian"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Koraal-bas"
-        },
-        {
-            "hauteur": "IV-V",
-            "nom": "Mixture"
-        },
-        {
-            "hauteur": "II-III",
-            "nom": "Mixture"
-        },
-        {
-            "hauteur": "2 2/3",
-            "nom": "Nasart"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Octavin harmonique"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Oktav"
-        },
-        {
-            "hauteur": "IV",
-            "nom": "Petit cornet"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Petite chalemie"
-        },
-        {
-            "hauteur": "3",
-            "nom": "Quinte"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Quintelette"
-        },
-        {
-            "hauteur": "1 1/3",
-            "nom": "Quintflöte"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Fluste"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Fluit"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Gedeckt"
-        },
-        {
-            "hauteur": "1 3/5",
-            "nom": "Grande tierce"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Grosse flûte bouchée"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Sacqueboute"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Sacqueboute"
-        },
-        {
-            "hauteur": "32",
-            "nom": "Soubasse acoustique"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Sous-basse"
-        },
-        {
-            "hauteur": "II",
-            "nom": "Tercian"
-        },
-        {
-            "hauteur": "1 3/5",
-            "nom": "Tiercyne"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Trompette royale"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Trompette royale"
-        },
-        {
-            "hauteur": "2",
-            "nom": "Fluste à neuf trous"
-        },
-        {
-            "hauteur": "2'",
-            "nom": "clairon-doublette"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Principale primo"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Violoncello"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flautone"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Flautone traversiere"
-        },
-        {
-            "hauteur": "",
-            "nom": "Decidenona"
-        },
-        {
-            "hauteur": "",
-            "nom": "Timbali"
-        },
-        {
-            "hauteur": "",
-            "nom": "Flauto"
-        },
-        {
-            "hauteur": "",
-            "nom": "grosse cymbale"
-        },
-        {
-            "hauteur": "",
-            "nom": "petite cymbale"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Voix harmonique"
-        },
-        {
-            "hauteur": "16",
-            "nom": "principal harmonique"
-        },
-        {
-            "hauteur": "8",
-            "nom": "trompette coudée à forte pression"
-        },
-        {
-            "hauteur": "8",
-            "nom": "clarinette à pavillon"
-        },
-        {
-            "hauteur": "8",
-            "nom": "bourdon-quintaton"
-        },
-        {
-            "hauteur": "(31’) I-II",
-            "nom": "Fourniture harmonique "
-        },
-        {
-            "hauteur": "4",
-            "nom": "1er Clairon"
-        },
-        {
-            "hauteur": "4",
-            "nom": "2ème Clairon"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Starkton Floete"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Starkton Geigenprinzipal"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Cremona "
-        },
-        {
-            "hauteur": "V",
-            "nom": "Mixture-Tierce"
-        },
-        {
-            "hauteur": "16",
-            "nom": "Lieblich Gedeckt"
-        },
-        {
-            "hauteur": "8",
-            "nom": "Starkton Prinzipal"
-        },
-        {
-            "hauteur": "4",
-            "nom": "Octavfloete"
-        },
-        {
-            "hauteur": "III 2’2/3",
-            "nom": "Harmonia aethera "
-        },
-        {
-            "hauteur": "16",
-            "nom": "Gedecktbass"
-        },
-        {
-            "hauteur": "10’2/3",
-            "nom": "Quintbass "
-        },
-        {
-            "hauteur": "8",
-            "nom": "Starkton Viola di Gamba"
-        }
-    ],
     "types_claviers": [
         "Grand-Orgue",
         "Récit",
@@ -4156,191 +50,4111 @@
         "Recitativo expresivo",
         "Hinterwerk"
     ],
-    "type_accessoire": [
-        "Tremblant",
-        "Trémolo",
-        "Accouplement Pos./G.O.",
-        "Accouplement Réc./G.O.",
-        "Accouplement Pos./Réc.",
-        "Accouplement Réc./Pos.",
-        "Tirasse Pos.",
-        "Tirasse Réc.",
-        "Tirasse G.O.",
-        "Anches G.O.",
-        "Anches Pos.",
-        "Anches Réc.",
-        "Tirasse G.Ch.",
-        "Tirasse permanente G.O.",
-        "Tirasse permanente Réc.",
-        "Anches Péd.",
-        "Orage",
-        "Grêle",
-        "Rossignol",
-        "Octaves aiguës G.O.",
-        "Octaves graves G.O.",
-        "Appel G.O.",
-        "Appel G.C.",
-        "Combinateur",
-        "Combinaison libre",
-        "Accouplement 4 Pos./G.O.",
-        "Accouplement 16 Pos./G.O.",
-        "Accouplement 4 Réc./G.O.",
-        "Accouplement 16 Réc./G.O.",
-        "Expression Réc. par bascule",
-        "Expression Réc. par cuillère",
-        "Expression Pos. par cuillère",
-        "Tremblant Pos.",
-        "Tremblant Réc.",
-        "Tremblant G.O.",
-        "Trémolo Pos.",
-        "Trémolo Réc.",
-        "Trémolo G.O.",
-        "Expression Pos. par bascule",
-        "Expression par cuillère",
-        "Expression par bascule",
-        "Zimbelstern",
-        "Fonds 8'",
-        "Fonds 8' et 4'",
-        "Tutti",
-        "Tutti tirasses",
-        "Tutti copulas",
-        "Fonds Ped.",
-        "Fonds et Petites mixtures",
-        "Fonds et Mutations",
-        "Tirasse 16 G.O.",
-        "Tremblant doux",
-        "Tremblant fort",
-        "Tremblant fort Réc.",
-        "Tremblant fort Pos.",
-        "Tremblant fort Ech.",
-        "Tremblant doux Réc.",
-        "Tremblant doux Pos.",
-        "Tremblant doux Ech.",
-        "Octaves graves Réc.",
-        "Octaves aiguës Réc.",
-        "Expression G.O. par bascule",
-        "Crescendo général",
-        "Octaves graves Pos.",
-        "Octaves aiguës Pos.",
-        "Trémolo réglable",
-        "Tirasse 4 G.O.",
-        "Tirasse 4 Pos.",
-        "Tirasse 4 Réc.",
-        "Accouplement 4 Réc./Pos.",
-        "Accouplement 16 Réc./Pos.",
-        "Tremulant",
-        "Tirasse 16 Pos.",
-        "Tirasse 16 Réc.",
-        "Tirasse -8 Solo",
-        "Octaves aiguës Péd.",
-        "Tutti anches",
-        "Vielle",
-        "Mixtures G.O.",
-        "Mixtures Réc.",
-        "Mixtures Pos.",
-        "Appel Pos.",
-        "Accouplement Bomb./G.O.",
-        "Plein jeu",
-        "Tremblant Ech.",
-        "Tremblant G.O. & Ech.",
-        "Anches Bomb.",
-        "Trompette Réc.",
-        "Accouplement Pos./G.O. à tiroir",
-        "Accouplement Réc./G.O. à tiroir",
-        "Expression par genouillère",
-        "Tutti G.O.",
-        "Tutti mixtures",
-        "Tutti Péd.",
-        "Tutti Pos.",
-        "Tutti Réc.",
-        "Tremblant doux G.O.",
-        "Tremblant doux Rés.",
-        "Tremblant fort G.O.",
-        "Tremblant fort Rés.",
-        "Tremblant Schwellwerk",
-        "Tremblant Solo",
-        "Pédale automatique",
-        "Transpositeur",
-        "Hautbois",
-        "Voix céleste",
-        "Voix humaine",
-        "Grand chœur",
-        "Combinaison fixe",
-        "Anches",
-        "Anches Ech.",
-        "Anches G.Ch.",
-        "Annulateur",
-        "Trompette",
-        "Bourdon",
-        "Chamade",
-        "Clairon",
-        "Cornet",
-        "Cornet Pos.",
-        "Prestant",
-        "Principal 16' Péd.",
-        "Bombarde",
-        "Grand jeu",
-        "Grand jeu G.O.",
-        "Grand jeu Péd.",
-        "Grand jeu Réc.",
-        "Grand jeu G.Ch.",
-        "Grand plein jeu",
-        "Mixtures",
-        "Fonds 8' G.O. et G.Ch.",
-        "Mixtures Péd.",
-        "Mixtures Bomb.",
-        "Accouplement Bomb./Pos.",
-        "Accouplement Bomb./Réc.",
-        "Accouplement II/I",
-        "Accouplement G.Ch./G.O.",
-        "Accouplement 4 G.Ch./G.O.",
-        "Accouplement Rec./G.Ch.",
-        "Accouplement 4 II/I",
-        "Accouplement 16 8 4 II/I",
-        "Accouplement Oberwerk/Hauptwerk",
-        "Copula",
-        "Accouplement Rec./G.Ch.",
-        "Accouplement Schwellwerk/Hauptwerk",
-        "Accouplement Solo/G.O.",
-        "Accouplement Solo/Pos.",
-        "Accouplement Solo/Réc.",
-        "Tirasse I",
-        "Tirasse II",
-        "Tirasse",
-        "Tirasse 4 I",
-        "Tirasse 4 II",
-        "Tirasse Bomb.",
-        "Tirasse Cham.",
-        "Tirasse 4 Cham.",
-        "Tirasse Ech.",
-        "Tirasse Hauptwerk",
-        "Tirasse permanente Pos.",
-        "Tirasse Rés.",
-        "Tirasse 4 Rés.",
-        "Tirasse Schwellwerk",
-        "Tirasse Solo",
-        "Accouplement G.O./Pos.",
-        "Accouplement G.O./Réc.",
-        "Accouplement G.O./Rés.",
-        "Séquenceur",
-        "Trémolo G.Ch.",
-        "Octaves graves G.Ch.",
-        "Octaves graves",
-        "Octaves aiguës",
-        "Accouplement Cham./G.O.",
-        "Accouplement Cham./Réc.",
-        "Accouplement Cham./Pos.",
-        "Accouplement Cham./Solo",
-        "Accouplement Ech./G.O.",
-        "Accouplement Ech./Pos.",
-        "Accouplement Rés./Pos.",
-        "Accouplement Rés./G.O.",
-        "Accouplement Ech./Rec.",
-        "Plein jeu Pos.",
-        "Soubasse Péd.",
-        "Forte",
-        "Accouplement Pos./Rés.",
-        "Tutti Bombarde"
+    "types_jeux": [
+        {
+            "nom": "Baryton",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Basse",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Basson",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Basson",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Basson-hautbois",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Basson-Musette",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Bombarde",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Bombarde",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Bourdon",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Bourdon",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Bourdon",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Bourdon",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Bourdon à cheminée",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Bourdon-flûte",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cymbale",
+            "hauteur": "IV-V 1/2"
+        },
+        {
+            "nom": "Chalumeau",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Clairon",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Clarinette",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Contrebasse",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Contrebasse",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Cor de nuit",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cornet",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Cornet",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Corno-dolce",
+            "hauteur": " 4"
+        },
+        {
+            "nom": "Cromorne",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cymbale",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Diapason",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Doublette",
+            "hauteur": "2"
+        },
+        {
+            "nom": "​Dulciana",
+            "hauteur": "8"
+        },
+        {
+            "nom": "​Dulciane",
+            "hauteur": "8"
+        },
+        {
+            "nom": "​Dulciana",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flageolet",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Flageolet",
+            "hauteur": "1"
+        },
+        {
+            "nom": "Flûte",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Flûte",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte",
+            "hauteur": "4"
+        },
+        {
+            "nom": "​Flûte",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Flûte à cheminée",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte à fuseau",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte à pavillon",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte chalumeau",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte conique",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte creuse",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte douce",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte harmonique",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte harmonique",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte majeure",
+            "hauteur": "8"
+        },
+        {
+            "nom": "​Flûte octaviante",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte pyramidale",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte sylvestre",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Flûte traversière",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Fugara",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Gambe",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Gambe",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Gambe conique",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Gemshorn",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Gemshorn",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Grande tierce",
+            "hauteur": "3 1/5"
+        },
+        {
+            "nom": "Grande tierce",
+            "hauteur": "6 2/5"
+        },
+        {
+            "nom": "Grosse tierce",
+            "hauteur": "3 1/5"
+        },
+        {
+            "nom": "Grosse tierce",
+            "hauteur": "6 2/5"
+        },
+        {
+            "nom": "Gros Bourdon",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Hautbois",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Kéraulophone",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Larigot",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Montre",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Montre",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Montre",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Montre",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Montre",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Musette",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Musette",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Musette",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Nasard",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Nazard",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Octavebasse",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Octave",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Octavin",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Piccolo",
+            "hauteur": "1"
+        },
+        {
+            "nom": "Plein-jeu",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Plein-jeu",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Plein-jeu",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Prestant",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Principal",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Principal",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Principal",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Quarte",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Quarte de Nazard",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Quintadena",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Quintaton",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Quintaton",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Quinte",
+            "hauteur": "2 1/3"
+        },
+        {
+            "nom": "Quinte",
+            "hauteur": "5 1/3"
+        },
+        {
+            "nom": "Quinte",
+            "hauteur": "10 2/3"
+        },
+        {
+            "nom": "Quinte",
+            "hauteur": "12"
+        },
+        {
+            "nom": "Ranquette",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Ranquette",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Ranquette",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Régale",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Régale",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Régale",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Salicional",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Septième",
+            "hauteur": "1 1/7"
+        },
+        {
+            "nom": "Septième",
+            "hauteur": "2 2/7"
+        },
+        {
+            "nom": "Grande Septième",
+            "hauteur": "4 4/7"
+        },
+        {
+            "nom": "Septième",
+            "hauteur": "4 4/7"
+        },
+        {
+            "nom": "Sesquialtera",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Sifflet",
+            "hauteur": "1"
+        },
+        {
+            "nom": "​Soubasse",
+            "hauteur": "32"
+        },
+        {
+            "nom": "​Soubasse",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Tierce",
+            "hauteur": "1 3/5"
+        },
+        {
+            "nom": "Trombone",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Trompette",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Unda Maris",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Viole de gambe",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Viole d'amour",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Violon",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Violoncelle",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Violoncelle",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Voix céleste",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Voix humaine",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte à cheminée",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Grosse flûte",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Grande fourniture",
+            "hauteur": "IV-VIII"
+        },
+        {
+            "nom": "Plein-jeu",
+            "hauteur": "IV-V"
+        },
+        {
+            "nom": "Grand Cornet",
+            "hauteur": "III-V"
+        },
+        {
+            "nom": "Cymbale ",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Douçaine",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Flûte à cheminée",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Plein-jeu",
+            "hauteur": "VI"
+        },
+        {
+            "nom": "Contrebasson",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Trompette harmonique",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Clairon harmonique",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Violonbasse ",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Grande Quinte",
+            "hauteur": "5 1/3"
+        },
+        {
+            "nom": "Quinte",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Grande Septième",
+            "hauteur": "2 2/7"
+        },
+        {
+            "nom": "Fifre ",
+            "hauteur": "2 "
+        },
+        {
+            "nom": "Grande Neuvième",
+            "hauteur": "1 7/9"
+        },
+        {
+            "nom": "Harmoniques",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Nazard harmonique",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Tierce harmonique",
+            "hauteur": "1 3/5"
+        },
+        {
+            "nom": "Piccolo harmonique",
+            "hauteur": "1"
+        },
+        {
+            "nom": "Ranquette",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Chalumeau",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Trompeteria",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Trompette en chamade",
+            "hauteur": "8  I-III"
+        },
+        {
+            "nom": "Petite quinte",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Corno-dolce",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Clairon en chamade",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Grosse fourniture",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Cymbale",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Cor anglais",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Plein-jeu harmonique",
+            "hauteur": ""
+        },
+        {
+            "nom": "Nachthorn",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte douce ",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Plein-jeu harmonique",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Bourdon harmonique",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte d'écho",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Fournitures progressives",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Flûte",
+            "hauteur": "1"
+        },
+        {
+            "nom": "Flûte douce",
+            "hauteur": "1"
+        },
+        {
+            "nom": "Cor anglais",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Aeoline",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Basse",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Eoline",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Mélophone",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Principal",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Soubasse ",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte ouverte",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Petit fifre",
+            "hauteur": "1 1/7"
+        },
+        {
+            "nom": "Flautino",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Grand Cornet",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Spitzgambe",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Surcymbale allemande",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Flûte conique",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Mixture allemande",
+            "hauteur": "IV-VI"
+        },
+        {
+            "nom": "Mixture française",
+            "hauteur": "II-IV 16"
+        },
+        {
+            "nom": "Grosse trompette",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Grosse quinte ",
+            "hauteur": "5 1/3"
+        },
+        {
+            "nom": "Trumpette",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte à fuseau",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Principal",
+            "hauteur": "1"
+        },
+        {
+            "nom": "Calisicional",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte creuse",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte ouverte ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Hautbois",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Cornet hors boîte ",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Dulzian",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Tibia",
+            "hauteur": "8"
+        },
+        {
+            "nom": " Flûte à biberon ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Grande fourniture",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Cymbale ",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Flûte",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Fournitures progressives",
+            "hauteur": "III-V"
+        },
+        {
+            "nom": "Plein-jeu",
+            "hauteur": "II-IV"
+        },
+        {
+            "nom": "Principale",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Ottava",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Decimaquinta",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Decimanona",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Vigesimaseconda",
+            "hauteur": "1"
+        },
+        {
+            "nom": "Vigesimasesta",
+            "hauteur": "2/3"
+        },
+        {
+            "nom": "Vigesimanona",
+            "hauteur": "1/2"
+        },
+        {
+            "nom": "Flauto in quinta",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Voce Umana",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Bassi ",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flauto in ottava",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Controbassi",
+            "hauteur": ""
+        },
+        {
+            "nom": "Controbassi",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Quinzième",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Dixneuvième",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Vingt-deuxième",
+            "hauteur": "1"
+        },
+        {
+            "nom": "Dix-neuvième",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Vingt-sixième",
+            "hauteur": "2/3"
+        },
+        {
+            "nom": "Vingt-neuvième",
+            "hauteur": "1/2"
+        },
+        {
+            "nom": "Viole",
+            "hauteur": "4"
+        },
+        {
+            "nom": "16-8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Vingt-sixième et Vingt-neuvième",
+            "hauteur": "2/3 et 1/2"
+        },
+        {
+            "nom": "Mixture",
+            "hauteur": "V"
+        },
+        {
+            "nom": "1ère Trompette",
+            "hauteur": "8"
+        },
+        {
+            "nom": "2ème Trompette",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cornet",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Plein-Jeu",
+            "hauteur": "V-VII"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "IV-V"
+        },
+        {
+            "nom": "Douzième",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "22 ième et 26 ième",
+            "hauteur": "2/3 et 1/2"
+        },
+        {
+            "nom": "12 ième",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "33 ième et 36 ième",
+            "hauteur": "1/3 et 1/4"
+        },
+        {
+            "nom": "Traverso",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Sordun",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Viole",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Quinte",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Grande Sesquialtera",
+            "hauteur": ""
+        },
+        {
+            "nom": "Prinzipal",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Rohrflöte",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Octav",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Gemshorn",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Mixtur",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Quintadena",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Gedackt",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Rohrflöte",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Octav",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Regal",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Untersatz",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Posaune",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Chalmey",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Bombarde douce",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Clairon - Hautbois",
+            "hauteur": "4-8"
+        },
+        {
+            "nom": "Hohlflöte",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Prinzipal",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flachflöte",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Mixtur",
+            "hauteur": "4-5 2"
+        },
+        {
+            "nom": "Mixtur",
+            "hauteur": "IV-V"
+        },
+        {
+            "nom": "Holzgedackt",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Nachthorn",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Krummhorn",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Sifflöte",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Subbass",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Gedackt Pommer",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Gedackt Pommer",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Offenbass",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flauto in duodecima",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Quinta Decima",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Cornetto",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Tromba",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Contrabssi",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Contrabassi",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cymbale",
+            "hauteur": ""
+        },
+        {
+            "nom": "Montre à pavillon",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Grosse septième",
+            "hauteur": "4 4/7"
+        },
+        {
+            "nom": "Grosse Onzième",
+            "hauteur": ""
+        },
+        {
+            "nom": "Chamade",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Plein-Jeu",
+            "hauteur": "III-IV"
+        },
+        {
+            "nom": "Nazard octaviant",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Tierce octaviante",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Piccolo octaviant",
+            "hauteur": "1"
+        },
+        {
+            "nom": "Flûte",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Contrebasson",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Ophicléide",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Chape vide",
+            "hauteur": ""
+        },
+        {
+            "nom": "Plein-jeu",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Quintadecima",
+            "hauteur": "2"
+        },
+        {
+            "nom": "19 ième et 22 ième",
+            "hauteur": "1 1/3 et 1"
+        },
+        {
+            "nom": "26 ième et 29 ième",
+            "hauteur": "2/3 et 1/2"
+        },
+        {
+            "nom": "Flauto nazardo",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Trombe",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Bassi Armonici",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Régale-Cromorne",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte conique",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cor de Daim",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Carillon",
+            "hauteur": "3 rgs"
+        },
+        {
+            "nom": "Viola",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Scharf",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Mixture",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Sesquilatera",
+            "hauteur": "II-III"
+        },
+        {
+            "nom": "Grande Fourniture",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Trompette en chamade",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Principal italien",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Dulciane",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Octave",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "VI"
+        },
+        {
+            "nom": "Clarinette",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Ténor",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Grosse Flûte Conique",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Dulciane",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Plein-Jeu",
+            "hauteur": "III-VI"
+        },
+        {
+            "nom": "Plein-jeu harmonique",
+            "hauteur": "III-VI"
+        },
+        {
+            "nom": "Cornet",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Salicet",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Plein-jeu",
+            "hauteur": "VII"
+        },
+        {
+            "nom": "Cornet",
+            "hauteur": "II-V"
+        },
+        {
+            "nom": "Bourdon doux",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Mixture",
+            "hauteur": "III-IV"
+        },
+        {
+            "nom": "Rankett",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Keraulphone",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cymbale",
+            "hauteur": "IV/V 2/3"
+        },
+        {
+            "nom": "Plein-Jeu",
+            "hauteur": "IV 2 2/3"
+        },
+        {
+            "nom": "Plein-Jeu",
+            "hauteur": "V 1"
+        },
+        {
+            "nom": "Grosse fourniture",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Flûte Traversière ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Bourdon à Cheminée",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Galoubet",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Carillon",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Euphone",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Plein-jeu",
+            "hauteur": "II-V"
+        },
+        {
+            "nom": "Basson acoustique",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Dolce",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cornet",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Plein-Jeu",
+            "hauteur": "III-V"
+        },
+        {
+            "nom": "Profond",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Geneviève",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Basson",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Bombarde acoustique",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Principal doux",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Progression harmonique",
+            "hauteur": "II-V"
+        },
+        {
+            "nom": "Grosse Quinte",
+            "hauteur": "10 2/3"
+        },
+        {
+            "nom": "Salicional",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Solicional",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Gros nazard",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Clara-Bella",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Bourdon",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Flûte majeure",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Grosse Sesquilatera",
+            "hauteur": "5'1/3 + 3'1/5"
+        },
+        {
+            "nom": "Grande Fourniture",
+            "hauteur": "II-III"
+        },
+        {
+            "nom": "Salicional",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Principal basse",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Grande Quinte",
+            "hauteur": "10 2/3"
+        },
+        {
+            "nom": "Flûte pointue",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Terzian",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Mixture",
+            "hauteur": ""
+        },
+        {
+            "nom": "Cromorne",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Octave",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Dulzian",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Clairon-Hautbois",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Quintaton",
+            "hauteur": "6/16"
+        },
+        {
+            "nom": "Waldflöte",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Mixture",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Grégorien",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Schalmei",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Sourdine",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Double Diapason",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Open Diapason",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Lieblich Gedact",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Echo Gamba",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Vox Angelica",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Twelfth",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Piccolo",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Oboe",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Horn",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Waldflute & Stopped Diapason",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Lieblich Flute",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Fifteenth",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Open Diapason",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Petite Fourniture",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Dolce ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Basse octaviante",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Trompette",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Tiercelette",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Doublette",
+            "hauteur": "2 et 5 1/3"
+        },
+        {
+            "nom": "Trompette Schnitger",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte Mersenne",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Trompette Française",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Clairon Français",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Bourdon",
+            "hauteur": "6/16"
+        },
+        {
+            "nom": "Prinzipal",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Nazard",
+            "hauteur": "1'1/3"
+        },
+        {
+            "nom": "Tierce",
+            "hauteur": "4/5 '"
+        },
+        {
+            "nom": "Spitzflöte",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Superoctava",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Trompet",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Rörflöte",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Nazat",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Terz ",
+            "hauteur": "1 3/5"
+        },
+        {
+            "nom": "Sifflöte",
+            "hauteur": "1"
+        },
+        {
+            "nom": "Cymbel",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Vox Humana",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Posaunenbass",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Principalbass",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Trompetenbass",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Rörflöte ",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Octava",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Octava",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Nasat",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Mixtur",
+            "hauteur": "VI"
+        },
+        {
+            "nom": "Mixtur",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Principalbass",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Octavbass",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Posaunenbass",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Flûte",
+            "hauteur": "4-8"
+        },
+        {
+            "nom": "Bourdon Montre",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Bourdon",
+            "hauteur": "4/8"
+        },
+        {
+            "nom": "Rauschquinte",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Mixture",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Cornet",
+            "hauteur": "III-V"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "III-V"
+        },
+        {
+            "nom": "Flageolet ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte",
+            "hauteur": "16-8-4"
+        },
+        {
+            "nom": "Plein Jeu",
+            "hauteur": ""
+        },
+        {
+            "nom": "Basse principale",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Basse principale",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Ophicléide ",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Plein-jeu",
+            "hauteur": "IV-VI"
+        },
+        {
+            "nom": "Cor de nuit",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Flûte",
+            "hauteur": "12"
+        },
+        {
+            "nom": "Bombarde",
+            "hauteur": "12"
+        },
+        {
+            "nom": "Basson",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flûte ",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Bombarde ",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Plein-jeu ",
+            "hauteur": "V-VI"
+        },
+        {
+            "nom": "Quinte Flûte",
+            "hauteur": "2'2/3"
+        },
+        {
+            "nom": "Piccolo",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Rohrflöte",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Anche",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "II-IV"
+        },
+        {
+            "nom": "Flûte",
+            "hauteur": "16-8"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "II-III"
+        },
+        {
+            "nom": "Doublette",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Bombarde",
+            "hauteur": "8-16"
+        },
+        {
+            "nom": "Viole d'amour",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Dessus de Trompette en Chamade",
+            "hauteur": ""
+        },
+        {
+            "nom": "Cornet",
+            "hauteur": "VII"
+        },
+        {
+            "nom": "Cymbale-Tierce",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Euphone",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Clairon",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Kornett",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Quintaton",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte traversière",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Principal Quinte",
+            "hauteur": "5 1/3"
+        },
+        {
+            "nom": "Grande Neuvième ",
+            "hauteur": "3 5/9"
+        },
+        {
+            "nom": "Flûte d’écho",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Soprano",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Soprano harmonique",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Tuba",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Tuba",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Tuba major",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Tuba magna",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Tubasson",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Tubasson",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Tuba mirabilis",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Tuba clairon",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Cor harmonique",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Bombardon",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Superoctave",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Large open diapason",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Small open diapason",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Stopped diapason",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Harmonic flute",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Posaune",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Clarion",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Cornopean",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Bass Flute",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Plein-jeu harmonique",
+            "hauteur": "II-VIII"
+        },
+        {
+            "nom": "Cor de basset ",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Théorbe",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Contre-bombarde",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Contre-trombone",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Baryton",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Keraulophon",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Dolciana",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Lieblich Gedackt",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Clarabella",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Röhr Gedackt",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flute Ouverte",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Flûte d'Allemand",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Tiercelette",
+            "hauteur": "1 3/5"
+        },
+        {
+            "nom": "Flûte ouverte",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Sexquialtera",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Fagott",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Sesquialtera",
+            "hauteur": "1 3/5"
+        },
+        {
+            "nom": "Quinte",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Cromhorn",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Viola di Gamba",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Super flûte",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Principal-Cor",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Echo",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Quinta",
+            "hauteur": "3"
+        },
+        {
+            "nom": "Trompete",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Traversflöte",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Bordun",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flaute douce",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Spitzquinta",
+            "hauteur": "3"
+        },
+        {
+            "nom": "Tertia",
+            "hauteur": "1 3/5"
+        },
+        {
+            "nom": "Quinta",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Flaute",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Principalbaß",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Violonbass",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Violabass",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Gemshornbass",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flötenbass",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Octavbass",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Posaunbass",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Fagottbass",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Trompetbass",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Terziane",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Dulcian",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Clairon en chamade",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "II-V"
+        },
+        {
+            "nom": "Cymbale",
+            "hauteur": "II-V"
+        },
+        {
+            "nom": "Clarinette",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Clarinette basse",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Bourdon céleste",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Neuvième",
+            "hauteur": "3 5/9"
+        },
+        {
+            "nom": "Onzième",
+            "hauteur": "2 10/11"
+        },
+        {
+            "nom": "Trompette ",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte amabile",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cor des Alpes",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Eolienne",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Prestant",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Octaaf",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Roerfluit",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Quintfluit",
+            "hauteur": "3"
+        },
+        {
+            "nom": "Superoctaaf",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Sesquialter",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Doppel Gedeckt",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Mixtuur",
+            "hauteur": "IV-VI"
+        },
+        {
+            "nom": "Dulciaan",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Schalmei",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Prestant",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Octaaf",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Holpijp",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Floetenprincipal",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Ruispijp",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Violon",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Baarpijp",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte travers",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Gedecktbass",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Open fluit",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Cello",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Nasard",
+            "hauteur": "3"
+        },
+        {
+            "nom": "Spitsfluit",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Sexquialter",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Dulciaan",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Subass",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Open fluit",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Bazuin",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Cornet",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Flautado",
+            "hauteur": "13"
+        },
+        {
+            "nom": "Camusado",
+            "hauteur": ""
+        },
+        {
+            "nom": "Docena",
+            "hauteur": ""
+        },
+        {
+            "nom": "Quincena",
+            "hauteur": ""
+        },
+        {
+            "nom": "Lleno",
+            "hauteur": "IV-VI"
+        },
+        {
+            "nom": "Tolosana",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Flautado tapado",
+            "hauteur": ""
+        },
+        {
+            "nom": "Quincena nazarda",
+            "hauteur": ""
+        },
+        {
+            "nom": "Corneta",
+            "hauteur": "VI"
+        },
+        {
+            "nom": "Trompeta real",
+            "hauteur": ""
+        },
+        {
+            "nom": "Bajoncillo",
+            "hauteur": ""
+        },
+        {
+            "nom": "Clarin",
+            "hauteur": ""
+        },
+        {
+            "nom": "Dulzaina",
+            "hauteur": ""
+        },
+        {
+            "nom": "Orlos",
+            "hauteur": ""
+        },
+        {
+            "nom": "Contras",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Clochette",
+            "hauteur": ""
+        },
+        {
+            "nom": "Quinte-Flûte",
+            "hauteur": "3"
+        },
+        {
+            "nom": "Grosse flûte",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Stentor",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Stentor",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Stentor",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Acoustique",
+            "hauteur": "32"
+        },
+        {
+            "nom": "quinte ",
+            "hauteur": "10 2/3"
+        },
+        {
+            "nom": "quinte ",
+            "hauteur": "5 1/3"
+        },
+        {
+            "nom": "Montre-Violon",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Harpe éolienne",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte double",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Tremblant doux",
+            "hauteur": ""
+        },
+        {
+            "nom": "trémolo",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flûte allemande",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Tertian",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Tierce ",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Quinte",
+            "hauteur": "1  1/3"
+        },
+        {
+            "nom": "Montre-Viole",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte de Bonn",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Nazard ",
+            "hauteur": "3"
+        },
+        {
+            "nom": "Voix humaine",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Flûte bouchée ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte à cheminée ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Ripieno",
+            "hauteur": "4-5 rangs"
+        },
+        {
+            "nom": "Maggiore",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Mixture grave",
+            "hauteur": "II 10 2/3"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "II 5 1/3"
+        },
+        {
+            "nom": "Régale en chamade",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cymbale-Tierce",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Voix éolienne",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Doppelflôte",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Doppelflöte",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Violon-basse",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Chamade impériale",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Galoubet",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Cornet",
+            "hauteur": "V 16"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "II-IX"
+        },
+        {
+            "nom": "Bourdon flûte",
+            "hauteur": "8-4"
+        },
+        {
+            "nom": "Octave",
+            "hauteur": "1"
+        },
+        {
+            "nom": "Chamade",
+            "hauteur": "4-8"
+        },
+        {
+            "nom": "Choral ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte pastorale ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Choral basse",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte",
+            "hauteur": "4/8"
+        },
+        {
+            "nom": "Basson/Chalumeau",
+            "hauteur": ""
+        },
+        {
+            "nom": "Jeu céleste",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Basse de trompette",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Dessus de trompette",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Buccine",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Cor de nuit",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Cymbale",
+            "hauteur": "III-IV"
+        },
+        {
+            "nom": "Flûte basse",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte basse",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Comble",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Cimbel",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Quinta",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Nassat",
+            "hauteur": "3"
+        },
+        {
+            "nom": "Tertia",
+            "hauteur": "1 3/5"
+        },
+        {
+            "nom": "Quinta",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Mixtur",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Tiercelette",
+            "hauteur": "4/5"
+        },
+        {
+            "nom": "Floete Traverse",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Tierce",
+            "hauteur": "1  1/3"
+        },
+        {
+            "nom": "Quinte",
+            "hauteur": "2'2/3"
+        },
+        {
+            "nom": "Tierce",
+            "hauteur": "1'3/5"
+        },
+        {
+            "nom": "Floeten basse",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Gamba",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Violine principale",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Bourdon douxe",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Nasat ",
+            "hauteur": "3"
+        },
+        {
+            "nom": "Mixtur ",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Sifflöt ",
+            "hauteur": "1"
+        },
+        {
+            "nom": "Scharff ",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Dulcian ",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Quint ",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Superoctav",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Trompet ",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Spillpfeife ",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flöte ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flöte ",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Quint ",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Schalmey ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Octav",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Première Trompette",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Gambe ",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Quintaton",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Registre en réservation, non fourni",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flûte Creuse",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Sesquialtera",
+            "hauteur": "III-IV"
+        },
+        {
+            "nom": "Flûte de concert",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Trompette solo",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Cymbale Tierce",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Flûte Solo",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Geigenprincipal",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Quintfloete ",
+            "hauteur": "2'2/3"
+        },
+        {
+            "nom": "Piccolo harmonique",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Montreviola",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte acoustique  ",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Contre Tuba",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Grossgedackt",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Quinta ",
+            "hauteur": "6"
+        },
+        {
+            "nom": "Cymbel",
+            "hauteur": "II"
+        },
+        {
+            "nom": "CornetBass",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Quinte",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Mixture",
+            "hauteur": "II-IV"
+        },
+        {
+            "nom": "Plein Jeu",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Dessus de flûte",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cimballe",
+            "hauteur": ""
+        },
+        {
+            "nom": "Cimballe",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Gros Nazard",
+            "hauteur": "5 1/3"
+        },
+        {
+            "nom": "Cimballe",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Cornet ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Cornet ",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Cor de Chamois ",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flageolet quarte ",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Tierce",
+            "hauteur": "1 3/5"
+        },
+        {
+            "nom": "Flûte unique",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Soubasse",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Soubasse",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Flûte forestière",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Fourniture III-IV",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flûte à bec",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte aiguë",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Flûte de basse ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Petite Fourniture",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Nachthorn",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Dessus de cornet",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Flûte octaviante",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Trompette",
+            "hauteur": "12"
+        },
+        {
+            "nom": "Trompette",
+            "hauteur": "12"
+        },
+        {
+            "nom": "Clairon",
+            "hauteur": "6"
+        },
+        {
+            "nom": "Basse acoustique",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Flûte des neiges 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Hautbois en chamade",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Basson-hautbois",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Petit principal",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Dessus de Flûte traversière  8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Dulciana",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte douce",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Martin",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Flûte basse",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Octavin",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Mixtur",
+            "hauteur": "V-VII"
+        },
+        {
+            "nom": "Praestant",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Oktav",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Superoktav",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Flotte",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Floete",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Waldfloete",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Petite Flûte",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Trompette allemande 8'",
+            "hauteur": ""
+        },
+        {
+            "nom": "Huit pieds ouvert",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cornet I-III",
+            "hauteur": ""
+        },
+        {
+            "nom": "Trombone Basse 8'",
+            "hauteur": ""
+        },
+        {
+            "nom": "Trombone Alto",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Petite Flûte ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Montre Harmonique 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Basse ouverte",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Tapadet",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Dinovena",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Bordo ",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Quinzena",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Basse de Viole",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Nasard conique 2'2/3",
+            "hauteur": ""
+        },
+        {
+            "nom": "Grande Sesquialtera III",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flautado",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Violòn con chimenea",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Docena",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Quicena",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Lleno",
+            "hauteur": "V hileros"
+        },
+        {
+            "nom": "Cimbalet",
+            "hauteur": "III hileros"
+        },
+        {
+            "nom": "Nasardo",
+            "hauteur": "12° 2 2/3"
+        },
+        {
+            "nom": "Nasardo",
+            "hauteur": "17° 1 3/5"
+        },
+        {
+            "nom": "Corneta",
+            "hauteur": "VII hileros"
+        },
+        {
+            "nom": "Trompeta real",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Bajoncillo",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Clarin",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Dulzaina",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Tapadillo",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Decinovena",
+            "hauteur": "1  1/3"
+        },
+        {
+            "nom": "Diecisetena",
+            "hauteur": "1  3/5"
+        },
+        {
+            "nom": "Orlos",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Corneta",
+            "hauteur": "III hileros"
+        },
+        {
+            "nom": "Grosse Flûte",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Grosse Fourniture",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Trompette en chamade 4'",
+            "hauteur": ""
+        },
+        {
+            "nom": "Trompette en chamade",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Mélodie",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Bourdon doux",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Cor",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Stopped diapason",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Ripieno grave",
+            "hauteur": ""
+        },
+        {
+            "nom": "Ripieno acuto",
+            "hauteur": ""
+        },
+        {
+            "nom": "bordone",
+            "hauteur": ""
+        },
+        {
+            "nom": "Bordone",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flauto in quinta decima 2",
+            "hauteur": ""
+        },
+        {
+            "nom": "Cornetto",
+            "hauteur": "1 3/5"
+        },
+        {
+            "nom": "Fiagioletto",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Tromba reale 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Cromorno",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte allemande",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Principale",
+            "hauteur": ""
+        },
+        {
+            "nom": "Ottava",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flauto in ottava",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flauto in duodecima",
+            "hauteur": ""
+        },
+        {
+            "nom": "Fiffaro",
+            "hauteur": ""
+        },
+        {
+            "nom": "Decima nona",
+            "hauteur": ""
+        },
+        {
+            "nom": "Vingesima seconda",
+            "hauteur": ""
+        },
+        {
+            "nom": "Vigesima nona",
+            "hauteur": ""
+        },
+        {
+            "nom": "Vigesima seconda",
+            "hauteur": ""
+        },
+        {
+            "nom": "Trigesima terza",
+            "hauteur": ""
+        },
+        {
+            "nom": "Tirasse permanente",
+            "hauteur": ""
+        },
+        {
+            "nom": "Mixture 5-6 rangs",
+            "hauteur": ""
+        },
+        {
+            "nom": "Principal doux",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Second",
+            "hauteur": "8"
+        },
+        {
+            "nom": "1  chape vide",
+            "hauteur": ""
+        },
+        {
+            "nom": "Corno dolce",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Principal italien",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Quintade",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Praestant",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Scharf",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Quint",
+            "hauteur": "3"
+        },
+        {
+            "nom": "Mixtur",
+            "hauteur": "V-X"
+        },
+        {
+            "nom": "Bass",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Mixture",
+            "hauteur": "IV-VI"
+        },
+        {
+            "nom": "Cymbale",
+            "hauteur": "IV-VI"
+        },
+        {
+            "nom": "Viole alto",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Rauschpfeife",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Quintade",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Trumpet",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Venture",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Petit Nasard",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Super Octave",
+            "hauteur": "1"
+        },
+        {
+            "nom": "Flauto Dolce",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Mixture ",
+            "hauteur": "II-V 2’2/3"
+        },
+        {
+            "nom": "Mixture-Cornet",
+            "hauteur": "III-V"
+        },
+        {
+            "nom": "2 chapes vides",
+            "hauteur": ""
+        },
+        {
+            "nom": "Trompette douce 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Musette",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Flûte à cheminée",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Ripieno",
+            "hauteur": "1 + 1/2 + 1/3 + 1/4"
+        },
+        {
+            "nom": "Cor de chamois",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Fourniture ",
+            "hauteur": "V-VI"
+        },
+        {
+            "nom": "Co de daim",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Cor de daim",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Bourdon d’écho ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Cornet d’écho ",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Cymbale",
+            "hauteur": "II-IV"
+        },
+        {
+            "nom": "Dulciana",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Petit Plein Jeu",
+            "hauteur": "IX"
+        },
+        {
+            "nom": "Gros Cromorne ",
+            "hauteur": "8"
+        },
+        {
+            "nom": "1ère Flûte ",
+            "hauteur": "8"
+        },
+        {
+            "nom": "2ème  Flûte ",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte traverse",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Trompette",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Clairon",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Grand cornet",
+            "hauteur": ""
+        },
+        {
+            "nom": "Serpent",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Quintaton",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Flûte traversière",
+            "hauteur": "4-8"
+        },
+        {
+            "nom": "Salicional ",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Grand Plein Jeu",
+            "hauteur": "XIII"
+        },
+        {
+            "nom": "Dulciane douce",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Quinte-Flûte",
+            "hauteur": "1'1/3"
+        },
+        {
+            "nom": "Salicional",
+            "hauteur": "1"
+        },
+        {
+            "nom": "Plein Jeu harmonique",
+            "hauteur": "II-IV"
+        },
+        {
+            "nom": "Petite Tierce",
+            "hauteur": "2/5"
+        },
+        {
+            "nom": "Cymbale-Tierce",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Montre conique",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Fourniture-Cymbale",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Clariton",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Clariton",
+            "hauteur": "I/II"
+        },
+        {
+            "nom": "Clariton",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Dulciane",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Sacqueboute",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Stopped Diapason & Claribella",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Piccolo 1-2",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flûte Mérolo",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Contrebasse",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Dermogloste 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Principal 32",
+            "hauteur": ""
+        },
+        {
+            "nom": "plein jeu ",
+            "hauteur": "VIII"
+        },
+        {
+            "nom": "Flûte 8, ouverte, en bois ",
+            "hauteur": ""
+        },
+        {
+            "nom": "Chamade 16",
+            "hauteur": ""
+        },
+        {
+            "nom": "Chamade 4",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flûte octave 4",
+            "hauteur": ""
+        },
+        {
+            "nom": "Montre-Flûte 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Grand Prestant 4",
+            "hauteur": ""
+        },
+        {
+            "nom": "Grand Cornet V-VI",
+            "hauteur": ""
+        },
+        {
+            "nom": "Trombone 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Rauschpfeife III",
+            "hauteur": ""
+        },
+        {
+            "nom": "Spitzgamba 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flute principale 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flute principale 4",
+            "hauteur": ""
+        },
+        {
+            "nom": "Cymbale IV-V",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flottraver 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Kornet 4",
+            "hauteur": ""
+        },
+        {
+            "nom": "Krumhorn 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Gedackt 4",
+            "hauteur": ""
+        },
+        {
+            "nom": "Mixture",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Flûte céleste",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flûte céleste 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flûte des bois",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Flûte ouverte",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Basson 32",
+            "hauteur": ""
+        },
+        {
+            "nom": "Plein Jeu",
+            "hauteur": "II-III"
+        },
+        {
+            "nom": "Flûte d'Erable 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Mixtur III+III",
+            "hauteur": ""
+        },
+        {
+            "nom": "Suavial 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Bourdon 8 à cheminée",
+            "hauteur": ""
+        },
+        {
+            "nom": "Plein-jeu",
+            "hauteur": "I-IV"
+        },
+        {
+            "nom": "Voix angélique",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Bourdon 8 en bois",
+            "hauteur": ""
+        },
+        {
+            "nom": "Quinte",
+            "hauteur": "3"
+        },
+        {
+            "nom": "Grande Fourniture",
+            "hauteur": "V-VI"
+        },
+        {
+            "nom": "Grand Cornet II-IV",
+            "hauteur": ""
+        },
+        {
+            "nom": "Méditation 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Septime 1 1/7",
+            "hauteur": ""
+        },
+        {
+            "nom": "Choeur de Cordes 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Choeur de Cordes 4",
+            "hauteur": ""
+        },
+        {
+            "nom": "Tuba 4",
+            "hauteur": ""
+        },
+        {
+            "nom": "Tierce impériale 6 2/5",
+            "hauteur": ""
+        },
+        {
+            "nom": "Posaune 32",
+            "hauteur": ""
+        },
+        {
+            "nom": "Mostra",
+            "hauteur": "7 (4')"
+        },
+        {
+            "nom": "Bordo ",
+            "hauteur": "14 (8')"
+        },
+        {
+            "nom": "Dobleta",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flauta ",
+            "hauteur": "(4')"
+        },
+        {
+            "nom": "Nazart",
+            "hauteur": "12 (2.2/3)"
+        },
+        {
+            "nom": "Tierza nazarda ",
+            "hauteur": "(1.3/5)"
+        },
+        {
+            "nom": "Simbala",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Fornitura",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Bordo major",
+            "hauteur": "(16)"
+        },
+        {
+            "nom": "Mostra",
+            "hauteur": "14 (8')"
+        },
+        {
+            "nom": "Flûte ",
+            "hauteur": "14 (8')"
+        },
+        {
+            "nom": "Fluta ",
+            "hauteur": "(4)"
+        },
+        {
+            "nom": "Guinzena",
+            "hauteur": "(2)"
+        },
+        {
+            "nom": "Nasart",
+            "hauteur": "12 (2.2/3)"
+        },
+        {
+            "nom": "Nasart",
+            "hauteur": "15 (1.3/5)"
+        },
+        {
+            "nom": "Fornitura",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Fornitura",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Simbala",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Trompeta (basse) ",
+            "hauteur": ""
+        },
+        {
+            "nom": "Trompeta ",
+            "hauteur": ""
+        },
+        {
+            "nom": "Clarins",
+            "hauteur": ""
+        },
+        {
+            "nom": "Baixons-Clarin",
+            "hauteur": "(4')"
+        },
+        {
+            "nom": "Veu umana",
+            "hauteur": "(8')"
+        },
+        {
+            "nom": "Corneta",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Fluta ",
+            "hauteur": "28 (16')"
+        },
+        {
+            "nom": "Fluta ",
+            "hauteur": "(8')"
+        },
+        {
+            "nom": "Trompeta",
+            "hauteur": "(8')"
+        },
+        {
+            "nom": "Flûte de Pan 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flûte d'orchestre 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Fourniture IV-VI",
+            "hauteur": ""
+        },
+        {
+            "nom": "Grosse fourniture VIII",
+            "hauteur": ""
+        },
+        {
+            "nom": "Montre I-II 4",
+            "hauteur": ""
+        },
+        {
+            "nom": "Traversine 2",
+            "hauteur": ""
+        },
+        {
+            "nom": "Tiercelette II",
+            "hauteur": ""
+        },
+        {
+            "nom": "Douçaine 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Montre I-II  8'",
+            "hauteur": ""
+        },
+        {
+            "nom": "Octave I-II  4'",
+            "hauteur": ""
+        },
+        {
+            "nom": "Quinzième I-II  2'",
+            "hauteur": ""
+        },
+        {
+            "nom": "Fourniture II-VI",
+            "hauteur": ""
+        },
+        {
+            "nom": "Cornet à bouquin VII",
+            "hauteur": ""
+        },
+        {
+            "nom": "Sacqueboute 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flûte champêtre 2",
+            "hauteur": ""
+        },
+        {
+            "nom": "Tierce Flûte 1'3/5",
+            "hauteur": ""
+        },
+        {
+            "nom": "Chalumeau 16",
+            "hauteur": ""
+        },
+        {
+            "nom": "Grand Bourdon 32'",
+            "hauteur": ""
+        },
+        {
+            "nom": "Douçaine 32'",
+            "hauteur": ""
+        },
+        {
+            "nom": "Sordun",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Tapadet amb xemeneis",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Regalies",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Subbaix",
+            "hauteur": "16"
+        },
+        {
+            "nom": "\"Angélique\"",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Bourdon conique",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Carillon",
+            "hauteur": "I-III"
+        },
+        {
+            "nom": "Carillon",
+            "hauteur": "II-IV"
+        },
+        {
+            "nom": "Chromhorne",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cimbel",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Cornet",
+            "hauteur": "I-III"
+        },
+        {
+            "nom": "Cornet",
+            "hauteur": "II-III"
+        },
+        {
+            "nom": "Cornettino",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Corno inglese",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Cromorne",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Cymbale",
+            "hauteur": "V-VI"
+        },
+        {
+            "nom": "Feldtrompete",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flûte large",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": "VII"
+        },
+        {
+            "nom": "Grande fourniture",
+            "hauteur": "II-IV"
+        },
+        {
+            "nom": "Hintersatz",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Holzdulzian",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Koraal-bas",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Mixture",
+            "hauteur": "IV-V"
+        },
+        {
+            "nom": "Mixture",
+            "hauteur": "II-III"
+        },
+        {
+            "nom": "Nasart",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Octavin harmonique",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Oktav",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Petit cornet",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Petite chalemie",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Quinte",
+            "hauteur": "3"
+        },
+        {
+            "nom": "Quintelette",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Quintflöte",
+            "hauteur": "1 1/3"
+        },
+        {
+            "nom": "Fluste",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Fluit",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Gedeckt",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Grande tierce",
+            "hauteur": "1 3/5"
+        },
+        {
+            "nom": "Grosse flûte bouchée",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Sacqueboute",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Sacqueboute",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Soubasse acoustique",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Sous-basse",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Tercian",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Tiercyne",
+            "hauteur": "1 3/5"
+        },
+        {
+            "nom": "Trompette royale",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Trompette royale",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Fluste à neuf trous",
+            "hauteur": "2"
+        },
+        {
+            "nom": "clairon-doublette",
+            "hauteur": "2'"
+        },
+        {
+            "nom": "Principale primo",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Violoncello",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flautone",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flautone traversiere",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Decidenona",
+            "hauteur": ""
+        },
+        {
+            "nom": "Timbali",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flauto",
+            "hauteur": ""
+        },
+        {
+            "nom": "grosse cymbale",
+            "hauteur": ""
+        },
+        {
+            "nom": "petite cymbale",
+            "hauteur": ""
+        },
+        {
+            "nom": "Voix harmonique",
+            "hauteur": "4"
+        },
+        {
+            "nom": "principal harmonique",
+            "hauteur": "16"
+        },
+        {
+            "nom": "trompette coudée à forte pression",
+            "hauteur": "8"
+        },
+        {
+            "nom": "clarinette à pavillon",
+            "hauteur": "8"
+        },
+        {
+            "nom": "bourdon-quintaton",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Fourniture harmonique ",
+            "hauteur": "(31’) I-II"
+        },
+        {
+            "nom": "1er Clairon",
+            "hauteur": "4"
+        },
+        {
+            "nom": "2ème Clairon",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Starkton Floete",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Starkton Geigenprinzipal",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cremona ",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Mixture-Tierce",
+            "hauteur": "V"
+        },
+        {
+            "nom": "Lieblich Gedeckt",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Starkton Prinzipal",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Octavfloete",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Harmonia aethera ",
+            "hauteur": "III 2’2/3"
+        },
+        {
+            "nom": "Gedecktbass",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Quintbass ",
+            "hauteur": "10’2/3"
+        },
+        {
+            "nom": "Starkton Viola di Gamba",
+            "hauteur": "8"
+        }
     ],
     "facteurs": [
         "Abbey Alfred",
@@ -5589,5 +5403,191 @@
         "Decavel Daniel",
         "Pascal Antoine",
         "Cogez Bernard"
+    ],
+    "type_accessoire": [
+        "Tremblant",
+        "Trémolo",
+        "Accouplement Pos./G.O.",
+        "Accouplement Réc./G.O.",
+        "Accouplement Pos./Réc.",
+        "Accouplement Réc./Pos.",
+        "Tirasse Pos.",
+        "Tirasse Réc.",
+        "Tirasse G.O.",
+        "Anches G.O.",
+        "Anches Pos.",
+        "Anches Réc.",
+        "Tirasse G.Ch.",
+        "Tirasse permanente G.O.",
+        "Tirasse permanente Réc.",
+        "Anches Péd.",
+        "Orage",
+        "Grêle",
+        "Rossignol",
+        "Octaves aiguës G.O.",
+        "Octaves graves G.O.",
+        "Appel G.O.",
+        "Appel G.C.",
+        "Combinateur",
+        "Combinaison libre",
+        "Accouplement 4 Pos./G.O.",
+        "Accouplement 16 Pos./G.O.",
+        "Accouplement 4 Réc./G.O.",
+        "Accouplement 16 Réc./G.O.",
+        "Expression Réc. par bascule",
+        "Expression Réc. par cuillère",
+        "Expression Pos. par cuillère",
+        "Tremblant Pos.",
+        "Tremblant Réc.",
+        "Tremblant G.O.",
+        "Trémolo Pos.",
+        "Trémolo Réc.",
+        "Trémolo G.O.",
+        "Expression Pos. par bascule",
+        "Expression par cuillère",
+        "Expression par bascule",
+        "Zimbelstern",
+        "Fonds 8'",
+        "Fonds 8' et 4'",
+        "Tutti",
+        "Tutti tirasses",
+        "Tutti copulas",
+        "Fonds Ped.",
+        "Fonds et Petites mixtures",
+        "Fonds et Mutations",
+        "Tirasse 16 G.O.",
+        "Tremblant doux",
+        "Tremblant fort",
+        "Tremblant fort Réc.",
+        "Tremblant fort Pos.",
+        "Tremblant fort Ech.",
+        "Tremblant doux Réc.",
+        "Tremblant doux Pos.",
+        "Tremblant doux Ech.",
+        "Octaves graves Réc.",
+        "Octaves aiguës Réc.",
+        "Expression G.O. par bascule",
+        "Crescendo général",
+        "Octaves graves Pos.",
+        "Octaves aiguës Pos.",
+        "Trémolo réglable",
+        "Tirasse 4 G.O.",
+        "Tirasse 4 Pos.",
+        "Tirasse 4 Réc.",
+        "Accouplement 4 Réc./Pos.",
+        "Accouplement 16 Réc./Pos.",
+        "Tremulant",
+        "Tirasse 16 Pos.",
+        "Tirasse 16 Réc.",
+        "Tirasse -8 Solo",
+        "Octaves aiguës Péd.",
+        "Tutti anches",
+        "Vielle",
+        "Mixtures G.O.",
+        "Mixtures Réc.",
+        "Mixtures Pos.",
+        "Appel Pos.",
+        "Accouplement Bomb./G.O.",
+        "Plein jeu",
+        "Tremblant Ech.",
+        "Tremblant G.O. & Ech.",
+        "Anches Bomb.",
+        "Trompette Réc.",
+        "Accouplement Pos./G.O. à tiroir",
+        "Accouplement Réc./G.O. à tiroir",
+        "Expression par genouillère",
+        "Tutti G.O.",
+        "Tutti mixtures",
+        "Tutti Péd.",
+        "Tutti Pos.",
+        "Tutti Réc.",
+        "Tremblant doux G.O.",
+        "Tremblant doux Rés.",
+        "Tremblant fort G.O.",
+        "Tremblant fort Rés.",
+        "Tremblant Schwellwerk",
+        "Tremblant Solo",
+        "Pédale automatique",
+        "Transpositeur",
+        "Hautbois",
+        "Voix céleste",
+        "Voix humaine",
+        "Grand chœur",
+        "Combinaison fixe",
+        "Anches",
+        "Anches Ech.",
+        "Anches G.Ch.",
+        "Annulateur",
+        "Trompette",
+        "Bourdon",
+        "Chamade",
+        "Clairon",
+        "Cornet",
+        "Cornet Pos.",
+        "Prestant",
+        "Principal 16' Péd.",
+        "Bombarde",
+        "Grand jeu",
+        "Grand jeu G.O.",
+        "Grand jeu Péd.",
+        "Grand jeu Réc.",
+        "Grand jeu G.Ch.",
+        "Grand plein jeu",
+        "Mixtures",
+        "Fonds 8' G.O. et G.Ch.",
+        "Mixtures Péd.",
+        "Mixtures Bomb.",
+        "Accouplement Bomb./Pos.",
+        "Accouplement Bomb./Réc.",
+        "Accouplement II/I",
+        "Accouplement G.Ch./G.O.",
+        "Accouplement 4 G.Ch./G.O.",
+        "Accouplement Rec./G.Ch.",
+        "Accouplement 4 II/I",
+        "Accouplement 16 8 4 II/I",
+        "Accouplement Oberwerk/Hauptwerk",
+        "Copula",
+        "Accouplement Rec./G.Ch.",
+        "Accouplement Schwellwerk/Hauptwerk",
+        "Accouplement Solo/G.O.",
+        "Accouplement Solo/Pos.",
+        "Accouplement Solo/Réc.",
+        "Tirasse I",
+        "Tirasse II",
+        "Tirasse",
+        "Tirasse 4 I",
+        "Tirasse 4 II",
+        "Tirasse Bomb.",
+        "Tirasse Cham.",
+        "Tirasse 4 Cham.",
+        "Tirasse Ech.",
+        "Tirasse Hauptwerk",
+        "Tirasse permanente Pos.",
+        "Tirasse Rés.",
+        "Tirasse 4 Rés.",
+        "Tirasse Schwellwerk",
+        "Tirasse Solo",
+        "Accouplement G.O./Pos.",
+        "Accouplement G.O./Réc.",
+        "Accouplement G.O./Rés.",
+        "Séquenceur",
+        "Trémolo G.Ch.",
+        "Octaves graves G.Ch.",
+        "Octaves graves",
+        "Octaves aiguës",
+        "Accouplement Cham./G.O.",
+        "Accouplement Cham./Réc.",
+        "Accouplement Cham./Pos.",
+        "Accouplement Cham./Solo",
+        "Accouplement Ech./G.O.",
+        "Accouplement Ech./Pos.",
+        "Accouplement Rés./Pos.",
+        "Accouplement Rés./G.O.",
+        "Accouplement Ech./Rec.",
+        "Plein jeu Pos.",
+        "Soubasse Péd.",
+        "Forte",
+        "Accouplement Pos./Rés.",
+        "Tutti Bombarde"
     ]
 }
