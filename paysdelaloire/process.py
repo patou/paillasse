@@ -5,6 +5,7 @@ import pprint
 import re
 import unidecode
 import csv
+import requests
 
 logger = logging.getLogger('paysdelaloire')
 logger.setLevel(logging.DEBUG)
@@ -12,6 +13,23 @@ logger.setLevel(logging.DEBUG)
 def loadFile(file):
     with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'export', file)) as fichier:
         return json.load(fichier)[2]['data']
+
+def downloadImports():
+    api_key = os.environ.get("API_KEY")
+    if not api_key:
+        print("Variable d'environnement API_KEY non définie")
+        return
+    print("Téléchargement des import")
+    for code_dep in ['44', '49', '53', '72', '85']:
+        response = requests.get("https://inventaire-des-orgues.fr/api/v1/orgues/",
+                                    params={"code_departement": code_dep, "limit": 150},
+                                    headers = {'Authorization': 'Token '+api_key})
+        with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'currentinventaire', code_dep+'.json'), mode='wt') as file:
+            json.dump(response.json(), file, indent = 4, ensure_ascii=False)
+    response = requests.get("https://inventaire-des-orgues.fr/api/v1/config.json",
+                                    headers = {'Authorization': 'Token '+api_key})
+    with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'data', 'config.json'), mode='wt') as file:
+        json.dump(response.json(), file, indent = 4, ensure_ascii=False)
 
 def loadImport(departement):
     with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'currentinventaire', departement+'.json')) as renseignements:
@@ -453,20 +471,33 @@ class Export:
 
 
 class Context:
-    def __init__(self, id, codification, orgue, export, data):
+    def __init__(self, export, data):
+        self.id = 0
+        self.codification = ''
+        self.orgue = None
+        self.export = export
+        self.data = data
+        self.logFile = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'csv', 'log.csv'), mode='wt')
+        self.logCsv = csv.writer(self.logFile, dialect='excel')
+    
+    def __del__(self):
+        self.logFile.close()
+        print('End...')
+
+    def line(self, id, codification, orgue):
         self.id = id
         self.codification = codification
         self.orgue = orgue
-        self.export = export
-        self.data = data
 
     def log(self, message):
         print(self.codification, ":", message)
+        self.logCsv.writerow([self.codification, message])
 
 def process():
     '''
     Process l'inventaire des pays de la loire
     '''
+    downloadImports()
     current = loadImports()
     export = Export()
     export.exportCSV()
@@ -477,14 +508,14 @@ def process():
         }
 
     result = []
-
+    context = Context(export, data)
     for renseignement in export.renseignements:
         if (renseignement['statut'] == "3"):
             id = renseignement['id']
             departement = extractNumeroDepartement(renseignement['departement'])
             orgue = findCurrentOrgan(current, departement, id)
             if orgue:
-                context = Context(id, orgue['codification'], orgue, export, data)
+                context.line(id, orgue['codification'], orgue)
                 try:
                     print('===', id, orgue['codification'], renseignement['edifice'], renseignement['ville'])
                     # Renseignements
