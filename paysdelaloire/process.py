@@ -362,10 +362,10 @@ def extractType(line):
 def normalizeFacteur(context, facteur):
     facteurs = []
     fact = context.data["facteurs"].get(facteur)
-    if fact:
+    if fact and fact != "None":
         facteurs = fact.split(",")
     else:
-        context.log("Facteur {} not exist".format(facteur))
+        context.log("Facteur {} n'éxiste pas".format(facteur))
     return facteurs
 
 def extractEvenementFacteur(context, line, annee, facteurs):
@@ -380,7 +380,7 @@ def extractEvenementFacteur(context, line, annee, facteurs):
                     found.add(nom)
     if len(found) == 0:
         # Chercher dans la liste complète des facteurs
-        context.log("Pas de facteur trouvé dans {} pour {}".format(line, facteurs))
+        context.log("Pas de facteur trouvé dans \"{}\" pour {}".format(line, ','.join(map(str, facteurs))))
     list = []
     for item in found:
         list.extend(normalizeFacteur(context, item))
