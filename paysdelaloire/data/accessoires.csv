@@ -51,7 +51,7 @@ appel mixtures,Mixtures
 appel prestant,Prestant
 appel principal 16 pedale,Principal 16' Péd.
 appel registration,Combinaison libre
-appel soubasse pedale (= montre 16 grand-orgue),
+appel soubasse pedale (= montre 16 grand-orgue),Soubasse Péd.
 appel trompette,Trompette
 appel tutti,Tutti
 appel tutti fonds,Fonds
@@ -64,10 +64,10 @@ appel-retrait anches grand-orgue,Anches G.O.
 appel-retrait anches recit,Anches Réc.
 appel-retrait bombarde,Bombarde
 appel-retrait chamade,Chamade
-appel-retrait plein jeu positif,
+appel-retrait plein jeu positif,Plein jeu Pos.
 appel-retrait plein-jeu grand-orgue,Grand plein jeu
 appel-retrait trompette grand-orgue,Anches G.O.
-appel/renvoi forte,
+appel/renvoi forte,Forte
 appel/renvoi trompette,Trompette
 bombarde / grand-orgue,Accouplement Bomb./G.O.
 bombarde / positif,Accouplement Bomb./Pos.
@@ -141,7 +141,7 @@ positif / grand-orgue,Accouplement Pos./G.O.
 positif / grand-orgue 16,Accouplement 16 Pos./G.O.
 positif / grand-orgue 4,Accouplement 4 Pos./G.O.
 positif / grand-orgue 8,Accouplement Pos./G.O.
-positif / resonnance,
+positif / resonnance,Accouplement Pos./Rés.
 positif /grand-orgue,Accouplement Pos./G.O.
 positif-coffre extractible,None
 positif/grand-orgue,Accouplement Pos./G.O.
@@ -233,7 +233,7 @@ tremolo recit,Trémolo Réc.
 tremulant,Tremulant
 tutti,Tutti
 tutti anches,Tutti anches
-tutti bombarde,
+tutti bombarde,Tutti Bombarde
 tutti copulas,Tutti copulas
 tutti general,Tutti
 tutti grand-orgue,Tutti G.O.

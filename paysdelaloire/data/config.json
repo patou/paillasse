@@ -1117,6 +1117,20 @@
     "Méritan",
     "Deloye François",
     "Henri Saby",
+    "Thibaud Jean-François",
+    "Lacorre Denis",
+    "Manufacture de grandes orgues Hedelin et Cie",
+    "de Villiers Thomas",
+    "Damiens Robert",
+    "Damiens Louis",
+    "Danielot Pierre",
+    "de Villers Thomas",
+    "Bevington Henry",
+    "Heurtebise Arnaud",
+    "Xavier Szymczak",
+    "Joseph Albert",
+    "S.T.A.F.O.",
+    "Frère Gilles",
     "Fohrer Sébastien",
     "Loriaut Jean-Louis",
     "Pesce Michel & Gilbert",
@@ -5315,6 +5329,34 @@
     {
     "nom": "Voix harmonique",
     "hauteur": "4"
+    },
+    {
+    "nom": "principal harmonique",
+    "hauteur": "16"
+    },
+    {
+    "nom": "trompette coudée à forte pression",
+    "hauteur": "8"
+    },
+    {
+    "nom": "clarinette à pavillon",
+    "hauteur": "8"
+    },
+    {
+    "nom": "bourdon-quintaton",
+    "hauteur": "8"
+    },
+    {
+    "nom": "Fourniture harmonique ",
+    "hauteur": "(31’) I-II"
+    },
+    {
+    "nom": "1er Clairon",
+    "hauteur": "4"
+    },
+    {
+    "nom": "2ème Clairon",
+    "hauteur": "4"
     }
     ],
     "type_accessoire": [
@@ -5496,6 +5538,11 @@
     "Accouplement Ech./Pos.",
     "Accouplement Rés./Pos.",
     "Accouplement Rés./G.O.",
-    "Accouplement Ech./Rec."
+    "Accouplement Ech./Rec.",
+    "Plein jeu Pos.",
+    "Soubasse Péd.",
+    "Forte",
+    "Accouplement Pos./Rés.",
+    "Tutti Bombarde"
     ]
     }

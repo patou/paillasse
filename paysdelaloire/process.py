@@ -17,7 +17,7 @@ def loadImport(departement):
     with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'currentinventaire', departement+'.json')) as renseignements:
         return json.load(renseignements)['results']
 
-def loadCsvFile(file, key = lambda item: item[0], value = lambda item: item[1] if item[1] else None):
+def loadCsvFile(file, key = lambda item: item[0], value = lambda item: item[1] if item[1] and item[1] is not 'None' else None):
     with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'data', file)) as fichier:
         return {key(item):value(item) for item in csv.reader(fichier)}
 
@@ -199,6 +199,48 @@ def buildJeux(context, type, definition):
                 jeux.append(jeu)
     return jeux
 
+etendu = ['C', 'C#','D', 'D#', 'E', 'F','F#','G','G#','A','A#','B']
+def calcEtendue(notes):
+    '''
+    Calcule l'étendu d'un clavier à partir de C1 et du nombre des notes
+    '''
+    return 'C1-'+etendu[(note-1)%12]+str((note-1)/12+1)
+
+def builEtendues(context, notes, type):
+    '''
+        Construit l'étendu d'un clavier par le nombre de note, considère que l'on commence toujours à C1
+        Pour les claviers en dessous de 48 notes, on ne met rien car on ne connais pas à quel notes ils commences
+    '''
+    if type == 'ped':
+        if notes == '25':
+            return 'C1-C3'
+        if notes == '26':
+            return 'C1-C#3'
+        if notes == '27':
+            return 'C1-D3'
+        if notes == '29':
+            return 'C1-E3'
+        if notes == '30':
+            return 'C1-F3'
+        if notes == '32':
+            return 'C1-G3'
+    if notes == '48':
+        return 'C1-B5'
+    if notes == '50':
+        return 'C1-C#5'
+    if notes == '53':
+        return 'C1-E5'
+    if notes == '54':
+        return 'C1-F#5'
+    if notes == '56':
+        return 'C1-G5'
+    if notes == '58':
+        return 'C1-A5'
+    if notes == '61':
+        return 'C1-C6'
+    context.log("L'étendu du clavier de {} notes n'est pas connus".format(notes))
+    return ''
+
 claverTypes = (
     ("Grand-Orgue",["Grand orgue", "GRAND ORGUE"]),
     ("Récit",["Récit expressif", "Récif expressif"]),
@@ -242,7 +284,7 @@ def buildClavier(context, type, definition):
     if definition[type + "_notes"]:
         return {
             "type": buildClavierType(context, definition[type]) if type != 'ped' else 'Pédalier',
-            "etendue": definition[type + "_notes"],
+            "etendue": builEtendues(context, definition[type + "_notes"], type),
             "is_expressif": "expressif" in definition[type] if type != 'ped' else False,
             "jeux": buildJeux(context, type, definition)
         }
@@ -325,7 +367,6 @@ def extractEvenementFacteur(context, line, annee, facteurs):
     for item in found:
         list.extend(normalizeFacteur(context, item))
     return list
-
 
 
 def buildEvenements(context, historique, facteurs):
