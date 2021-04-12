@@ -98,7 +98,7 @@ def generateProprietaire(context, proprietaire):
     elif proprietaire == 'Hopital':
         return "hopital"
     else:
-        context.log("Proprietaire {} n'héxiste pas".format(proprietaire))
+        context.log("Proprietaire {} n'existe pas".format(proprietaire))
         return None
 
 def generateEtat(context, etat):
@@ -113,7 +113,7 @@ def generateEtat(context, etat):
     elif etat == 'Injouable':
         return "degrade"
     else:
-        context.log("Etat {} n'héxiste pas".format(etat))
+        context.log("Etat {} n'éxiste pas".format(etat))
         return None
 
 def generateTransmission(context, transmission):
@@ -168,7 +168,7 @@ def buildAccessoires(context, combinaisons):
                 if not acc == "None":
                     accessoires.extend(acc.split(','))
             else:
-                context.log("Accessoire {} not exist".format(nom))
+                context.log("Accessoire {} n'existe pas".format(nom))
     return accessoires
 
 def cleanHauteur(hauteur):
@@ -248,6 +248,8 @@ def builEtendues(context, notes, type):
         return 'C1-B5'
     if notes == '50':
         return 'C1-C#5'
+    if notes == '51':
+        return 'C1-D5'
     if notes == '53':
         return 'C1-E5'
     if notes == '54':
@@ -262,8 +264,8 @@ def builEtendues(context, notes, type):
     return ''
 
 claverTypes = (
-    ("Grand-Orgue",["Grand orgue", "GRAND ORGUE"]),
-    ("Récit",["Récit expressif", "Récif expressif"]),
+    ("Grand-Orgue",["Grand orgue", "GRAND ORGUE", "Grand Orgue"]),
+    ("Récit",["Récit expressif", "Récif expressif", "Récit expressif et Grand orgue"]),
     ("Pédale",[]),
     ("Positif",["POSITIF", "Positif expressif"]),
     ("Positif de dos",[]),
@@ -322,7 +324,7 @@ siecles = {
 }
 
 def extractDate(text):
-    match = re.search(r"([0-9]{4}|[XVI]+)(-[0-9]{2,4})?", text)
+    match = re.search(r"([0-9]{4}|[XVI]{2,})(-[0-9]{2,4})?", text)
     if not match:
         return (None, None, None)
     circa = not ("v." in text or "?" in text)
@@ -402,7 +404,7 @@ def buildEvenements(context, historique, facteurs):
             facteur = extractEvenementFacteur(context, line, annee, facteurs)
             if annee is None or type is None:
                 context.log("Historique : {}".format(line))
-                pass
+                continue
             evenement = {
                 "type": type,
                 "resume": resume,
@@ -528,7 +530,7 @@ def process():
                     orgue['diapason'] = renseignement['diapason'] if orgue['diapason'] is None else orgue['diapason']
                     orgue['temperament'] = renseignement['temperament'] if orgue['temperament'] is None else orgue['temperament']
                     orgue['buffet'] = renseignement['buffet'] if orgue['buffet'] is None else orgue['buffet']
-                    if len(orgue['images']) == 0:
+                    if len(orgue['images']) == 0 and renseignement['image'] is not None:
                         orgue['images'].append({
                             "credit": renseignement['credit'] if renseignement['credit'] else 'www.orguepaysdelaloire.fr',
                             "url": "http://orguepaysdelaloire.fr/inventory/upload/"+renseignement['image']
