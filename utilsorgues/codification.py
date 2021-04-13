@@ -23,6 +23,12 @@ logger_codification.addHandler(fhd)
 logger_codification.addHandler(chd)
 
 communes_tests = [
+    "Saint-Paterne-Racan",
+    "Saint-Médard-en-Jalles",
+    "Saint-Georges-Montcocq",
+    "Saint-Clair-sur-l'Elle",
+    "La Bastide-sur-l'Hers",
+    "Laroque-d'Olmes",
     "Saint-Christophe-en-Oisans",
     "Habère-Poche",
     "Saint-Julien-lès-Metz",
@@ -66,6 +72,12 @@ communes_tests = [
 ]
 
 edifices_tests = [
+    ("Jean-Paul II", "chapelle"),
+    ("Saint-Jean-de-Passy", "chapelle du lycée"),
+    ("Notre-Dame du Saint-Sacrement", "chapelle"),
+    ("Notre-Dame-des-Anges", "église"),
+    ("du Mont-Saint-Michel", "prieuré"),
+    ("du Saint-Sacrement", "église"),
     ("Saint-Georges du lycée militaire", "chapelle"),
     ('du pays de Brocéliande', "école de musique"),
     ("Saint-Pierre-ès-Liens", "église"),
@@ -76,7 +88,7 @@ edifices_tests = [
     ("Notre-Dame-de-Recouvrance", "église"),
     ("Notre-Dame de la Trappe", "abbaye"),
     ("Sainte-Anne des Bretons", "église"),
-    ("Fénelon-Sainte-Marie",'lycée'),
+    ("Fénelon-Sainte-Marie", 'lycée'),
     ("Centre de musique baroque", ""),
     ("Notre-Dame", "école privée"),
     ("des Clarisses", "couvent"),
@@ -331,6 +343,7 @@ def codifie_edifice(edifice, type_edif):
                     code_edifice = 'ST' + 'DSSS'
                 elif '&' in saint:
                     premier_saint = saint.split('&')[0].rstrip()
+                    deuxieme_saint = ''
                     if 'Saint-' in saint:
                         deuxieme_saint = saint.split('&')[1].lstrip().lstrip('Saint-')
                     elif 'Sainte-' in saint:
@@ -380,7 +393,7 @@ def codifie_edifice(edifice, type_edif):
         code_edifice = gen.supprimer_accents(code_edifice)
         code_edifice = code_edifice.replace(' ', '_')
         code_edifice = code_edifice.replace('.', '_')
-
+        code_edifice = code_edifice.replace('-', '_')
     # Contrôle final
     if code_edifice == '------':
         logger_codification.critical("Echec de la codification de l'édifice : {}".format(edifice))
