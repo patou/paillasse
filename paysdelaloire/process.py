@@ -107,13 +107,13 @@ def generateEtat(context, etat):
     elif etat == 'Bon':
         return "bon"
     elif etat == 'Moyen':
-        return "altere"
+        return "bon"
     elif etat == 'Mauvais':
         return "altere"
     elif etat == 'Injouable':
         return "degrade"
     else:
-        context.log("Etat {} n'éxiste pas".format(etat))
+        context.log("Etat '{}' n'existe pas".format(etat))
         return None
 
 def generateTransmission(context, transmission):
@@ -130,7 +130,7 @@ def generateTransmission(context, transmission):
     elif transmission == 'Informatique':
         return "numeriques"
     else:
-        context.log("Transmission {} n'existe pas".format(transmission))
+        context.log("Transmission '{}' n'existe pas".format(transmission))
         return None
 
 def generateTirage(context, transmission):
@@ -140,12 +140,12 @@ def generateTirage(context, transmission):
         return "electrique"
     elif transmission == 'Électropneumatique':
         return "electro_pneumatique"
-    elif transmission == 'Tubulaire':
+    elif transmission == 'Tubulaire' or transmission == 'Pneumatique Barker':
         return "pneumatique_basse_pression"
     elif transmission == 'Informatique':
         return "numerique"
     else:
-        context.log("Tirage {} n'existe pas".format(transmission))
+        context.log("Tirage '{}' n'existe pas".format(transmission))
         return None
 
 def generateTransmissionCommentaire(transmission):
@@ -338,13 +338,13 @@ def extractDate(text):
     return (annee, annee_fin, circa)
 
 evenementTypes = (
-    ("construction", ["construction", "orgue neuf", "orgue de", "orgue par", "premier orgue"]),
-    ("reconstruction", ["reconstruction"]),
+    ("construction", ["construction", "orgue neuf", "orgue de", "orgue par", "premier orgue", "construit", "nouvel orgue", "attribue a "]),
+    ("reconstruction", ["reconstruction", "reutilisant", "refection", "incorporation", "exhume"]),
     ("destruction", ["destruction", "incendit"]),
     ("restauration", ["restauration"]),
-    ("deplacement", ["deplacement", "demenagement", "installation"]),
-    ("relevage", ["relevage", "entretien", "travaux", "reparation", "installe"]),
-    ("modifications", ["modification", "transformation", "reharmonisation", "agrandissement"]),
+    ("deplacement", ["deplacement", "demenagement", "installation", "transfere", "achat", "transfert", "achete"]),
+    ("relevage", ["relevage", "entretien", "travaux", "reparation", "installe", "remise en service", "remontage", "revision", "remise en etat"]),
+    ("modifications", ["modification", "transformation", "reharmonisation", "agrandissement", "ajout de", "ajout du ", "a la place de", "transforme", "achevement", "jeux neufs", "electrification", "ventilateur"]),
     ("disparition", ["disparition", "destruction"]),
     ("degats", ["degat"]),
     ("inauguration", ["inauguration", "inaugure"]),
@@ -402,8 +402,8 @@ def buildEvenements(context, historique, facteurs):
             annee, annee_fin, circa = extractDate(match.group(0)) if match else extractDate(line)
             type = extractType(line)
             facteur = extractEvenementFacteur(context, line, annee, facteurs)
-            if annee is None or type is None:
-                context.log("Historique : {}".format(line))
+            if annee is None or type is None or resume is None:
+                context.log("Historique : {} pour ({}, {}, {})".format(line, annee, type, resume))
                 continue
             evenement = {
                 "type": type,
@@ -483,7 +483,7 @@ class Context:
         self.data = data
         self.logFile = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'csv', 'log.csv'), mode='wt')
         self.logCsv = csv.writer(self.logFile, dialect='excel')
-    
+
     def __del__(self):
         self.logFile.close()
         tqdm.write('End...')
