@@ -23,6 +23,7 @@ logger_codification.addHandler(fhd)
 logger_codification.addHandler(chd)
 
 communes_tests = [
+    "Le Crotoy",
     "Saint-Paterne-Racan",
     "Saint-Médard-en-Jalles",
     "Saint-Georges-Montcocq",
@@ -72,6 +73,7 @@ communes_tests = [
 ]
 
 edifices_tests = [
+    ("Notre-Dame-des-Fers", "basilique"),
     ("Jean-Paul II", "chapelle"),
     ("Saint-Jean-de-Passy", "chapelle du lycée"),
     ("Notre-Dame du Saint-Sacrement", "chapelle"),
@@ -307,7 +309,7 @@ def codifie_edifice(edifice, type_edif):
                 code_edifice = 'ECO' + edifice[-3:]
         # Codification des églises dédicacées à un saint ou une sainte :
         # Cas particuliers :
-        if edifice == 'Saint-Pierre-ès-Liens':
+        if edifice == 'Saint-Pierre-ès-Liens' or edifice == 'Saint-Pierre-aux-Liens':
             code_edifice = 'STPIEL'
         elif edifice == 'Jean-Marie-Vianney':
             code_edifice = 'STJMVI'
