@@ -26,7 +26,7 @@ bourdon,16,Bourdon
 bourdon,8,Bourdon
 bourdon,,Bourdon
 bourdon a cheminee,8,Bourdon à cheminée
-bourdon conique,8,
+bourdon conique,8,Bourdon conique
 bourdon-flute,8,Bourdon flûte
 carillon,I-III,Carillon
 carillon,II-IV,Carillon
@@ -34,10 +34,10 @@ chalumeau,4,Chalumeau
 chamade,8,Chamade
 chamade,4,Chamade
 choralbasse,4,Choral basse
-chromhorne,8,
-cimbale,III,
-cimbel,III,
-claion,4,
+chromhorne,8,Chromhorne
+cimbale,III,Cimbale
+cimbel,III,Cimbel
+claion,4,Clairon
 clairon,4,Clairon
 clairon 4',,Clairon
 clairon chamade,4,Clairon en chamade
@@ -48,48 +48,48 @@ contre-basse,16,Contrebasse
 contrebasse,16,Contrebasse
 cor de chamois,8,Cor de Chamois
 cor de nuit,8,Cor de nuit
-cornet,I-III,
+cornet,I-III,Cornet
 cornet,IV,Cornet
-cornet,V,
+cornet,V,Cornet
 cornet,III,Cornet
-cornet,,
+cornet,,Cornet
 cornet,II-V,Cornet
 cornet,III-V,Cornet
 cornet,II,Cornet
-cornet,II-III,
-cornettino,III,
-corno inglese,16,
-cromorne,4,
+cornet,II-III,Cornet
+cornettino,III,Cornettino
+corno inglese,16,Corno inglese
+cromorne,4,Cromorne
 cromorne,8,Cromorne
 cymbale,IV,Cymbale
 cymbale,II,Cymbale
 cymbale,III,Cymbale
 cymbale,,Cymbale
-cymbale,V-VI,
+cymbale,V-VI,Cymbale
 dessus de cornet,V,Dessus de cornet
 dessus de flute,8,Dessus de flûte
 diapason,8,Diapason
 dolce,8,Dolce
-doublete,2,
+doublete,2,Doublette
 doublette,2,Doublette
 doucaine,16,Douçaine
-dulcian,8,
+dulcian,8,Dulcian
 dulciana,8,Dulciana
 dulciana,4,Dulciana
 dulciane,4,Dulciane
 dulciane,8,Dulciane
 dulzian,8,Dulzian
 fagott,16,Fagott
-feldtrompete,4,
-flageolet,8,
+feldtrompete,4,Feldtrompete
+flageolet,8,Flageolet
 flageolet,1,Flageolet
 flageolet,2,Flageolet
-flagolet,2,
-fluit,4,
-fluste,8,
-fluste a neuf trous,2,
-fluste bouchez,8,
-fluste d'allemand,4,
+flagolet,2,Flageolet
+fluit,4,Fluit
+fluste,8,Fluste
+fluste a neuf trous,2,Fluste à neuf trous
+fluste bouchez,8,Fluste bouchez
+fluste d'allemand,4,Fluste d'allemand
 flute,16,Flûte
 flute,32,Flûte
 flute,2,Flûte
@@ -113,24 +113,24 @@ flute de bonn,8,Flûte de Bonn
 flute douce,8,Flûte douce
 flute douce,4,Flûte douce
 flute harmonique,8,Flûte harmonique
-flute large,4,
+flute large,4,Flûte large
 flute octaviante,4,Flûte octaviante
-flute ouvert,8,
+flute ouvert,8,Flûte ouverte
 flute ouverte,8,Flûte ouverte
 flute ouverte,4,Flûte ouverte
 flute solo,8,Flûte Solo
 flute traversiere,8,Flûte traversière
-flutebasse,8,
+flutebasse,8,Flûtebasse
 fourniture,III,Fourniture
 fourniture,II,Fourniture
 fourniture,III-V,Fourniture
-fourniture,VII,
+fourniture,VII,Fourniture
 fourniture,IV-V,Fourniture
 fourniture,IV,Fourniture
 fourniture,V,Fourniture
-fourniture,,
-fournitures,III,
-fugara,8,
+fourniture,,Fourniture
+fournitures,III,Fourniture
+fugara,8,Fugara
 fugara,4,Fugara
 gamba,8,Gamba
 gambe,8,Gambe
