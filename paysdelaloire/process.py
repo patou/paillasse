@@ -245,7 +245,7 @@ def builEtendues(context, notes, type):
         if notes == '32':
             return 'C1-G3'
     if notes == '48':
-        return 'C1-B5'
+        return 'C1-B4'
     if notes == '50':
         return 'C1-C#5'
     if notes == '51':
@@ -253,7 +253,7 @@ def builEtendues(context, notes, type):
     if notes == '53':
         return 'C1-E5'
     if notes == '54':
-        return 'C1-F#5'
+        return 'C1-F5'
     if notes == '56':
         return 'C1-G5'
     if notes == '58':

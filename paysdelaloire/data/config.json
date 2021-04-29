@@ -1,193 +1,4 @@
 {
-    "type_accessoire": [
-        "Tremblant",
-        "Trémolo",
-        "Accouplement Pos./G.O.",
-        "Accouplement Réc./G.O.",
-        "Accouplement Pos./Réc.",
-        "Accouplement Réc./Pos.",
-        "Tirasse Pos.",
-        "Tirasse Réc.",
-        "Tirasse G.O.",
-        "Anches G.O.",
-        "Anches Pos.",
-        "Anches Réc.",
-        "Tirasse G.Ch.",
-        "Tirasse permanente G.O.",
-        "Tirasse permanente Réc.",
-        "Anches Péd.",
-        "Orage",
-        "Grêle",
-        "Rossignol",
-        "Octaves aiguës G.O.",
-        "Octaves graves G.O.",
-        "Appel G.O.",
-        "Appel G.C.",
-        "Combinateur",
-        "Combinaison libre",
-        "Accouplement 4 Pos./G.O.",
-        "Accouplement 16 Pos./G.O.",
-        "Accouplement 4 Réc./G.O.",
-        "Accouplement 16 Réc./G.O.",
-        "Expression Réc. par bascule",
-        "Expression Réc. par cuillère",
-        "Expression Pos. par cuillère",
-        "Tremblant Pos.",
-        "Tremblant Réc.",
-        "Tremblant G.O.",
-        "Trémolo Pos.",
-        "Trémolo Réc.",
-        "Trémolo G.O.",
-        "Expression Pos. par bascule",
-        "Expression par cuillère",
-        "Expression par bascule",
-        "Zimbelstern",
-        "Fonds 8'",
-        "Fonds 8' et 4'",
-        "Tutti",
-        "Tutti tirasses",
-        "Tutti copulas",
-        "Fonds Ped.",
-        "Fonds et Petites mixtures",
-        "Fonds et Mutations",
-        "Tirasse 16 G.O.",
-        "Tremblant doux",
-        "Tremblant fort",
-        "Tremblant fort Réc.",
-        "Tremblant fort Pos.",
-        "Tremblant fort Ech.",
-        "Tremblant doux Réc.",
-        "Tremblant doux Pos.",
-        "Tremblant doux Ech.",
-        "Octaves graves Réc.",
-        "Octaves aiguës Réc.",
-        "Expression G.O. par bascule",
-        "Crescendo général",
-        "Octaves graves Pos.",
-        "Octaves aiguës Pos.",
-        "Trémolo réglable",
-        "Tirasse 4 G.O.",
-        "Tirasse 4 Pos.",
-        "Tirasse 4 Réc.",
-        "Accouplement 4 Réc./Pos.",
-        "Accouplement 16 Réc./Pos.",
-        "Tremulant",
-        "Tirasse 16 Pos.",
-        "Tirasse 16 Réc.",
-        "Tirasse -8 Solo",
-        "Octaves aiguës Péd.",
-        "Tutti anches",
-        "Vielle",
-        "Mixtures G.O.",
-        "Mixtures Réc.",
-        "Mixtures Pos.",
-        "Appel Pos.",
-        "Accouplement Bomb./G.O.",
-        "Plein jeu",
-        "Tremblant Ech.",
-        "Tremblant G.O. & Ech.",
-        "Anches Bomb.",
-        "Trompette Réc.",
-        "Accouplement Pos./G.O. à tiroir",
-        "Accouplement Réc./G.O. à tiroir",
-        "Expression par genouillère",
-        "Tutti G.O.",
-        "Tutti mixtures",
-        "Tutti Péd.",
-        "Tutti Pos.",
-        "Tutti Réc.",
-        "Tremblant doux G.O.",
-        "Tremblant doux Rés.",
-        "Tremblant fort G.O.",
-        "Tremblant fort Rés.",
-        "Tremblant Schwellwerk",
-        "Tremblant Solo",
-        "Pédale automatique",
-        "Transpositeur",
-        "Hautbois",
-        "Voix céleste",
-        "Voix humaine",
-        "Grand chœur",
-        "Combinaison fixe",
-        "Anches",
-        "Anches Ech.",
-        "Anches G.Ch.",
-        "Annulateur",
-        "Trompette",
-        "Bourdon",
-        "Chamade",
-        "Clairon",
-        "Cornet",
-        "Cornet Pos.",
-        "Prestant",
-        "Principal 16' Péd.",
-        "Bombarde",
-        "Grand jeu",
-        "Grand jeu G.O.",
-        "Grand jeu Péd.",
-        "Grand jeu Réc.",
-        "Grand jeu G.Ch.",
-        "Grand plein jeu",
-        "Mixtures",
-        "Fonds 8' G.O. et G.Ch.",
-        "Mixtures Péd.",
-        "Mixtures Bomb.",
-        "Accouplement Bomb./Pos.",
-        "Accouplement Bomb./Réc.",
-        "Accouplement II/I",
-        "Accouplement G.Ch./G.O.",
-        "Accouplement 4 G.Ch./G.O.",
-        "Accouplement Rec./G.Ch.",
-        "Accouplement 4 II/I",
-        "Accouplement 16 8 4 II/I",
-        "Accouplement Oberwerk/Hauptwerk",
-        "Copula",
-        "Accouplement Rec./G.Ch.",
-        "Accouplement Schwellwerk/Hauptwerk",
-        "Accouplement Solo/G.O.",
-        "Accouplement Solo/Pos.",
-        "Accouplement Solo/Réc.",
-        "Tirasse I",
-        "Tirasse II",
-        "Tirasse",
-        "Tirasse 4 I",
-        "Tirasse 4 II",
-        "Tirasse Bomb.",
-        "Tirasse Cham.",
-        "Tirasse 4 Cham.",
-        "Tirasse Ech.",
-        "Tirasse Hauptwerk",
-        "Tirasse permanente Pos.",
-        "Tirasse Rés.",
-        "Tirasse 4 Rés.",
-        "Tirasse Schwellwerk",
-        "Tirasse Solo",
-        "Accouplement G.O./Pos.",
-        "Accouplement G.O./Réc.",
-        "Accouplement G.O./Rés.",
-        "Séquenceur",
-        "Trémolo G.Ch.",
-        "Octaves graves G.Ch.",
-        "Octaves graves",
-        "Octaves aiguës",
-        "Accouplement Cham./G.O.",
-        "Accouplement Cham./Réc.",
-        "Accouplement Cham./Pos.",
-        "Accouplement Cham./Solo",
-        "Accouplement Ech./G.O.",
-        "Accouplement Ech./Pos.",
-        "Accouplement Rés./Pos.",
-        "Accouplement Rés./G.O.",
-        "Accouplement Ech./Rec.",
-        "Plein jeu Pos.",
-        "Soubasse Péd.",
-        "Forte",
-        "Accouplement Pos./Rés.",
-        "Tutti Bombarde",
-        "Accouplement Rés./Réc.",
-        "Anches Rés.",
-        "Tremblant Rés."
-    ],
     "facteurs": [
         "Abbey Alfred",
         "Abbey Eugène",
@@ -1332,7 +1143,7 @@
         "Beaucourt Henri",
         "Slivinski Jan",
         "Alfred Lorot",
-        "Mulheisen Ernest",
+        "Muhleisen Ernest",
         "Lefèbvre Antoine",
         "Aillon Louis",
         "Bois Pierre",
@@ -1358,9 +1169,119 @@
         "Pierre LE PESCHEUR",
         "Louis DE BURCOURT",
         "Charles DALLERY",
-        "John ABBEY",
+        "Abbey",
         "Aristide CAVAILLE-COLL",
         "Edmond-Alexandre ROETHINGER",
+        "Maurice GERVAIS",
+        "Damien SEROT",
+        "Yves YOLLANT",
+        "Kurt SCHWENKEDEL",
+        "Charles BARKER",
+        "Charles VERSCHNEIDER",
+        "Barker et Verschneider",
+        "Frères VAN BEVER",
+        "Pierre DURAND",
+        "DUPRAT Raoul",
+        "Méritan Léon",
+        "THOMAS Alain",
+        "Costa-Duval",
+        "Blève et Maillard",
+        "Pierre-Alexandre DUCROQUET",
+        "Félix VAN DEN BRANDE",
+        "Maison ROETHINGER (Charles ACKER)",
+        "Quentin REQUIER",
+        "Antoine PASCAL",
+        "Convers Auguste",
+        "STONEHAM  W. F.",
+        "BONNAULT Hervé de",
+        "Manufacture Pesce",
+        "Gutschenritter-Masset",
+        "Georg Friedrich STEINMEYER",
+        "Adam Michel",
+        "Costa Jean-Claude",
+        "Clénet Hervé",
+        "Sébastien BRAILLON",
+        "Nicolas DUPONT",
+        "D'Argillières Jehan",
+        "Riballier Antoine",
+        "Casaubon Jean",
+        "Jandelle Michel",
+        "Lynch frères",
+        "Rothe",
+        "Rothe Edouard",
+        "Jacques de Verdun",
+        "Vallon Jean",
+        "Jeandel",
+        "Ahrend Hendrik",
+        "Zeuger Augustin",
+        "Renauld Jean",
+        "Thouvenot Joseph",
+        "Bayssac-Labruyère Jean-Baptiste",
+        "Baissac-Labruyère Jean-Baptiste",
+        "Simon et Milic",
+        "Cheron Pierre-Marie",
+        "Coutelier Gaël",
+        "Laval Jean-Louis",
+        "Flight & Robson",
+        "Friquet Pierre",
+        "Lamarque Jacques",
+        "Benoist Louis",
+        "Sarelot Pierre",
+        "Lefevre Franz",
+        "Gervais Dominique",
+        "SIMON-GOURGOUILLON.",
+        "Antoine PHILIPOWICZ",
+        "Jean Boissonnade",
+        "Charles GADAULT",
+        "Boissonnade Jean",
+        "Froc-Robert",
+        "Acker Charles",
+        "Geoffroy ASSELIN",
+        "Jean REINBURG",
+        "Charles MUTIN",
+        "Joseph BEUCHET",
+        "Decavèle Daniel",
+        "Domiique THOMAS",
+        "Thibaud Claude",
+        "pas d'entretien",
+        "Ets GONZALEZ",
+        "DANION-GONZALEZ",
+        "Aucun",
+        "Jean-Marc CICCHERO",
+        "Laurent PLET SAS",
+        "Frères BASILIENS de VALLOIRES",
+        "Théo HAERPFER",
+        "Dalsback Olaf",
+        "Blondeau Léonard",
+        "Gally Pierre",
+        "Béthines les orgues",
+        "Gouzy André",
+        "Jourdain Gérard",
+        "Ets ROETHINGER",
+        "Levasseur Max",
+        "Pierre de Montbrun",
+        "De Furnes Godefroy",
+        "Josseline Ponthus",
+        "Desenclos Pierre",
+        "Lebreton Guillaume",
+        "De Furnes Jehan",
+        "Leprou Christophe",
+        "Four Pascal",
+        "Dufayet François",
+        "Berlioz Jules",
+        "Micolle René",
+        "Wolf Henri",
+        "Guironnet Charles",
+        "Paul Manuel",
+        "Puget Père et Fils",
+        "Boissier Jules",
+        "Boffard Louis",
+        "BEUCHET-DEBIERRE",
+        "Ernest BOUILLOU",
+        "maison Munikendam",
+        "Dulaquain Alain",
+        "Giroud successeurs (Jacques Nonnet)",
+        "Cyril Jourdain",
         "Fohrer Sébastien",
         "Loriaut Jean-Louis",
         "Pesce Michel & Gilbert",
@@ -1475,6 +1396,57 @@
         "Decavel Daniel",
         "Pascal Antoine",
         "Cogez Bernard"
+    ],
+    "types_claviers": [
+        "Grand-Orgue",
+        "Récit",
+        "Pédale",
+        "Positif",
+        "Positif de dos",
+        "Manuel",
+        "Echo",
+        "Solo",
+        "Résonance",
+        "Grand-Chœur",
+        "Hauptwerk",
+        "Pedalwerk",
+        "Brustwerk",
+        "Mittelwerk",
+        "Oberwerk",
+        "Rückpositiv",
+        "Positiv",
+        "Echowerk",
+        "Fernwerk",
+        "Bombarde",
+        "Pedal",
+        "I",
+        "II",
+        "Chamade",
+        "Schwellwerk",
+        "Clavier d'accouplement",
+        "Positif de poitrine",
+        "Positif de couronne",
+        "Kronwerk",
+        "Recitativo",
+        "Positivo",
+        "Positivo tergale",
+        "Grand’Organo",
+        "Hoofdwerk",
+        "Rugwerk",
+        "Borstwerk",
+        "Bovenwerk",
+        "Zwelwerk",
+        "Swell",
+        "Choir",
+        "Positive",
+        "Chair",
+        "Great",
+        "Órgano mayor",
+        "Cadereta de espalda",
+        "Cadereta interior",
+        "Corona",
+        "Recitativo expresivo",
+        "Hinterwerk"
     ],
     "types_jeux": [
         {
@@ -4055,7 +4027,7 @@
         },
         {
             "nom": "Tierce",
-            "hauteur": "1'3/5"
+            "hauteur": "1 3/5"
         },
         {
             "nom": "Floeten basse",
@@ -4282,8 +4254,8 @@
             "hauteur": "2"
         },
         {
-            "nom": "Fourniture III-IV",
-            "hauteur": ""
+            "nom": "Fourniture",
+            "hauteur": "III-IV"
         },
         {
             "nom": "Flûte à bec",
@@ -4330,8 +4302,8 @@
             "hauteur": "32"
         },
         {
-            "nom": "Flûte des neiges 8",
-            "hauteur": ""
+            "nom": "Flûte des neiges",
+            "hauteur": "8"
         },
         {
             "nom": "Hautbois en chamade",
@@ -4346,8 +4318,8 @@
             "hauteur": "8"
         },
         {
-            "nom": "Dessus de Flûte traversière  8",
-            "hauteur": ""
+            "nom": "Dessus de Flûte traversière",
+            "hauteur": "8"
         },
         {
             "nom": "Dulciana",
@@ -4402,20 +4374,20 @@
             "hauteur": "2"
         },
         {
-            "nom": "Trompette allemande 8'",
-            "hauteur": ""
+            "nom": "Trompette allemande",
+            "hauteur": "8"
         },
         {
             "nom": "Huit pieds ouvert",
             "hauteur": "8"
         },
         {
-            "nom": "Cornet I-III",
-            "hauteur": ""
+            "nom": "Cornet",
+            "hauteur": "I-III"
         },
         {
-            "nom": "Trombone Basse 8'",
-            "hauteur": ""
+            "nom": "Trombone Basse",
+            "hauteur": "8"
         },
         {
             "nom": "Trombone Alto",
@@ -4454,12 +4426,12 @@
             "hauteur": "4"
         },
         {
-            "nom": "Nasard conique 2'2/3",
-            "hauteur": ""
+            "nom": "Nasard conique",
+            "hauteur": "2 2/3"
         },
         {
-            "nom": "Grande Sesquialtera III",
-            "hauteur": ""
+            "nom": "Grande Sesquialtera",
+            "hauteur": "III"
         },
         {
             "nom": "Flautado",
@@ -4478,8 +4450,8 @@
             "hauteur": "2"
         },
         {
-            "nom": "Lleno",
-            "hauteur": "V hileros"
+            "nom": "Lleno hileros",
+            "hauteur": "V"
         },
         {
             "nom": "Cimbalet",
@@ -4542,8 +4514,8 @@
             "hauteur": "IV"
         },
         {
-            "nom": "Trompette en chamade 4'",
-            "hauteur": ""
+            "nom": "Trompette en chamade",
+            "hauteur": "4"
         },
         {
             "nom": "Trompette en chamade",
@@ -4582,8 +4554,8 @@
             "hauteur": "8"
         },
         {
-            "nom": "Flauto in quinta decima 2",
-            "hauteur": ""
+            "nom": "Flauto in quinta decima",
+            "hauteur": "2"
         },
         {
             "nom": "Cornetto",
@@ -4594,8 +4566,8 @@
             "hauteur": "1 1/3"
         },
         {
-            "nom": "Tromba reale 8",
-            "hauteur": ""
+            "nom": "Tromba reale",
+            "hauteur": "8"
         },
         {
             "nom": "Cromorno",
@@ -4650,8 +4622,8 @@
             "hauteur": ""
         },
         {
-            "nom": "Mixture 5-6 rangs",
-            "hauteur": ""
+            "nom": "Mixture",
+            "hauteur": "V-VI"
         },
         {
             "nom": "Principal doux",
@@ -4750,8 +4722,8 @@
             "hauteur": ""
         },
         {
-            "nom": "Trompette douce 8",
-            "hauteur": ""
+            "nom": "Trompette douce",
+            "hauteur": "8"
         },
         {
             "nom": "Musette",
@@ -4906,8 +4878,8 @@
             "hauteur": "8"
         },
         {
-            "nom": "Piccolo 1-2",
-            "hauteur": ""
+            "nom": "Piccolo",
+            "hauteur": "1-2"
         },
         {
             "nom": "Flûte Mérolo",
@@ -4918,84 +4890,84 @@
             "hauteur": "8"
         },
         {
-            "nom": "Dermogloste 8",
-            "hauteur": ""
+            "nom": "Dermogloste",
+            "hauteur": "8"
         },
         {
-            "nom": "Principal 32",
-            "hauteur": ""
+            "nom": "Principal",
+            "hauteur": "32"
         },
         {
             "nom": "plein jeu ",
             "hauteur": "VIII"
         },
         {
-            "nom": "Flûte 8, ouverte, en bois ",
-            "hauteur": ""
+            "nom": "Flûte ouverte, en bois",
+            "hauteur": "8"
         },
         {
-            "nom": "Chamade 16",
-            "hauteur": ""
+            "nom": "Chamade",
+            "hauteur": "16"
         },
         {
-            "nom": "Chamade 4",
-            "hauteur": ""
+            "nom": "Chamade",
+            "hauteur": "4"
         },
         {
-            "nom": "Flûte octave 4",
-            "hauteur": ""
+            "nom": "Flûte octave",
+            "hauteur": "4"
         },
         {
-            "nom": "Montre-Flûte 8",
-            "hauteur": ""
+            "nom": "Montre-Flûte",
+            "hauteur": "8"
         },
         {
-            "nom": "Grand Prestant 4",
-            "hauteur": ""
+            "nom": "Grand Prestant",
+            "hauteur": "4"
         },
         {
-            "nom": "Grand Cornet V-VI",
-            "hauteur": ""
+            "nom": "Grand Cornet",
+            "hauteur": "V-VI"
         },
         {
-            "nom": "Trombone 8",
-            "hauteur": ""
+            "nom": "Trombone",
+            "hauteur": "8"
         },
         {
-            "nom": "Rauschpfeife III",
-            "hauteur": ""
+            "nom": "Rauschpfeife",
+            "hauteur": "III"
         },
         {
-            "nom": "Spitzgamba 8",
-            "hauteur": ""
+            "nom": "Spitzgamba",
+            "hauteur": "8"
         },
         {
-            "nom": "Flute principale 8",
-            "hauteur": ""
+            "nom": "Flute principale",
+            "hauteur": "8"
         },
         {
-            "nom": "Flute principale 4",
-            "hauteur": ""
+            "nom": "Flute principale",
+            "hauteur": "4"
         },
         {
-            "nom": "Cymbale IV-V",
-            "hauteur": ""
+            "nom": "Cymbale",
+            "hauteur": "IV-V"
         },
         {
-            "nom": "Flottraver 8",
-            "hauteur": ""
+            "nom": "Flottraver",
+            "hauteur": "8"
         },
         {
-            "nom": "Kornet 4",
-            "hauteur": ""
+            "nom": "Kornet",
+            "hauteur": "4"
         },
         {
-            "nom": "Krumhorn 8",
-            "hauteur": ""
+            "nom": "Krumhorn",
+            "hauteur": "8"
         },
         {
-            "nom": "Gedackt 4",
-            "hauteur": ""
+            "nom": "Gedackt",
+            "hauteur": "4"
         },
         {
             "nom": "Mixture",
@@ -5006,8 +4978,8 @@
             "hauteur": ""
         },
         {
-            "nom": "Flûte céleste 8",
-            "hauteur": ""
+            "nom": "Flûte céleste",
+            "hauteur": "8"
         },
         {
             "nom": "Flûte des bois",
@@ -5018,24 +4990,24 @@
             "hauteur": "16"
         },
         {
-            "nom": "Basson 32",
-            "hauteur": ""
+            "nom": "Basson",
+            "hauteur": "32"
         },
         {
             "nom": "Plein Jeu",
             "hauteur": "II-III"
         },
         {
-            "nom": "Flûte d'Erable 8",
-            "hauteur": ""
+            "nom": "Flûte d'Erable",
+            "hauteur": "8"
         },
         {
-            "nom": "Mixtur III+III",
-            "hauteur": ""
+            "nom": "Mixtur",
+            "hauteur": "II+III"
         },
         {
-            "nom": "Suavial 8",
-            "hauteur": ""
+            "nom": "Suavial",
+            "hauteur": "8"
         },
         {
             "nom": "Bourdon 8 à cheminée",
@@ -5062,32 +5034,32 @@
             "hauteur": "V-VI"
         },
         {
-            "nom": "Grand Cornet II-IV",
-            "hauteur": ""
+            "nom": "Grand Cornet",
+            "hauteur": "II-IV"
         },
         {
-            "nom": "Méditation 8",
-            "hauteur": ""
+            "nom": "Méditation",
+            "hauteur": "8"
         },
         {
-            "nom": "Septime 1 1/7",
-            "hauteur": ""
+            "nom": "Septime",
+            "hauteur": "1 1/7"
         },
         {
-            "nom": "Choeur de Cordes 8",
-            "hauteur": ""
+            "nom": "Choeur de Cordes",
+            "hauteur": "8"
         },
         {
-            "nom": "Choeur de Cordes 4",
-            "hauteur": ""
+            "nom": "Choeur de Cordes",
+            "hauteur": "4"
         },
         {
-            "nom": "Tuba 4",
-            "hauteur": ""
+            "nom": "Tuba",
+            "hauteur": "4"
         },
         {
-            "nom": "Tierce impériale 6 2/5",
-            "hauteur": ""
+            "nom": "Tierce impériale",
+            "hauteur": "6 2/5"
         },
         {
             "nom": "Posaune 32",
@@ -5106,16 +5078,16 @@
             "hauteur": ""
         },
         {
-            "nom": "Flauta ",
-            "hauteur": "(4')"
+            "nom": "Flauta",
+            "hauteur": "4"
         },
         {
             "nom": "Nazart",
             "hauteur": "12 (2.2/3)"
         },
         {
-            "nom": "Tierza nazarda ",
-            "hauteur": "(1.3/5)"
+            "nom": "Tierza nazarda",
+            "hauteur": "1 3/5"
         },
         {
             "nom": "Simbala",
@@ -5183,7 +5155,7 @@
         },
         {
             "nom": "Veu umana",
-            "hauteur": "(8')"
+            "hauteur": "8"
         },
         {
             "nom": "Corneta",
@@ -5194,88 +5166,88 @@
             "hauteur": "28 (16')"
         },
         {
-            "nom": "Fluta ",
-            "hauteur": "(8')"
+            "nom": "Fluta",
+            "hauteur": "8"
         },
         {
             "nom": "Trompeta",
             "hauteur": "(8')"
         },
         {
-            "nom": "Flûte de Pan 8",
-            "hauteur": ""
+            "nom": "Flûte de Pan",
+            "hauteur": "8"
         },
         {
-            "nom": "Flûte d'orchestre 8",
-            "hauteur": ""
+            "nom": "Flûte d'orchestre",
+            "hauteur": "8"
         },
         {
-            "nom": "Fourniture IV-VI",
-            "hauteur": ""
+            "nom": "Fourniture",
+            "hauteur": "IV-VI"
         },
         {
-            "nom": "Grosse fourniture VIII",
-            "hauteur": ""
+            "nom": "Grosse fourniture",
+            "hauteur": "VIII"
         },
         {
-            "nom": "Montre I-II 4",
-            "hauteur": ""
+            "nom": "Montre",
+            "hauteur": "I-II 4"
         },
         {
-            "nom": "Traversine 2",
-            "hauteur": ""
+            "nom": "Traversine",
+            "hauteur": "2"
         },
         {
-            "nom": "Tiercelette II",
-            "hauteur": ""
+            "nom": "Tiercelette",
+            "hauteur": "II"
         },
         {
-            "nom": "Douçaine 8",
-            "hauteur": ""
+            "nom": "Douçaine",
+            "hauteur": "8"
         },
         {
-            "nom": "Montre I-II  8'",
-            "hauteur": ""
+            "nom": "Montre",
+            "hauteur": "I-II 8"
         },
         {
-            "nom": "Octave I-II  4'",
-            "hauteur": ""
+            "nom": "Octave",
+            "hauteur": "I-II 4"
         },
         {
-            "nom": "Quinzième I-II  2'",
-            "hauteur": ""
+            "nom": "Quinzième",
+            "hauteur": "I-II 2"
         },
         {
-            "nom": "Fourniture II-VI",
-            "hauteur": ""
+            "nom": "Fourniture",
+            "hauteur": "II-VI"
         },
         {
             "nom": "Cornet à bouquin VII",
             "hauteur": ""
         },
         {
-            "nom": "Sacqueboute 8",
-            "hauteur": ""
+            "nom": "Sacqueboute",
+            "hauteur": "8"
         },
         {
-            "nom": "Flûte champêtre 2",
-            "hauteur": ""
+            "nom": "Flûte champêtre",
+            "hauteur": "2"
         },
         {
-            "nom": "Tierce Flûte 1'3/5",
-            "hauteur": ""
+            "nom": "Tierce Flûte",
+            "hauteur": "1 3/5"
         },
         {
-            "nom": "Chalumeau 16",
-            "hauteur": ""
+            "nom": "Chalumeau",
+            "hauteur": "16"
         },
         {
-            "nom": "Grand Bourdon 32'",
-            "hauteur": ""
+            "nom": "Grand Bourdon",
+            "hauteur": "32"
         },
         {
-            "nom": "Douçaine 32'",
-            "hauteur": ""
+            "nom": "Douçaine",
+            "hauteur": "32"
         },
         {
             "nom": "Sordun",
@@ -5626,8 +5598,8 @@
             "hauteur": "8"
         },
         {
-            "nom": "Flûte octaviante 8",
-            "hauteur": ""
+            "nom": "Flûte octaviante",
+            "hauteur": "8"
         },
         {
             "nom": "Cromorne en chamade",
@@ -5642,12 +5614,12 @@
             "hauteur": "4"
         },
         {
-            "nom": "Quarte de nasard 2 2/3",
-            "hauteur": ""
+            "nom": "Quarte de nasard",
+            "hauteur": "2 2/3"
         },
         {
-            "nom": "Nazilliard 2'2/3",
-            "hauteur": ""
+            "nom": "Nazilliard",
+            "hauteur": "2 2/3"
         },
         {
             "nom": "Cymbale",
@@ -5658,12 +5630,12 @@
             "hauteur": "III"
         },
         {
-            "nom": "Mixture IX+I",
-            "hauteur": ""
+            "nom": "Mixture",
+            "hauteur": "IX+I"
         },
         {
-            "nom": "Mixture IV+I",
-            "hauteur": ""
+            "nom": "Mixture",
+            "hauteur": "IV+I"
         },
         {
             "nom": "Chamade",
@@ -5690,24 +5662,24 @@
             "hauteur": "8"
         },
         {
-            "nom": "Flûte à bec 8",
-            "hauteur": ""
+            "nom": "Flûte à bec",
+            "hauteur": "8"
         },
         {
             "nom": "Pommer",
             "hauteur": "16"
         },
         {
-            "nom": "Grosse Sesquialtera III",
-            "hauteur": ""
+            "nom": "Grosse Sesquialtera",
+            "hauteur": "III"
         },
         {
-            "nom": "Grand Cornet IX",
-            "hauteur": ""
+            "nom": "Grand Cornet",
+            "hauteur": "IX"
         },
         {
-            "nom": "Trompette en chamade 16",
-            "hauteur": ""
+            "nom": "Trompette en chamade",
+            "hauteur": "16"
         },
         {
             "nom": "Trompe marine",
@@ -5728,57 +5700,523 @@
         {
             "nom": "Larigot",
             "hauteur": "1"
+        },
+        {
+            "nom": "Clariton",
+            "hauteur": "I/III"
+        },
+        {
+            "nom": "Diapason - Flûte",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Principal - Flûte",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Plein-Jeu ",
+            "hauteur": "IV - VII"
+        },
+        {
+            "nom": "Petite Tierce",
+            "hauteur": "1 3/5"
+        },
+        {
+            "nom": "Violon",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flachflöte",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Prinzipal",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Oktav",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Kornet",
+            "hauteur": "VI"
+        },
+        {
+            "nom": "Cimbel",
+            "hauteur": "IV-VI"
+        },
+        {
+            "nom": "Trompet",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Hautbois",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Cornet harmonique",
+            "hauteur": "VIII"
+        },
+        {
+            "nom": "Plein-jeu harmonique",
+            "hauteur": "II-VI"
+        },
+        {
+            "nom": "Plein-jeu harmonique",
+            "hauteur": "II-V"
+        },
+        {
+            "nom": "Principal cônique",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Plein jeu",
+            "hauteur": "II-VI"
+        },
+        {
+            "nom": "Lieblich Gedeckt",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Portunal",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Flûte pointue",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Voix humaine",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Bourdon Basse",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Cornettino",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Cymbale",
+            "hauteur": "II/III"
+        },
+        {
+            "nom": "Grande fourniture",
+            "hauteur": "IV"
+        },
+        {
+            "nom": "Régale en chamade",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Chalumeau en Chamade",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Hautbois en chamade",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Quinte",
+            "hauteur": "2/3"
+        },
+        {
+            "nom": "Octave",
+            "hauteur": "1/2"
+        },
+        {
+            "nom": "Principal en bois",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Nasat 2 2/3 - Cornet III",
+            "hauteur": ""
+        },
+        {
+            "nom": "Octav 2 - Mixtur V",
+            "hauteur": ""
+        },
+        {
+            "nom": "Quinta 1 1/3 - Terzian II",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flûte Bonn",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Petit principal",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Plein-Jeu Cymbale",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Viole de Gambe 4",
+            "hauteur": ""
+        },
+        {
+            "nom": "Tuba clausa",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Salicet",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Grande Cymbale",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Premier Clairon",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Deuxième Clairon",
+            "hauteur": "4"
+        },
+        {
+            "nom": "1ère flûte harmonique",
+            "hauteur": "8"
+        },
+        {
+            "nom": "2ème flûte harmonique",
+            "hauteur": "8"
+        },
+        {
+            "nom": "corni dolci",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Mixtur-Cornet",
+            "hauteur": "2 2/3"
+        },
+        {
+            "nom": "Trompette grosse taille",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Trombone Ténor 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Basson-Chalumeau 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Carillon II-III",
+            "hauteur": ""
+        },
+        {
+            "nom": "Flûte large",
+            "hauteur": "2"
+        },
+        {
+            "nom": "Neuvième",
+            "hauteur": "8/9"
+        },
+        {
+            "nom": "Basse douce 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Blockflöte",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Cymbel-Terz",
+            "hauteur": "II"
+        },
+        {
+            "nom": "Knopfregal",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Portunal 16",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Salicet",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Mixture 1  1/3  VI",
+            "hauteur": ""
+        },
+        {
+            "nom": "34\tSixtelette II-III",
+            "hauteur": ""
+        },
+        {
+            "nom": "38\tQuinte et Tierce 10 2/3  + 6 2/5",
+            "hauteur": ""
+        },
+        {
+            "nom": "Napoléon",
+            "hauteur": "32"
+        },
+        {
+            "nom": "Buzène",
+            "hauteur": "16"
+        },
+        {
+            "nom": "Flûte traversine 8",
+            "hauteur": ""
+        },
+        {
+            "nom": "Montre",
+            "hauteur": "6"
+        },
+        {
+            "nom": "Trompette",
+            "hauteur": "8/16"
+        },
+        {
+            "nom": "Clairon",
+            "hauteur": "4/8"
+        },
+        {
+            "nom": "Clairon",
+            "hauteur": "2/4"
+        },
+        {
+            "nom": "Spielflöte 2",
+            "hauteur": ""
+        },
+        {
+            "nom": "Fourniture ",
+            "hauteur": "III-VII"
+        },
+        {
+            "nom": "Cimbale",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Cimbel",
+            "hauteur": "III"
+        },
+        {
+            "nom": "Flageolet",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Fluste bouchez",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Fluste d'allemand",
+            "hauteur": "4"
+        },
+        {
+            "nom": "Flutebasse",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Fugara",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Gedekt",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Hautbois et basson",
+            "hauteur": "8"
+        },
+        {
+            "nom": "Fourniture",
+            "hauteur": ""
         }
     ],
-    "types_claviers": [
-        "Grand-Orgue",
-        "Récit",
-        "Pédale",
-        "Positif",
-        "Positif de dos",
-        "Manuel",
-        "Echo",
-        "Solo",
-        "Résonnance",
-        "Grand-Chœur",
-        "Hauptwerk",
-        "Pedalwerk",
-        "Brustwerk",
-        "Mittelwerk",
-        "Oberwerk",
-        "Rückpositiv",
-        "Positiv",
-        "Echowerk",
-        "Fernwerk",
-        "Bombarde",
-        "Pedal",
-        "I",
-        "II",
+    "type_accessoire": [
+        "Tremblant",
+        "Trémolo",
+        "Accouplement Pos./G.O.",
+        "Accouplement Réc./G.O.",
+        "Accouplement Pos./Réc.",
+        "Accouplement Réc./Pos.",
+        "Tirasse Pos.",
+        "Tirasse Réc.",
+        "Tirasse G.O.",
+        "Anches G.O.",
+        "Anches Pos.",
+        "Anches Réc.",
+        "Tirasse G.Ch.",
+        "Tirasse permanente G.O.",
+        "Tirasse permanente Réc.",
+        "Anches Péd.",
+        "Orage",
+        "Grêle",
+        "Rossignol",
+        "Octaves aiguës G.O.",
+        "Octaves graves G.O.",
+        "Appel G.O.",
+        "Appel G.C.",
+        "Combinateur",
+        "Combinaison libre",
+        "Accouplement 4 Pos./G.O.",
+        "Accouplement 16 Pos./G.O.",
+        "Accouplement 4 Réc./G.O.",
+        "Accouplement 16 Réc./G.O.",
+        "Expression Réc. par bascule",
+        "Expression Réc. par cuillère",
+        "Expression Pos. par cuillère",
+        "Tremblant Pos.",
+        "Tremblant Réc.",
+        "Tremblant G.O.",
+        "Trémolo Pos.",
+        "Trémolo Réc.",
+        "Trémolo G.O.",
+        "Expression Pos. par bascule",
+        "Expression par cuillère",
+        "Expression par bascule",
+        "Zimbelstern",
+        "Fonds 8'",
+        "Fonds 8' et 4'",
+        "Tutti",
+        "Tutti tirasses",
+        "Tutti copulas",
+        "Fonds Ped.",
+        "Fonds et Petites mixtures",
+        "Fonds et Mutations",
+        "Tirasse 16 G.O.",
+        "Tremblant doux",
+        "Tremblant fort",
+        "Tremblant fort Réc.",
+        "Tremblant fort Pos.",
+        "Tremblant fort Ech.",
+        "Tremblant doux Réc.",
+        "Tremblant doux Pos.",
+        "Tremblant doux Ech.",
+        "Octaves graves Réc.",
+        "Octaves aiguës Réc.",
+        "Expression G.O. par bascule",
+        "Crescendo général",
+        "Octaves graves Pos.",
+        "Octaves aiguës Pos.",
+        "Trémolo réglable",
+        "Tirasse 4 G.O.",
+        "Tirasse 4 Pos.",
+        "Tirasse 4 Réc.",
+        "Accouplement 4 Réc./Pos.",
+        "Accouplement 16 Réc./Pos.",
+        "Tremulant",
+        "Tirasse 16 Pos.",
+        "Tirasse 16 Réc.",
+        "Tirasse -8 Solo",
+        "Octaves aiguës Péd.",
+        "Tutti anches",
+        "Vielle",
+        "Mixtures G.O.",
+        "Mixtures Réc.",
+        "Mixtures Pos.",
+        "Appel Pos.",
+        "Accouplement Bomb./G.O.",
+        "Plein jeu",
+        "Tremblant Ech.",
+        "Tremblant G.O. & Ech.",
+        "Anches Bomb.",
+        "Trompette Réc.",
+        "Accouplement Pos./G.O. à tiroir",
+        "Accouplement Réc./G.O. à tiroir",
+        "Expression par genouillère",
+        "Tutti G.O.",
+        "Tutti mixtures",
+        "Tutti Péd.",
+        "Tutti Pos.",
+        "Tutti Réc.",
+        "Tremblant doux G.O.",
+        "Tremblant doux Rés.",
+        "Tremblant fort G.O.",
+        "Tremblant fort Rés.",
+        "Tremblant Schwellwerk",
+        "Tremblant Solo",
+        "Pédale automatique",
+        "Transpositeur",
+        "Hautbois",
+        "Voix céleste",
+        "Voix humaine",
+        "Grand chœur",
+        "Combinaison fixe",
+        "Anches",
+        "Anches Ech.",
+        "Anches G.Ch.",
+        "Annulateur",
+        "Trompette",
+        "Bourdon",
         "Chamade",
-        "Schwellwerk",
-        "Clavier d'accouplement",
-        "Positif de poitrine",
-        "Positif de couronne",
-        "Kronwerk",
-        "Recitativo",
-        "Positivo",
-        "Positivo tergale",
-        "Grand’Organo",
-        "Hoofdwerk",
-        "Rugwerk",
-        "Borstwerk",
-        "Bovenwerk",
-        "Zwelwerk",
-        "Swell",
-        "Choir",
-        "Positive",
-        "Chair",
-        "Great",
-        "Órgano mayor",
-        "Cadereta de espalda",
-        "Cadereta interior",
-        "Corona",
-        "Recitativo expresivo",
-        "Hinterwerk"
+        "Clairon",
+        "Cornet",
+        "Cornet Pos.",
+        "Prestant",
+        "Principal 16' Péd.",
+        "Bombarde",
+        "Grand jeu",
+        "Grand jeu G.O.",
+        "Grand jeu Péd.",
+        "Grand jeu Réc.",
+        "Grand jeu G.Ch.",
+        "Grand plein jeu",
+        "Mixtures",
+        "Fonds 8' G.O. et G.Ch.",
+        "Mixtures Péd.",
+        "Mixtures Bomb.",
+        "Accouplement Bomb./Pos.",
+        "Accouplement Bomb./Réc.",
+        "Accouplement II/I",
+        "Accouplement G.Ch./G.O.",
+        "Accouplement 4 G.Ch./G.O.",
+        "Accouplement Rec./G.Ch.",
+        "Accouplement 4 II/I",
+        "Accouplement 16 8 4 II/I",
+        "Accouplement Oberwerk/Hauptwerk",
+        "Copula",
+        "Accouplement Rec./G.Ch.",
+        "Accouplement Schwellwerk/Hauptwerk",
+        "Accouplement Solo/G.O.",
+        "Accouplement Solo/Pos.",
+        "Accouplement Solo/Réc.",
+        "Tirasse I",
+        "Tirasse II",
+        "Tirasse",
+        "Tirasse 4 I",
+        "Tirasse 4 II",
+        "Tirasse Bomb.",
+        "Tirasse Cham.",
+        "Tirasse 4 Cham.",
+        "Tirasse Ech.",
+        "Tirasse Hauptwerk",
+        "Tirasse permanente Pos.",
+        "Tirasse Rés.",
+        "Tirasse 4 Rés.",
+        "Tirasse Schwellwerk",
+        "Tirasse Solo",
+        "Accouplement G.O./Pos.",
+        "Accouplement G.O./Réc.",
+        "Accouplement G.O./Rés.",
+        "Séquenceur",
+        "Trémolo G.Ch.",
+        "Octaves graves G.Ch.",
+        "Octaves graves",
+        "Octaves aiguës",
+        "Accouplement Cham./G.O.",
+        "Accouplement Cham./Réc.",
+        "Accouplement Cham./Pos.",
+        "Accouplement Cham./Solo",
+        "Accouplement Ech./G.O.",
+        "Accouplement Ech./Pos.",
+        "Accouplement Rés./Pos.",
+        "Accouplement Rés./G.O.",
+        "Accouplement Ech./Rec.",
+        "Plein jeu Pos.",
+        "Soubasse Péd.",
+        "Forte",
+        "Accouplement Pos./Rés.",
+        "Tutti Bombarde",
+        "Accouplement Rés./Réc.",
+        "Anches Rés.",
+        "Tremblant Rés."
     ]
 }
